@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1685088231 source:d:\developement\arrera-interface-i2023\main.cpp
+	<gtk/gtk.h>
+	"interface.h"
+
+1685109669 d:\developement\arrera-interface-i2023\interface.h
+	<gtk/gtk.h>
+
+1685040477 source:d:\developement\arrera-interface-i2023\interface.cpp
+	"interface.h"
+
+1685088231 source:d:\developement\arrera-interface\main.cpp
+	<gtk/gtk.h>
+	"interface.h"
+
+1685120025 d:\developement\arrera-interface\interface.h
+	<gtk/gtk.h>
+
