@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 #include "interface.h"
 
+
 int main(int argc, char** argv)
 {
     GtkApplication *app;
@@ -15,3 +16,4 @@ int main(int argc, char** argv)
 
       return status;
 }
+
