@@ -26,6 +26,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Arrera-Interface
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ArreraTheme.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Arrera-Interface APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

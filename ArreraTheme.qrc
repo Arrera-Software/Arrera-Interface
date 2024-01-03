@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/iconBTN">
+        <file>app-drawer.png</file>
+        <file>ArreraCopiloteIcon.png</file>
+        <file>iconNavigateur.png</file>
+        <file>iconPresentation.png</file>
+        <file>iconTableur.png</file>
+        <file>iconTraitementTexte.png</file>
+        <file>Ryley.png</file>
+        <file>six.png</file>
+    </qresource>
+    <qresource prefix="/IconArrera">
+        <file>ArreraI2024.png</file>
+        <file>ArreraInterfaceLogo.png</file>
+    </qresource>
+</RCC>
