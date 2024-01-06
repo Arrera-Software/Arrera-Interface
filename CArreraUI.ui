@@ -272,6 +272,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="IDC_COPILOTE">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="maximumSize">
         <size>
          <width>80</width>

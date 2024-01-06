@@ -6,6 +6,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     , ui(new Ui::CArreraUI)
 {
     ui->setupUi(this);
+    ui->IDC_COPILOTE->setVisible(false);
 }
 
 CArreraUI::~CArreraUI()
