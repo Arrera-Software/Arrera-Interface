@@ -23,7 +23,8 @@ void CArreraUI::on_IDC_QUIT_clicked()
 
 void CArreraUI::on_IDC_PARAMETRE_clicked()
 {
-
+    this->showMinimized();
+    winPara.show();
 }
 
 // Bouton assistant
@@ -103,5 +104,17 @@ void CArreraUI::on_IDC_NAVIGATEUR_clicked()
 void CArreraUI::on_IDC_PRESENTATION_clicked()
 {
 
+}
+
+void CArreraUI::closeEvent(QCloseEvent *event)
+{
+    // Fermer toutes les fenêtres enfants lorsque la fenêtre principale est fermée
+    foreach(QWidget *widget, QApplication::topLevelWidgets()) {
+        if (widget != this && widget->inherits("MaFenetreEnfant")) {
+            widget->close();
+        }
+    }
+    // Appeler la méthode closeEvent de la classe de base pour effectuer la fermeture par défaut
+    QMainWindow::closeEvent(event);
 }
 

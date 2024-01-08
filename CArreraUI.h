@@ -2,6 +2,7 @@
 #define CARRERAUI_H
 
 #include <QMainWindow>
+#include "cdaparametre.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CArreraUI; }
@@ -48,5 +49,8 @@ private slots:
 
 private:
     Ui::CArreraUI *ui;
+    CDAParametre winPara ;
+
+    void closeEvent(QCloseEvent *event);
 };
 #endif // CARRERAUI_H
