@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::CDAParametre *ui;
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // CDAPARAMETRE_H

@@ -49,7 +49,7 @@ private slots:
 
 private:
     Ui::CArreraUI *ui;
-    CDAParametre winPara ;
+    CDAParametre *winPara ;
 
     void closeEvent(QCloseEvent *event);
 };

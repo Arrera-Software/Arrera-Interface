@@ -7,6 +7,8 @@ CArreraUI::CArreraUI(QWidget *parent)
 {
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
+    winPara = new CDAParametre(this);
+    connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
 }
 
 CArreraUI::~CArreraUI()
@@ -23,7 +25,7 @@ void CArreraUI::on_IDC_QUIT_clicked()
 
 void CArreraUI::on_IDC_PARAMETRE_clicked()
 {
-    winPara.show();
+    winPara->show();
 }
 
 // Bouton assistant
