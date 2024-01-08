@@ -12,5 +12,6 @@
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>
         <file>ArreraInterfaceLogo.png</file>
+        <file>ArreraInterfaceParametre.png</file>
     </qresource>
 </RCC>
