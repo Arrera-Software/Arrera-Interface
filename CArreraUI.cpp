@@ -23,7 +23,6 @@ void CArreraUI::on_IDC_QUIT_clicked()
 
 void CArreraUI::on_IDC_PARAMETRE_clicked()
 {
-    this->showMinimized();
     winPara.show();
 }
 
