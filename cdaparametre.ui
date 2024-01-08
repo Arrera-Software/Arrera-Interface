@@ -34,7 +34,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>251</width>
+     <width>255</width>
      <height>161</height>
     </rect>
    </property>
@@ -170,7 +170,7 @@ Application</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>50</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -188,7 +188,7 @@ Application</string>
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>10</y>
+      <y>50</y>
       <width>311</width>
       <height>41</height>
      </rect>
@@ -216,7 +216,7 @@ Application</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>100</y>
       <width>371</width>
       <height>41</height>
      </rect>
@@ -230,40 +230,25 @@ Application</string>
      <string>Activer App Bar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLabel" name="IDC_MODESELECT">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>170</y>
-      <width>561</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>110</y>
-      <width>561</width>
-      <height>41</height>
+      <y>10</y>
+      <width>421</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>18</pointsize>
-      <bold>true</bold>
-      <kerning>true</kerning>
+      <pointsize>15</pointsize>
      </font>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
