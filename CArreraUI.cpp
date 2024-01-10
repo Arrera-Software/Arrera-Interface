@@ -1,4 +1,5 @@
 #include "CArreraUI.h"
+
 #include "./ui_CArreraUI.h"
 
 CArreraUI::CArreraUI(QWidget *parent)
@@ -8,7 +9,9 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
     winPara = new CDAParametre(this);
+    winPara->passObjPara(&objPara);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
+    loadSetting();
 }
 
 CArreraUI::~CArreraUI()
@@ -117,5 +120,25 @@ void CArreraUI::closeEvent(QCloseEvent *event)
     }
     // Appeler la méthode closeEvent de la classe de base pour effectuer la fermeture par défaut
     QMainWindow::closeEvent(event);
+}
+
+void CArreraUI::loadSetting()
+{
+    objPara.loadSetting();
+    nameMode1 = QString::fromStdString(objPara.getNameMode1());
+    nameMode2 = QString::fromStdString(objPara.getNameMode2());
+    nameMode3 = QString::fromStdString(objPara.getNameMode3());
+    nameMode4 = QString::fromStdString(objPara.getNameMode4());
+    nameMode5 = QString::fromStdString(objPara.getNameMode5());
+    ui->IDC_MODE1->setText(nameMode1);
+    ui->IDC_MODE2->setText(nameMode2);
+    ui->IDC_MODE3->setText(nameMode3);
+    ui->IDC_MODE4->setText(nameMode4);
+    ui->IDC_MODE5->setText(nameMode5);
+}
+
+void CArreraUI::on_IDC_RELOAD_clicked()
+{
+    loadSetting();
 }
 

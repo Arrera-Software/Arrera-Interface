@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "cdaparametre.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class CArreraUI; }
 QT_END_NAMESPACE
@@ -15,6 +16,7 @@ class CArreraUI : public QMainWindow
 public:
     CArreraUI(QWidget *parent = nullptr);
     ~CArreraUI();
+    void loadSetting();
 
 private slots:
     void on_IDC_QUIT_clicked();
@@ -47,10 +49,15 @@ private slots:
 
     void on_IDC_PRESENTATION_clicked();
 
+
+    void on_IDC_RELOAD_clicked();
+
 private:
     Ui::CArreraUI *ui;
+    CArreraSetting objPara;
     CDAParametre *winPara ;
-
+    QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
     void closeEvent(QCloseEvent *event);
+
 };
 #endif // CARRERAUI_H

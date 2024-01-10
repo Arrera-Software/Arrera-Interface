@@ -2,6 +2,7 @@
 #define CDAPARAMETRE_H
 
 #include <QDialog>
+#include "carrerasetting.h"
 
 namespace Ui {
 class CDAParametre;
@@ -14,7 +15,7 @@ class CDAParametre : public QDialog
 public:
     explicit CDAParametre(QWidget *parent = nullptr);
     ~CDAParametre();
-    int modeSelectionner;
+    void passObjPara(CArreraSetting* obj);
 
 private slots:
     void on_IDC_GESTMODE1_clicked();
@@ -32,6 +33,8 @@ private slots:
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
+    int modeSelectionner;
+    CArreraSetting* objParametre;
 };
 
 #endif // CDAPARAMETRE_H
