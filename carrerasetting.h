@@ -9,8 +9,10 @@ class CArreraSetting
 {
 private :
     Cconfiguration gestionFile ;
-    bool etatChargement ;
+    Cconfiguration gestionFileMode[5];
+    bool etatChargement, chargementMode[5] ;
     string nameFile;
+    string nameFileMode[5];
     string nameMode1;
     string nameMode2;
     string nameMode3;
@@ -27,11 +29,9 @@ public:
     string getNameMode4();
     string getNameMode5();
 
-    bool setNameMode1(string valeur);
-    bool setNameMode2(string valeur);
-    bool setNameMode3(string valeur);
-    bool setNameMode4(string valeur);
-    bool setNameMode5(string valeur);
+    bool setNameMode(int nbMode,string valeur);
+
+    bool setAssistantMode(int nbMode,bool ryley,bool six);
 
 
 };

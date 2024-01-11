@@ -31,6 +31,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         carrerasetting.h carrerasetting.cpp
         cconfiguration.h cconfiguration.cpp
         config.ini
+        configMode1.ini
+        configMode2.ini
+        configMode3.ini
+        configMode4.ini
+        configMode5.ini
 
     )
 # Define target properties for Android with Qt 6 as:

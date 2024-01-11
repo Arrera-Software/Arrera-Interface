@@ -4,8 +4,18 @@
 
 CArreraSetting::CArreraSetting()
 {
+    int i = 0 ;
     nameFile = "config.ini";
+    nameFileMode[0]="configMode1.ini";
+    nameFileMode[1]="configMode2.ini";
+    nameFileMode[2]="configMode3.ini";
+    nameFileMode[3]="configMode4.ini";
+    nameFileMode[4]="configMode5.ini";
     etatChargement = gestionFile.charger(nameFile);
+    for (i=0;i<4;i++)
+    {
+        chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
+    }
 }
 
 bool CArreraSetting::loadSetting()
@@ -88,14 +98,45 @@ string CArreraSetting::getNameMode5()
     }
 }
 
-bool CArreraSetting::setNameMode1(string valeur)
+bool CArreraSetting::setNameMode(int nbMode,string valeur)
 {
     if (etatChargement)
     {
-        gestionFile.definirParametre("nameMode1",valeur);
-        gestionFile.sauvegarder(nameFile);
-        nameMode1 = gestionFile.obtenirParametre("nameMode1");
-        return true;
+        switch (nbMode) {
+        case 1:
+            gestionFile.definirParametre("nameMode1",valeur);
+            gestionFile.sauvegarder(nameFile);
+            nameMode1 = gestionFile.obtenirParametre("nameMode1");
+            return true;
+            break;
+        case 2:
+            gestionFile.definirParametre("nameMode2",valeur);
+            gestionFile.sauvegarder(nameFile);
+            nameMode1 = gestionFile.obtenirParametre("nameMode2");
+            return true;
+            break;
+        case 3:
+            gestionFile.definirParametre("nameMode3",valeur);
+            gestionFile.sauvegarder(nameFile);
+            nameMode1 = gestionFile.obtenirParametre("nameMode3");
+            return true;
+            break;
+        case 4:
+            gestionFile.definirParametre("nameMode4",valeur);
+            gestionFile.sauvegarder(nameFile);
+            nameMode1 = gestionFile.obtenirParametre("nameMode4");
+            return true;
+            break;
+        case 5:
+            gestionFile.definirParametre("nameMode5",valeur);
+            gestionFile.sauvegarder(nameFile);
+            nameMode1 = gestionFile.obtenirParametre("nameMode5");
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
     }
     else
     {
@@ -103,66 +144,164 @@ bool CArreraSetting::setNameMode1(string valeur)
     }
 }
 
-bool CArreraSetting::setNameMode2(string valeur)
+bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
 {
-    if (etatChargement)
-    {
-        gestionFile.definirParametre("nameMode2",valeur);
-        gestionFile.sauvegarder(nameFile);
-        nameMode1 = gestionFile.obtenirParametre("nameMode2");
-        return true;
-    }
-    else
-    {
+    switch (nbMode) {
+    case 1:
+        if (chargementMode[0]==false)
+        {
+            return false;
+        }
+        else
+        {
+            if (six==true)
+            {
+                gestionFileMode[0].definirParametre("assistant","six");
+                gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                return true;
+            }
+            else
+            {
+                if (ryley==true)
+                {
+                    gestionFileMode[0].definirParametre("assistant","ryley");
+                    gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                    return true;
+                }
+                else
+                {
+                    gestionFileMode[0].definirParametre("assistant","nothing");
+                    gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                    return true;
+                }
+            }
+
+        }
+        break;
+    case 2:
+        if (chargementMode[1]==false)
+        {
+            return false;
+        }
+        else
+        {
+            if (six==true)
+            {
+                gestionFileMode[1].definirParametre("assistant","six");
+                gestionFileMode[1].sauvegarder(nameFileMode[1]);
+                return true;
+            }
+            else
+            {
+                if (ryley==true)
+                {
+                    gestionFileMode[1].definirParametre("assistant","ryley");
+                    gestionFileMode[1].sauvegarder(nameFileMode[1]);
+                    return true;
+                }
+                else
+                {
+                    gestionFileMode[1].definirParametre("assistant","nothing");
+                    gestionFileMode[1].sauvegarder(nameFileMode[1]);
+                    return true;
+                }
+            }
+
+        }
+        break;
+    case 3:
+        if (chargementMode[2]==false)
+        {
+            return false;
+        }
+        else
+        {
+            if (six==true)
+            {
+                gestionFileMode[2].definirParametre("assistant","six");
+                gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                return true;
+            }
+            else
+            {
+                if (ryley==true)
+                {
+                    gestionFileMode[2].definirParametre("assistant","ryley");
+                    gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                    return true;
+                }
+                else
+                {
+                    gestionFileMode[2].definirParametre("assistant","nothing");
+                    gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                    return true;
+                }
+            }
+
+        }
+        break;
+    case 4:
+        if (chargementMode[3]==false)
+        {
+            return false;
+        }
+        else
+        {
+            if (six==true)
+            {
+                gestionFileMode[3].definirParametre("assistant","six");
+                gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                return true;
+            }
+            else
+            {
+                if (ryley==true)
+                {
+                    gestionFileMode[3].definirParametre("assistant","ryley");
+                    gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                    return true;
+                }
+                else
+                {
+                    gestionFileMode[3].definirParametre("assistant","nothing");
+                    gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                    return true;
+                }
+            }
+        }
+        break;
+    case 5:
+        if (chargementMode[4]==false)
+        {
+            return false;
+        }
+        else
+        {
+            if (six==true)
+            {
+                gestionFileMode[4].definirParametre("assistant","six");
+                gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                return true;
+            }
+            else
+            {
+                if (ryley==true)
+                {
+                    gestionFileMode[4].definirParametre("assistant","ryley");
+                    gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                    return true;
+                }
+                else
+                {
+                    gestionFileMode[4].definirParametre("assistant","nothing");
+                    gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                    return true;
+                }
+            }
+        }
+        break;
+    default:
         return false;
+        break;
     }
 }
-
-
-bool CArreraSetting::setNameMode3(string valeur)
-{
-    if (etatChargement)
-    {
-        gestionFile.definirParametre("nameMode3",valeur);
-        gestionFile.sauvegarder(nameFile);
-        nameMode1 = gestionFile.obtenirParametre("nameMode3");
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-
-bool CArreraSetting::setNameMode4(string valeur)
-{
-    if (etatChargement)
-    {
-        gestionFile.definirParametre("nameMode4",valeur);
-        gestionFile.sauvegarder(nameFile);
-        nameMode1 = gestionFile.obtenirParametre("nameMode4");
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-
-bool CArreraSetting::setNameMode5(string valeur)
-{
-    if (etatChargement)
-    {
-        gestionFile.definirParametre("nameMode5",valeur);
-        gestionFile.sauvegarder(nameFile);
-        nameMode1 = gestionFile.obtenirParametre("nameMode5");
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-

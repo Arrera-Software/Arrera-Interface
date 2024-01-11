@@ -34,6 +34,7 @@ private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
     int modeSelectionner;
+    bool sortieRyley,sortieSix;
     CArreraSetting* objParametre;
 };
 

@@ -50,6 +50,11 @@
     </property>
     <item>
      <widget class="QPushButton" name="IDC_ETABLEUR">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Tableur</string>
       </property>
@@ -57,6 +62,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_EPRESENTATION">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Presentation</string>
       </property>
@@ -64,6 +74,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_ETTEXTE">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Traitement de texte</string>
       </property>
@@ -71,6 +86,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_ENAVIGATEUR">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Navigateur</string>
       </property>
@@ -96,6 +116,11 @@
     </property>
     <item>
      <widget class="QPushButton" name="IDC_ESIX">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Six</string>
       </property>
@@ -103,6 +128,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_PSIX">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Parametre Six</string>
       </property>
@@ -110,6 +140,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_ERYLEY">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Emplacement Ryley</string>
       </property>
@@ -117,6 +152,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="IDC_PRYLEY">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Parametre Ryley</string>
       </property>
@@ -202,32 +242,36 @@ Application</string>
    <widget class="QPushButton" name="IDC_VALIDER">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>360</y>
-      <width>80</width>
-      <height>24</height>
+      <x>470</x>
+      <y>350</y>
+      <width>100</width>
+      <height>35</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Valider</string>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>35</height>
+     </size>
     </property>
-   </widget>
-   <widget class="QCheckBox" name="IDC_TASKBARENABLE">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>371</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
+    <property name="maximumSize">
+     <size>
+      <width>40</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="text">
-     <string>Activer App Bar</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="ArreraTheme.qrc">
+      <normaloff>:/iconBTN/valider.png</normaloff>:/iconBTN/valider.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>35</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="IDC_MODESELECT">
@@ -249,6 +293,76 @@ Application</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="G_ASSISTANT">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+    <widget class="QRadioButton" name="IDC_CHOIXSIX">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>61</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Six </string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="IDC_CHOIXRYLEY">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>71</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ryley</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Choix assistant :</string>
     </property>
    </widget>
   </widget>
@@ -282,6 +396,11 @@ Application</string>
         <height>100</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Gestion
 Mode 1</string>
@@ -301,6 +420,11 @@ Mode 1</string>
         <width>100</width>
         <height>100</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>Gestion
@@ -322,6 +446,11 @@ Mode 2</string>
         <height>100</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Gestion
 Mode 3</string>
@@ -342,6 +471,11 @@ Mode 3</string>
         <height>100</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Gestion
 Mode 4</string>
@@ -361,6 +495,11 @@ Mode 4</string>
         <width>100</width>
         <height>100</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>Gestion

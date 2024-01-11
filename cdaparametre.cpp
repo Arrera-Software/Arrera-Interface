@@ -9,6 +9,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->setupUi(this);
     modeSelectionner = 0 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
+    ui->IDC_CHOIXSIX->setChecked(true);
 }
 
 CDAParametre::~CDAParametre()
@@ -66,50 +67,68 @@ void CDAParametre::on_IDC_GESTMODE5_clicked()
 void CDAParametre::on_IDC_VALIDER_clicked()
 {
     QMessageBox msgBox;
+    bool sortieEcriture;
     QString valeurGUI ;
     string valeurString;
-    switch(modeSelectionner)
+    sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
+    sortieSix = ui->IDC_CHOIXSIX->isChecked();
+    if (modeSelectionner==0)
     {
-    case 0 :
         msgBox.setWindowTitle("Erreur de selection");
         msgBox.setText("Aucun mode a ete selectionner");
         msgBox.addButton(QMessageBox::Ok);
         msgBox.exec();
-        break;
-    case 1 :
-        valeurGUI = ui->IDC_NAMETEXT->toPlainText();
-        valeurString = valeurGUI.toStdString();
-        objParametre->setNameMode1(valeurString);
-        break;
-    case 2 :
-        valeurGUI = ui->IDC_NAMETEXT->toPlainText();
-        valeurString = valeurGUI.toStdString();
-        objParametre->setNameMode2(valeurString);
-        break;
-    case 3 :
-        valeurGUI = ui->IDC_NAMETEXT->toPlainText();
-        valeurString = valeurGUI.toStdString();
-        objParametre->setNameMode3(valeurString);
-        break;
-    case 4 :
-        valeurGUI = ui->IDC_NAMETEXT->toPlainText();
-        valeurString = valeurGUI.toStdString();
-        objParametre->setNameMode4(valeurString);
-        break;
-    case 5 :
-        valeurGUI = ui->IDC_NAMETEXT->toPlainText();
-        valeurString = valeurGUI.toStdString();
-        objParametre->setNameMode5(valeurString);
-        break;
-    default :
-        msgBox.setWindowTitle("Erreur de selection");
-        msgBox.setText("Une erreur de selection de mode c'est produit");
-        msgBox.addButton(QMessageBox::Ok);
-        msgBox.exec();
-        break;
     }
-    ui->IDC_NAMETEXT->clear();
-    ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
-    modeSelectionner = 0 ;
+    else
+    {
+        switch(modeSelectionner)
+        {
+            case 1 :
+                valeurGUI = ui->IDC_NAMETEXT->toPlainText();
+                valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setNameMode(1,valeurString);
+                sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix);
+                break;
+            case 2 :
+                valeurGUI = ui->IDC_NAMETEXT->toPlainText();
+                valeurString = valeurGUI.toStdString();
+                sortieEcriture =objParametre->setNameMode(2,valeurString);
+                sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix);
+                break;
+            case 3 :
+                valeurGUI = ui->IDC_NAMETEXT->toPlainText();
+                valeurString = valeurGUI.toStdString();
+                sortieEcriture =objParametre->setNameMode(3,valeurString);
+                sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix);
+                break;
+            case 4 :
+                valeurGUI = ui->IDC_NAMETEXT->toPlainText();
+                valeurString = valeurGUI.toStdString();
+                sortieEcriture =objParametre->setNameMode(4,valeurString);
+                sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix);
+                break;
+            case 5 :
+                valeurGUI = ui->IDC_NAMETEXT->toPlainText();
+                valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setNameMode(5,valeurString);
+                sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix);
+                break;
+            default :
+                msgBox.setWindowTitle("Erreur de selection");
+                msgBox.setText("Une erreur de selection de mode c'est produit");
+                msgBox.addButton(QMessageBox::Ok);
+                msgBox.exec();
+                break;
+        }
+        if (sortieEcriture==false)
+        {
+            msgBox.setWindowTitle("Erreur ecriture");
+            msgBox.setText("Une erreur c'est passer lors de l'ecriture");
+            msgBox.addButton(QMessageBox::Ok);
+        }
+        ui->IDC_NAMETEXT->clear();
+        ui->IDC_CHOIXSIX->setChecked(true);
+        ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
+        modeSelectionner = 0 ;
+    }
 }
-
