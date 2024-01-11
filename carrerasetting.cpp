@@ -305,3 +305,107 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
         break;
     }
 }
+
+bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
+{
+    switch (nbMode) {
+    case 1:
+        if (chargementMode[0]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[0].definirParametre("taskbar","true");
+            }
+            else
+            {
+                gestionFileMode[0].definirParametre("taskbar","false");
+            }
+            gestionFileMode[0].sauvegarder(nameFileMode[0]);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 2:
+        if (chargementMode[1]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[1].definirParametre("taskbar","true");
+            }
+            else
+            {
+                gestionFileMode[1].definirParametre("taskbar","false");
+            }
+            gestionFileMode[1].sauvegarder(nameFileMode[1]);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 3:
+        if (chargementMode[2]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[2].definirParametre("taskbar","true");
+            }
+            else
+            {
+                gestionFileMode[2].definirParametre("taskbar","false");
+            }
+            gestionFileMode[2].sauvegarder(nameFileMode[2]);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 4:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[3].definirParametre("taskbar","true");
+            }
+            else
+            {
+                gestionFileMode[3].definirParametre("taskbar","false");
+            }
+            gestionFileMode[3].sauvegarder(nameFileMode[3]);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 5:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[4].definirParametre("taskbar","true");
+            }
+            else
+            {
+                gestionFileMode[4].definirParametre("taskbar","false");
+            }
+            gestionFileMode[4].sauvegarder(nameFileMode[4]);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    default:
+        return false;
+        break;
+    }
+}

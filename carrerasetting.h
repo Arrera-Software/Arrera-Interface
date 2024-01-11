@@ -33,6 +33,8 @@ public:
 
     bool setAssistantMode(int nbMode,bool ryley,bool six);
 
+    bool setEtatTaskbar(int nbMode,bool enable);
+
 
 };
 
