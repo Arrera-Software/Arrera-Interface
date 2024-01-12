@@ -8,16 +8,12 @@ using namespace std ;
 class CArreraSetting
 {
 private :
-    Cconfiguration gestionFile ;
+    Cconfiguration gestionFile;
     Cconfiguration gestionFileMode[5];
-    bool etatChargement, chargementMode[5] ;
+    bool etatChargement, chargementMode[5];
     string nameFile;
     string nameFileMode[5];
-    string nameMode1;
-    string nameMode2;
-    string nameMode3;
-    string nameMode4;
-    string nameMode5;
+    string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
 public:
     CArreraSetting();
 

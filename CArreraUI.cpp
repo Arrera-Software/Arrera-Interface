@@ -1,5 +1,6 @@
 #include "CArreraUI.h"
-
+#include <QDesktopServices>
+#include <QUrl>
 #include "./ui_CArreraUI.h"
 
 CArreraUI::CArreraUI(QWidget *parent)
