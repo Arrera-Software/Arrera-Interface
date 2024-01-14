@@ -176,3 +176,12 @@ void CDAParametre::on_IDC_ERYLEY_clicked()
     objParametre->setRyleyEmplacement();
 }
 
+
+void CDAParametre::on_IDC_VALIDERNAME_clicked()
+{
+    QString name;
+    name = ui->IDC_NAMEUSER->toPlainText();
+    ui->IDC_NAMEUSER->clear();
+    objParametre->setNameUser(name.toStdString());
+}
+

@@ -553,3 +553,17 @@ bool CArreraSetting::setRyleyEmplacement()
         return false;
     }
 }
+
+bool CArreraSetting::setNameUser(string name)
+{
+    if (etatChargement==true)
+    {
+        gestionFile.definirParametre("nameUser",name);
+        gestionFile.sauvegarder(nameFile);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

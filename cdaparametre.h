@@ -42,6 +42,8 @@ private slots:
 
     void on_IDC_ERYLEY_clicked();
 
+    void on_IDC_VALIDERNAME_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);

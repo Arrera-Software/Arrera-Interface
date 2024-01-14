@@ -34,6 +34,7 @@ public:
     bool setSoftNavigateur();
     bool setSixEmplacement();
     bool setRyleyEmplacement();
+    bool setNameUser(string name);
 
 
 };
