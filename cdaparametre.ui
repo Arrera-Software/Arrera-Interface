@@ -183,14 +183,14 @@ Application</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
-     <width>580</width>
-     <height>391</height>
+     <y>320</y>
+     <width>290</width>
+     <height>371</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>580</width>
+     <width>290</width>
      <height>0</height>
     </size>
    </property>
@@ -229,7 +229,7 @@ Application</string>
      <rect>
       <x>70</x>
       <y>50</y>
-      <width>311</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -242,8 +242,8 @@ Application</string>
    <widget class="QPushButton" name="IDC_VALIDER">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>350</y>
+      <x>180</x>
+      <y>330</y>
       <width>100</width>
       <height>35</height>
      </rect>
@@ -279,7 +279,7 @@ Application</string>
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>421</width>
+      <width>261</width>
       <height>31</height>
      </rect>
     </property>
@@ -387,7 +387,7 @@ Application</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>240</y>
       <width>161</width>
       <height>22</height>
      </rect>
@@ -401,115 +401,65 @@ Application</string>
      <string>Arrera taskbar</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="IDC_APPTASKMODE">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Taskbar App</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="IDC_STARTAPP">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Application au demarage</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>170</y>
-     <width>581</width>
-     <height>121</height>
+     <y>240</y>
+     <width>291</width>
+     <height>80</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="IDC_GESTMODE1">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Gestion
-Mode 1</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_GESTMODE2">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Gestion
-Mode 2</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_GESTMODE3">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Gestion
-Mode 3</string>
-      </property>
-     </widget>
-    </item>
     <item>
      <widget class="QPushButton" name="IDC_GESTMODE4">
       <property name="minimumSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>70</width>
+        <height>70</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>70</width>
+        <height>70</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -522,24 +472,111 @@ Mode 4</string>
      <widget class="QPushButton" name="IDC_GESTMODE5">
       <property name="minimumSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>70</width>
+        <height>70</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>70</width>
+        <height>70</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
        <string>Gestion
 Mode 5</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>291</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="IDC_GESTMODE1">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestion
+Mode 1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_GESTMODE2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestion
+Mode 2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_GESTMODE3">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestion
+Mode 3</string>
       </property>
      </widget>
     </item>

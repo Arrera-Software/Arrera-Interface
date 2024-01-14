@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "cdaparametre.h"
+#include "cos.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -56,6 +57,7 @@ private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
     CDAParametre *winPara ;
+    COS os ;
     QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
     void closeEvent(QCloseEvent *event);
 
