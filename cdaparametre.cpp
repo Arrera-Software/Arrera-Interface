@@ -140,3 +140,39 @@ void CDAParametre::on_IDC_VALIDER_clicked()
         modeSelectionner = 0 ;
     }
 }
+
+void CDAParametre::on_IDC_ETABLEUR_clicked()
+{
+    objParametre->setSoftTableur();
+}
+
+
+void CDAParametre::on_IDC_ENAVIGATEUR_clicked()
+{
+    objParametre->setSoftNavigateur();
+}
+
+
+void CDAParametre::on_IDC_ETTEXTE_clicked()
+{
+    objParametre->setSoftTTexte();
+}
+
+
+void CDAParametre::on_IDC_EPRESENTATION_clicked()
+{
+    objParametre->setSoftPresentation();
+}
+
+
+void CDAParametre::on_IDC_ESIX_clicked()
+{
+    objParametre->setSixEmplacement();
+}
+
+
+void CDAParametre::on_IDC_ERYLEY_clicked()
+{
+    objParametre->setRyleyEmplacement();
+}
+

@@ -29,156 +29,6 @@
    <iconset resource="ArreraTheme.qrc">
     <normaloff>:/IconArrera/ArreraInterfaceParametre.png</normaloff>:/IconArrera/ArreraInterfaceParametre.png</iconset>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>255</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="IDC_ETABLEUR">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Tableur</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_EPRESENTATION">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Presentation</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_ETTEXTE">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Traitement de texte</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_ENAVIGATEUR">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Navigateur</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>0</y>
-     <width>251</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="IDC_ESIX">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Six</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_PSIX">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Parametre Six</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_ERYLEY">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Emplacement Ryley</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="IDC_PRYLEY">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Parametre Ryley</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="IDC_APP">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>10</y>
-     <width>80</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Autre
-emplacement
-Application</string>
-   </property>
-  </widget>
   <widget class="QFrame" name="FGESTMODE">
    <property name="geometry">
     <rect>
@@ -581,6 +431,281 @@ Mode 3</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QFrame" name="FASSISTANTGEST">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>450</y>
+     <width>281</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>281</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="IDC_INDASSISTANT">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gestion Assistant :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_ESIX">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Six</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_PSIX">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Parametre Six</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_ERYLEY">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Ryley</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_PRYLEY">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Parametre Ryley</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="FGESTSOFT">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>159</y>
+     <width>281</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>281</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gestion Logiciel :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_ETABLEUR">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Tableur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_EPRESENTATION">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Presentation</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_ETTEXTE">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Traitement de texte</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_ENAVIGATEUR">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emplacement Navigateur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_APP">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Autre Application</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_GESTTASKBAR">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gestion taskbar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources>

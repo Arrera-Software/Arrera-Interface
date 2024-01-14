@@ -26,10 +26,14 @@ public:
     string getNameMode5();
 
     bool setNameMode(int nbMode,string valeur);
-
     bool setAssistantMode(int nbMode,bool ryley,bool six);
-
     bool setEtatTaskbar(int nbMode,bool enable);
+    bool setSoftTableur();
+    bool setSoftTTexte();
+    bool setSoftPresentation();
+    bool setSoftNavigateur();
+    bool setSixEmplacement();
+    bool setRyleyEmplacement();
 
 
 };

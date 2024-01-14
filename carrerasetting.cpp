@@ -1,6 +1,6 @@
 #include "carrerasetting.h"
 #include <qdebug.h>
-
+#include <QFileDialog>
 
 CArreraSetting::CArreraSetting()
 {
@@ -407,5 +407,149 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
     default:
         return false;
         break;
+    }
+}
+
+bool CArreraSetting::setSoftNavigateur()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getOpenFileName(nullptr,"Navigateur Internet", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementNavigateur",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setSoftPresentation()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getOpenFileName(nullptr,"Presentation", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementPresentation",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setSoftTTexte()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getOpenFileName(nullptr,"Traitement de texte", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementTraitementT",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setSoftTableur()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getOpenFileName(nullptr,"Tableur", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementTableur",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setSixEmplacement()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getExistingDirectory(nullptr,"Six", QDir::homePath());
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementSix",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setRyleyEmplacement()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        emplacement = QFileDialog::getExistingDirectory(nullptr,"Ryley", QDir::homePath());
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("emplacementRyley",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
     }
 }

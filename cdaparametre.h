@@ -30,6 +30,18 @@ private slots:
 
     void on_IDC_VALIDER_clicked();
 
+    void on_IDC_ETABLEUR_clicked();
+
+    void on_IDC_ENAVIGATEUR_clicked();
+
+    void on_IDC_ETTEXTE_clicked();
+
+    void on_IDC_EPRESENTATION_clicked();
+
+    void on_IDC_ESIX_clicked();
+
+    void on_IDC_ERYLEY_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
