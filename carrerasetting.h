@@ -19,11 +19,18 @@ public:
 
     bool loadSetting();
 
+    string getNameUser();
     string getNameMode1();
     string getNameMode2();
     string getNameMode3();
     string getNameMode4();
     string getNameMode5();
+    string getSoftTableur();
+    string getSoftPresentation();
+    string getSoftNavigateur();
+    string getSixEmplacement();
+    string getRyleyEmplacement();
+    string getSoftTTexte();
 
     bool setNameMode(int nbMode,string valeur);
     bool setAssistantMode(int nbMode,bool ryley,bool six);

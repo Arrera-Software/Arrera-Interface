@@ -98,6 +98,91 @@ string CArreraSetting::getNameMode5()
     }
 }
 
+string CArreraSetting::getNameUser()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("nameUser");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getRyleyEmplacement()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementRyley");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getSixEmplacement()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementSix");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getSoftNavigateur()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementNavigateur");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getSoftTableur()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementTableur");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+
+string CArreraSetting::getSoftTTexte()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementTraitementT");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getSoftPresentation()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("emplacementPresentation");
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::setNameMode(int nbMode,string valeur)
 {
     if (etatChargement)
