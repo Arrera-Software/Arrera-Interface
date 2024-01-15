@@ -13,6 +13,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     winPara->passObjPara(&objPara);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     loadSetting();
+    objSoftware.setObjPara(&objPara);
 }
 
 CArreraUI::~CArreraUI()
@@ -84,13 +85,24 @@ void CArreraUI::on_IDC_MODE5_clicked()
 // Bouton app
 void CArreraUI::on_IDC_TABLEUR_clicked()
 {
+    bool sortie ;
+    sortie = objSoftware.openTableur();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 
 }
 
 
 void CArreraUI::on_IDC_TRAITEMENT_clicked()
 {
-
+    bool sortie ;
+    sortie = objSoftware.openTTexte();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 }
 
 
@@ -102,13 +114,23 @@ void CArreraUI::on_IDC_APP_clicked()
 
 void CArreraUI::on_IDC_NAVIGATEUR_clicked()
 {
-
+    bool sortie ;
+    sortie = objSoftware.openNavigateur();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 }
 
 
 void CArreraUI::on_IDC_PRESENTATION_clicked()
 {
-
+    bool sortie ;
+    sortie = objSoftware.openPresentation();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 }
 
 void CArreraUI::closeEvent(QCloseEvent *event)
@@ -143,3 +165,10 @@ void CArreraUI::on_IDC_RELOAD_clicked()
     loadSetting();
 }
 
+void CArreraUI::errorOpenSoft()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Erreur");
+    msgBox.setText("Une erreur ces produite lors de l'ouverture du logiciel");
+    msgBox.addButton(QMessageBox::Ok);
+}

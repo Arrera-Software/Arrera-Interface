@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include "cdaparametre.h"
-#include "cos.h"
+#include "carreraopensoft.h"
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE
@@ -50,16 +51,17 @@ private slots:
 
     void on_IDC_PRESENTATION_clicked();
 
-
     void on_IDC_RELOAD_clicked();
+
 
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
     CDAParametre *winPara ;
-    COS os ;
+    CArreraOpenSoft objSoftware;
     QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
     void closeEvent(QCloseEvent *event);
+    void errorOpenSoft();
 
 };
 #endif // CARRERAUI_H
