@@ -5,6 +5,9 @@
 #include <QDesktopServices>
 #include <QUrl>
 
+#define NAMELNKSIXWIN "Six.lnk"
+#define NAMELNKRYLEYWIN "Ryley.lnk"
+
 class CArreraOpenSoft
 {
 private :
@@ -18,6 +21,8 @@ public:
     bool openTTexte();
     bool openNavigateur();
     bool openPresentation();
+    bool openSix();
+    bool openRyley();
 };
 
 #endif // CARRERAOPENSOFT_H

@@ -36,7 +36,12 @@ void CArreraUI::on_IDC_PARAMETRE_clicked()
 // Bouton assistant
 void CArreraUI::on_IDC_SIX_clicked()
 {
-
+    bool sortie ;
+    sortie = objSoftware.openSix();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 }
 
 
@@ -48,7 +53,12 @@ void CArreraUI::on_IDC_COPILOTE_clicked()
 
 void CArreraUI::on_IDC_RYLEY_clicked()
 {
-
+    bool sortie ;
+    sortie = objSoftware.openRyley();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
 }
 
 // bouton mode
