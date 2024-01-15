@@ -157,86 +157,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>130</y>
-      <width>601</width>
-      <height>341</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="mode">
-     <property name="leftMargin">
-      <number>50</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="IDC_MODE1">
-       <property name="maximumSize">
-        <size>
-         <width>500</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>mode 1</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_MODE2">
-       <property name="maximumSize">
-        <size>
-         <width>500</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>mode 2</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_MODE3">
-       <property name="maximumSize">
-        <size>
-         <width>500</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>mode 3</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_MODE4">
-       <property name="maximumSize">
-        <size>
-         <width>500</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>mode 4</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_MODE5">
-       <property name="maximumSize">
-        <size>
-         <width>500</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>mode 5</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
@@ -358,6 +278,32 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="IDC_RELOAD">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Recharger</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="IDC_PARAMETRE">
        <property name="maximumSize">
         <size>
@@ -368,9 +314,115 @@
        <property name="text">
         <string>Parametre</string>
        </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/IconArrera/ArreraInterfaceParametre.png</normaloff>:/IconArrera/ArreraInterfaceParametre.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QFrame" name="FMode">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>601</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>601</width>
+       <height>351</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="mode">
+      <property name="leftMargin">
+       <number>50</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="IDC_MODE1">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mode 1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_MODE2">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mode 2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_MODE3">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mode 3</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_MODE4">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mode 4</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_MODE5">
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mode 5</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
  </widget>

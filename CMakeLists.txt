@@ -27,6 +27,18 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         ArreraTheme.qrc
+        cdaparametre.h cdaparametre.cpp cdaparametre.ui
+        carrerasetting.h carrerasetting.cpp
+        cconfiguration.h cconfiguration.cpp
+        config.ini
+        configMode1.ini
+        configMode2.ini
+        configMode3.ini
+        configMode4.ini
+        configMode5.ini
+        cos.h cos.cpp
+        carreraopensoft.h carreraopensoft.cpp
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Arrera-Interface APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

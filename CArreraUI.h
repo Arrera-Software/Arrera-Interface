@@ -2,6 +2,10 @@
 #define CARRERAUI_H
 
 #include <QMainWindow>
+#include "cdaparametre.h"
+#include "carreraopensoft.h"
+#include <QMessageBox>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CArreraUI; }
@@ -14,6 +18,7 @@ class CArreraUI : public QMainWindow
 public:
     CArreraUI(QWidget *parent = nullptr);
     ~CArreraUI();
+    void loadSetting();
 
 private slots:
     void on_IDC_QUIT_clicked();
@@ -46,7 +51,17 @@ private slots:
 
     void on_IDC_PRESENTATION_clicked();
 
+    void on_IDC_RELOAD_clicked();
+
+
 private:
     Ui::CArreraUI *ui;
+    CArreraSetting objPara;
+    CDAParametre *winPara ;
+    CArreraOpenSoft objSoftware;
+    QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
+    void closeEvent(QCloseEvent *event);
+    void errorOpenSoft();
+
 };
 #endif // CARRERAUI_H
