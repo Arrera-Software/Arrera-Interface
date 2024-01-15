@@ -121,3 +121,46 @@ bool CArreraOpenSoft::openRyley()
         return false;
     }
 }
+
+bool CArreraOpenSoft::openSixPara()
+{
+    string emplacement ;
+    QString assistant;
+    if (objSet)
+    {
+        emplacement = objPara->getSixEmplacement();
+        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARASIXWIN;
+        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool CArreraOpenSoft::openRyleyPara()
+{
+    string emplacement ;
+    QString assistant;
+    if (objSet)
+    {
+        emplacement = objPara->getSixEmplacement();
+        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARARYLEYWIN;
+        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

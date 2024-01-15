@@ -18,9 +18,11 @@ CDAParametre::~CDAParametre()
     delete ui;
 }
 
-void CDAParametre::passObjPara(CArreraSetting* obj)
+void CDAParametre::passObjPara(CArreraSetting* obj,CArreraOpenSoft *objSoft)
 {
     objParametre = obj ;
+    objOpenSoft = objSoft;
+
 }
 
 void CDAParametre::closeEvent(QCloseEvent *event) {
@@ -183,5 +185,17 @@ void CDAParametre::on_IDC_VALIDERNAME_clicked()
     name = ui->IDC_NAMEUSER->toPlainText();
     ui->IDC_NAMEUSER->clear();
     objParametre->setNameUser(name.toStdString());
+}
+
+
+void CDAParametre::on_IDC_PSIX_clicked()
+{
+    objOpenSoft->openSixPara();
+}
+
+
+void CDAParametre::on_IDC_PRYLEY_clicked()
+{
+    objOpenSoft->openRyleyPara();
 }
 

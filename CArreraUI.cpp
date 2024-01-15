@@ -10,10 +10,10 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
     winPara = new CDAParametre(this);
-    winPara->passObjPara(&objPara);
+    objSoftware.setObjPara(&objPara);
+    winPara->passObjPara(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     loadSetting();
-    objSoftware.setObjPara(&objPara);
 }
 
 CArreraUI::~CArreraUI()

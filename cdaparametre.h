@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "carrerasetting.h"
+#include "carreraopensoft.h"
 
 namespace Ui {
 class CDAParametre;
@@ -15,7 +16,7 @@ class CDAParametre : public QDialog
 public:
     explicit CDAParametre(QWidget *parent = nullptr);
     ~CDAParametre();
-    void passObjPara(CArreraSetting* obj);
+    void passObjPara(CArreraSetting* obj,CArreraOpenSoft *objSoft);
 
 private slots:
     void on_IDC_GESTMODE1_clicked();
@@ -44,12 +45,17 @@ private slots:
 
     void on_IDC_VALIDERNAME_clicked();
 
+    void on_IDC_PSIX_clicked();
+
+    void on_IDC_PRYLEY_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
     int modeSelectionner;
     bool sortieRyley,sortieSix;
     CArreraSetting* objParametre;
+    CArreraOpenSoft *objOpenSoft;
 };
 
 #endif // CDAPARAMETRE_H

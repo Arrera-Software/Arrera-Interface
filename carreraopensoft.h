@@ -7,6 +7,9 @@
 
 #define NAMELNKSIXWIN "Six.lnk"
 #define NAMELNKRYLEYWIN "Ryley.lnk"
+#define NAMELNKPARASIXWIN "sixPara.lnk"
+#define NAMELNKPARARYLEYWIN "ryleyPara.lnk"
+
 
 class CArreraOpenSoft
 {
@@ -23,6 +26,8 @@ public:
     bool openPresentation();
     bool openSix();
     bool openRyley();
+    bool openSixPara();
+    bool openRyleyPara();
 };
 
 #endif // CARRERAOPENSOFT_H
