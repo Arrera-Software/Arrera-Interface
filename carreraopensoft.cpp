@@ -17,11 +17,31 @@ bool CArreraOpenSoft::openTableur()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTableur())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTableur())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
-            return false;
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTableur())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     else
@@ -33,11 +53,31 @@ bool CArreraOpenSoft::openTTexte()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTTexte())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTTexte())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
-            return false;
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTTexte())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     else
@@ -49,11 +89,31 @@ bool CArreraOpenSoft::openNavigateur()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftNavigateur())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftNavigateur())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftNavigateur())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
         }
     }
     else
@@ -65,13 +125,32 @@ bool CArreraOpenSoft::openPresentation()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftPresentation())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftPresentation())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
         }
-        return true;
     }
     else
     {

@@ -4,6 +4,7 @@
 #include "cos.h"
 #include <QDesktopServices>
 #include <QUrl>
+#include <QProcess>
 
 #define NAMELNKSIXWIN "Six.lnk"
 #define NAMELNKRYLEYWIN "Ryley.lnk"

@@ -16,6 +16,8 @@ CArreraSetting::CArreraSetting()
     {
         chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
     }
+    windowsOS = systeme.getWindows();
+    linuxOS = systeme.getLinux();
 }
 
 bool CArreraSetting::loadSetting()
@@ -536,7 +538,21 @@ bool CArreraSetting::setSoftNavigateur()
     QString emplacement;
     if (etatChargement==true)
     {
-        emplacement = QFileDialog::getOpenFileName(nullptr,"Navigateur Internet", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Navigateur Internet", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Navigateur Internet", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
         if (emplacement.isNull())
         {
             return false ;
@@ -560,7 +576,21 @@ bool CArreraSetting::setSoftPresentation()
     QString emplacement;
     if (etatChargement==true)
     {
-        emplacement = QFileDialog::getOpenFileName(nullptr,"Presentation", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Presentation", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Presentation", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
         if (emplacement.isNull())
         {
             return false ;
@@ -584,7 +614,21 @@ bool CArreraSetting::setSoftTTexte()
     QString emplacement;
     if (etatChargement==true)
     {
-        emplacement = QFileDialog::getOpenFileName(nullptr,"Traitement de texte", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Traitement de texte", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Traitement de texte", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
         if (emplacement.isNull())
         {
             return false ;
@@ -608,7 +652,21 @@ bool CArreraSetting::setSoftTableur()
     QString emplacement;
     if (etatChargement==true)
     {
-        emplacement = QFileDialog::getOpenFileName(nullptr,"Tableur", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Tableur", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Tableur", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
         if (emplacement.isNull())
         {
             return false ;
