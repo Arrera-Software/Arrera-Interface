@@ -49,6 +49,8 @@ private slots:
 
     void on_IDC_PRYLEY_clicked();
 
+    void on_IDC_RESETINTERFACE_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);

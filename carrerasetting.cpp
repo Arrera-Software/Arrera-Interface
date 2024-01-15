@@ -182,7 +182,43 @@ string CArreraSetting::getSoftPresentation()
         return "";
     }
 }
-
+bool CArreraSetting::resetAllPara()
+{
+    if (etatChargement)
+    {
+        int i ;
+        gestionFile.definirParametre("nameMode1","Mode 1");
+        gestionFile.definirParametre("nameMode2","Mode 2");
+        gestionFile.definirParametre("nameMode3","Mode 3");
+        gestionFile.definirParametre("nameMode4","Mode 3");
+        gestionFile.definirParametre("nameMode5","Mode 5");
+        gestionFile.definirParametre("emplacementTableur","nothing");
+        gestionFile.definirParametre("emplacementSix","nothing");
+        gestionFile.definirParametre("emplacementRyley","nothing");
+        gestionFile.definirParametre("emplacementPresentation","nothing");
+        gestionFile.definirParametre("emplacementTraitementT","nothing");
+        gestionFile.definirParametre("emplacementNavigateur","nothing");
+        gestionFile.sauvegarder(nameFile);
+        if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
+        {
+            for (i=0;i<4;i++)
+            {
+                gestionFileMode[i].definirParametre("assistant","nothing");
+                gestionFileMode[i].definirParametre("taskbar","false");
+                gestionFileMode[i].sauvegarder(nameFileMode[i]);
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
 bool CArreraSetting::setNameMode(int nbMode,string valeur)
 {
     if (etatChargement)

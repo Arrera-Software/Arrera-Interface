@@ -199,3 +199,9 @@ void CDAParametre::on_IDC_PRYLEY_clicked()
     objOpenSoft->openRyleyPara();
 }
 
+
+void CDAParametre::on_IDC_RESETINTERFACE_clicked()
+{
+    objParametre->resetAllPara();
+}
+

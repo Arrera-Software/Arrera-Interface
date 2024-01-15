@@ -32,6 +32,7 @@ public:
     string getRyleyEmplacement();
     string getSoftTTexte();
 
+    bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
     bool setAssistantMode(int nbMode,bool ryley,bool six);
     bool setEtatTaskbar(int nbMode,bool enable);
