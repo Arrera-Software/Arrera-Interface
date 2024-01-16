@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "cdaparametre.h"
+#include "arreraapplib.h"
 #include "carreraopensoft.h"
 #include <QMessageBox>
 
@@ -58,6 +59,7 @@ private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
     CDAParametre *winPara ;
+    ArreraAppLib *winAPP;
     CArreraOpenSoft objSoftware;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();

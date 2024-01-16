@@ -10,9 +10,11 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
     winPara = new CDAParametre(this);
+    winAPP = new ArreraAppLib(this);
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
     loadSetting();
 }
 
@@ -118,7 +120,7 @@ void CArreraUI::on_IDC_TRAITEMENT_clicked()
 
 void CArreraUI::on_IDC_APP_clicked()
 {
-
+    winAPP->show();
 }
 
 
