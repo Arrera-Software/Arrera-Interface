@@ -192,7 +192,7 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("nameMode1","Mode 1");
         gestionFile.definirParametre("nameMode2","Mode 2");
         gestionFile.definirParametre("nameMode3","Mode 3");
-        gestionFile.definirParametre("nameMode4","Mode 3");
+        gestionFile.definirParametre("nameMode4","Mode 4");
         gestionFile.definirParametre("nameMode5","Mode 5");
         gestionFile.definirParametre("emplacementTableur","nothing");
         gestionFile.definirParametre("emplacementSix","nothing");
