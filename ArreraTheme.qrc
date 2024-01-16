@@ -9,6 +9,11 @@
         <file>Ryley.png</file>
         <file>six.png</file>
         <file>valider.png</file>
+        <file>app-drawer-Arrera.png</file>
+        <file>ArreraDoc.png</file>
+        <file>ArreraInfo.png</file>
+        <file>ArreraRecherche.png</file>
+        <file>ArreraVideoDownload.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>

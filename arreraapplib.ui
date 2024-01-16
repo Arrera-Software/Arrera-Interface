@@ -301,18 +301,28 @@
      <widget class="QPushButton" name="IDC_BTNAPP">
       <property name="minimumSize">
        <size>
-        <width>120</width>
+        <width>135</width>
         <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>120</width>
+        <width>135</width>
         <height>35</height>
        </size>
       </property>
       <property name="text">
        <string>Application</string>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/app-drawer.png</normaloff>:/iconBTN/app-drawer.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -333,18 +343,28 @@
      <widget class="QPushButton" name="IDC_BTNARRERAAPP">
       <property name="minimumSize">
        <size>
-        <width>120</width>
+        <width>135</width>
         <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>120</width>
+        <width>135</width>
         <height>35</height>
        </size>
       </property>
       <property name="text">
        <string>Arrera Application</string>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/app-drawer-Arrera.png</normaloff>:/iconBTN/app-drawer-Arrera.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -390,8 +410,17 @@
         </size>
        </property>
        <property name="text">
-        <string>Arrera
-Documentation</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/ArreraDoc.png</normaloff>:/iconBTN/ArreraDoc.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -410,9 +439,17 @@ Documentation</string>
         </size>
        </property>
        <property name="text">
-        <string>Arrera
-Video
-Download</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/ArreraVideoDownload.png</normaloff>:/iconBTN/ArreraVideoDownload.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -431,8 +468,17 @@ Download</string>
         </size>
        </property>
        <property name="text">
-        <string>Arrera
-Info</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/ArreraInfo.png</normaloff>:/iconBTN/ArreraInfo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -451,8 +497,17 @@ Info</string>
         </size>
        </property>
        <property name="text">
-        <string>Arrera
-Recherche</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/ArreraRecherche.png</normaloff>:/iconBTN/ArreraRecherche.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
        </property>
       </widget>
      </item>
@@ -463,6 +518,8 @@ Recherche</string>
   <zorder>FAPP</zorder>
   <zorder>FARRERAAPP</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="ArreraTheme.qrc"/>
+ </resources>
  <connections/>
 </ui>
