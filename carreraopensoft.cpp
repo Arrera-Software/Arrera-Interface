@@ -1,4 +1,5 @@
 #include "carreraopensoft.h"
+#include "QDebug"
 
 CArreraOpenSoft::CArreraOpenSoft()
 {
@@ -17,11 +18,31 @@ bool CArreraOpenSoft::openTableur()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTableur())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTableur())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
-            return false;
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTableur())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     else
@@ -33,11 +54,31 @@ bool CArreraOpenSoft::openTTexte()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTTexte())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftTTexte())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
         else {
-            return false;
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTTexte())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     else
@@ -49,11 +90,31 @@ bool CArreraOpenSoft::openNavigateur()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftNavigateur())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftNavigateur())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftNavigateur())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
         }
     }
     else
@@ -65,13 +126,32 @@ bool CArreraOpenSoft::openPresentation()
 {
     if (objSet)
     {
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftPresentation())))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getSoftPresentation())))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
         }
-        return true;
     }
     else
     {
@@ -85,15 +165,38 @@ bool CArreraOpenSoft::openSix()
     QString assistant;
     if (objSet)
     {
-        emplacement = objPara->getSixEmplacement();
-        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKSIXWIN;
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = objPara->getSixEmplacement();
+            assistant = QString::fromStdString(emplacement)+"/"+NAMELNKSIXWIN;
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = objPara->getSixEmplacement();
+                assistant = QString::fromStdString(emplacement)+"/"+NAMESIXSH;
+                if (QProcess::startDetached("/bin/bash",QStringList() << assistant))
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
-        return true;
     }
     else
     {
@@ -106,15 +209,38 @@ bool CArreraOpenSoft::openRyley()
     QString assistant;
     if (objSet)
     {
-        emplacement = objPara->getSixEmplacement();
-        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKRYLEYWIN;
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = objPara->getRyleyEmplacement();
+            assistant = QString::fromStdString(emplacement)+"/"+NAMELNKRYLEYWIN;
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = objPara->getRyleyEmplacement();
+                assistant = QString::fromStdString(emplacement)+"/"+NAMERYLEYSH;
+                if (QProcess::startDetached("/bin/bash",QStringList() << assistant))
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
-        return true;
     }
     else
     {
@@ -128,15 +254,38 @@ bool CArreraOpenSoft::openSixPara()
     QString assistant;
     if (objSet)
     {
-        emplacement = objPara->getSixEmplacement();
-        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARASIXWIN;
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = objPara->getSixEmplacement();
+            assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARASIXWIN;
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = objPara->getSixEmplacement();
+                assistant = QString::fromStdString(emplacement)+"/"+NAMESIXPARASH;
+                if (QProcess::startDetached("/bin/bash",QStringList() << assistant))
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
-        return true;
     }
     else
     {
@@ -149,15 +298,38 @@ bool CArreraOpenSoft::openRyleyPara()
     QString assistant;
     if (objSet)
     {
-        emplacement = objPara->getSixEmplacement();
-        assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARARYLEYWIN;
-        if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
-            return true;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = objPara->getRyleyEmplacement();
+            assistant = QString::fromStdString(emplacement)+"/"+NAMELNKPARARYLEYWIN;
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(assistant))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = objPara->getRyleyEmplacement();
+                assistant = QString::fromStdString(emplacement)+"/"+NAMERYLEYPARASH;
+                if (QProcess::startDetached("/bin/bash",QStringList() << assistant))
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
-        return true;
     }
     else
     {

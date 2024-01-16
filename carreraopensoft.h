@@ -4,12 +4,18 @@
 #include "cos.h"
 #include <QDesktopServices>
 #include <QUrl>
+#include <QProcess>
+#include <QDebug>
 
 #define NAMELNKSIXWIN "Six.lnk"
 #define NAMELNKRYLEYWIN "Ryley.lnk"
 #define NAMELNKPARASIXWIN "sixPara.lnk"
 #define NAMELNKPARARYLEYWIN "ryleyPara.lnk"
 
+#define NAMERYLEYSH "ryley.sh"
+#define NAMESIXSH "six.sh"
+#define NAMERYLEYPARASH "ryleyPara.sh"
+#define NAMESIXPARASH "sixPara.sh"
 
 class CArreraOpenSoft
 {

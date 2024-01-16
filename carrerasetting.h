@@ -2,6 +2,7 @@
 #define CARRERASETTING_H
 #include "cconfiguration.h"
 #include <string.h>
+#include "cos.h"
 
 using namespace std ;
 
@@ -10,7 +11,8 @@ class CArreraSetting
 private :
     Cconfiguration gestionFile;
     Cconfiguration gestionFileMode[5];
-    bool etatChargement, chargementMode[5];
+    COS systeme;
+    bool etatChargement, chargementMode[5],linuxOS,windowsOS;
     string nameFile;
     string nameFileMode[5];
     string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
