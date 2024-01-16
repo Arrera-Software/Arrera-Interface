@@ -59,7 +59,6 @@ private:
     CArreraSetting objPara;
     CDAParametre *winPara ;
     CArreraOpenSoft objSoftware;
-    QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
 

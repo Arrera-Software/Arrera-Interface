@@ -157,12 +157,15 @@ void CArreraUI::closeEvent(QCloseEvent *event)
 
 void CArreraUI::loadSetting()
 {
+    QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5,nameUser;
     objPara.loadSetting();
+    nameUser = QString::fromStdString(objPara.getNameUser());
     nameMode1 = QString::fromStdString(objPara.getNameMode1());
     nameMode2 = QString::fromStdString(objPara.getNameMode2());
     nameMode3 = QString::fromStdString(objPara.getNameMode3());
     nameMode4 = QString::fromStdString(objPara.getNameMode4());
     nameMode5 = QString::fromStdString(objPara.getNameMode5());
+    ui->IDC_LABELUSER->setText("Utilisateur : "+nameUser);
     ui->IDC_MODE1->setText(nameMode1);
     ui->IDC_MODE2->setText(nameMode2);
     ui->IDC_MODE3->setText(nameMode3);

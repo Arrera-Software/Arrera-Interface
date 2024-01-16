@@ -189,6 +189,7 @@ bool CArreraSetting::resetAllPara()
     if (etatChargement)
     {
         int i ;
+        gestionFile.definirParametre("nameUser","Nothing");
         gestionFile.definirParametre("nameMode1","Mode 1");
         gestionFile.definirParametre("nameMode2","Mode 2");
         gestionFile.definirParametre("nameMode3","Mode 3");
