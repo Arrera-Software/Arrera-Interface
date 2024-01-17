@@ -9,12 +9,10 @@ using namespace std ;
 class CArreraSetting
 {
 private :
-    Cconfiguration gestionFile;
-    Cconfiguration gestionFileMode[5];
+    Cconfiguration gestionFile,gestionFileMode[5],gestionFileApp;
     COS systeme;
-    bool etatChargement, chargementMode[5],linuxOS,windowsOS;
-    string nameFile;
-    string nameFileMode[5];
+    bool etatChargement, chargementMode[5],linuxOS,windowsOS,chargementFileApp;
+    string nameFile,nameFileMode[5],nameFileApp;
     string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
 public:
     CArreraSetting();
@@ -33,6 +31,8 @@ public:
     string getSixEmplacement();
     string getRyleyEmplacement();
     string getSoftTTexte();
+    string getNameApp(int nb);
+    string getEmplacementApp(int nb);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -45,7 +45,8 @@ public:
     bool setSixEmplacement();
     bool setRyleyEmplacement();
     bool setNameUser(string name);
-
+    bool setNameApp(int nb,string name);
+    bool setEmplacementApp(int nb,string name);
 
 };
 
