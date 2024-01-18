@@ -195,51 +195,51 @@ string CArreraSetting::getNameApp(int nb)
 
         switch (nb) {
         case 1:
-            gestionFileApp.obtenirParametre("nameApp1");
+            sortie=gestionFileApp.obtenirParametre("nameApp1");
             return sortie;
             break;
         case 2:
-            gestionFileApp.obtenirParametre("nameApp2");
+            sortie=gestionFileApp.obtenirParametre("nameApp2");
             return sortie;
             break;
         case 3:
-            gestionFileApp.obtenirParametre("nameApp3");
+            sortie=gestionFileApp.obtenirParametre("nameApp3");
             return sortie;
             break;
         case 4:
-            gestionFileApp.obtenirParametre("nameApp4");
+            sortie=gestionFileApp.obtenirParametre("nameApp4");
             return sortie;
             break;
         case 5:
-            gestionFileApp.obtenirParametre("nameApp5");
+            sortie=gestionFileApp.obtenirParametre("nameApp5");
             return sortie;
             break;
         case 6:
-            gestionFileApp.obtenirParametre("nameApp6");
+            sortie=gestionFileApp.obtenirParametre("nameApp6");
             return sortie;
             break;
         case 7:
-            gestionFileApp.obtenirParametre("nameApp7");
+            sortie=gestionFileApp.obtenirParametre("nameApp7");
             return sortie;
             break;
         case 8:
-            gestionFileApp.obtenirParametre("nameApp8");
+            sortie=gestionFileApp.obtenirParametre("nameApp8");
             return sortie;
             break;
         case 9:
-            gestionFileApp.obtenirParametre("nameApp9");
+            sortie=gestionFileApp.obtenirParametre("nameApp9");
             return sortie;
             break;
         case 10:
-            gestionFileApp.obtenirParametre("nameApp10");
+            sortie=gestionFileApp.obtenirParametre("nameApp10");
             return sortie;
             break;
         case 11:
-            gestionFileApp.obtenirParametre("nameApp11");
+            sortie=gestionFileApp.obtenirParametre("nameApp11");
             return sortie;
             break;
         case 12:
-            gestionFileApp.obtenirParametre("nameApp12");
+            sortie=gestionFileApp.obtenirParametre("nameApp12");
             return sortie;
             break;
         default:
@@ -261,51 +261,51 @@ string CArreraSetting::getEmplacementApp(int nb)
 
         switch (nb) {
         case 1:
-            gestionFileApp.obtenirParametre("emplacementApp1");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp1");
             return sortie;
             break;
         case 2:
-            gestionFileApp.obtenirParametre("emplacementApp2");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp2");
             return sortie;
             break;
         case 3:
-            gestionFileApp.obtenirParametre("emplacementApp3");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp3");
             return sortie;
             break;
         case 4:
-            gestionFileApp.obtenirParametre("emplacementApp4");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp4");
             return sortie;
             break;
         case 5:
-            gestionFileApp.obtenirParametre("emplacementApp5");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp5");
             return sortie;
             break;
         case 6:
-            gestionFileApp.obtenirParametre("emplacementApp6");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp6");
             return sortie;
             break;
         case 7:
-            gestionFileApp.obtenirParametre("emplacementApp7");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp7");
             return sortie;
             break;
         case 8:
-            gestionFileApp.obtenirParametre("emplacementApp8");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp8");
             return sortie;
             break;
         case 9:
-            gestionFileApp.obtenirParametre("emplacementApp9");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp9");
             return sortie;
             break;
         case 10:
-            gestionFileApp.obtenirParametre("emplacementApp10");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp10");
             return sortie;
             break;
         case 11:
-            gestionFileApp.obtenirParametre("emplacementApp11");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp11");
             return sortie;
             break;
         case 12:
-            gestionFileApp.obtenirParametre("emplacementApp12");
+            sortie=gestionFileApp.obtenirParametre("emplacementApp12");
             return sortie;
             break;
         default:

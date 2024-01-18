@@ -12,6 +12,27 @@ ArreraAppLib::ArreraAppLib(QWidget *parent)
     ui->IDC_BTNARRERAAPP->setVisible(true);
 }
 
+void ArreraAppLib::passArreraPara(CArreraSetting *para)
+{
+    parametreArrera = para;
+}
+
+void ArreraAppLib::updateBTN()
+{
+    ui->IDC_BTNAPP1->setText(parametreArrera->getNameApp(1).c_str());
+    ui->IDC_BTNAPP2->setText(parametreArrera->getNameApp(2).c_str());
+    ui->IDC_BTNAPP3->setText(parametreArrera->getNameApp(3).c_str());
+    ui->IDC_BTNAPP4->setText(parametreArrera->getNameApp(4).c_str());
+    ui->IDC_BTNAPP5->setText(parametreArrera->getNameApp(5).c_str());
+    ui->IDC_BTNAPP6->setText(parametreArrera->getNameApp(6).c_str());
+    ui->IDC_BTNAPP7->setText(parametreArrera->getNameApp(7).c_str());
+    ui->IDC_BTNAPP8->setText(parametreArrera->getNameApp(8).c_str());
+    ui->IDC_BTNAPP9->setText(parametreArrera->getNameApp(9).c_str());
+    ui->IDC_BTNAPP10->setText(parametreArrera->getNameApp(10).c_str());
+    ui->IDC_BTNAPP11->setText(parametreArrera->getNameApp(11).c_str());
+    ui->IDC_BTNAPP12->setText(parametreArrera->getNameApp(11).c_str());
+}
+
 ArreraAppLib::~ArreraAppLib()
 {
     delete ui;

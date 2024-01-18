@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "cdaparametre.h"
 #include "arreraapplib.h"
-#include "carreraopensoft.h"
+//#include "carreraopensoft.h"
 #include <QMessageBox>
 
 
