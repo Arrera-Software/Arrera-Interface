@@ -12,9 +12,10 @@ ArreraAppLib::ArreraAppLib(QWidget *parent)
     ui->IDC_BTNARRERAAPP->setVisible(true);
 }
 
-void ArreraAppLib::passArreraPara(CArreraSetting *para)
+void ArreraAppLib::passObjet(CArreraSetting *para,CArreraOpenSoft *objOpen)
 {
     parametreArrera = para;
+    arreraOpen = objOpen;
 }
 
 void ArreraAppLib::updateBTN()
@@ -58,96 +59,96 @@ void ArreraAppLib::on_IDC_BTNARRERAAPP_clicked()
 // btn App
 void ArreraAppLib::on_IDC_BTNAPP1_clicked()
 {
-
+    arreraOpen->openAppLib(1);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP2_clicked()
 {
-
+    arreraOpen->openAppLib(2);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP3_clicked()
 {
-
+    arreraOpen->openAppLib(3);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP4_clicked()
 {
-
+    arreraOpen->openAppLib(4);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP5_clicked()
 {
-
+    arreraOpen->openAppLib(5);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP6_clicked()
 {
-
+    arreraOpen->openAppLib(6);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP7_clicked()
 {
-
+    arreraOpen->openAppLib(7);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP8_clicked()
 {
-
+    arreraOpen->openAppLib(8);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP9_clicked()
 {
-
+    arreraOpen->openAppLib(9);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP10_clicked()
 {
-
+    arreraOpen->openAppLib(10);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP11_clicked()
 {
-
+    arreraOpen->openAppLib(11);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAPP12_clicked()
 {
-
+    arreraOpen->openAppLib(12);
 }
 
 //btn app arrera
 void ArreraAppLib::on_IDC_BTNAVIDEO_clicked()
 {
-
+    arreraOpen->openArreraApp(1);
 }
 
 
 void ArreraAppLib::on_IDC_BTNADOC_clicked()
 {
-
+    arreraOpen->openArreraApp(2);
 }
 
 
 void ArreraAppLib::on_IDC_BTNAINFO_clicked()
 {
-
+    arreraOpen->openArreraApp(3);
 }
 
 
 void ArreraAppLib::on_IDC_BTNARECHERCHE_clicked()
 {
-
+    arreraOpen->openArreraApp(4);
 }
 

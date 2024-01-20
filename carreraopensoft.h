@@ -34,6 +34,8 @@ public:
     bool openRyley();
     bool openSixPara();
     bool openRyleyPara();
+    bool openAppLib(int nb);
+    bool openArreraApp(int nb);
 };
 
 #endif // CARRERAOPENSOFT_H

@@ -33,6 +33,7 @@ public:
     string getSoftTTexte();
     string getNameApp(int nb);
     string getEmplacementApp(int nb);
+    string getArreraAppEmplacement(int nb);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -47,6 +48,7 @@ public:
     bool setNameUser(string name);
     bool setNameApp(int nb,string name);
     bool setEmplacementApp(int nb,string name);
+    bool setArreraAppEmplacement(int nb,string name);
 
 };
 

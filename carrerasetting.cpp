@@ -319,6 +319,39 @@ string CArreraSetting::getEmplacementApp(int nb)
     }
 }
 
+string CArreraSetting::getArreraAppEmplacement(int nb)
+{
+    string sortie ;
+    if (chargementFileApp)
+    {
+        switch (nb) {
+        case 1:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraVideo");
+            return sortie;
+            break;
+        case 2:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraDoc");
+            return sortie;
+            break;
+        case 3:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraInfo");
+            return sortie;
+            break;
+        case 4:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraRecherche");
+            return sortie;
+            break;
+        default:
+            return "";
+            break;
+        }
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::resetAllPara()
 {
     if (etatChargement)
@@ -1023,6 +1056,49 @@ bool CArreraSetting::setEmplacementApp(int nb,string name)
             break;
         case 12:
             gestionFileApp.definirParametre("emplacementApp12",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool CArreraSetting::setArreraAppEmplacement(int nb,string name)
+{
+    /*
+     1 :  Arrera Video
+     2 :  Arrera Doc
+     3 : Arrera Info
+     4 : Arrera Recherche
+     */
+    if (chargementFileApp)
+    {
+        switch (nb) {
+        case 1:
+            gestionFileApp.definirParametre("emplacementArreraVideo",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 2:
+            gestionFileApp.definirParametre("emplacementArreraDoc",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 3:
+            gestionFileApp.definirParametre("emplacementArreraInfo",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 4:
+            gestionFileApp.definirParametre("emplacementArreraRecherche",name);
             gestionFileApp.sauvegarder(nameFileApp);
             return true;
             break;

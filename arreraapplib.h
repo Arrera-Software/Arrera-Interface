@@ -14,7 +14,7 @@ class ArreraAppLib : public QDialog
 public:
     explicit ArreraAppLib(QWidget *parent = nullptr);
     ~ArreraAppLib();
-    void passArreraPara(CArreraSetting *para);
+    void passObjet(CArreraSetting *para,CArreraOpenSoft *objOpen);
     void updateBTN();
 private slots:
     void on_IDC_BTNAPP_clicked();
@@ -55,7 +55,8 @@ private slots:
 
 private:
     Ui::ArreraAppLib *ui;
-    CArreraSetting *parametreArrera;
+    CArreraSetting* parametreArrera;
+    CArreraOpenSoft* arreraOpen;
 };
 
 #endif // ARRERAAPPLIB_H

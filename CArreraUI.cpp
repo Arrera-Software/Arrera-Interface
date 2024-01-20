@@ -15,7 +15,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     winPara->passObjPara(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
-    winAPP->passArreraPara(&objPara);
+    winAPP->passObjet(&objPara,&objSoftware);
     loadSetting();
 }
 
