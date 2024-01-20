@@ -10,9 +10,12 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
     winPara = new CDAParametre(this);
+    winAPP = new ArreraAppLib(this);
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
+    winAPP->passObjet(&objPara,&objSoftware);
     loadSetting();
 }
 
@@ -118,7 +121,7 @@ void CArreraUI::on_IDC_TRAITEMENT_clicked()
 
 void CArreraUI::on_IDC_APP_clicked()
 {
-
+    winAPP->show();
 }
 
 
@@ -157,20 +160,16 @@ void CArreraUI::closeEvent(QCloseEvent *event)
 
 void CArreraUI::loadSetting()
 {
-    QString nameMode1,nameMode2,nameMode3,nameMode4,nameMode5,nameUser;
+    QString nameUser;
     objPara.loadSetting();
-    nameUser = QString::fromStdString(objPara.getNameUser());
-    nameMode1 = QString::fromStdString(objPara.getNameMode1());
-    nameMode2 = QString::fromStdString(objPara.getNameMode2());
-    nameMode3 = QString::fromStdString(objPara.getNameMode3());
-    nameMode4 = QString::fromStdString(objPara.getNameMode4());
-    nameMode5 = QString::fromStdString(objPara.getNameMode5());
+    nameUser = QString::fromStdString(objPara.getNameUser().c_str());
     ui->IDC_LABELUSER->setText("Utilisateur : "+nameUser);
-    ui->IDC_MODE1->setText(nameMode1);
-    ui->IDC_MODE2->setText(nameMode2);
-    ui->IDC_MODE3->setText(nameMode3);
-    ui->IDC_MODE4->setText(nameMode4);
-    ui->IDC_MODE5->setText(nameMode5);
+    ui->IDC_MODE1->setText(objPara.getNameMode1().c_str());
+    ui->IDC_MODE2->setText(objPara.getNameMode2().c_str());
+    ui->IDC_MODE3->setText(objPara.getNameMode3().c_str());
+    ui->IDC_MODE4->setText(objPara.getNameMode4().c_str());
+    ui->IDC_MODE5->setText(objPara.getNameMode5().c_str());
+    winAPP->updateBTN();
 }
 
 void CArreraUI::on_IDC_RELOAD_clicked()

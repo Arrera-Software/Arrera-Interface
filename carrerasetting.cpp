@@ -11,7 +11,9 @@ CArreraSetting::CArreraSetting()
     nameFileMode[2]="configMode3.ini";
     nameFileMode[3]="configMode4.ini";
     nameFileMode[4]="configMode5.ini";
+    nameFileApp =  "configAPP.ini";
     etatChargement = gestionFile.charger(nameFile);
+    chargementFileApp = gestionFileApp.charger(nameFileApp);
     for (i=0;i<4;i++)
     {
         chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
@@ -184,6 +186,172 @@ string CArreraSetting::getSoftPresentation()
         return "";
     }
 }
+
+string CArreraSetting::getNameApp(int nb)
+{
+    string sortie ;
+    if (chargementFileApp)
+    {
+
+        switch (nb) {
+        case 1:
+            sortie=gestionFileApp.obtenirParametre("nameApp1");
+            return sortie;
+            break;
+        case 2:
+            sortie=gestionFileApp.obtenirParametre("nameApp2");
+            return sortie;
+            break;
+        case 3:
+            sortie=gestionFileApp.obtenirParametre("nameApp3");
+            return sortie;
+            break;
+        case 4:
+            sortie=gestionFileApp.obtenirParametre("nameApp4");
+            return sortie;
+            break;
+        case 5:
+            sortie=gestionFileApp.obtenirParametre("nameApp5");
+            return sortie;
+            break;
+        case 6:
+            sortie=gestionFileApp.obtenirParametre("nameApp6");
+            return sortie;
+            break;
+        case 7:
+            sortie=gestionFileApp.obtenirParametre("nameApp7");
+            return sortie;
+            break;
+        case 8:
+            sortie=gestionFileApp.obtenirParametre("nameApp8");
+            return sortie;
+            break;
+        case 9:
+            sortie=gestionFileApp.obtenirParametre("nameApp9");
+            return sortie;
+            break;
+        case 10:
+            sortie=gestionFileApp.obtenirParametre("nameApp10");
+            return sortie;
+            break;
+        case 11:
+            sortie=gestionFileApp.obtenirParametre("nameApp11");
+            return sortie;
+            break;
+        case 12:
+            sortie=gestionFileApp.obtenirParametre("nameApp12");
+            return sortie;
+            break;
+        default:
+            return "";
+            break;
+        }
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getEmplacementApp(int nb)
+{
+    string sortie ;
+    if (chargementFileApp)
+    {
+
+        switch (nb) {
+        case 1:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp1");
+            return sortie;
+            break;
+        case 2:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp2");
+            return sortie;
+            break;
+        case 3:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp3");
+            return sortie;
+            break;
+        case 4:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp4");
+            return sortie;
+            break;
+        case 5:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp5");
+            return sortie;
+            break;
+        case 6:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp6");
+            return sortie;
+            break;
+        case 7:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp7");
+            return sortie;
+            break;
+        case 8:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp8");
+            return sortie;
+            break;
+        case 9:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp9");
+            return sortie;
+            break;
+        case 10:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp10");
+            return sortie;
+            break;
+        case 11:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp11");
+            return sortie;
+            break;
+        case 12:
+            sortie=gestionFileApp.obtenirParametre("emplacementApp12");
+            return sortie;
+            break;
+        default:
+            return "";
+            break;
+        }
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getArreraAppEmplacement(int nb)
+{
+    string sortie ;
+    if (chargementFileApp)
+    {
+        switch (nb) {
+        case 1:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraVideo");
+            return sortie;
+            break;
+        case 2:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraDoc");
+            return sortie;
+            break;
+        case 3:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraInfo");
+            return sortie;
+            break;
+        case 4:
+            sortie=gestionFileApp.obtenirParametre("emplacementArreraRecherche");
+            return sortie;
+            break;
+        default:
+            return "";
+            break;
+        }
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::resetAllPara()
 {
     if (etatChargement)
@@ -201,6 +369,35 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("emplacementPresentation","nothing");
         gestionFile.definirParametre("emplacementTraitementT","nothing");
         gestionFile.definirParametre("emplacementNavigateur","nothing");
+        gestionFileApp.definirParametre("emplacementApp1","nothing");
+        gestionFileApp.definirParametre("emplacementApp2","nothing");
+        gestionFileApp.definirParametre("emplacementApp3","nothing");
+        gestionFileApp.definirParametre("emplacementApp4","nothing");
+        gestionFileApp.definirParametre("emplacementApp5","nothing");
+        gestionFileApp.definirParametre("emplacementApp6","nothing");
+        gestionFileApp.definirParametre("emplacementApp7","nothing");
+        gestionFileApp.definirParametre("emplacementApp8","nothing");
+        gestionFileApp.definirParametre("emplacementApp9","nothing");
+        gestionFileApp.definirParametre("emplacementApp10","nothing");
+        gestionFileApp.definirParametre("emplacementApp11","nothing");
+        gestionFileApp.definirParametre("emplacementApp12","nothing");
+        gestionFileApp.definirParametre("nameApp1","nothing");
+        gestionFileApp.definirParametre("nameApp2","nothing");
+        gestionFileApp.definirParametre("nameApp3","nothing");
+        gestionFileApp.definirParametre("nameApp4","nothing");
+        gestionFileApp.definirParametre("nameApp5","nothing");
+        gestionFileApp.definirParametre("nameApp6","nothing");
+        gestionFileApp.definirParametre("nameApp7","nothing");
+        gestionFileApp.definirParametre("nameApp8","nothing");
+        gestionFileApp.definirParametre("nameApp9","nothing");
+        gestionFileApp.definirParametre("nameApp10","nothing");
+        gestionFileApp.definirParametre("nameApp11","nothing");
+        gestionFileApp.definirParametre("nameApp12","nothing");
+        gestionFileApp.definirParametre("emplacementArreraVideo","nothing");
+        gestionFileApp.definirParametre("emplacementArreraDoc","nothing");
+        gestionFileApp.definirParametre("emplacementArreraInfo","nothing");
+        gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
+        gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
         {
@@ -741,6 +938,248 @@ bool CArreraSetting::setNameUser(string name)
         gestionFile.definirParametre("nameUser",name);
         gestionFile.sauvegarder(nameFile);
         return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setNameApp(int nb,string name)
+{
+    if (chargementFileApp==true)
+    {
+
+        switch (nb) {
+        case 1:
+            gestionFileApp.definirParametre("nameApp1",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 2:
+            gestionFileApp.definirParametre("nameApp2",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 3:
+            gestionFileApp.definirParametre("nameApp3",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 4:
+            gestionFileApp.definirParametre("nameApp4",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 5:
+            gestionFileApp.definirParametre("nameApp5",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 6:
+            gestionFileApp.definirParametre("nameApp6",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 7:
+            gestionFileApp.definirParametre("nameApp7",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 8:
+            gestionFileApp.definirParametre("nameApp8",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 9:
+            gestionFileApp.definirParametre("nameApp9",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 10:
+            gestionFileApp.definirParametre("nameApp10",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 11:
+            gestionFileApp.definirParametre("nameApp11",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 12:
+            gestionFileApp.definirParametre("nameApp12",name);
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setEmplacementApp(int nb)
+{
+    QString emplacement;
+    if (chargementFileApp)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Application n°"+QString::number(nb), QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Application n°"+QString::number(nb), QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            switch (nb) {
+            case 1:
+                gestionFileApp.definirParametre("emplacementApp1",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 2:
+                gestionFileApp.definirParametre("emplacementApp2",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 3:
+                gestionFileApp.definirParametre("emplacementApp3",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 4:
+                gestionFileApp.definirParametre("emplacementApp4",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 5:
+                gestionFileApp.definirParametre("emplacementApp5",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 6:
+                gestionFileApp.definirParametre("emplacementApp6",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 7:
+                gestionFileApp.definirParametre("emplacementApp7",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 8:
+                gestionFileApp.definirParametre("emplacementApp8",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 9:
+                gestionFileApp.definirParametre("emplacementApp9",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 10:
+                gestionFileApp.definirParametre("emplacementApp10",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 11:
+                gestionFileApp.definirParametre("emplacementApp11",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 12:
+                gestionFileApp.definirParametre("emplacementApp12",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            default:
+                return false;
+                break;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool CArreraSetting::setArreraAppEmplacement(int nb)
+{
+    /*
+     1 :  Arrera Video
+     2 :  Arrera Doc
+     3 : Arrera Info
+     4 : Arrera Recherche
+     */
+    QString emplacement;
+    if (chargementFileApp)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Arrera App", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Arrera App", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+        switch (nb) {
+        case 1:
+            gestionFileApp.definirParametre("emplacementArreraVideo",emplacement.toStdString());
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 2:
+            gestionFileApp.definirParametre("emplacementArreraDoc",emplacement.toStdString());
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 3:
+            gestionFileApp.definirParametre("emplacementArreraInfo",emplacement.toStdString());
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 4:
+            gestionFileApp.definirParametre("emplacementArreraRecherche",emplacement.toStdString());
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
+        }
     }
     else
     {

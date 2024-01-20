@@ -2,8 +2,7 @@
 #define CDAPARAMETRE_H
 
 #include <QDialog>
-#include "carrerasetting.h"
-#include "carreraopensoft.h"
+#include "cdaparaarreralib.h"
 
 namespace Ui {
 class CDAParametre;
@@ -51,6 +50,8 @@ private slots:
 
     void on_IDC_RESETINTERFACE_clicked();
 
+    void on_IDC_APP_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
@@ -58,6 +59,7 @@ private:
     bool sortieRyley,sortieSix;
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;
+    CDAparaArreraLib *winParaApp;
 };
 
 #endif // CDAPARAMETRE_H

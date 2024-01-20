@@ -11,6 +11,8 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
     ui->IDC_CHOIXSIX->setChecked(true);
     ui->IDC_ARRERATASKBAR->setChecked(false);
+    winParaApp = new CDAparaArreraLib(this);
+    connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
 }
 
 CDAParametre::~CDAParametre()
@@ -22,6 +24,7 @@ void CDAParametre::passObjPara(CArreraSetting* obj,CArreraOpenSoft *objSoft)
 {
     objParametre = obj ;
     objOpenSoft = objSoft;
+    winParaApp->passObjet(objParametre);
 
 }
 
@@ -203,5 +206,11 @@ void CDAParametre::on_IDC_PRYLEY_clicked()
 void CDAParametre::on_IDC_RESETINTERFACE_clicked()
 {
     objParametre->resetAllPara();
+}
+
+
+void CDAParametre::on_IDC_APP_clicked()
+{
+    winParaApp->show();
 }
 

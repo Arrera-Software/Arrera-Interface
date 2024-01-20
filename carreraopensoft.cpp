@@ -336,3 +336,78 @@ bool CArreraOpenSoft::openRyleyPara()
         return false;
     }
 }
+
+bool CArreraOpenSoft::openAppLib(int nb)
+{
+    if (objSet)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getEmplacementApp(nb))))) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+bool CArreraOpenSoft::openArreraApp(int nb)
+{
+    if (objSet)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getArreraAppEmplacement(nb))))) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
