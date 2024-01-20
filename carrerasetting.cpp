@@ -369,6 +369,35 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("emplacementPresentation","nothing");
         gestionFile.definirParametre("emplacementTraitementT","nothing");
         gestionFile.definirParametre("emplacementNavigateur","nothing");
+        gestionFileApp.definirParametre("emplacementApp1","nothing");
+        gestionFileApp.definirParametre("emplacementApp2","nothing");
+        gestionFileApp.definirParametre("emplacementApp3","nothing");
+        gestionFileApp.definirParametre("emplacementApp4","nothing");
+        gestionFileApp.definirParametre("emplacementApp5","nothing");
+        gestionFileApp.definirParametre("emplacementApp6","nothing");
+        gestionFileApp.definirParametre("emplacementApp7","nothing");
+        gestionFileApp.definirParametre("emplacementApp8","nothing");
+        gestionFileApp.definirParametre("emplacementApp9","nothing");
+        gestionFileApp.definirParametre("emplacementApp10","nothing");
+        gestionFileApp.definirParametre("emplacementApp11","nothing");
+        gestionFileApp.definirParametre("emplacementApp12","nothing");
+        gestionFileApp.definirParametre("nameApp1","nothing");
+        gestionFileApp.definirParametre("nameApp2","nothing");
+        gestionFileApp.definirParametre("nameApp3","nothing");
+        gestionFileApp.definirParametre("nameApp4","nothing");
+        gestionFileApp.definirParametre("nameApp5","nothing");
+        gestionFileApp.definirParametre("nameApp6","nothing");
+        gestionFileApp.definirParametre("nameApp7","nothing");
+        gestionFileApp.definirParametre("nameApp8","nothing");
+        gestionFileApp.definirParametre("nameApp9","nothing");
+        gestionFileApp.definirParametre("nameApp10","nothing");
+        gestionFileApp.definirParametre("nameApp11","nothing");
+        gestionFileApp.definirParametre("nameApp12","nothing");
+        gestionFileApp.definirParametre("emplacementArreraVideo","nothing");
+        gestionFileApp.definirParametre("emplacementArreraDoc","nothing");
+        gestionFileApp.definirParametre("emplacementArreraInfo","nothing");
+        gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
+        gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
         {
@@ -918,7 +947,7 @@ bool CArreraSetting::setNameUser(string name)
 
 bool CArreraSetting::setNameApp(int nb,string name)
 {
-    if (chargementFileApp)
+    if (chargementFileApp==true)
     {
 
         switch (nb) {
@@ -993,75 +1022,97 @@ bool CArreraSetting::setNameApp(int nb,string name)
     }
 }
 
-bool CArreraSetting::setEmplacementApp(int nb,string name)
+bool CArreraSetting::setEmplacementApp(int nb)
 {
+    QString emplacement;
     if (chargementFileApp)
     {
-
-        switch (nb) {
-        case 1:
-            gestionFileApp.definirParametre("emplacementApp1",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 2:
-            gestionFileApp.definirParametre("emplacementApp2",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 3:
-            gestionFileApp.definirParametre("emplacementApp3",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 4:
-            gestionFileApp.definirParametre("emplacementApp4",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 5:
-            gestionFileApp.definirParametre("emplacementApp5",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 6:
-            gestionFileApp.definirParametre("emplacementApp6",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 7:
-            gestionFileApp.definirParametre("emplacementApp7",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 8:
-            gestionFileApp.definirParametre("emplacementApp8",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 9:
-            gestionFileApp.definirParametre("emplacementApp9",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 10:
-            gestionFileApp.definirParametre("emplacementApp10",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 11:
-            gestionFileApp.definirParametre("emplacementApp11",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        case 12:
-            gestionFileApp.definirParametre("emplacementApp12",name);
-            gestionFileApp.sauvegarder(nameFileApp);
-            return true;
-            break;
-        default:
-            return false;
-            break;
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Application n°"+QString::number(nb), QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Application n°"+QString::number(nb), QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            switch (nb) {
+            case 1:
+                gestionFileApp.definirParametre("emplacementApp1",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 2:
+                gestionFileApp.definirParametre("emplacementApp2",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 3:
+                gestionFileApp.definirParametre("emplacementApp3",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 4:
+                gestionFileApp.definirParametre("emplacementApp4",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 5:
+                gestionFileApp.definirParametre("emplacementApp5",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 6:
+                gestionFileApp.definirParametre("emplacementApp6",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 7:
+                gestionFileApp.definirParametre("emplacementApp7",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 8:
+                gestionFileApp.definirParametre("emplacementApp8",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 9:
+                gestionFileApp.definirParametre("emplacementApp9",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 10:
+                gestionFileApp.definirParametre("emplacementApp10",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 11:
+                gestionFileApp.definirParametre("emplacementApp11",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            case 12:
+                gestionFileApp.definirParametre("emplacementApp12",emplacement.toStdString());
+                gestionFileApp.sauvegarder(nameFileApp);
+                return true;
+                break;
+            default:
+                return false;
+                break;
+            }
         }
     }
     else
@@ -1071,7 +1122,7 @@ bool CArreraSetting::setEmplacementApp(int nb,string name)
 
 }
 
-bool CArreraSetting::setArreraAppEmplacement(int nb,string name)
+bool CArreraSetting::setArreraAppEmplacement(int nb)
 {
     /*
      1 :  Arrera Video
@@ -1079,32 +1130,55 @@ bool CArreraSetting::setArreraAppEmplacement(int nb,string name)
      3 : Arrera Info
      4 : Arrera Recherche
      */
+    QString emplacement;
     if (chargementFileApp)
     {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Arrera App", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Arrera App", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
         switch (nb) {
         case 1:
-            gestionFileApp.definirParametre("emplacementArreraVideo",name);
+            gestionFileApp.definirParametre("emplacementArreraVideo",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
             return true;
             break;
         case 2:
-            gestionFileApp.definirParametre("emplacementArreraDoc",name);
+            gestionFileApp.definirParametre("emplacementArreraDoc",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
             return true;
             break;
         case 3:
-            gestionFileApp.definirParametre("emplacementArreraInfo",name);
+            gestionFileApp.definirParametre("emplacementArreraInfo",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
             return true;
             break;
         case 4:
-            gestionFileApp.definirParametre("emplacementArreraRecherche",name);
+            gestionFileApp.definirParametre("emplacementArreraRecherche",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
             return true;
             break;
         default:
             return false;
             break;
+        }
         }
     }
     else

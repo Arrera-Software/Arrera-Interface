@@ -381,7 +381,7 @@ bool CArreraOpenSoft::openArreraApp(int nb)
     {
         if ((windowsOS==true)&&(linuxOS==false))
         {
-            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getEmplacementApp(nb))))) {
+            if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(objPara->getArreraAppEmplacement(nb))))) {
                 return true;
             }
             else {

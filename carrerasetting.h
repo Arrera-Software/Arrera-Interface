@@ -47,8 +47,8 @@ public:
     bool setRyleyEmplacement();
     bool setNameUser(string name);
     bool setNameApp(int nb,string name);
-    bool setEmplacementApp(int nb,string name);
-    bool setArreraAppEmplacement(int nb,string name);
+    bool setEmplacementApp(int nb);
+    bool setArreraAppEmplacement(int nb);
 
 };
 

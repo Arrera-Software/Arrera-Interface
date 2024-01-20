@@ -24,6 +24,7 @@ void CDAParametre::passObjPara(CArreraSetting* obj,CArreraOpenSoft *objSoft)
 {
     objParametre = obj ;
     objOpenSoft = objSoft;
+    winParaApp->passObjet(objParametre);
 
 }
 
