@@ -40,6 +40,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         carreraopensoft.h carreraopensoft.cpp
         arreraapplib.h arreraapplib.cpp arreraapplib.ui
         configAPP.ini
+        cdaparaarreralib.h cdaparaarreralib.cpp cdaparaarreralib.ui
 
     )
 # Define target properties for Android with Qt 6 as:
