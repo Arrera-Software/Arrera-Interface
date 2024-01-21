@@ -167,7 +167,17 @@
        </size>
       </property>
       <property name="text">
-       <string>Quitter</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/quitter.png</normaloff>:/iconBTN/quitter.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
      </widget>
     </item>

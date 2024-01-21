@@ -14,6 +14,7 @@
         <file>ArreraInfo.png</file>
         <file>ArreraRecherche.png</file>
         <file>ArreraVideoDownload.png</file>
+        <file>quitter.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>
