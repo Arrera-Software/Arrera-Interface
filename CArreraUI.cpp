@@ -12,12 +12,14 @@ CArreraUI::CArreraUI(QWidget *parent)
     winPara = new CDAParametre(this);
     winAPP = new ArreraAppLib(this);
     winApropos = new CArreraApropos(this);
+    taskBar = new CArreraTakbar(this);
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
     winAPP->passObjet(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
     loadSetting();
 }
 
@@ -190,5 +192,11 @@ void CArreraUI::errorOpenSoft()
 void CArreraUI::on_IDC_APROPOS_clicked()
 {
     winApropos->show();
+}
+
+
+void CArreraUI::on_IDC_TASKBAR_clicked()
+{
+    taskBar->show();
 }
 
