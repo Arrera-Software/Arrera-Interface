@@ -11,11 +11,13 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->IDC_COPILOTE->setVisible(false);
     winPara = new CDAParametre(this);
     winAPP = new ArreraAppLib(this);
+    winApropos = new CArreraApropos(this);
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
+    winAPP->passObjet(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
-    winAPP->passObjet(&objPara,&objSoftware);
+    connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
     loadSetting();
 }
 
@@ -184,3 +186,9 @@ void CArreraUI::errorOpenSoft()
     msgBox.setText("Une erreur ces produite lors de l'ouverture du logiciel");
     msgBox.addButton(QMessageBox::Ok);
 }
+
+void CArreraUI::on_IDC_APROPOS_clicked()
+{
+    winApropos->show();
+}
+

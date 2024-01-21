@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "cdaparametre.h"
 #include "arreraapplib.h"
+#include "carreraapropos.h"
 //#include "carreraopensoft.h"
 #include <QMessageBox>
 
@@ -55,9 +56,12 @@ private slots:
     void on_IDC_RELOAD_clicked();
 
 
+    void on_IDC_APROPOS_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
+    CArreraApropos *winApropos;
     CDAParametre *winPara ;
     ArreraAppLib *winAPP;
     CArreraOpenSoft objSoftware;
