@@ -2,7 +2,6 @@
 #define CDAPARAARRERALIB_H
 
 #include <QDialog>
-#include "carrerasetting.h"
 #include "carreraopensoft.h"
 
 namespace Ui {

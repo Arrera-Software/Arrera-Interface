@@ -2,7 +2,8 @@
 #define ARRERAAPPLIB_H
 
 #include <QDialog>
-#include "carreraopensoft.h"
+#include "carreratakbar.h"
+
 namespace Ui {
 class ArreraAppLib;
 }

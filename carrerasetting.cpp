@@ -352,6 +352,44 @@ string CArreraSetting::getArreraAppEmplacement(int nb)
     }
 }
 
+string CArreraSetting::getNbAppTaskbar(int nbButton,int mode)
+{
+    if (etatChargement)
+    {
+        string sortieString;
+        switch (nbButton) {
+        case 1:
+            sortieString=gestionFile.obtenirParametre("btnTaskbar1");
+            return sortieString;
+            break;
+        case 2:
+            sortieString=gestionFile.obtenirParametre("btnTaskbar2");
+            return sortieString;
+            break;
+        case 3:
+            sortieString=gestionFile.obtenirParametre("btnTaskbar3");
+            return sortieString;
+            break;
+        case 4:
+            sortieString=gestionFile.obtenirParametre("btnTaskbar4");
+            return sortieString;
+            break;
+        case 5:
+            sortieString=gestionFile.obtenirParametre("btnTaskbar5");
+            return sortieString;
+            break;
+        default:
+            return "";
+            break;
+        }
+
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::resetAllPara()
 {
     if (etatChargement)
@@ -397,6 +435,11 @@ bool CArreraSetting::resetAllPara()
         gestionFileApp.definirParametre("emplacementArreraDoc","nothing");
         gestionFileApp.definirParametre("emplacementArreraInfo","nothing");
         gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
+        gestionFile.definirParametre("btnTaskbar1","nothing");
+        gestionFile.definirParametre("btnTaskbar2","nothing");
+        gestionFile.definirParametre("btnTaskbar3","nothing");
+        gestionFile.definirParametre("btnTaskbar4","nothing");
+        gestionFile.definirParametre("btnTaskbar5","nothing");
         gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
@@ -1180,6 +1223,50 @@ bool CArreraSetting::setArreraAppEmplacement(int nb)
             break;
         }
         }
+    }
+    else
+    {
+        return false;
+    }
+
+}
+bool CArreraSetting::setAppTaskBar(int nbAppTaskbar,int nbAppSelected)
+{
+
+
+    if (etatChargement)
+    {
+        switch (nbAppTaskbar) {
+        case 1:
+            gestionFile.definirParametre("btnTaskbar1",to_string(nbAppSelected));
+            gestionFile.sauvegarder(nameFile);
+            return true;
+            break;
+        case 2:
+            gestionFile.definirParametre("btnTaskbar2",to_string(nbAppSelected));
+            gestionFile.sauvegarder(nameFile);
+            return true;
+            break;
+        case 3:
+            gestionFile.definirParametre("btnTaskbar3",to_string(nbAppSelected));
+            gestionFile.sauvegarder(nameFile);
+            return true;
+            break;
+        case 4:
+            gestionFile.definirParametre("btnTaskbar4",to_string(nbAppSelected));
+            gestionFile.sauvegarder(nameFile);
+            return true;
+            break;
+        case 5:
+            gestionFile.definirParametre("btnTaskbar5",to_string(nbAppSelected));
+            gestionFile.sauvegarder(nameFile);
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
+
     }
     else
     {

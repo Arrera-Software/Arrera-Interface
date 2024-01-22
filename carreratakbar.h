@@ -1,6 +1,6 @@
 #ifndef CARRERATAKBAR_H
 #define CARRERATAKBAR_H
-
+#include "cdaparametre.h"
 #include <QDialog>
 
 namespace Ui {
@@ -14,6 +14,8 @@ class CArreraTakbar : public QDialog
 public:
     explicit CArreraTakbar(QWidget *parent = nullptr);
     ~CArreraTakbar();
+    void passObj(CArreraSetting* p);
+    void loadPara(int mode);
 
 private slots:
     void on_IDC_APP1_clicked();
@@ -30,6 +32,8 @@ private slots:
 
 private:
     Ui::CArreraTakbar *ui;
+    CArreraSetting* objPara;
+    int nbApp[5];
 };
 
 #endif // CARRERATAKBAR_H

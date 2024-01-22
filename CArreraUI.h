@@ -2,11 +2,8 @@
 #define CARRERAUI_H
 
 #include <QMainWindow>
-#include "cdaparametre.h"
 #include "arreraapplib.h"
 #include "carreraapropos.h"
-#include "carreratakbar.h"
-//#include "carreraopensoft.h"
 #include <QMessageBox>
 
 

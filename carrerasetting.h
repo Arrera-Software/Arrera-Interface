@@ -1,7 +1,6 @@
 #ifndef CARRERASETTING_H
 #define CARRERASETTING_H
 #include "cconfiguration.h"
-#include <string.h>
 #include "cos.h"
 
 using namespace std ;
@@ -19,6 +18,7 @@ public:
 
     bool loadSetting();
 
+
     string getNameUser();
     string getNameMode1();
     string getNameMode2();
@@ -34,6 +34,7 @@ public:
     string getNameApp(int nb);
     string getEmplacementApp(int nb);
     string getArreraAppEmplacement(int nb);
+    string getNbAppTaskbar(int nbButton,int mode);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -49,6 +50,7 @@ public:
     bool setNameApp(int nb,string name);
     bool setEmplacementApp(int nb);
     bool setArreraAppEmplacement(int nb);
+    bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected);
 
 };
 
