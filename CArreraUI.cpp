@@ -16,7 +16,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
     winAPP->passObjet(&objPara,&objSoftware);
-    taskBar->passObj(&objPara);
+    taskBar->passObj(&objPara,&objSoftware);
     connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);

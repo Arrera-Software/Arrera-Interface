@@ -8,8 +8,9 @@ CArreraTakbar::CArreraTakbar(QWidget *parent)
     ui->setupUi(this);
 }
 
-void CArreraTakbar::passObj(CArreraSetting* p){
+void CArreraTakbar::passObj(CArreraSetting* p,CArreraOpenSoft* o){
     objPara = p;
+    openObj = o;
 }
 
 void CArreraTakbar::loadPara(int mode)
@@ -84,31 +85,46 @@ CArreraTakbar::~CArreraTakbar()
 
 void CArreraTakbar::on_IDC_APP1_clicked()
 {
-
+    if (nbApp[0]!=0)
+    {
+        openObj->openAppLib(nbApp[0]);
+    }
 }
 
 
 void CArreraTakbar::on_IDC_APP2_clicked()
 {
-
+    if (nbApp[1]!=0)
+    {
+        openObj->openAppLib(nbApp[1]);
+    }
 }
 
 
 void CArreraTakbar::on_IDC_APP3_clicked()
 {
-
+    if (nbApp[2]!=0)
+    {
+        openObj->openAppLib(nbApp[2]);
+    }
 }
 
 
 void CArreraTakbar::on_IDC_APP4_clicked()
 {
-
+    if (nbApp[3]!=0)
+    {
+        openObj->openAppLib(nbApp[3]);
+    }
 }
 
 
 void CArreraTakbar::on_IDC_APP5_clicked()
 {
-
+    if (nbApp[4]!=0)
+    {
+        openObj->openAppLib(nbApp[4]);
+    }
 }
 
 

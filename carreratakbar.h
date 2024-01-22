@@ -14,7 +14,7 @@ class CArreraTakbar : public QDialog
 public:
     explicit CArreraTakbar(QWidget *parent = nullptr);
     ~CArreraTakbar();
-    void passObj(CArreraSetting* p);
+    void passObj(CArreraSetting* p,CArreraOpenSoft* o);
     void loadPara(int mode);
 
 private slots:
@@ -33,6 +33,7 @@ private slots:
 private:
     Ui::CArreraTakbar *ui;
     CArreraSetting* objPara;
+    CArreraOpenSoft* openObj;
     int nbApp[5];
 };
 
