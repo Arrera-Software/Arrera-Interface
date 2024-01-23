@@ -531,13 +531,13 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="FGESTTASKBAR">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>10</y>
      <width>591</width>
-     <height>661</height>
+     <height>681</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -546,17 +546,25 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="IDC_LTASKBAR">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>20</x>
       <y>20</y>
-      <width>66</width>
-      <height>18</height>
+      <width>541</width>
+      <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Taskbar</string>
+     <string>Gestion taskbar</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

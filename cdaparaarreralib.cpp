@@ -11,9 +11,22 @@ CDAparaArreraLib::CDAparaArreraLib(QWidget *parent)
     ui->FGESTAPP->setVisible(false);
     ui->FArreraApp->setVisible(false);
     ui->Fapp->setVisible(false);
-    //ui->FTASKBAR
+    ui->FGESTTASKBAR->setVisible(false);
 }
-
+void CDAparaArreraLib::modeApp()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(true);
+    ui->Fapp->setVisible(true);
+    ui->FGESTTASKBAR->setVisible(false);
+}
+void CDAparaArreraLib::modeTaskbar()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(true);
+}
 CDAparaArreraLib::~CDAparaArreraLib()
 {
     delete ui;

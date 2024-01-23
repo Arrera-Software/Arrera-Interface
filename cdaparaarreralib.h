@@ -16,6 +16,8 @@ public:
     explicit CDAparaArreraLib(QWidget *parent = nullptr);
     ~CDAparaArreraLib();
     void passObjet(CArreraSetting* p);
+    void modeApp();
+    void modeTaskbar();
 
 private slots:
     void on_IDC_GESTAPP1_clicked();

@@ -52,6 +52,8 @@ private slots:
 
     void on_IDC_APP_clicked();
 
+    void on_IDC_GESTTASKBAR_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
