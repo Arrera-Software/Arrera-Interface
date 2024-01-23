@@ -8,6 +8,10 @@ CDAparaArreraLib::CDAparaArreraLib(QWidget *parent)
     ui->setupUi(this);
     clearGestApp();
     nbAppSelect = 0;
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    //ui->FTASKBAR
 }
 
 CDAparaArreraLib::~CDAparaArreraLib()
