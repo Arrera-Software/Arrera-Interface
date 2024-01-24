@@ -20,7 +20,8 @@ void CArreraTakbar::loadPara(int mode)
     sortiePara[1] = objPara->getNbAppTaskbar(2,mode);
     sortiePara[2] = objPara->getNbAppTaskbar(3,mode);
     sortiePara[3] = objPara->getNbAppTaskbar(4,mode);
-    sortiePara[4] = objPara->getNbAppTaskbar(4,mode);
+    sortiePara[4] = objPara->getNbAppTaskbar(5,mode);
+
     if ((sortiePara[0]=="nothing")||(sortiePara[0]==""))
     {
         ui->IDC_APP1->setVisible(false);
@@ -32,6 +33,7 @@ void CArreraTakbar::loadPara(int mode)
         ui->IDC_APP1->setText(objPara->getNameApp(stoi(sortiePara[0])).c_str());
         nbApp[0]=stoi(sortiePara[0]);
     }
+
     if ((sortiePara[1]=="nothing")||(sortiePara[1]==""))
     {
         ui->IDC_APP2->setVisible(false);
@@ -43,6 +45,7 @@ void CArreraTakbar::loadPara(int mode)
         ui->IDC_APP2->setText(objPara->getNameApp(stoi(sortiePara[1])).c_str());
         nbApp[1]=stoi(sortiePara[1]);
     }
+
     if ((sortiePara[2]=="nothing")||(sortiePara[2]==""))
     {
         ui->IDC_APP3->setVisible(false);
@@ -54,6 +57,7 @@ void CArreraTakbar::loadPara(int mode)
         ui->IDC_APP3->setText(objPara->getNameApp(stoi(sortiePara[2])).c_str());
         nbApp[2]=stoi(sortiePara[2]);
     }
+
     if ((sortiePara[3]=="nothing")||(sortiePara[3]==""))
     {
         ui->IDC_APP4->setVisible(false);
@@ -65,6 +69,7 @@ void CArreraTakbar::loadPara(int mode)
         ui->IDC_APP4->setText(objPara->getNameApp(stoi(sortiePara[3])).c_str());
         nbApp[3]=stoi(sortiePara[3]);
     }
+
     if ((sortiePara[4]=="nothing")||(sortiePara[4]==""))
     {
         ui->IDC_APP5->setVisible(false);
