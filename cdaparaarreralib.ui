@@ -535,7 +535,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>10</y>
+     <y>0</y>
      <width>591</width>
      <height>681</height>
     </rect>
@@ -567,7 +567,201 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QSpinBox" name="IDC_CHOXBTN">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>220</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>12</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="IDC_VALIDERTASKBAR">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>630</y>
+      <width>100</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="ArreraTheme.qrc">
+      <normaloff>:/iconBTN/valider.png</normaloff>:/iconBTN/valider.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>35</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>50</y>
+      <width>160</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="leftMargin">
+      <number>40</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="IDC_TASK1">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Raccourcie 
+1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_TASK2">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Raccourcie 
+2</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_TASK3">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Raccourcie 
+3</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_TASK4">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Raccourcie 
+4</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_TASK5">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Raccourcie 
+5</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="IDC_LBARAPP">
+    <property name="geometry">
+     <rect>
+      <x>178</x>
+      <y>229</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Numero de l'application :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IDC_LRACOURCISELECT">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>110</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
+  <zorder>FArreraApp</zorder>
+  <zorder>Fapp</zorder>
+  <zorder>FGESTAPP</zorder>
+  <zorder>FGESTTASKBAR</zorder>
  </widget>
  <resources>
   <include location="ArreraTheme.qrc"/>
