@@ -212,5 +212,13 @@ void CDAParametre::on_IDC_RESETINTERFACE_clicked()
 void CDAParametre::on_IDC_APP_clicked()
 {
     winParaApp->show();
+    winParaApp->modeApp();
+}
+
+
+void CDAParametre::on_IDC_GESTTASKBAR_clicked()
+{
+    winParaApp->show();
+    winParaApp->modeTaskbar();
 }
 

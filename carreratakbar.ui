@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CArreraTakbar</class>
+ <widget class="QDialog" name="CArreraTakbar">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>100</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Arrera Bar</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="ArreraTheme.qrc">
+    <normaloff>:/IconArrera/ArreraInterfaceLogo.png</normaloff>:/IconArrera/ArreraInterfaceLogo.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>581</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="IDC_APP1">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>App 1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_APP2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>App 2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_APP3">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>App 3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_APP4">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>App 4</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IDC_APP5">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>App 5</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>0</y>
+     <width>111</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="IDC_QUIT">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/quitter.png</normaloff>:/iconBTN/quitter.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="ArreraTheme.qrc"/>
+ </resources>
+ <connections/>
+</ui>

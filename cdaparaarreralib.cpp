@@ -8,8 +8,28 @@ CDAparaArreraLib::CDAparaArreraLib(QWidget *parent)
     ui->setupUi(this);
     clearGestApp();
     nbAppSelect = 0;
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(false);
 }
+void CDAparaArreraLib::modeApp()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(true);
+    ui->Fapp->setVisible(true);
+    ui->FGESTTASKBAR->setVisible(false);
+}
+void CDAparaArreraLib::modeTaskbar()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(true);
+    ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
+    nbRacoucieSelect=0;
 
+}
 CDAparaArreraLib::~CDAparaArreraLib()
 {
     delete ui;
@@ -140,5 +160,56 @@ void CDAparaArreraLib::on_IDC_VALIDER_clicked()//Btn valider
     para->setNameApp(nbAppSelect,ui->IDC_TEXTAPPNAME->toPlainText().toStdString());
     para->setEmplacementApp(nbAppSelect);
     clearGestApp();
+}
+
+
+void CDAparaArreraLib::on_IDC_TASK1_clicked()
+{
+    nbRacoucieSelect = 1 ;
+    ui->IDC_LRACOURCISELECT->setText("Racourci selectioner : n°1");
+}
+
+
+void CDAparaArreraLib::on_IDC_TASK2_clicked()
+{
+    nbRacoucieSelect = 2 ;
+    ui->IDC_LRACOURCISELECT->setText("Racourci selectioner : n°2");
+}
+
+
+void CDAparaArreraLib::on_IDC_TASK3_clicked()
+{
+    nbRacoucieSelect = 3 ;
+    ui->IDC_LRACOURCISELECT->setText("Racourci selectioner : n°3");
+}
+
+
+void CDAparaArreraLib::on_IDC_TASK4_clicked()
+{
+    nbRacoucieSelect = 4 ;
+    ui->IDC_LRACOURCISELECT->setText("Racourci selectioner : n°4");
+}
+
+
+void CDAparaArreraLib::on_IDC_TASK5_clicked()
+{
+    nbRacoucieSelect = 5 ;
+    ui->IDC_LRACOURCISELECT->setText("Racourci selectioner : n°5");
+}
+
+
+void CDAparaArreraLib::on_IDC_VALIDERTASKBAR_clicked()
+{
+    if (nbRacoucieSelect==0)
+    {
+
+    }
+    else
+    {
+        para->setAppTaskBar(nbRacoucieSelect,ui->IDC_CHOXBTN->value());
+        nbRacoucieSelect=0;
+        ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
+    }
+
 }
 

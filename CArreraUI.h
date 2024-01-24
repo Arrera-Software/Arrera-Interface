@@ -2,10 +2,8 @@
 #define CARRERAUI_H
 
 #include <QMainWindow>
-#include "cdaparametre.h"
 #include "arreraapplib.h"
 #include "carreraapropos.h"
-//#include "carreraopensoft.h"
 #include <QMessageBox>
 
 
@@ -58,12 +56,15 @@ private slots:
 
     void on_IDC_APROPOS_clicked();
 
+    void on_IDC_TASKBAR_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
     CArreraApropos *winApropos;
     CDAParametre *winPara ;
     ArreraAppLib *winAPP;
+    CArreraTakbar *taskBar;
     CArreraOpenSoft objSoftware;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
