@@ -210,6 +210,7 @@ void CDAparaArreraLib::on_IDC_VALIDERTASKBAR_clicked()
     {
         para->setAppTaskBar(nbRacoucieSelect,ui->IDC_CHOXBTN->value(),modeSelected);
         nbRacoucieSelect=0;
+        ui->IDC_CHOXBTN->setValue(1);
         ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
     }
 
