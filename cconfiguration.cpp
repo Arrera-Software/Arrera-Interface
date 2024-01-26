@@ -1,4 +1,5 @@
 #include "cconfiguration.h"
+#include <QDebug>
 
 Cconfiguration::Cconfiguration()
 {

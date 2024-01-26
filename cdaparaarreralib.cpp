@@ -20,7 +20,7 @@ void CDAparaArreraLib::modeApp()
     ui->Fapp->setVisible(true);
     ui->FGESTTASKBAR->setVisible(false);
 }
-void CDAparaArreraLib::modeTaskbar()
+void CDAparaArreraLib::modeTaskbar(int mode)
 {
     ui->FGESTAPP->setVisible(false);
     ui->FArreraApp->setVisible(false);
@@ -28,6 +28,8 @@ void CDAparaArreraLib::modeTaskbar()
     ui->FGESTTASKBAR->setVisible(true);
     ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
     nbRacoucieSelect=0;
+    modeSelected = mode;
+    qDebug()<<modeSelected;
 
 }
 CDAparaArreraLib::~CDAparaArreraLib()
@@ -206,7 +208,7 @@ void CDAparaArreraLib::on_IDC_VALIDERTASKBAR_clicked()
     }
     else
     {
-        para->setAppTaskBar(nbRacoucieSelect,ui->IDC_CHOXBTN->value());
+        para->setAppTaskBar(nbRacoucieSelect,ui->IDC_CHOXBTN->value(),modeSelected);
         nbRacoucieSelect=0;
         ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
     }

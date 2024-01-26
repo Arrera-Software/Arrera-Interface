@@ -10,8 +10,8 @@ CDAParametre::CDAParametre(QWidget *parent) :
     modeSelectionner = 0 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
     ui->IDC_CHOIXSIX->setChecked(true);
-    ui->IDC_ARRERATASKBAR->setChecked(false);
     winParaApp = new CDAparaArreraLib(this);
+    taskBarModeEnable = false;
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
 }
 
@@ -73,12 +73,12 @@ void CDAParametre::on_IDC_GESTMODE5_clicked()
 void CDAParametre::on_IDC_VALIDER_clicked()
 {
     QMessageBox msgBox;
-    bool sortieEcriture,arreraTaskBar;
+    bool sortieEcriture=false,arreraTaskBar;
     QString valeurGUI ;
     string valeurString;
     sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
-    arreraTaskBar = ui->IDC_ARRERATASKBAR->isChecked();
+    arreraTaskBar = taskBarModeEnable;
     if (modeSelectionner==0)
     {
         msgBox.setWindowTitle("Erreur de selection");
@@ -140,7 +140,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
         }
         ui->IDC_NAMETEXT->clear();
         ui->IDC_CHOIXSIX->setChecked(true);
-        ui->IDC_ARRERATASKBAR->setChecked(false);
+        taskBarModeEnable = false;
         ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
         modeSelectionner = 0 ;
     }
@@ -219,6 +219,21 @@ void CDAParametre::on_IDC_APP_clicked()
 void CDAParametre::on_IDC_GESTTASKBAR_clicked()
 {
     winParaApp->show();
-    winParaApp->modeTaskbar();
+    winParaApp->modeTaskbar(0);
+}
+
+
+void CDAParametre::on_IDC_APPTASKMODE_clicked()
+{
+    if (modeSelectionner==0)
+    {
+
+    }
+    else
+    {
+        taskBarModeEnable = true;
+        winParaApp->show();
+        winParaApp->modeTaskbar(modeSelectionner);
+    }
 }
 

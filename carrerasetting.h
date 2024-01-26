@@ -9,9 +9,11 @@ class CArreraSetting
 {
 private :
     Cconfiguration gestionFile,gestionFileMode[5],gestionFileApp;
+    Cconfiguration gestionFileTaskbar[6];
     COS systeme;
     bool etatChargement, chargementMode[5],linuxOS,windowsOS,chargementFileApp;
-    string nameFile,nameFileMode[5],nameFileApp;
+    bool etatFileTaskbar[6];
+    string nameFile,nameFileMode[5],nameFileApp , nameFileTaskbarMode[6];
     string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
 public:
     CArreraSetting();
@@ -50,7 +52,7 @@ public:
     bool setNameApp(int nb,string name);
     bool setEmplacementApp(int nb);
     bool setArreraAppEmplacement(int nb);
-    bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected);
+    bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode);
 
 };
 
