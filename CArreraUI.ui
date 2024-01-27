@@ -700,6 +700,10 @@
         <property name="text">
          <string/>
         </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/icon Assistant.png</normaloff>:/iconBTN/icon Assistant.png</iconset>
+        </property>
         <property name="iconSize">
          <size>
           <width>70</width>
@@ -784,6 +788,13 @@
        </widget>
       </item>
      </layout>
+     <zorder>IDC_ASSISTANTMODE</zorder>
+     <zorder>IDC_TABLEURMODE</zorder>
+     <zorder>IDC_TRAITEMENTMODE</zorder>
+     <zorder>IDC_APPMODE</zorder>
+     <zorder>IDC_TASKBARMODE</zorder>
+     <zorder>IDC_NAVIGATEURMODE</zorder>
+     <zorder>IDC_PRESENTATIONMODE</zorder>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">

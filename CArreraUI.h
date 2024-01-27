@@ -74,6 +74,8 @@ private slots:
 
     void on_IDC_QUIT2_clicked();
 
+    void on_IDC_ASSISTANTMODE_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;

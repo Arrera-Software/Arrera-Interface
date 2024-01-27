@@ -272,3 +272,9 @@ void CArreraUI::on_IDC_QUIT2_clicked()
     qApp->quit();
 }
 
+
+void CArreraUI::on_IDC_ASSISTANTMODE_clicked()
+{
+
+}
+
