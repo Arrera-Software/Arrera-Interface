@@ -76,9 +76,11 @@ void CDAParametre::on_IDC_VALIDER_clicked()
     bool sortieEcriture=false,arreraTaskBar;
     QString valeurGUI ;
     string valeurString;
+    int nbAppBoot;
     sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
     arreraTaskBar = taskBarModeEnable;
+    nbAppBoot = ui->IDC_NBAPPBOOT->value();
     if (modeSelectionner==0)
     {
         msgBox.setWindowTitle("Erreur de selection");
@@ -96,6 +98,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setNameMode(1,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(1,arreraTaskBar);
+                sortieEcriture = objParametre->setModeAppAsBoot(1,nbAppBoot);
                 break;
             case 2 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
@@ -103,6 +106,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture =objParametre->setNameMode(2,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(2,arreraTaskBar);
+                sortieEcriture = objParametre->setModeAppAsBoot(2,nbAppBoot);
                 break;
             case 3 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
@@ -110,6 +114,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture =objParametre->setNameMode(3,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(3,arreraTaskBar);
+                sortieEcriture = objParametre->setModeAppAsBoot(3,nbAppBoot);
                 break;
             case 4 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
@@ -117,6 +122,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture =objParametre->setNameMode(4,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(4,arreraTaskBar);
+                sortieEcriture = objParametre->setModeAppAsBoot(4,nbAppBoot);
                 break;
             case 5 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
@@ -124,6 +130,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setNameMode(5,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(5,arreraTaskBar);
+                sortieEcriture = objParametre->setModeAppAsBoot(5,nbAppBoot);
                 break;
             default :
                 msgBox.setWindowTitle("Erreur de selection");
@@ -139,6 +146,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
             msgBox.addButton(QMessageBox::Ok);
         }
         ui->IDC_NAMETEXT->clear();
+        ui->IDC_NBAPPBOOT->setValue(0);
         ui->IDC_CHOIXSIX->setChecked(true);
         taskBarModeEnable = false;
         ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");

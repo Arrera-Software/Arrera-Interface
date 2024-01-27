@@ -690,7 +690,7 @@ Mode 5</string>
       <string>Taskbar App</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="IDC_NBAPP">
+    <widget class="QSpinBox" name="IDC_NBAPPBOOT">
      <property name="geometry">
       <rect>
        <x>210</x>

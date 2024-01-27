@@ -15,6 +15,7 @@ private :
     bool etatFileTaskbar[6];
     string nameFile,nameFileMode[5],nameFileApp , nameFileTaskbarMode[6];
     string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
+    void chargedAllFile();
 public:
     CArreraSetting();
 
@@ -37,6 +38,7 @@ public:
     string getEmplacementApp(int nb);
     string getArreraAppEmplacement(int nb);
     string getNbAppTaskbar(int nbButton,int mode);
+    string getModeAppAsBoot(int mode);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -53,6 +55,7 @@ public:
     bool setEmplacementApp(int nb);
     bool setArreraAppEmplacement(int nb);
     bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode);
+    bool setModeAppAsBoot(int mode,int nbAPPSelected);
 
 };
 
