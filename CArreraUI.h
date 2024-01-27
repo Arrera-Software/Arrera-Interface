@@ -6,7 +6,6 @@
 #include "carreraapropos.h"
 #include <QMessageBox>
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class CArreraUI; }
 QT_END_NAMESPACE
@@ -58,6 +57,24 @@ private slots:
 
     void on_IDC_TASKBAR_clicked();
 
+    void on_IDC_TABLEURMODE_clicked();
+
+    void on_IDC_TRAITEMENTMODE_clicked();
+
+    void on_IDC_APPMODE_clicked();
+
+    void on_IDC_TASKBARMODE_clicked();
+
+    void on_IDC_NAVIGATEURMODE_clicked();
+
+    void on_IDC_PRESENTATIONMODE_clicked();
+
+    void on_IDC_QUITMODE_clicked();
+
+    void on_IDC_QUIT2_clicked();
+
+    void on_IDC_ASSISTANTMODE_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
@@ -66,8 +83,11 @@ private:
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
     CArreraOpenSoft objSoftware;
+    int nbModeON,assistantMode;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
+    void onMode(int nbMode);
+    void offMode();
 
 };
 #endif // CARRERAUI_H

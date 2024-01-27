@@ -4,7 +4,10 @@
 
 CArreraSetting::CArreraSetting()
 {
-    int i = 0 ;
+    // Recuperartion etat systeme d'exploitation
+    windowsOS = systeme.getWindows();
+    linuxOS = systeme.getLinux();
+    // Nom des fichier
     nameFile = "config.ini";
     nameFileMode[0]="configMode1.ini";
     nameFileMode[1]="configMode2.ini";
@@ -12,14 +15,31 @@ CArreraSetting::CArreraSetting()
     nameFileMode[3]="configMode4.ini";
     nameFileMode[4]="configMode5.ini";
     nameFileApp =  "configAPP.ini";
+    nameFileTaskbarMode[0] = nameFile;
+    nameFileTaskbarMode[1] = nameFileMode[0];
+    nameFileTaskbarMode[2] = nameFileMode[1];
+    nameFileTaskbarMode[3] = nameFileMode[2];
+    nameFileTaskbarMode[4] = nameFileMode[3];
+    nameFileTaskbarMode[5] = nameFileMode[4];
+    // Chargement de fichier
+    chargedAllFile();
+}
+
+void CArreraSetting::chargedAllFile()
+{
+    int i = 0 ;
     etatChargement = gestionFile.charger(nameFile);
     chargementFileApp = gestionFileApp.charger(nameFileApp);
     for (i=0;i<4;i++)
     {
         chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
     }
-    windowsOS = systeme.getWindows();
-    linuxOS = systeme.getLinux();
+    etatFileTaskbar[0]=gestionFileTaskbar[0].charger(nameFile);
+    etatFileTaskbar[1]=gestionFileTaskbar[1].charger(nameFileMode[0]);
+    etatFileTaskbar[2]=gestionFileTaskbar[2].charger(nameFileMode[1]);
+    etatFileTaskbar[3]=gestionFileTaskbar[3].charger(nameFileMode[2]);
+    etatFileTaskbar[4]=gestionFileTaskbar[4].charger(nameFileMode[3]);
+    etatFileTaskbar[5]=gestionFileTaskbar[5].charger(nameFileMode[4]);
 }
 
 bool CArreraSetting::loadSetting()
@@ -31,6 +51,7 @@ bool CArreraSetting::loadSetting()
         nameMode3 = gestionFile.obtenirParametre("nameMode3");
         nameMode4 = gestionFile.obtenirParametre("nameMode4");
         nameMode5 = gestionFile.obtenirParametre("nameMode5");
+        chargedAllFile();
         return true;
     }
     else
@@ -135,6 +156,34 @@ string CArreraSetting::getSixEmplacement()
     else
     {
         return "";
+    }
+}
+
+int CArreraSetting::getAssistantMode(int nbMode)
+{
+    if (chargementMode[nbMode-1])
+    {
+        string sortie =gestionFile.obtenirParametre("emplacementSix");;
+        if (sortie=="six")
+        {
+            return 1 ;
+        }
+        else
+        {
+            if (sortie=="ryley")
+            {
+                return 2 ;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+    }
+    else
+    {
+        return 0;
     }
 }
 
@@ -354,28 +403,28 @@ string CArreraSetting::getArreraAppEmplacement(int nb)
 
 string CArreraSetting::getNbAppTaskbar(int nbButton,int mode)
 {
-    if (etatChargement)
+    if ((etatFileTaskbar[0])&&(etatFileTaskbar[1])&&(etatFileTaskbar[2])&&(etatFileTaskbar[3])&&(etatFileTaskbar[4])&&(etatFileTaskbar[5]))
     {
         string sortieString;
         switch (nbButton) {
         case 1:
-            sortieString=gestionFile.obtenirParametre("btnTaskbar1");
+            sortieString=gestionFileTaskbar[mode].obtenirParametre("btnTaskbar1");
             return sortieString;
             break;
         case 2:
-            sortieString=gestionFile.obtenirParametre("btnTaskbar2");
+            sortieString=gestionFileTaskbar[mode].obtenirParametre("btnTaskbar2");
             return sortieString;
             break;
         case 3:
-            sortieString=gestionFile.obtenirParametre("btnTaskbar3");
+            sortieString=gestionFileTaskbar[mode].obtenirParametre("btnTaskbar3");
             return sortieString;
             break;
         case 4:
-            sortieString=gestionFile.obtenirParametre("btnTaskbar4");
+            sortieString=gestionFileTaskbar[mode].obtenirParametre("btnTaskbar4");
             return sortieString;
             break;
         case 5:
-            sortieString=gestionFile.obtenirParametre("btnTaskbar5");
+            sortieString=gestionFileTaskbar[mode].obtenirParametre("btnTaskbar5");
             return sortieString;
             break;
         default:
@@ -407,6 +456,12 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("emplacementPresentation","nothing");
         gestionFile.definirParametre("emplacementTraitementT","nothing");
         gestionFile.definirParametre("emplacementNavigateur","nothing");
+        gestionFile.definirParametre("btnTaskbar1","nothing");
+        gestionFile.definirParametre("btnTaskbar2","nothing");
+        gestionFile.definirParametre("btnTaskbar3","nothing");
+        gestionFile.definirParametre("btnTaskbar4","nothing");
+        gestionFile.definirParametre("btnTaskbar5","nothing");
+
         gestionFileApp.definirParametre("emplacementApp1","nothing");
         gestionFileApp.definirParametre("emplacementApp2","nothing");
         gestionFileApp.definirParametre("emplacementApp3","nothing");
@@ -435,21 +490,28 @@ bool CArreraSetting::resetAllPara()
         gestionFileApp.definirParametre("emplacementArreraDoc","nothing");
         gestionFileApp.definirParametre("emplacementArreraInfo","nothing");
         gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
-        gestionFile.definirParametre("btnTaskbar1","nothing");
-        gestionFile.definirParametre("btnTaskbar2","nothing");
-        gestionFile.definirParametre("btnTaskbar3","nothing");
-        gestionFile.definirParametre("btnTaskbar4","nothing");
-        gestionFile.definirParametre("btnTaskbar5","nothing");
         gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
+
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
         {
-            for (i=0;i<4;i++)
+            for (i=0;i<5;i++)
             {
                 gestionFileMode[i].definirParametre("assistant","nothing");
                 gestionFileMode[i].definirParametre("taskbar","false");
                 gestionFileMode[i].sauvegarder(nameFileMode[i]);
+                gestionFileMode[i].definirParametre("btnTaskbar1","nothing");
+                gestionFileMode[i].definirParametre("btnTaskbar2","nothing");
+                gestionFileMode[i].sauvegarder(nameFileMode[i]);
+                gestionFileMode[i].definirParametre("btnTaskbar3","nothing");
+                gestionFileMode[i].definirParametre("btnTaskbar4","nothing");
+                gestionFileMode[i].sauvegarder(nameFileMode[i]);
+                gestionFileMode[i].definirParametre("btnTaskbar5","nothing");
+                gestionFileMode[i].definirParametre("appBoot","0");
+                gestionFileMode[i].sauvegarder(nameFileMode[i]);
+
             }
+            chargedAllFile();
             return true;
         }
         else
@@ -462,6 +524,19 @@ bool CArreraSetting::resetAllPara()
         return false;
     }
 }
+
+string CArreraSetting::getModeAppAsBoot(int mode)
+{
+    if (chargementMode[mode-1])
+    {
+        return gestionFileMode[mode-1].obtenirParametre("appBoot");
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::setNameMode(int nbMode,string valeur)
 {
     if (etatChargement)
@@ -471,30 +546,35 @@ bool CArreraSetting::setNameMode(int nbMode,string valeur)
             gestionFile.definirParametre("nameMode1",valeur);
             gestionFile.sauvegarder(nameFile);
             nameMode1 = gestionFile.obtenirParametre("nameMode1");
+            chargedAllFile();
             return true;
             break;
         case 2:
             gestionFile.definirParametre("nameMode2",valeur);
             gestionFile.sauvegarder(nameFile);
             nameMode1 = gestionFile.obtenirParametre("nameMode2");
+            chargedAllFile();
             return true;
             break;
         case 3:
             gestionFile.definirParametre("nameMode3",valeur);
             gestionFile.sauvegarder(nameFile);
             nameMode1 = gestionFile.obtenirParametre("nameMode3");
+            chargedAllFile();
             return true;
             break;
         case 4:
             gestionFile.definirParametre("nameMode4",valeur);
             gestionFile.sauvegarder(nameFile);
             nameMode1 = gestionFile.obtenirParametre("nameMode4");
+            chargedAllFile();
             return true;
             break;
         case 5:
             gestionFile.definirParametre("nameMode5",valeur);
             gestionFile.sauvegarder(nameFile);
             nameMode1 = gestionFile.obtenirParametre("nameMode5");
+            chargedAllFile();
             return true;
             break;
         default:
@@ -522,6 +602,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             {
                 gestionFileMode[0].definirParametre("assistant","six");
                 gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                chargedAllFile();
                 return true;
             }
             else
@@ -530,12 +611,14 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
                 {
                     gestionFileMode[0].definirParametre("assistant","ryley");
                     gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                    chargedAllFile();
                     return true;
                 }
                 else
                 {
                     gestionFileMode[0].definirParametre("assistant","nothing");
                     gestionFileMode[0].sauvegarder(nameFileMode[0]);
+                    chargedAllFile();
                     return true;
                 }
             }
@@ -553,6 +636,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             {
                 gestionFileMode[1].definirParametre("assistant","six");
                 gestionFileMode[1].sauvegarder(nameFileMode[1]);
+                chargedAllFile();
                 return true;
             }
             else
@@ -561,6 +645,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
                 {
                     gestionFileMode[1].definirParametre("assistant","ryley");
                     gestionFileMode[1].sauvegarder(nameFileMode[1]);
+                    chargedAllFile();
                     return true;
                 }
                 else
@@ -584,6 +669,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             {
                 gestionFileMode[2].definirParametre("assistant","six");
                 gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                chargedAllFile();
                 return true;
             }
             else
@@ -592,12 +678,14 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
                 {
                     gestionFileMode[2].definirParametre("assistant","ryley");
                     gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                    chargedAllFile();
                     return true;
                 }
                 else
                 {
                     gestionFileMode[2].definirParametre("assistant","nothing");
                     gestionFileMode[2].sauvegarder(nameFileMode[2]);
+                    chargedAllFile();
                     return true;
                 }
             }
@@ -615,6 +703,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             {
                 gestionFileMode[3].definirParametre("assistant","six");
                 gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                chargedAllFile();
                 return true;
             }
             else
@@ -623,12 +712,14 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
                 {
                     gestionFileMode[3].definirParametre("assistant","ryley");
                     gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                    chargedAllFile();
                     return true;
                 }
                 else
                 {
                     gestionFileMode[3].definirParametre("assistant","nothing");
                     gestionFileMode[3].sauvegarder(nameFileMode[3]);
+                    chargedAllFile();
                     return true;
                 }
             }
@@ -645,6 +736,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             {
                 gestionFileMode[4].definirParametre("assistant","six");
                 gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                chargedAllFile();
                 return true;
             }
             else
@@ -653,12 +745,14 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
                 {
                     gestionFileMode[4].definirParametre("assistant","ryley");
                     gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                    chargedAllFile();
                     return true;
                 }
                 else
                 {
                     gestionFileMode[4].definirParametre("assistant","nothing");
                     gestionFileMode[4].sauvegarder(nameFileMode[4]);
+                    chargedAllFile();
                     return true;
                 }
             }
@@ -685,6 +779,7 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
                 gestionFileMode[0].definirParametre("taskbar","false");
             }
             gestionFileMode[0].sauvegarder(nameFileMode[0]);
+            chargedAllFile();
             return true;
         }
         else
@@ -704,6 +799,7 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
                 gestionFileMode[1].definirParametre("taskbar","false");
             }
             gestionFileMode[1].sauvegarder(nameFileMode[1]);
+            chargedAllFile();
             return true;
         }
         else
@@ -723,6 +819,7 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
                 gestionFileMode[2].definirParametre("taskbar","false");
             }
             gestionFileMode[2].sauvegarder(nameFileMode[2]);
+            chargedAllFile();
             return true;
         }
         else
@@ -742,6 +839,7 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
                 gestionFileMode[3].definirParametre("taskbar","false");
             }
             gestionFileMode[3].sauvegarder(nameFileMode[3]);
+            chargedAllFile();
             return true;
         }
         else
@@ -761,6 +859,7 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
                 gestionFileMode[4].definirParametre("taskbar","false");
             }
             gestionFileMode[4].sauvegarder(nameFileMode[4]);
+            chargedAllFile();
             return true;
         }
         else
@@ -802,6 +901,7 @@ bool CArreraSetting::setSoftNavigateur()
         {
             gestionFile.definirParametre("emplacementNavigateur",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -840,6 +940,7 @@ bool CArreraSetting::setSoftPresentation()
         {
             gestionFile.definirParametre("emplacementPresentation",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -878,6 +979,7 @@ bool CArreraSetting::setSoftTTexte()
         {
             gestionFile.definirParametre("emplacementTraitementT",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -916,6 +1018,7 @@ bool CArreraSetting::setSoftTableur()
         {
             gestionFile.definirParametre("emplacementTableur",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -940,6 +1043,7 @@ bool CArreraSetting::setSixEmplacement()
         {
             gestionFile.definirParametre("emplacementSix",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -964,6 +1068,7 @@ bool CArreraSetting::setRyleyEmplacement()
         {
             gestionFile.definirParametre("emplacementRyley",emplacement.toStdString());
             gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
             return true;
         }
 
@@ -980,6 +1085,7 @@ bool CArreraSetting::setNameUser(string name)
     {
         gestionFile.definirParametre("nameUser",name);
         gestionFile.sauvegarder(nameFile);
+        chargedAllFile();
         return true;
     }
     else
@@ -997,61 +1103,73 @@ bool CArreraSetting::setNameApp(int nb,string name)
         case 1:
             gestionFileApp.definirParametre("nameApp1",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 2:
             gestionFileApp.definirParametre("nameApp2",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 3:
             gestionFileApp.definirParametre("nameApp3",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 4:
             gestionFileApp.definirParametre("nameApp4",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 5:
             gestionFileApp.definirParametre("nameApp5",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 6:
             gestionFileApp.definirParametre("nameApp6",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 7:
             gestionFileApp.definirParametre("nameApp7",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 8:
             gestionFileApp.definirParametre("nameApp8",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 9:
             gestionFileApp.definirParametre("nameApp9",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 10:
             gestionFileApp.definirParametre("nameApp10",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 11:
             gestionFileApp.definirParametre("nameApp11",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 12:
             gestionFileApp.definirParametre("nameApp12",name);
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         default:
@@ -1095,61 +1213,73 @@ bool CArreraSetting::setEmplacementApp(int nb)
             case 1:
                 gestionFileApp.definirParametre("emplacementApp1",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 2:
                 gestionFileApp.definirParametre("emplacementApp2",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 3:
                 gestionFileApp.definirParametre("emplacementApp3",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 4:
                 gestionFileApp.definirParametre("emplacementApp4",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 5:
                 gestionFileApp.definirParametre("emplacementApp5",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 6:
                 gestionFileApp.definirParametre("emplacementApp6",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 7:
                 gestionFileApp.definirParametre("emplacementApp7",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 8:
                 gestionFileApp.definirParametre("emplacementApp8",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 9:
                 gestionFileApp.definirParametre("emplacementApp9",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 10:
                 gestionFileApp.definirParametre("emplacementApp10",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 11:
                 gestionFileApp.definirParametre("emplacementApp11",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             case 12:
                 gestionFileApp.definirParametre("emplacementApp12",emplacement.toStdString());
                 gestionFileApp.sauvegarder(nameFileApp);
+                chargedAllFile();
                 return true;
                 break;
             default:
@@ -1201,21 +1331,25 @@ bool CArreraSetting::setArreraAppEmplacement(int nb)
         case 1:
             gestionFileApp.definirParametre("emplacementArreraVideo",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 2:
             gestionFileApp.definirParametre("emplacementArreraDoc",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 3:
             gestionFileApp.definirParametre("emplacementArreraInfo",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         case 4:
             gestionFileApp.definirParametre("emplacementArreraRecherche",emplacement.toStdString());
             gestionFileApp.sauvegarder(nameFileApp);
+            chargedAllFile();
             return true;
             break;
         default:
@@ -1230,46 +1364,56 @@ bool CArreraSetting::setArreraAppEmplacement(int nb)
     }
 
 }
-bool CArreraSetting::setAppTaskBar(int nbAppTaskbar,int nbAppSelected)
+bool CArreraSetting::setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode)
 {
 
 
-    if (etatChargement)
+    if ((etatFileTaskbar[0])&&(etatFileTaskbar[1])&&(etatFileTaskbar[2])&&(etatFileTaskbar[3])&&(etatFileTaskbar[4])&&(etatFileTaskbar[5]))
     {
         switch (nbAppTaskbar) {
         case 1:
-            gestionFile.definirParametre("btnTaskbar1",to_string(nbAppSelected));
-            gestionFile.sauvegarder(nameFile);
+            gestionFileTaskbar[mode].definirParametre("btnTaskbar1",to_string(nbAppSelected));
+            gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
+            chargedAllFile();
             return true;
             break;
         case 2:
-            gestionFile.definirParametre("btnTaskbar2",to_string(nbAppSelected));
-            gestionFile.sauvegarder(nameFile);
+            gestionFileTaskbar[mode].definirParametre("btnTaskbar2",to_string(nbAppSelected));
+            gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
+            chargedAllFile();
             return true;
             break;
         case 3:
-            gestionFile.definirParametre("btnTaskbar3",to_string(nbAppSelected));
-            gestionFile.sauvegarder(nameFile);
+            gestionFileTaskbar[mode].definirParametre("btnTaskbar3",to_string(nbAppSelected));
+            gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
+            chargedAllFile();
             return true;
             break;
         case 4:
-            gestionFile.definirParametre("btnTaskbar4",to_string(nbAppSelected));
-            gestionFile.sauvegarder(nameFile);
+            gestionFileTaskbar[mode].definirParametre("btnTaskbar4",to_string(nbAppSelected));
+            gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
+            chargedAllFile();
             return true;
             break;
         case 5:
-            gestionFile.definirParametre("btnTaskbar5",to_string(nbAppSelected));
-            gestionFile.sauvegarder(nameFile);
+            gestionFileTaskbar[mode].definirParametre("btnTaskbar5",to_string(nbAppSelected));
+            gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
+            chargedAllFile();
             return true;
             break;
         default:
             return false;
             break;
         }
-
     }
     else
     {
         return false;
     }
+}
+
+bool CArreraSetting::setModeAppAsBoot(int mode,int nbAPPSelected)
+{
+    gestionFileMode[mode-1].definirParametre("appBoot",to_string(nbAPPSelected));
+    return gestionFileMode[mode-1].sauvegarder(nameFileMode[mode-1]);
 }

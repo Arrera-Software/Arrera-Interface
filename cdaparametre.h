@@ -54,11 +54,13 @@ private slots:
 
     void on_IDC_GESTTASKBAR_clicked();
 
+    void on_IDC_APPTASKMODE_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
     int modeSelectionner;
-    bool sortieRyley,sortieSix;
+    bool sortieRyley,sortieSix,taskBarModeEnable;
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;
     CDAparaArreraLib *winParaApp;

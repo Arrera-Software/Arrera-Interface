@@ -17,7 +17,7 @@ public:
     ~CDAparaArreraLib();
     void passObjet(CArreraSetting* p);
     void modeApp();
-    void modeTaskbar();
+    void modeTaskbar(int mode);
 
 private slots:
     void on_IDC_GESTAPP1_clicked();
@@ -73,6 +73,7 @@ private:
     CArreraSetting* para;
     void clearGestApp();
     void selectApp(int nb);
+    int modeSelected;
 };
 
 #endif // CDAPARAARRERALIB_H
