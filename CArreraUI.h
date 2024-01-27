@@ -58,6 +58,22 @@ private slots:
 
     void on_IDC_TASKBAR_clicked();
 
+    void on_IDC_TABLEURMODE_clicked();
+
+    void on_IDC_TRAITEMENTMODE_clicked();
+
+    void on_IDC_APPMODE_clicked();
+
+    void on_IDC_TASKBARMODE_clicked();
+
+    void on_IDC_NAVIGATEURMODE_clicked();
+
+    void on_IDC_PRESENTATIONMODE_clicked();
+
+    void on_IDC_QUITMODE_clicked();
+
+    void on_IDC_QUIT2_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;

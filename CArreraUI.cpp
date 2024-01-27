@@ -203,3 +203,72 @@ void CArreraUI::on_IDC_TASKBAR_clicked()
     taskBar->show();
 }
 
+//BTN UI MODE
+
+void CArreraUI::on_IDC_TABLEURMODE_clicked()
+{
+    bool sortie ;
+    sortie = objSoftware.openTableur();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
+}
+
+
+void CArreraUI::on_IDC_TRAITEMENTMODE_clicked()
+{
+    bool sortie ;
+    sortie = objSoftware.openTTexte();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
+}
+
+
+void CArreraUI::on_IDC_APPMODE_clicked()
+{
+    winAPP->show();
+}
+
+
+void CArreraUI::on_IDC_TASKBARMODE_clicked()
+{
+
+}
+
+
+void CArreraUI::on_IDC_NAVIGATEURMODE_clicked()
+{
+    bool sortie ;
+    sortie = objSoftware.openNavigateur();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
+}
+
+
+void CArreraUI::on_IDC_PRESENTATIONMODE_clicked()
+{
+    bool sortie ;
+    sortie = objSoftware.openPresentation();
+    if (!sortie)
+    {
+        errorOpenSoft();
+    }
+}
+
+
+void CArreraUI::on_IDC_QUITMODE_clicked()
+{
+
+}
+
+
+void CArreraUI::on_IDC_QUIT2_clicked()
+{
+    qApp->quit();
+}
+
