@@ -74,31 +74,31 @@ void CArreraUI::on_IDC_RYLEY_clicked()
 
 void CArreraUI::on_IDC_MODE1_clicked()
 {
-
+    onMode(1);
 }
 
 
 void CArreraUI::on_IDC_MODE2_clicked()
 {
-
+    onMode(2);
 }
 
 
 void CArreraUI::on_IDC_MODE3_clicked()
 {
-
+    onMode(3);
 }
 
 
 void CArreraUI::on_IDC_MODE4_clicked()
 {
-
+    onMode(4);
 }
 
 
 void CArreraUI::on_IDC_MODE5_clicked()
 {
-
+    onMode(5);
 }
 
 // Bouton app
@@ -205,6 +205,43 @@ void CArreraUI::on_IDC_TASKBAR_clicked()
 
 //BTN UI MODE
 
+void CArreraUI::onMode(int nbMode)
+{
+    ui->FGUI->setVisible(false);
+    ui->FMode->setVisible(true);
+    switch (nbMode) {
+    case 1:
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode1().c_str());
+        break;
+    case 2:
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode2().c_str());
+        break;
+    case 3:
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode3().c_str());
+        break;
+    case 4:
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode4().c_str());
+        break;
+    case 5:
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode5().c_str());
+        break;
+    default:
+        break;
+    }
+    assistantMode = objPara.getAssistantMode(nbMode);
+    nbModeON = nbMode;
+    objSoftware.openAppLib((stoi(objPara.getModeAppAsBoot(nbMode))));
+}
+
+void CArreraUI::offMode()
+{
+    assistantMode = 0;
+    nbModeON = 0;
+    ui->FGUI->setVisible(true);
+    ui->FMode->setVisible(false);
+    loadSetting();
+}
+
 void CArreraUI::on_IDC_TABLEURMODE_clicked()
 {
     bool sortie ;
@@ -235,7 +272,8 @@ void CArreraUI::on_IDC_APPMODE_clicked()
 
 void CArreraUI::on_IDC_TASKBARMODE_clicked()
 {
-
+    taskBar->loadPara(nbModeON);
+    taskBar->show();
 }
 
 
@@ -263,7 +301,7 @@ void CArreraUI::on_IDC_PRESENTATIONMODE_clicked()
 
 void CArreraUI::on_IDC_QUITMODE_clicked()
 {
-
+    offMode();
 }
 
 
@@ -275,6 +313,25 @@ void CArreraUI::on_IDC_QUIT2_clicked()
 
 void CArreraUI::on_IDC_ASSISTANTMODE_clicked()
 {
-
+    bool sortie ;
+    if(assistantMode==1)
+    {
+        sortie = objSoftware.openSix();
+        if (!sortie)
+        {
+            errorOpenSoft();
+        }
+    }
+    else
+    {
+        if (assistantMode==2)
+        {
+            sortie = objSoftware.openSix();
+            if (!sortie)
+            {
+                errorOpenSoft();
+            }
+        }
+    }
 }
 

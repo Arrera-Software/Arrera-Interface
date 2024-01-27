@@ -6,7 +6,6 @@
 #include "carreraapropos.h"
 #include <QMessageBox>
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class CArreraUI; }
 QT_END_NAMESPACE
@@ -84,8 +83,11 @@ private:
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
     CArreraOpenSoft objSoftware;
+    int nbModeON,assistantMode;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
+    void onMode(int nbMode);
+    void offMode();
 
 };
 #endif // CARRERAUI_H

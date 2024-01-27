@@ -159,6 +159,34 @@ string CArreraSetting::getSixEmplacement()
     }
 }
 
+int CArreraSetting::getAssistantMode(int nbMode)
+{
+    if (chargementMode[nbMode-1])
+    {
+        string sortie =gestionFile.obtenirParametre("emplacementSix");;
+        if (sortie=="six")
+        {
+            return 1 ;
+        }
+        else
+        {
+            if (sortie=="ryley")
+            {
+                return 2 ;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 string CArreraSetting::getSoftNavigateur()
 {
     if (etatChargement)
@@ -499,7 +527,14 @@ bool CArreraSetting::resetAllPara()
 
 string CArreraSetting::getModeAppAsBoot(int mode)
 {
-    return gestionFileMode[mode-1].obtenirParametre("appBoot");
+    if (chargementMode[mode-1])
+    {
+        return gestionFileMode[mode-1].obtenirParametre("appBoot");
+    }
+    else
+    {
+        return "";
+    }
 }
 
 bool CArreraSetting::setNameMode(int nbMode,string valeur)

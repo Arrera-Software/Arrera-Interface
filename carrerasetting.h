@@ -33,6 +33,7 @@ public:
     string getSoftNavigateur();
     string getSixEmplacement();
     string getRyleyEmplacement();
+    int getAssistantMode(int nbMode);//0 : aucun / 1:six / 2:ryley
     string getSoftTTexte();
     string getNameApp(int nb);
     string getEmplacementApp(int nb);
