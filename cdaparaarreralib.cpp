@@ -12,6 +12,7 @@ CDAparaArreraLib::CDAparaArreraLib(QWidget *parent)
     ui->FArreraApp->setVisible(false);
     ui->Fapp->setVisible(false);
     ui->FGESTTASKBAR->setVisible(false);
+    ui->FHISTORICAPP->setVisible(false);
 }
 void CDAparaArreraLib::modeApp()
 {
@@ -19,6 +20,7 @@ void CDAparaArreraLib::modeApp()
     ui->FArreraApp->setVisible(true);
     ui->Fapp->setVisible(true);
     ui->FGESTTASKBAR->setVisible(false);
+    ui->FHISTORICAPP->setVisible(false);
 }
 void CDAparaArreraLib::modeTaskbar(int mode)
 {
@@ -26,6 +28,7 @@ void CDAparaArreraLib::modeTaskbar(int mode)
     ui->FArreraApp->setVisible(false);
     ui->Fapp->setVisible(false);
     ui->FGESTTASKBAR->setVisible(true);
+    ui->FHISTORICAPP->setVisible(false);
     ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
     nbRacoucieSelect=0;
     modeSelected = mode;
@@ -214,5 +217,25 @@ void CDAparaArreraLib::on_IDC_VALIDERTASKBAR_clicked()
         ui->IDC_LRACOURCISELECT->setText("Aucun racourcie selectionner");
     }
 
+}
+
+
+void CDAparaArreraLib::on_IDC_APPHISTORIC_clicked()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(false);
+    ui->FHISTORICAPP->setVisible(true);
+}
+
+
+void CDAparaArreraLib::on_IDC_QUITHIST_clicked()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(true);
+    ui->Fapp->setVisible(true);
+    ui->FGESTTASKBAR->setVisible(false);
+    ui->FHISTORICAPP->setVisible(false);
 }
 

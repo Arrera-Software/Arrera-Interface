@@ -66,6 +66,10 @@ private slots:
 
     void on_IDC_VALIDERTASKBAR_clicked();
 
+    void on_IDC_APPHISTORIC_clicked();
+
+    void on_IDC_QUITHIST_clicked();
+
 private:
     Ui::CDAparaArreraLib *ui;
     int nbAppSelect; // de 1 a 12
