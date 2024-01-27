@@ -21,6 +21,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
+    ui->FMode->setVisible(false);
     loadSetting();
 }
 

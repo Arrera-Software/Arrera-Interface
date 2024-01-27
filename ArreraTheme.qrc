@@ -15,6 +15,7 @@
         <file>ArreraRecherche.png</file>
         <file>ArreraVideoDownload.png</file>
         <file>quitter.png</file>
+        <file>fondTask.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>
