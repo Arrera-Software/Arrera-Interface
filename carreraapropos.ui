@@ -88,7 +88,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>I2024-</string>
+     <string>I2024-1.00.beta01/2024</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="IDC_COPYWRITE">
