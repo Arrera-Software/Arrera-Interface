@@ -1542,7 +1542,7 @@ ajouter</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="IDC_RESETTASK1_3">
+      <widget class="QPushButton" name="IDC_RESETTASK3">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -1578,7 +1578,7 @@ ajouter</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_18">
      <item>
-      <widget class="QLabel" name="IDC_TASKRAC1_4">
+      <widget class="QLabel" name="IDC_TASKRAC4">
        <property name="font">
         <font>
          <pointsize>11</pointsize>

@@ -1372,31 +1372,66 @@ bool CArreraSetting::setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode)
     {
         switch (nbAppTaskbar) {
         case 1:
-            gestionFileTaskbar[mode].definirParametre("btnTaskbar1",to_string(nbAppSelected));
+            if (nbAppSelected==0)
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar1","nothing");
+            }
+            else
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar1",to_string(nbAppSelected));
+            }
             gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
             chargedAllFile();
             return true;
             break;
         case 2:
-            gestionFileTaskbar[mode].definirParametre("btnTaskbar2",to_string(nbAppSelected));
+            if (nbAppSelected==0)
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar2","nothing");
+            }
+            else
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar2",to_string(nbAppSelected));
+            }
             gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
             chargedAllFile();
             return true;
             break;
         case 3:
-            gestionFileTaskbar[mode].definirParametre("btnTaskbar3",to_string(nbAppSelected));
+            if (nbAppSelected==0)
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar3","nothing");
+            }
+            else
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar3",to_string(nbAppSelected));
+            }
             gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
             chargedAllFile();
             return true;
             break;
         case 4:
-            gestionFileTaskbar[mode].definirParametre("btnTaskbar4",to_string(nbAppSelected));
+            if (nbAppSelected==0)
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar4","nothing");
+            }
+            else
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar4",to_string(nbAppSelected));
+            }
             gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
             chargedAllFile();
             return true;
             break;
         case 5:
-            gestionFileTaskbar[mode].definirParametre("btnTaskbar5",to_string(nbAppSelected));
+            if (nbAppSelected==0)
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar5","nothing");
+            }
+            else
+            {
+                gestionFileTaskbar[mode].definirParametre("btnTaskbar5",to_string(nbAppSelected));
+            }
             gestionFileTaskbar[mode].sauvegarder(nameFileTaskbarMode[mode]);
             chargedAllFile();
             return true;
@@ -1416,4 +1451,80 @@ bool CArreraSetting::setModeAppAsBoot(int mode,int nbAPPSelected)
 {
     gestionFileMode[mode-1].definirParametre("appBoot",to_string(nbAPPSelected));
     return gestionFileMode[mode-1].sauvegarder(nameFileMode[mode-1]);
+}
+
+bool CArreraSetting::resetEmplacementApp(int app)
+{
+    if (chargementFileApp)
+    {
+        switch (app) {
+        case 1:
+            gestionFileApp.definirParametre("emplacementApp1","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 2:
+            gestionFileApp.definirParametre("emplacementApp2","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 3:
+            gestionFileApp.definirParametre("emplacementApp3","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 4:
+            gestionFileApp.definirParametre("emplacementApp4","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 5:
+            gestionFileApp.definirParametre("emplacementApp5","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 6:
+            gestionFileApp.definirParametre("emplacementApp6","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 7:
+            gestionFileApp.definirParametre("emplacementApp7","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 8:
+            gestionFileApp.definirParametre("emplacementApp8","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 9:
+            gestionFileApp.definirParametre("emplacementApp9","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 10:
+            gestionFileApp.definirParametre("emplacementApp10","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 11:
+            gestionFileApp.definirParametre("emplacementApp11","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        case 12:
+            gestionFileApp.definirParametre("emplacementApp12","nothing");
+            gestionFileApp.sauvegarder(nameFileApp);
+            return true;
+            break;
+        default:
+            return false;
+            break;
+        }
+    }
+    else
+    {
+        return false;
+    }
 }

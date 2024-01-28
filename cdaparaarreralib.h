@@ -70,6 +70,40 @@ private slots:
 
     void on_IDC_QUITHIST_clicked();
 
+    void on_IDC_RESETRAC1_clicked();
+
+    void on_IDC_RESETRAC2_clicked();
+
+    void on_IDC_RESETRAC3_clicked();
+
+    void on_IDC_RESETRAC4_clicked();
+
+    void on_IDC_RESETRAC5_clicked();
+
+    void on_IDC_RESETRAC6_clicked();
+
+    void on_IDC_RESETRAC7_clicked();
+
+    void on_IDC_RESETRAC8_clicked();
+
+    void on_IDC_RESETRAC9_clicked();
+
+    void on_IDC_RESETRAC10_clicked();
+
+    void on_IDC_RESETRAC11_clicked();
+
+    void on_IDC_RESETRAC12_clicked();
+
+    void on_IDC_RESETTASK1_clicked();
+
+    void on_IDC_RESETTASK2_clicked();
+
+    void on_IDC_RESETTASK1_3_clicked();
+
+    void on_IDC_RESETTASK4_clicked();
+
+    void on_IDC_RESETTASK5_clicked();
+
 private:
     Ui::CDAparaArreraLib *ui;
     int nbAppSelect; // de 1 a 12

@@ -57,6 +57,7 @@ public:
     bool setArreraAppEmplacement(int nb);
     bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode);
     bool setModeAppAsBoot(int mode,int nbAPPSelected);
+    bool resetEmplacementApp(int app);
 
 };
 
