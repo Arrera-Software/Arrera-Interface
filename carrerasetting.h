@@ -34,12 +34,14 @@ public:
     string getSixEmplacement();
     string getRyleyEmplacement();
     int getAssistantMode(int nbMode);//0 : aucun / 1:six / 2:ryley
+    string getEtatTaskbar(int nbMode);
     string getSoftTTexte();
     string getNameApp(int nb);
     string getEmplacementApp(int nb);
     string getArreraAppEmplacement(int nb);
     string getNbAppTaskbar(int nbButton,int mode);
     string getModeAppAsBoot(int mode);
+    string getModeEnable(int mode);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -58,6 +60,7 @@ public:
     bool setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode);
     bool setModeAppAsBoot(int mode,int nbAPPSelected);
     bool resetEmplacementApp(int app);
+    bool setModeEnable(int nbMode);
 
 };
 

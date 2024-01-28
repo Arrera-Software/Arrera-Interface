@@ -10,6 +10,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     modeSelectionner = 0 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
     ui->IDC_CHOIXSIX->setChecked(true);
+    ui->IDC_RARRERABAR->setChecked(false);
     winParaApp = new CDAparaArreraLib(this);
     taskBarModeEnable = false;
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
@@ -79,7 +80,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
     int nbAppBoot;
     sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
-    arreraTaskBar = taskBarModeEnable;
+    arreraTaskBar = ui->IDC_RARRERABAR->isChecked();
     nbAppBoot = ui->IDC_NBAPPBOOT->value();
     if (modeSelectionner==0)
     {
@@ -95,42 +96,72 @@ void CDAParametre::on_IDC_VALIDER_clicked()
             case 1 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
                 valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setModeEnable(1);
                 sortieEcriture = objParametre->setNameMode(1,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(1,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(1,nbAppBoot);
+                if (arreraTaskBar)
+                {
+                    winParaApp->show();
+                    winParaApp->modeTaskbar(1);
+                }
                 break;
             case 2 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
                 valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setModeEnable(2);
                 sortieEcriture =objParametre->setNameMode(2,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(2,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(2,nbAppBoot);
+                if (arreraTaskBar)
+                {
+                    winParaApp->show();
+                    winParaApp->modeTaskbar(2);
+                }
                 break;
             case 3 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
                 valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setModeEnable(3);
                 sortieEcriture =objParametre->setNameMode(3,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(3,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(3,nbAppBoot);
+                if (arreraTaskBar)
+                {
+                    winParaApp->show();
+                    winParaApp->modeTaskbar(3);
+                }
                 break;
             case 4 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
                 valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setModeEnable(4);
                 sortieEcriture =objParametre->setNameMode(4,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(4,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(4,nbAppBoot);
+                if (arreraTaskBar)
+                {
+                    winParaApp->show();
+                    winParaApp->modeTaskbar(4);
+                }
                 break;
             case 5 :
                 valeurGUI = ui->IDC_NAMETEXT->toPlainText();
                 valeurString = valeurGUI.toStdString();
+                sortieEcriture = objParametre->setModeEnable(5);
                 sortieEcriture = objParametre->setNameMode(5,valeurString);
                 sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(5,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(5,nbAppBoot);
+                if (arreraTaskBar)
+                {
+                    winParaApp->show();
+                    winParaApp->modeTaskbar(5);
+                }
                 break;
             default :
                 msgBox.setWindowTitle("Erreur de selection");
@@ -148,6 +179,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
         ui->IDC_NAMETEXT->clear();
         ui->IDC_NBAPPBOOT->setValue(0);
         ui->IDC_CHOIXSIX->setChecked(true);
+        ui->IDC_RARRERABAR->setChecked(false);
         taskBarModeEnable = false;
         ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
         modeSelectionner = 0 ;
@@ -233,15 +265,4 @@ void CDAParametre::on_IDC_GESTTASKBAR_clicked()
 
 void CDAParametre::on_IDC_APPTASKMODE_clicked()
 {
-    if (modeSelectionner==0)
-    {
-
-    }
-    else
-    {
-        taskBarModeEnable = true;
-        winParaApp->show();
-        winParaApp->modeTaskbar(modeSelectionner);
-    }
 }
-

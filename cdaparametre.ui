@@ -672,24 +672,6 @@ Mode 5</string>
       <string>Choix assistant :</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="IDC_APPTASKMODE">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>261</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Taskbar App</string>
-     </property>
-    </widget>
     <widget class="QSpinBox" name="IDC_NBAPPBOOT">
      <property name="geometry">
       <rect>
@@ -730,6 +712,24 @@ Mode 5</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="IDC_RARRERABAR">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>261</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Arrera Bar</string>
      </property>
     </widget>
    </widget>

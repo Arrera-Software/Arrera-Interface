@@ -187,6 +187,18 @@ int CArreraSetting::getAssistantMode(int nbMode)
     }
 }
 
+string CArreraSetting::getEtatTaskbar(int nbMode)
+{
+    if (chargementMode[nbMode-1])
+    {
+        return gestionFileMode[nbMode-1].obtenirParametre("taskbar");
+    }
+    else
+    {
+        return "";
+    }
+}
+
 string CArreraSetting::getSoftNavigateur()
 {
     if (etatChargement)
@@ -508,6 +520,7 @@ bool CArreraSetting::resetAllPara()
                 gestionFileMode[i].sauvegarder(nameFileMode[i]);
                 gestionFileMode[i].definirParametre("btnTaskbar5","nothing");
                 gestionFileMode[i].definirParametre("appBoot","0");
+                gestionFileMode[i].definirParametre("modeSet","0");
                 gestionFileMode[i].sauvegarder(nameFileMode[i]);
 
             }
@@ -530,6 +543,18 @@ string CArreraSetting::getModeAppAsBoot(int mode)
     if (chargementMode[mode-1])
     {
         return gestionFileMode[mode-1].obtenirParametre("appBoot");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getModeEnable(int mode)
+{
+    if (chargementMode[mode-1])
+    {
+        return gestionFileMode[mode-1].obtenirParametre("modeSet");
     }
     else
     {
@@ -1522,6 +1547,21 @@ bool CArreraSetting::resetEmplacementApp(int app)
             return false;
             break;
         }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setModeEnable(int nbMode)
+{
+    if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3])&&(chargementMode[4]))
+    {
+        gestionFileMode[nbMode-1].definirParametre("modeSet","1");
+        gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+        chargedAllFile();
+        return true;
     }
     else
     {

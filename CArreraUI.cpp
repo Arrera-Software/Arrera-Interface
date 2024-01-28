@@ -207,30 +207,77 @@ void CArreraUI::on_IDC_TASKBAR_clicked()
 
 void CArreraUI::onMode(int nbMode)
 {
-    ui->FGUI->setVisible(false);
-    ui->FMode->setVisible(true);
-    switch (nbMode) {
-    case 1:
-        ui->IDC_NAMEMODEON->setText(objPara.getNameMode1().c_str());
-        break;
-    case 2:
-        ui->IDC_NAMEMODEON->setText(objPara.getNameMode2().c_str());
-        break;
-    case 3:
-        ui->IDC_NAMEMODEON->setText(objPara.getNameMode3().c_str());
-        break;
-    case 4:
-        ui->IDC_NAMEMODEON->setText(objPara.getNameMode4().c_str());
-        break;
-    case 5:
-        ui->IDC_NAMEMODEON->setText(objPara.getNameMode5().c_str());
-        break;
-    default:
-        break;
+    if (objPara.getModeEnable(nbMode)=="1")
+    {
+        ui->FGUI->setVisible(false);
+        ui->FMode->setVisible(true);
+        switch (nbMode) {
+        case 1:
+            ui->IDC_NAMEMODEON->setText(objPara.getNameMode1().c_str());
+            if (objPara.getEtatTaskbar(1)=="true")
+            {
+                ui->IDC_TASKBARMODE->setVisible(true);
+            }
+            else
+            {
+                ui->IDC_TASKBARMODE->setVisible(false);
+            }
+            break;
+        case 2:
+            ui->IDC_NAMEMODEON->setText(objPara.getNameMode2().c_str());
+            if (objPara.getEtatTaskbar(2)=="true")
+            {
+                ui->IDC_TASKBARMODE->setVisible(true);
+            }
+            else
+            {
+                ui->IDC_TASKBARMODE->setVisible(false);
+            }
+            break;
+        case 3:
+            ui->IDC_NAMEMODEON->setText(objPara.getNameMode3().c_str());
+            if (objPara.getEtatTaskbar(3)=="true")
+            {
+                ui->IDC_TASKBARMODE->setVisible(true);
+            }
+            else
+            {
+                ui->IDC_TASKBARMODE->setVisible(false);
+            }
+            break;
+        case 4:
+            ui->IDC_NAMEMODEON->setText(objPara.getNameMode4().c_str());
+            if (objPara.getEtatTaskbar(4)=="true")
+            {
+                ui->IDC_TASKBARMODE->setVisible(true);
+            }
+            else
+            {
+                ui->IDC_TASKBARMODE->setVisible(false);
+            }
+            break;
+        case 5:
+            ui->IDC_NAMEMODEON->setText(objPara.getNameMode5().c_str());
+            if (objPara.getEtatTaskbar(5)=="true")
+            {
+                ui->IDC_TASKBARMODE->setVisible(true);
+            }
+            else
+            {
+                ui->IDC_TASKBARMODE->setVisible(false);
+            }
+            break;
+        default:
+            break;
+        }
+        assistantMode = objPara.getAssistantMode(nbMode);
+        nbModeON = nbMode;
+        objSoftware.openAppLib((stoi(objPara.getModeAppAsBoot(nbMode))));
     }
-    assistantMode = objPara.getAssistantMode(nbMode);
-    nbModeON = nbMode;
-    objSoftware.openAppLib((stoi(objPara.getModeAppAsBoot(nbMode))));
+    else
+    {
+        QMessageBox::information(nullptr, "Mode", "Le mode selectionner n'est pas parametrer");
+    }
 }
 
 void CArreraUI::offMode()
