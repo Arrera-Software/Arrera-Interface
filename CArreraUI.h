@@ -83,11 +83,12 @@ private:
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
     CArreraOpenSoft objSoftware;
-    int nbModeON,assistantMode;
+    int nbModeON;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
     void onMode(int nbMode);
     void offMode();
+    void bootAssistantMode();
 
 };
 #endif // CARRERAUI_H

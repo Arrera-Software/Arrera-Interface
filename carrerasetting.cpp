@@ -159,31 +159,17 @@ string CArreraSetting::getSixEmplacement()
     }
 }
 
-int CArreraSetting::getAssistantMode(int nbMode)
+string CArreraSetting::getAssistantMode(int nbMode)
 {
     if (chargementMode[nbMode-1])
     {
-        string sortie =gestionFile.obtenirParametre("emplacementSix");;
-        if (sortie=="six")
-        {
-            return 1 ;
-        }
-        else
-        {
-            if (sortie=="ryley")
-            {
-                return 2 ;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
+        string sortie;
+        sortie = gestionFileMode[nbMode-1].obtenirParametre("assistant");
+        return sortie;
     }
     else
     {
-        return 0;
+        return "";
     }
 }
 
@@ -615,177 +601,34 @@ bool CArreraSetting::setNameMode(int nbMode,string valeur)
 
 bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
 {
-    switch (nbMode) {
-    case 1:
-        if (chargementMode[0]==false)
+    bool sortie;
+    if (chargementMode[nbMode-1])
+    {
+        if ((six==true)&&(ryley==false))
         {
-            return false;
+            gestionFileMode[nbMode-1].definirParametre("assistant","six");
+            sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+            return sortie;
         }
         else
         {
-            if (six==true)
+            if ((six==false)&&(ryley==true))
             {
-                gestionFileMode[0].definirParametre("assistant","six");
-                gestionFileMode[0].sauvegarder(nameFileMode[0]);
-                chargedAllFile();
-                return true;
+                gestionFileMode[nbMode-1].definirParametre("assistant","ryley");
+                sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+                return sortie;
             }
             else
             {
-                if (ryley==true)
-                {
-                    gestionFileMode[0].definirParametre("assistant","ryley");
-                    gestionFileMode[0].sauvegarder(nameFileMode[0]);
-                    chargedAllFile();
-                    return true;
-                }
-                else
-                {
-                    gestionFileMode[0].definirParametre("assistant","nothing");
-                    gestionFileMode[0].sauvegarder(nameFileMode[0]);
-                    chargedAllFile();
-                    return true;
-                }
-            }
-
-        }
-        break;
-    case 2:
-        if (chargementMode[1]==false)
-        {
-            return false;
-        }
-        else
-        {
-            if (six==true)
-            {
-                gestionFileMode[1].definirParametre("assistant","six");
-                gestionFileMode[1].sauvegarder(nameFileMode[1]);
-                chargedAllFile();
-                return true;
-            }
-            else
-            {
-                if (ryley==true)
-                {
-                    gestionFileMode[1].definirParametre("assistant","ryley");
-                    gestionFileMode[1].sauvegarder(nameFileMode[1]);
-                    chargedAllFile();
-                    return true;
-                }
-                else
-                {
-                    gestionFileMode[1].definirParametre("assistant","nothing");
-                    gestionFileMode[1].sauvegarder(nameFileMode[1]);
-                    return true;
-                }
-            }
-
-        }
-        break;
-    case 3:
-        if (chargementMode[2]==false)
-        {
-            return false;
-        }
-        else
-        {
-            if (six==true)
-            {
-                gestionFileMode[2].definirParametre("assistant","six");
-                gestionFileMode[2].sauvegarder(nameFileMode[2]);
-                chargedAllFile();
-                return true;
-            }
-            else
-            {
-                if (ryley==true)
-                {
-                    gestionFileMode[2].definirParametre("assistant","ryley");
-                    gestionFileMode[2].sauvegarder(nameFileMode[2]);
-                    chargedAllFile();
-                    return true;
-                }
-                else
-                {
-                    gestionFileMode[2].definirParametre("assistant","nothing");
-                    gestionFileMode[2].sauvegarder(nameFileMode[2]);
-                    chargedAllFile();
-                    return true;
-                }
-            }
-
-        }
-        break;
-    case 4:
-        if (chargementMode[3]==false)
-        {
-            return false;
-        }
-        else
-        {
-            if (six==true)
-            {
-                gestionFileMode[3].definirParametre("assistant","six");
-                gestionFileMode[3].sauvegarder(nameFileMode[3]);
-                chargedAllFile();
-                return true;
-            }
-            else
-            {
-                if (ryley==true)
-                {
-                    gestionFileMode[3].definirParametre("assistant","ryley");
-                    gestionFileMode[3].sauvegarder(nameFileMode[3]);
-                    chargedAllFile();
-                    return true;
-                }
-                else
-                {
-                    gestionFileMode[3].definirParametre("assistant","nothing");
-                    gestionFileMode[3].sauvegarder(nameFileMode[3]);
-                    chargedAllFile();
-                    return true;
-                }
+                gestionFileMode[nbMode-1].definirParametre("assistant","nothing");
+                sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+                return sortie;
             }
         }
-        break;
-    case 5:
-        if (chargementMode[4]==false)
-        {
-            return false;
-        }
-        else
-        {
-            if (six==true)
-            {
-                gestionFileMode[4].definirParametre("assistant","six");
-                gestionFileMode[4].sauvegarder(nameFileMode[4]);
-                chargedAllFile();
-                return true;
-            }
-            else
-            {
-                if (ryley==true)
-                {
-                    gestionFileMode[4].definirParametre("assistant","ryley");
-                    gestionFileMode[4].sauvegarder(nameFileMode[4]);
-                    chargedAllFile();
-                    return true;
-                }
-                else
-                {
-                    gestionFileMode[4].definirParametre("assistant","nothing");
-                    gestionFileMode[4].sauvegarder(nameFileMode[4]);
-                    chargedAllFile();
-                    return true;
-                }
-            }
-        }
-        break;
-    default:
+    }
+    else
+    {
         return false;
-        break;
     }
 }
 

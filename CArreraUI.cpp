@@ -205,6 +205,31 @@ void CArreraUI::on_IDC_TASKBAR_clicked()
 
 //BTN UI MODE
 
+void CArreraUI::bootAssistantMode()
+{
+    bool sortie ;
+    qDebug() <<nbModeON;
+    if(objPara.getAssistantMode(nbModeON)=="six")
+    {
+        sortie = objSoftware.openSix();
+        if (!sortie)
+        {
+            errorOpenSoft();
+        }
+    }
+    else
+    {
+        if (objPara.getAssistantMode(nbModeON)=="ryley")
+        {
+            sortie = objSoftware.openRyley();
+            if (!sortie)
+            {
+                errorOpenSoft();
+            }
+        }
+    }
+}
+
 void CArreraUI::onMode(int nbMode)
 {
     if (objPara.getModeEnable(nbMode)=="1")
@@ -270,9 +295,13 @@ void CArreraUI::onMode(int nbMode)
         default:
             break;
         }
-        assistantMode = objPara.getAssistantMode(nbMode);
         nbModeON = nbMode;
         objSoftware.openAppLib((stoi(objPara.getModeAppAsBoot(nbMode))));
+        bootAssistantMode();
+        if (objPara.getAssistantMode(nbModeON)=="nothing")
+        {
+            ui->IDC_ASSISTANTMODE->setVisible(false);
+        }
     }
     else
     {
@@ -282,7 +311,6 @@ void CArreraUI::onMode(int nbMode)
 
 void CArreraUI::offMode()
 {
-    assistantMode = 0;
     nbModeON = 0;
     ui->FGUI->setVisible(true);
     ui->FMode->setVisible(false);
@@ -360,25 +388,6 @@ void CArreraUI::on_IDC_QUIT2_clicked()
 
 void CArreraUI::on_IDC_ASSISTANTMODE_clicked()
 {
-    bool sortie ;
-    if(assistantMode==1)
-    {
-        sortie = objSoftware.openSix();
-        if (!sortie)
-        {
-            errorOpenSoft();
-        }
-    }
-    else
-    {
-        if (assistantMode==2)
-        {
-            sortie = objSoftware.openSix();
-            if (!sortie)
-            {
-                errorOpenSoft();
-            }
-        }
-    }
+    bootAssistantMode();
 }
 
