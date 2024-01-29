@@ -877,6 +877,22 @@ Mode 5</string>
     </property>
    </widget>
   </widget>
+  <widget class="QFrame" name="FMODESET">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>110</y>
+     <width>301</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="ArreraTheme.qrc"/>

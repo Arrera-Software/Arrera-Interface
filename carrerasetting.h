@@ -61,6 +61,7 @@ public:
     bool setModeAppAsBoot(int mode,int nbAPPSelected);
     bool resetEmplacementApp(int app);
     bool setModeEnable(int nbMode);
+    bool resetMode(int nbMode);
 
 };
 
