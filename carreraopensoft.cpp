@@ -33,6 +33,7 @@ bool CArreraOpenSoft::openTableur()
             {
                 QProcess process;
                 process.startDetached("/usr/bin/firefox", QStringList());
+                return true;
             }
             else
             {
