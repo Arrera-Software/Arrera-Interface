@@ -14,6 +14,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     winParaApp = new CDAparaArreraLib(this);
     taskBarModeEnable = false;
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
+    ui->FGESTMODE->setVisible(false);
 }
 
 CDAParametre::~CDAParametre()
@@ -40,6 +41,8 @@ void CDAParametre::on_IDC_GESTMODE1_clicked()
 {
     modeSelectionner = 1 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 1");
+    ui->FGESTMODE->setVisible(true);
+    ui->FALLMODE->setVisible(false);
 }
 
 
@@ -47,6 +50,8 @@ void CDAParametre::on_IDC_GESTMODE2_clicked()
 {
     modeSelectionner = 2 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 2");
+    ui->FGESTMODE->setVisible(true);
+    ui->FALLMODE->setVisible(false);
 }
 
 
@@ -54,6 +59,8 @@ void CDAParametre::on_IDC_GESTMODE3_clicked()
 {
     modeSelectionner = 3 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 3");
+    ui->FGESTMODE->setVisible(true);
+    ui->FALLMODE->setVisible(false);
 }
 
 
@@ -61,6 +68,8 @@ void CDAParametre::on_IDC_GESTMODE4_clicked()
 {
     modeSelectionner = 4 ;
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 4");
+    ui->FGESTMODE->setVisible(true);
+    ui->FALLMODE->setVisible(false);
 }
 
 
@@ -68,6 +77,8 @@ void CDAParametre::on_IDC_GESTMODE5_clicked()
 {
     modeSelectionner = 5;
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 5");
+    ui->FGESTMODE->setVisible(true);
+    ui->FALLMODE->setVisible(false);
 }
 
 
@@ -183,6 +194,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
         taskBarModeEnable = false;
         ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
         modeSelectionner = 0 ;
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(true);
     }
 }
 
@@ -266,3 +279,12 @@ void CDAParametre::on_IDC_GESTTASKBAR_clicked()
 void CDAParametre::on_IDC_APPTASKMODE_clicked()
 {
 }
+
+void CDAParametre::on_IDC_ANNULERMODE_clicked()
+{
+    ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
+    modeSelectionner = 0 ;
+    ui->FGESTMODE->setVisible(false);
+    ui->FALLMODE->setVisible(true);
+}
+

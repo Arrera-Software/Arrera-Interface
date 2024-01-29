@@ -1411,3 +1411,21 @@ bool CArreraSetting::setModeEnable(int nbMode)
         return false;
     }
 }
+
+bool CArreraSetting::resetMode(int nbMode)
+{
+    bool sortie ;
+    sortie = setNameMode(nbMode,"Mode");
+    sortie = setAssistantMode(nbMode,false,false);
+    sortie = setEtatTaskbar(nbMode,false);
+    sortie = setModeAppAsBoot(nbMode,0);
+    gestionFileMode[nbMode-1].definirParametre("modeSet","0");
+    gestionFileMode[nbMode-1].definirParametre("btnTaskbar1","nothing");
+    gestionFileMode[nbMode-1].definirParametre("btnTaskbar2","nothing");
+    gestionFileMode[nbMode-1].definirParametre("btnTaskbar3","nothing");
+    gestionFileMode[nbMode-1].definirParametre("btnTaskbar4","nothing");
+    gestionFileMode[nbMode-1].definirParametre("btnTaskbar5","nothing");
+    gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+    loadSetting();
+    return sortie;
+}
