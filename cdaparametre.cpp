@@ -15,6 +15,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     taskBarModeEnable = false;
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
     ui->FGESTMODE->setVisible(false);
+    ui->FMODESET->setVisible(false);
 }
 
 CDAParametre::~CDAParametre()
@@ -39,46 +40,99 @@ void CDAParametre::closeEvent(QCloseEvent *event) {
 
 void CDAParametre::on_IDC_GESTMODE1_clicked()
 {
+
+    if (objParametre->getModeEnable(1)=="0")
+    {
+
+        ui->IDC_MODESELECT->setText("Mode selectionner : Mode 1");
+        ui->FGESTMODE->setVisible(true);
+        ui->FALLMODE->setVisible(false);
+    }
+    else
+    {
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(false);
+        ui->FMODESET->setVisible(true);
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode1().c_str());
+    }
     modeSelectionner = 1 ;
-    ui->IDC_MODESELECT->setText("Mode selectionner : Mode 1");
-    ui->FGESTMODE->setVisible(true);
-    ui->FALLMODE->setVisible(false);
 }
 
 
 void CDAParametre::on_IDC_GESTMODE2_clicked()
 {
-    modeSelectionner = 2 ;
+    if (objParametre->getModeEnable(2)=="0")
+    {
+
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 2");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    }
+    else
+    {
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(false);
+        ui->FMODESET->setVisible(true);
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode2().c_str());
+    }
+    modeSelectionner = 2 ;
 }
 
 
 void CDAParametre::on_IDC_GESTMODE3_clicked()
 {
-    modeSelectionner = 3 ;
+    if (objParametre->getModeEnable(3)=="0")
+    {
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 3");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    }
+    else
+    {
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(false);
+        ui->FMODESET->setVisible(true);
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode3().c_str());
+    }
+    modeSelectionner = 3 ;
 }
 
 
 void CDAParametre::on_IDC_GESTMODE4_clicked()
 {
-    modeSelectionner = 4 ;
+    if (objParametre->getModeEnable(4)=="0")
+    {
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 4");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    }
+    else
+    {
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(false);
+        ui->FMODESET->setVisible(true);
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode4().c_str());
+    }
+    modeSelectionner = 4 ;
 }
 
 
 void CDAParametre::on_IDC_GESTMODE5_clicked()
 {
-    modeSelectionner = 5;
+    if (objParametre->getModeEnable(5)=="0")
+    {
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 5");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    }
+    else
+    {
+        ui->FGESTMODE->setVisible(false);
+        ui->FALLMODE->setVisible(false);
+        ui->FMODESET->setVisible(true);
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode5().c_str());
+    }
+    modeSelectionner = 5;
 }
 
 
@@ -181,8 +235,11 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 msgBox.exec();
                 break;
         }
-        if (sortieEcriture==false)
-        {
+
+        }
+
+    if (sortieEcriture==false)
+    {
             msgBox.setWindowTitle("Erreur ecriture");
             msgBox.setText("Une erreur c'est passer lors de l'ecriture");
             msgBox.addButton(QMessageBox::Ok);
@@ -196,8 +253,9 @@ void CDAParametre::on_IDC_VALIDER_clicked()
         modeSelectionner = 0 ;
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(true);
+
     }
-}
+
 
 void CDAParametre::on_IDC_ETABLEUR_clicked()
 {
@@ -284,7 +342,24 @@ void CDAParametre::on_IDC_ANNULERMODE_clicked()
 {
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
     modeSelectionner = 0 ;
+    ui->FMODESET->setVisible(false);
     ui->FGESTMODE->setVisible(false);
     ui->FALLMODE->setVisible(true);
 }
 
+
+void CDAParametre::on_IDC_BTNRESETMODESET_clicked()
+{
+    objParametre->resetMode(modeSelectionner);
+    modeSelectionner = 0 ;
+    ui->IDC_NAMETEXT->clear();
+    ui->IDC_NBAPPBOOT->setValue(0);
+    ui->IDC_CHOIXSIX->setChecked(true);
+    ui->IDC_RARRERABAR->setChecked(false);
+    taskBarModeEnable = false;
+    ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
+    modeSelectionner = 0 ;
+    ui->FGESTMODE->setVisible(false);
+    ui->FALLMODE->setVisible(true);
+    ui->FMODESET->setVisible(false);
+}

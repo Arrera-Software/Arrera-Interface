@@ -30,7 +30,7 @@ void CArreraSetting::chargedAllFile()
     int i = 0 ;
     etatChargement = gestionFile.charger(nameFile);
     chargementFileApp = gestionFileApp.charger(nameFileApp);
-    for (i=0;i<4;i++)
+    for (i=0;i<5;i++)
     {
         chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
     }
@@ -490,7 +490,6 @@ bool CArreraSetting::resetAllPara()
         gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
         gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
-
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
         {
             for (i=0;i<5;i++)

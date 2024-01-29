@@ -58,6 +58,8 @@ private slots:
 
     void on_IDC_ANNULERMODE_clicked();
 
+    void on_IDC_BTNRESETMODESET_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
