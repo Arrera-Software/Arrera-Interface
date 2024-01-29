@@ -1,6 +1,7 @@
 #include "carreraopensoft.h"
 #include "QDebug"
 
+
 CArreraOpenSoft::CArreraOpenSoft()
 {
     objSet = false;
@@ -30,14 +31,8 @@ bool CArreraOpenSoft::openTableur()
         else {
             if ((windowsOS==false)&&(linuxOS==true))
             {
-                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTableur())))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                QProcess process;
+                process.startDetached("/usr/bin/firefox", QStringList());
             }
             else
             {
