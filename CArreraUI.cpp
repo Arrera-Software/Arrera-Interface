@@ -175,6 +175,46 @@ void CArreraUI::loadSetting()
     ui->IDC_MODE3->setText(objPara.getNameMode3().c_str());
     ui->IDC_MODE4->setText(objPara.getNameMode4().c_str());
     ui->IDC_MODE5->setText(objPara.getNameMode5().c_str());
+    if (objPara.getModeEnable(1)=="1")
+    {
+        ui->IDC_MODE1->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_MODE1->setVisible(false);
+    }
+    if (objPara.getModeEnable(2)=="1")
+    {
+        ui->IDC_MODE2->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_MODE2->setVisible(false);
+    }
+    if (objPara.getModeEnable(3)=="1")
+    {
+        ui->IDC_MODE3->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_MODE3->setVisible(false);
+    }
+    if (objPara.getModeEnable(4)=="1")
+    {
+        ui->IDC_MODE4->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_MODE4->setVisible(false);
+    }
+    if (objPara.getModeEnable(5)=="1")
+    {
+        ui->IDC_MODE5->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_MODE5->setVisible(false);
+    }
     winAPP->updateBTN();
     taskBar->loadPara(0);
 }
