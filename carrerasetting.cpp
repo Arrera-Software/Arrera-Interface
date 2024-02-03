@@ -42,80 +42,30 @@ void CArreraSetting::chargedAllFile()
     etatFileTaskbar[5]=gestionFileTaskbar[5].charger(nameFileMode[4]);
 }
 
-bool CArreraSetting::loadSetting()
+string CArreraSetting::getNameMode(int nb)
 {
     if (etatChargement)
     {
-        nameMode1 = gestionFile.obtenirParametre("nameMode1");
-        nameMode2 = gestionFile.obtenirParametre("nameMode2");
-        nameMode3 = gestionFile.obtenirParametre("nameMode3");
-        nameMode4 = gestionFile.obtenirParametre("nameMode4");
-        nameMode5 = gestionFile.obtenirParametre("nameMode5");
-        chargedAllFile();
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
-}
-
-
-
-string CArreraSetting::getNameMode1()
-{
-    if (etatChargement)
-    {
-        return nameMode1;
-    }
-    else
-    {
-        return "";
-    }
-}
-
-string CArreraSetting::getNameMode2()
-{
-    if (etatChargement)
-    {
-        return nameMode2;
-    }
-    else
-    {
-        return "";
-    }
-}
-
-string CArreraSetting::getNameMode3()
-{
-    if (etatChargement)
-    {
-        return nameMode3;
-    }
-    else
-    {
-        return "";
-    }
-}
-
-string CArreraSetting::getNameMode4()
-{
-    if (etatChargement)
-    {
-        return nameMode4;
-    }
-    else
-    {
-        return "";
-    }
-}
-
-string CArreraSetting::getNameMode5()
-{
-    if (etatChargement)
-    {
-        return nameMode5;
+        switch (nb) {
+        case 1:
+            return gestionFile.obtenirParametre("nameMode1");
+            break;
+        case 2:
+            return gestionFile.obtenirParametre("nameMode2");
+            break;
+        case 3:
+            return gestionFile.obtenirParametre("nameMode3");
+            break;
+        case 4:
+            return gestionFile.obtenirParametre("nameMode4");
+            break;
+        case 5:
+            return gestionFile.obtenirParametre("nameMode5");
+            break;
+        default:
+            return "";
+            break;
+        }
     }
     else
     {
@@ -555,35 +505,30 @@ bool CArreraSetting::setNameMode(int nbMode,string valeur)
         case 1:
             gestionFile.definirParametre("nameMode1",valeur);
             gestionFile.sauvegarder(nameFile);
-            nameMode1 = gestionFile.obtenirParametre("nameMode1");
             chargedAllFile();
             return true;
             break;
         case 2:
             gestionFile.definirParametre("nameMode2",valeur);
             gestionFile.sauvegarder(nameFile);
-            nameMode1 = gestionFile.obtenirParametre("nameMode2");
             chargedAllFile();
             return true;
             break;
         case 3:
             gestionFile.definirParametre("nameMode3",valeur);
             gestionFile.sauvegarder(nameFile);
-            nameMode1 = gestionFile.obtenirParametre("nameMode3");
             chargedAllFile();
             return true;
             break;
         case 4:
             gestionFile.definirParametre("nameMode4",valeur);
             gestionFile.sauvegarder(nameFile);
-            nameMode1 = gestionFile.obtenirParametre("nameMode4");
             chargedAllFile();
             return true;
             break;
         case 5:
             gestionFile.definirParametre("nameMode5",valeur);
             gestionFile.sauvegarder(nameFile);
-            nameMode1 = gestionFile.obtenirParametre("nameMode5");
             chargedAllFile();
             return true;
             break;
@@ -1425,6 +1370,5 @@ bool CArreraSetting::resetMode(int nbMode)
     gestionFileMode[nbMode-1].definirParametre("btnTaskbar4","nothing");
     gestionFileMode[nbMode-1].definirParametre("btnTaskbar5","nothing");
     gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
-    loadSetting();
     return sortie;
 }

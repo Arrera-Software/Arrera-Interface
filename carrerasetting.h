@@ -14,20 +14,11 @@ private :
     bool etatChargement, chargementMode[5],linuxOS,windowsOS,chargementFileApp;
     bool etatFileTaskbar[6];
     string nameFile,nameFileMode[5],nameFileApp , nameFileTaskbarMode[6];
-    string nameMode1,nameMode2,nameMode3,nameMode4,nameMode5;
     void chargedAllFile();
 public:
     CArreraSetting();
-
-    bool loadSetting();
-
-
     string getNameUser();
-    string getNameMode1();
-    string getNameMode2();
-    string getNameMode3();
-    string getNameMode4();
-    string getNameMode5();
+    string getNameMode(int nb);
     string getSoftTableur();
     string getSoftPresentation();
     string getSoftNavigateur();

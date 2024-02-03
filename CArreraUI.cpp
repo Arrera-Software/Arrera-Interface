@@ -167,14 +167,13 @@ void CArreraUI::closeEvent(QCloseEvent *event)
 void CArreraUI::loadSetting()
 {
     QString nameUser;
-    objPara.loadSetting();
     nameUser = QString::fromStdString(objPara.getNameUser().c_str());
     ui->IDC_LABELUSER->setText("Utilisateur : "+nameUser);
-    ui->IDC_MODE1->setText(objPara.getNameMode1().c_str());
-    ui->IDC_MODE2->setText(objPara.getNameMode2().c_str());
-    ui->IDC_MODE3->setText(objPara.getNameMode3().c_str());
-    ui->IDC_MODE4->setText(objPara.getNameMode4().c_str());
-    ui->IDC_MODE5->setText(objPara.getNameMode5().c_str());
+    ui->IDC_MODE1->setText(objPara.getNameMode(1).c_str());
+    ui->IDC_MODE2->setText(objPara.getNameMode(2).c_str());
+    ui->IDC_MODE3->setText(objPara.getNameMode(3).c_str());
+    ui->IDC_MODE4->setText(objPara.getNameMode(4).c_str());
+    ui->IDC_MODE5->setText(objPara.getNameMode(5).c_str());
     if (objPara.getModeEnable(1)=="1")
     {
         ui->IDC_MODE1->setVisible(true);
@@ -276,64 +275,14 @@ void CArreraUI::onMode(int nbMode)
     {
         ui->FGUI->setVisible(false);
         ui->FMode->setVisible(true);
-        switch (nbMode) {
-        case 1:
-            ui->IDC_NAMEMODEON->setText(objPara.getNameMode1().c_str());
-            if (objPara.getEtatTaskbar(1)=="true")
-            {
-                ui->IDC_TASKBARMODE->setVisible(true);
-            }
-            else
-            {
-                ui->IDC_TASKBARMODE->setVisible(false);
-            }
-            break;
-        case 2:
-            ui->IDC_NAMEMODEON->setText(objPara.getNameMode2().c_str());
-            if (objPara.getEtatTaskbar(2)=="true")
-            {
-                ui->IDC_TASKBARMODE->setVisible(true);
-            }
-            else
-            {
-                ui->IDC_TASKBARMODE->setVisible(false);
-            }
-            break;
-        case 3:
-            ui->IDC_NAMEMODEON->setText(objPara.getNameMode3().c_str());
-            if (objPara.getEtatTaskbar(3)=="true")
-            {
-                ui->IDC_TASKBARMODE->setVisible(true);
-            }
-            else
-            {
-                ui->IDC_TASKBARMODE->setVisible(false);
-            }
-            break;
-        case 4:
-            ui->IDC_NAMEMODEON->setText(objPara.getNameMode4().c_str());
-            if (objPara.getEtatTaskbar(4)=="true")
-            {
-                ui->IDC_TASKBARMODE->setVisible(true);
-            }
-            else
-            {
-                ui->IDC_TASKBARMODE->setVisible(false);
-            }
-            break;
-        case 5:
-            ui->IDC_NAMEMODEON->setText(objPara.getNameMode5().c_str());
-            if (objPara.getEtatTaskbar(5)=="true")
-            {
-                ui->IDC_TASKBARMODE->setVisible(true);
-            }
-            else
-            {
-                ui->IDC_TASKBARMODE->setVisible(false);
-            }
-            break;
-        default:
-            break;
+        ui->IDC_NAMEMODEON->setText(objPara.getNameMode(nbMode).c_str());
+        if (objPara.getEtatTaskbar(nbMode)=="true")
+        {
+            ui->IDC_TASKBARMODE->setVisible(true);
+        }
+        else
+        {
+            ui->IDC_TASKBARMODE->setVisible(false);
         }
         nbModeON = nbMode;
         objSoftware.openAppLib((stoi(objPara.getModeAppAsBoot(nbMode))));

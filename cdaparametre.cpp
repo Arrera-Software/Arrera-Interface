@@ -53,7 +53,7 @@ void CDAParametre::on_IDC_GESTMODE1_clicked()
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(false);
         ui->FMODESET->setVisible(true);
-        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode1().c_str());
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode(1).c_str());
     }
     modeSelectionner = 1 ;
 }
@@ -73,7 +73,7 @@ void CDAParametre::on_IDC_GESTMODE2_clicked()
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(false);
         ui->FMODESET->setVisible(true);
-        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode2().c_str());
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode(2).c_str());
     }
     modeSelectionner = 2 ;
 }
@@ -92,7 +92,7 @@ void CDAParametre::on_IDC_GESTMODE3_clicked()
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(false);
         ui->FMODESET->setVisible(true);
-        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode3().c_str());
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode(3).c_str());
     }
     modeSelectionner = 3 ;
 }
@@ -111,7 +111,7 @@ void CDAParametre::on_IDC_GESTMODE4_clicked()
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(false);
         ui->FMODESET->setVisible(true);
-        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode4().c_str());
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode(4).c_str());
     }
     modeSelectionner = 4 ;
 }
@@ -130,7 +130,7 @@ void CDAParametre::on_IDC_GESTMODE5_clicked()
         ui->FGESTMODE->setVisible(false);
         ui->FALLMODE->setVisible(false);
         ui->FMODESET->setVisible(true);
-        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode5().c_str());
+        ui->IDC_NAMEMODESET->setText(objParametre->getNameMode(5).c_str());
     }
     modeSelectionner = 5;
 }
