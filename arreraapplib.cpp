@@ -31,7 +31,7 @@ void ArreraAppLib::updateBTN()
     ui->IDC_BTNAPP9->setText(parametreArrera->getNameApp(9).c_str());
     ui->IDC_BTNAPP10->setText(parametreArrera->getNameApp(10).c_str());
     ui->IDC_BTNAPP11->setText(parametreArrera->getNameApp(11).c_str());
-    ui->IDC_BTNAPP12->setText(parametreArrera->getNameApp(11).c_str());
+    ui->IDC_BTNAPP12->setText(parametreArrera->getNameApp(12).c_str());
 }
 
 ArreraAppLib::~ArreraAppLib()
