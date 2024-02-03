@@ -16,6 +16,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
     ui->FGESTMODE->setVisible(false);
     ui->FMODESET->setVisible(false);
+    ui->FMTPUSER->setVisible(false);
 }
 
 CDAParametre::~CDAParametre()
@@ -299,6 +300,9 @@ void CDAParametre::on_IDC_VALIDERNAME_clicked()
     name = ui->IDC_NAMEUSER->toPlainText();
     ui->IDC_NAMEUSER->clear();
     objParametre->setNameUser(name.toStdString());
+    ui->FGESTINTERFACE->setVisible(false);
+    ui->FMTPUSER->setVisible(true);
+    ui->IDC_SHOWMTP->setText("");
 }
 
 
@@ -363,3 +367,113 @@ void CDAParametre::on_IDC_BTNRESETMODESET_clicked()
     ui->FALLMODE->setVisible(true);
     ui->FMODESET->setVisible(false);
 }
+
+void CDAParametre::on_BTNMTP0_clicked()
+{
+    QString old,sortieUI = "0";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP1_5_clicked()
+{
+    QString old,sortieUI = "1";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP2_clicked()
+{
+    QString old,sortieUI = "2";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP3_clicked()
+{
+    QString old,sortieUI = "3";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP4_clicked()
+{
+    QString old,sortieUI = "4";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP5_clicked()
+{
+    QString old,sortieUI = "5";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP6_clicked()
+{
+    QString old,sortieUI = "6";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP7_clicked()
+{
+    QString old,sortieUI = "7";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP8_clicked()
+{
+    QString old,sortieUI = "8";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_BTNMTP9_clicked()
+{
+    QString old,sortieUI = "9";
+    old = mtpUser;
+    mtpUser = old+sortieUI;
+    ui->IDC_SHOWMTP->setText(mtpUser);
+}
+
+
+void CDAParametre::on_IDC_VALIDERMTP_clicked()
+{
+    objParametre->setMTPUser(mtpUser.toStdString());
+    ui->IDC_SHOWMTP->setText("");
+    mtpUser = "";
+    ui->FMTPUSER->setVisible(false);
+    ui->FGESTINTERFACE->setVisible(true);
+}
+
+
+void CDAParametre::on_IDC_ANNULERMTP_clicked()
+{
+    objParametre->setMTPUser("0000");
+    ui->IDC_SHOWMTP->setText("");
+    mtpUser = "";
+    ui->FMTPUSER->setVisible(false);
+    ui->FGESTINTERFACE->setVisible(true);
+}
+

@@ -33,6 +33,7 @@ public:
     string getNbAppTaskbar(int nbButton,int mode);
     string getModeAppAsBoot(int mode);
     string getModeEnable(int mode);
+    string getMTPUser();
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -53,6 +54,7 @@ public:
     bool resetEmplacementApp(int app);
     bool setModeEnable(int nbMode);
     bool resetMode(int nbMode);
+    bool setMTPUser(string mtp);
 
 };
 

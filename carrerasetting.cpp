@@ -387,6 +387,18 @@ string CArreraSetting::getNbAppTaskbar(int nbButton,int mode)
     }
 }
 
+string CArreraSetting::getMTPUser()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("userMTP");
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::resetAllPara()
 {
     if (etatChargement)
@@ -409,6 +421,7 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("btnTaskbar3","nothing");
         gestionFile.definirParametre("btnTaskbar4","nothing");
         gestionFile.definirParametre("btnTaskbar5","nothing");
+        gestionFile.definirParametre("userMTP","0000");
 
         gestionFileApp.definirParametre("emplacementApp1","nothing");
         gestionFileApp.definirParametre("emplacementApp2","nothing");
@@ -1371,4 +1384,17 @@ bool CArreraSetting::resetMode(int nbMode)
     gestionFileMode[nbMode-1].definirParametre("btnTaskbar5","nothing");
     gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
     return sortie;
+}
+
+bool CArreraSetting::setMTPUser(string mtp)
+{
+    if (etatChargement)
+    {
+        gestionFile.definirParametre("userMTP",mtp);
+        return gestionFile.sauvegarder(nameFile);
+    }
+    else
+    {
+        return false;
+    }
 }
