@@ -25,6 +25,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->FGUI->setVisible(false);
     ui->FLOGIN->setVisible(false);
     loadSetting();
+    showMTP= 0;
     if(userMTP=="0000")
     {
         ui->FGUI->setVisible(true);
@@ -228,8 +229,9 @@ void CArreraUI::loadSetting()
     winAPP->updateBTN();
     taskBar->loadPara(0);
     mtpIn =  "";
+    mtpCacher="";
     userMTP = objPara.getMTPUser();
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
 }
 
 void CArreraUI::on_IDC_RELOAD_clicked()
@@ -395,83 +397,73 @@ void CArreraUI::on_IDC_ASSISTANTMODE_clicked()
 }
 
 // ecran login
+
+void CArreraUI::addNumberMTP(QString nb)
+{
+    QString old = mtpIn , oldMtpCacher = mtpCacher;
+    mtpIn = old+nb;
+    mtpCacher = oldMtpCacher + "*";
+    showMTP = 0 ;
+    ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
+}
+
 void CArreraUI::on_IDC_MTPLOGIN1_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"1";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("1");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN2_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"2";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("2");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN3_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"3";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("3");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN4_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"4";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+   addNumberMTP("4");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN5_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"5";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("5");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN6_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"6";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("6");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN7_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"7";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+    addNumberMTP("7");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN8_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"8";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+   addNumberMTP("8");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN9_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"9";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+   addNumberMTP("9");
 }
 
 
 void CArreraUI::on_IDC_MTPLOGIN0_clicked()
 {
-    QString old = mtpIn ;
-    mtpIn = old+"0";
-    ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+   addNumberMTP("0");
 }
 
 
@@ -484,7 +476,8 @@ void CArreraUI::on_IDC_MTPLOGINQUIT_clicked()
     else
     {
         mtpIn="";
-        ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+        mtpCacher = "";
+        ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
     }
 }
 
@@ -501,6 +494,22 @@ void CArreraUI::on_IDC_MTPLOGINVALIDER_clicked()
     {
         ui->IDC_SHOWMTPLOGIN->setText("Mauvais mots de passe");
         mtpIn =  "" ;
+        mtpCacher = "";
+    }
+}
+
+
+void CArreraUI::on_IDC_MTPBTNSHOW_clicked()
+{
+    if (showMTP==0)
+    {
+        ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
+        showMTP = 1 ;
+    }
+    else
+    {
+        ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
+        showMTP = 0 ;
     }
 }
 

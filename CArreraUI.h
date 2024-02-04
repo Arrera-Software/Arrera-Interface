@@ -99,6 +99,8 @@ private slots:
 
     void on_IDC_MTPLOGINVALIDER_clicked();
 
+    void on_IDC_MTPBTNSHOW_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
@@ -113,8 +115,10 @@ private:
     void onMode(int nbMode);
     void offMode();
     void bootAssistantMode();
+    void addNumberMTP(QString nb );
     string userMTP;
-    QString mtpIn;
+    QString mtpIn,mtpCacher;
+    int showMTP ;
 
 };
 #endif // CARRERAUI_H
