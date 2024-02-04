@@ -75,6 +75,32 @@ private slots:
 
     void on_IDC_ASSISTANTMODE_clicked();
 
+    void on_IDC_MTPLOGIN1_clicked();
+
+    void on_IDC_MTPLOGIN2_clicked();
+
+    void on_IDC_MTPLOGIN3_clicked();
+
+    void on_IDC_MTPLOGIN4_clicked();
+
+    void on_IDC_MTPLOGIN5_clicked();
+
+    void on_IDC_MTPLOGIN6_clicked();
+
+    void on_IDC_MTPLOGIN7_clicked();
+
+    void on_IDC_MTPLOGIN8_clicked();
+
+    void on_IDC_MTPLOGIN9_clicked();
+
+    void on_IDC_MTPLOGIN0_clicked();
+
+    void on_IDC_MTPLOGINQUIT_clicked();
+
+    void on_IDC_MTPLOGINVALIDER_clicked();
+
+    void on_IDC_MTPBTNSHOW_clicked();
+
 private:
     Ui::CArreraUI *ui;
     CArreraSetting objPara;
@@ -89,6 +115,10 @@ private:
     void onMode(int nbMode);
     void offMode();
     void bootAssistantMode();
+    void addNumberMTP(QString nb );
+    string userMTP;
+    QString mtpIn,mtpCacher;
+    int showMTP ;
 
 };
 #endif // CARRERAUI_H

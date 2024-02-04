@@ -60,11 +60,36 @@ private slots:
 
     void on_IDC_BTNRESETMODESET_clicked();
 
+    void on_BTNMTP0_clicked();
+
+    void on_BTNMTP1_5_clicked();
+
+    void on_BTNMTP2_clicked();
+
+    void on_BTNMTP3_clicked();
+
+    void on_BTNMTP4_clicked();
+
+    void on_BTNMTP5_clicked();
+
+    void on_BTNMTP6_clicked();
+
+    void on_BTNMTP7_clicked();
+
+    void on_BTNMTP8_clicked();
+
+    void on_BTNMTP9_clicked();
+
+    void on_IDC_VALIDERMTP_clicked();
+
+    void on_IDC_ANNULERMTP_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
     int modeSelectionner;
     bool sortieRyley,sortieSix,taskBarModeEnable;
+    QString mtpUser;
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;
     CDAparaArreraLib *winParaApp;
