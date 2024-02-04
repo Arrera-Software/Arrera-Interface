@@ -32,7 +32,7 @@ bool CArreraOpenSoft::openTableur()
             if ((windowsOS==false)&&(linuxOS==true))
             {
                 QProcess process;
-                process.startDetached("/usr/bin/firefox", QStringList());
+                process.startDetached(objPara->getSoftTableur().c_str(), QStringList());
                 return true;
             }
             else
@@ -62,14 +62,9 @@ bool CArreraOpenSoft::openTTexte()
         else {
             if ((windowsOS==false)&&(linuxOS==true))
             {
-                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftTTexte())))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                QProcess process;
+                process.startDetached(objPara->getSoftTTexte().c_str(), QStringList());
+                return true;
             }
             else
             {
@@ -99,14 +94,9 @@ bool CArreraOpenSoft::openNavigateur()
         {
             if ((windowsOS==false)&&(linuxOS==true))
             {
-                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftNavigateur())))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                QProcess process;
+                process.startDetached(objPara->getSoftNavigateur().c_str(), QStringList());
+                return true;
             }
             else{
                 return false;
@@ -135,14 +125,9 @@ bool CArreraOpenSoft::openPresentation()
         {
             if ((windowsOS==false)&&(linuxOS==true))
             {
-                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                QProcess process;
+                process.startDetached(objPara->getSoftPresentation().c_str(), QStringList());
+                return true;
             }
             else{
                 return false;
@@ -350,14 +335,9 @@ bool CArreraOpenSoft::openAppLib(int nb)
         {
             if ((windowsOS==false)&&(linuxOS==true))
             {
-                if (QProcess::startDetached(QString::fromStdString(objPara->getSoftPresentation())))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                QProcess process;
+                process.startDetached(objPara->getEmplacementApp(nb).c_str(), QStringList());
+                return true;
             }
             else{
                 return false;
