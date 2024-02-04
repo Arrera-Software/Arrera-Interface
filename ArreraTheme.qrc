@@ -18,6 +18,7 @@
         <file>fondTask.png</file>
         <file>icon Assistant.png</file>
         <file>annuler.png</file>
+        <file>validerMTP.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>
