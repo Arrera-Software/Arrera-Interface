@@ -413,10 +413,10 @@
      </property>
      <layout class="QVBoxLayout" name="mode">
       <property name="leftMargin">
-       <number>50</number>
+       <number>45</number>
       </property>
       <property name="rightMargin">
-       <number>50</number>
+       <number>45</number>
       </property>
       <item>
        <widget class="QPushButton" name="IDC_MODE1">
@@ -487,8 +487,8 @@
        <widget class="QLabel" name="IDC_INDNOMODE">
         <property name="minimumSize">
          <size>
-          <width>500</width>
-          <height>35</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
