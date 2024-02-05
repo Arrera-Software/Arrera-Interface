@@ -20,18 +20,130 @@ void ArreraAppLib::passObjet(CArreraSetting *para,CArreraOpenSoft *objOpen)
 
 void ArreraAppLib::updateBTN()
 {
-    ui->IDC_BTNAPP1->setText(parametreArrera->getNameApp(1).c_str());
-    ui->IDC_BTNAPP2->setText(parametreArrera->getNameApp(2).c_str());
-    ui->IDC_BTNAPP3->setText(parametreArrera->getNameApp(3).c_str());
-    ui->IDC_BTNAPP4->setText(parametreArrera->getNameApp(4).c_str());
-    ui->IDC_BTNAPP5->setText(parametreArrera->getNameApp(5).c_str());
-    ui->IDC_BTNAPP6->setText(parametreArrera->getNameApp(6).c_str());
-    ui->IDC_BTNAPP7->setText(parametreArrera->getNameApp(7).c_str());
-    ui->IDC_BTNAPP8->setText(parametreArrera->getNameApp(8).c_str());
-    ui->IDC_BTNAPP9->setText(parametreArrera->getNameApp(9).c_str());
-    ui->IDC_BTNAPP10->setText(parametreArrera->getNameApp(10).c_str());
-    ui->IDC_BTNAPP11->setText(parametreArrera->getNameApp(11).c_str());
-    ui->IDC_BTNAPP12->setText(parametreArrera->getNameApp(12).c_str());
+    QString nameAPP[12];
+    int i ;
+    for (i=0;i<=11;i++)
+    {
+        nameAPP[i] = parametreArrera->getNameApp(i+1).c_str();
+    }
+    if (nameAPP[0]=="nothing")
+    {
+        ui->IDC_BTNAPP1->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP1->setVisible(true);
+        ui->IDC_BTNAPP1->setText(nameAPP[0]);
+    }
+    if (nameAPP[1]=="nothing")
+    {
+        ui->IDC_BTNAPP2->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP2->setVisible(true);
+        ui->IDC_BTNAPP2->setText(nameAPP[1]);
+    }
+    if (nameAPP[2]=="nothing")
+    {
+        ui->IDC_BTNAPP3->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP3->setVisible(true);
+        ui->IDC_BTNAPP3->setText(nameAPP[2]);
+    }
+    if (nameAPP[3]=="nothing")
+    {
+        ui->IDC_BTNAPP4->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP4->setVisible(true);
+        ui->IDC_BTNAPP4->setText(nameAPP[3]);
+    }
+
+    if (nameAPP[4]=="nothing")
+    {
+        ui->IDC_BTNAPP5->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP5->setVisible(true);
+        ui->IDC_BTNAPP5->setText(nameAPP[4]);
+    }
+    if (nameAPP[5]=="nothing")
+    {
+        ui->IDC_BTNAPP6->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP6->setVisible(true);
+        ui->IDC_BTNAPP6->setText(nameAPP[5]);
+    }
+    if (nameAPP[6]=="nothing")
+    {
+        ui->IDC_BTNAPP7->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP7->setVisible(true);
+        ui->IDC_BTNAPP7->setText(nameAPP[6]);
+    }
+    if (nameAPP[7]=="nothing")
+    {
+        ui->IDC_BTNAPP8->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP8->setVisible(true);
+        ui->IDC_BTNAPP8->setText(nameAPP[7]);
+    }
+
+    if (nameAPP[8]=="nothing")
+    {
+        ui->IDC_BTNAPP9->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP9->setVisible(true);
+        ui->IDC_BTNAPP9->setText(nameAPP[8]);
+    }
+    if (nameAPP[9]=="nothing")
+    {
+        ui->IDC_BTNAPP10->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP10->setVisible(true);
+        ui->IDC_BTNAPP10->setText(nameAPP[9]);
+    }
+    if (nameAPP[10]=="nothing")
+    {
+        ui->IDC_BTNAPP11->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP11->setVisible(true);
+        ui->IDC_BTNAPP11->setText(nameAPP[10]);
+    }
+    if (nameAPP[11]=="nothing")
+    {
+        ui->IDC_BTNAPP12->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_BTNAPP12->setVisible(true);
+        ui->IDC_BTNAPP12->setText(nameAPP[11]);
+    }
+    if ((nameAPP[0]=="nothing")&&(nameAPP[1]=="nothing")&&(nameAPP[2]=="nothing")&&(nameAPP[3]=="nothing")&&(nameAPP[4]=="nothing")&&(nameAPP[5]=="nothing")&&(nameAPP[6]=="nothing")&&(nameAPP[7]=="nothing")&&(nameAPP[8]=="nothing")&&(nameAPP[9]=="nothing")&&(nameAPP[10]=="nothing")&&(nameAPP[11]=="nothing"))
+    {
+        ui->FNOAPP->setVisible(true);
+    }
+    else
+    {
+        ui->FNOAPP->setVisible(false);
+    }
 }
 
 ArreraAppLib::~ArreraAppLib()
@@ -45,6 +157,7 @@ void ArreraAppLib::on_IDC_BTNAPP_clicked()
     ui->IDC_BTNAPP->setVisible(false);
     ui->FAPP->setVisible(true);
     ui->IDC_BTNARRERAAPP->setVisible(true);
+    updateBTN();
 }
 
 
@@ -54,6 +167,7 @@ void ArreraAppLib::on_IDC_BTNARRERAAPP_clicked()
     ui->IDC_BTNAPP->setVisible(true);
     ui->FAPP->setVisible(false);
     ui->IDC_BTNARRERAAPP->setVisible(false);
+    ui->FNOAPP->setVisible(false);
 }
 
 // btn App

@@ -81,6 +81,16 @@ void CArreraTakbar::loadPara(int mode)
         ui->IDC_APP5->setText(objPara->getNameApp(stoi(sortiePara[4])).c_str());
         nbApp[4]=stoi(sortiePara[4]);
     }
+    if ((sortiePara[0]=="nothing")&&(sortiePara[1]=="nothing")&&(sortiePara[2]=="nothing")&&(sortiePara[3]=="nothing")&&(sortiePara[4]=="nothing"))
+    {
+        ui->FNOAPP->setVisible(true);
+        ui->FAPP->setVisible(false);
+    }
+    else
+    {
+        ui->FNOAPP->setVisible(false);
+        ui->FAPP->setVisible(true);
+    }
 }
 
 CArreraTakbar::~CArreraTakbar()
