@@ -179,16 +179,20 @@ void CArreraUI::loadSetting()
 {
     QString nameUser;
     nameUser = QString::fromStdString(objPara.getNameUser().c_str());
-    ui->IDC_LABELUSER->setText("Utilisateur : "+nameUser);
-    ui->IDC_NAMEUSERLOGIN->setText("Utilisateur : "+nameUser);
-    ui->IDC_MODE1->setText(objPara.getNameMode(1).c_str());
-    ui->IDC_MODE2->setText(objPara.getNameMode(2).c_str());
-    ui->IDC_MODE3->setText(objPara.getNameMode(3).c_str());
-    ui->IDC_MODE4->setText(objPara.getNameMode(4).c_str());
-    ui->IDC_MODE5->setText(objPara.getNameMode(5).c_str());
+    if (nameUser=="Nothing")
+    {
+        ui->IDC_LABELUSER->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_LABELUSER->setText("Utilisateur : "+nameUser);
+        ui->IDC_LABELUSER->setVisible(true);
+        ui->IDC_NAMEUSERLOGIN->setText("Utilisateur : "+nameUser);
+    }
     if (objPara.getModeEnable(1)=="1")
     {
         ui->IDC_MODE1->setVisible(true);
+        ui->IDC_MODE1->setText(objPara.getNameMode(1).c_str());
     }
     else
     {
@@ -197,6 +201,7 @@ void CArreraUI::loadSetting()
     if (objPara.getModeEnable(2)=="1")
     {
         ui->IDC_MODE2->setVisible(true);
+        ui->IDC_MODE2->setText(objPara.getNameMode(2).c_str());
     }
     else
     {
@@ -205,6 +210,7 @@ void CArreraUI::loadSetting()
     if (objPara.getModeEnable(3)=="1")
     {
         ui->IDC_MODE3->setVisible(true);
+        ui->IDC_MODE3->setText(objPara.getNameMode(3).c_str());
     }
     else
     {
@@ -213,6 +219,7 @@ void CArreraUI::loadSetting()
     if (objPara.getModeEnable(4)=="1")
     {
         ui->IDC_MODE4->setVisible(true);
+        ui->IDC_MODE4->setText(objPara.getNameMode(4).c_str());
     }
     else
     {
@@ -221,10 +228,19 @@ void CArreraUI::loadSetting()
     if (objPara.getModeEnable(5)=="1")
     {
         ui->IDC_MODE5->setVisible(true);
+        ui->IDC_MODE5->setText(objPara.getNameMode(5).c_str());
     }
     else
     {
         ui->IDC_MODE5->setVisible(false);
+    }
+    if ((objPara.getModeEnable(1)=="0")&&(objPara.getModeEnable(2)=="0")&&(objPara.getModeEnable(3)=="0")&&(objPara.getModeEnable(4)=="0")&&(objPara.getModeEnable(5)=="0"))
+    {
+        ui->IDC_INDNOMODE->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_INDNOMODE->setVisible(false);
     }
     winAPP->updateBTN();
     taskBar->loadPara(0);

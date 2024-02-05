@@ -407,7 +407,7 @@
       <rect>
        <x>10</x>
        <y>140</y>
-       <width>561</width>
+       <width>600</width>
        <height>401</height>
       </rect>
      </property>
@@ -480,6 +480,34 @@
         </property>
         <property name="text">
          <string>mode 5</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="IDC_INDNOMODE">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Aucun mode a ete parametrer</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -1259,6 +1287,9 @@
      </layout>
     </widget>
    </widget>
+   <zorder>FMode</zorder>
+   <zorder>FLOGIN</zorder>
+   <zorder>FGUI</zorder>
   </widget>
  </widget>
  <resources>
