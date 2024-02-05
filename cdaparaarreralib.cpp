@@ -301,7 +301,7 @@ void CDAparaArreraLib::on_IDC_QUITHIST_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC1_clicked()
 {
     para->setNameApp(1,"nothing");
-    para->setEmplacementApp(1);
+    para->resetEmplacementApp(1);
     ui->IDC_RAC1->setText("App n°1 : "+QString::fromStdString(para->getNameApp(1)));
 }
 
@@ -309,7 +309,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC1_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC2_clicked()
 {
     para->setNameApp(2,"nothing");
-    para->setEmplacementApp(2);
+    para->resetEmplacementApp(2);
     ui->IDC_RAC2->setText("App n°2 : "+QString::fromStdString(para->getNameApp(2)));
 }
 
@@ -317,7 +317,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC2_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC3_clicked()
 {
     para->setNameApp(3,"nothing");
-    para->setEmplacementApp(3);
+    para->resetEmplacementApp(3);
     ui->IDC_RAC3->setText("App n°3 : "+QString::fromStdString(para->getNameApp(3)));
 }
 
@@ -325,7 +325,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC3_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC4_clicked()
 {
     para->setNameApp(4,"nothing");
-    para->setEmplacementApp(4);
+    para->resetEmplacementApp(4);
     ui->IDC_RAC4->setText("App n°4 : "+QString::fromStdString(para->getNameApp(4)));
 }
 
@@ -333,7 +333,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC4_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC5_clicked()
 {
     para->setNameApp(5,"nothing");
-    para->setEmplacementApp(5);
+    para->resetEmplacementApp(5);
     ui->IDC_RAC5->setText("App n°5 : "+QString::fromStdString(para->getNameApp(5)));
 }
 
@@ -341,7 +341,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC5_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC6_clicked()
 {
     para->setNameApp(6,"nothing");
-    para->setEmplacementApp(6);
+    para->resetEmplacementApp(6);
     ui->IDC_RAC6->setText("App n°6 : "+QString::fromStdString(para->getNameApp(6)));
 }
 
@@ -349,7 +349,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC6_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC7_clicked()
 {
     para->setNameApp(7,"nothing");
-    para->setEmplacementApp(7);
+    para->resetEmplacementApp(7);
     ui->IDC_RAC7->setText("App n°7 : "+QString::fromStdString(para->getNameApp(7)));
 }
 
@@ -357,7 +357,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC7_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC8_clicked()
 {
     para->setNameApp(8,"nothing");
-    para->setEmplacementApp(8);
+    para->resetEmplacementApp(8);
     ui->IDC_RAC8->setText("App n°8 : "+QString::fromStdString(para->getNameApp(8)));
 }
 
@@ -365,7 +365,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC8_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC9_clicked()
 {
     para->setNameApp(9,"nothing");
-    para->setEmplacementApp(9);
+    para->resetEmplacementApp(9);
     ui->IDC_RAC9->setText("App n°9 : "+QString::fromStdString(para->getNameApp(9)));
 }
 
@@ -373,7 +373,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC9_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC10_clicked()
 {
     para->setNameApp(10,"nothing");
-    para->setEmplacementApp(10);
+    para->resetEmplacementApp(10);
     ui->IDC_RAC10->setText("App n°10 : "+QString::fromStdString(para->getNameApp(10)));
 }
 
@@ -381,7 +381,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC10_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC11_clicked()
 {
     para->setNameApp(11,"nothing");
-    para->setEmplacementApp(11);
+    para->resetEmplacementApp(11);
     ui->IDC_RAC11->setText("App n°11 : "+QString::fromStdString(para->getNameApp(11)));
 }
 
@@ -389,7 +389,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC11_clicked()
 void CDAparaArreraLib::on_IDC_RESETRAC12_clicked()
 {
     para->setNameApp(12,"nothing");
-    para->setEmplacementApp(12);
+    para->resetEmplacementApp(12);
     ui->IDC_RAC12->setText("App n°12 : "+QString::fromStdString(para->getNameApp(12)));
 }
 
