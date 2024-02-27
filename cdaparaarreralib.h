@@ -108,6 +108,8 @@ private slots:
 
     void on_IDC_QUITHISTBIS_clicked();
 
+    void on_IDC_RESETTASK3_clicked();
+
 private:
     Ui::CDAparaArreraLib *ui;
     int nbAppSelect; // de 1 a 12

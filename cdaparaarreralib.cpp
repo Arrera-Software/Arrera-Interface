@@ -321,6 +321,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC1_clicked()
     para->setNameApp(1,"nothing");
     para->resetEmplacementApp(1);
     ui->IDC_RAC1->setText("App n°1 : "+QString::fromStdString(para->getNameApp(1)));
+    viewListAPP(9);
 }
 
 
@@ -329,6 +330,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC2_clicked()
     para->setNameApp(2,"nothing");
     para->resetEmplacementApp(2);
     ui->IDC_RAC2->setText("App n°2 : "+QString::fromStdString(para->getNameApp(2)));
+    viewListAPP(9);
 }
 
 
@@ -337,6 +339,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC3_clicked()
     para->setNameApp(3,"nothing");
     para->resetEmplacementApp(3);
     ui->IDC_RAC3->setText("App n°3 : "+QString::fromStdString(para->getNameApp(3)));
+    viewListAPP(9);
 }
 
 
@@ -345,6 +348,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC4_clicked()
     para->setNameApp(4,"nothing");
     para->resetEmplacementApp(4);
     ui->IDC_RAC4->setText("App n°4 : "+QString::fromStdString(para->getNameApp(4)));
+    viewListAPP(9);
 }
 
 
@@ -353,6 +357,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC5_clicked()
     para->setNameApp(5,"nothing");
     para->resetEmplacementApp(5);
     ui->IDC_RAC5->setText("App n°5 : "+QString::fromStdString(para->getNameApp(5)));
+    viewListAPP(9);
 }
 
 
@@ -361,6 +366,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC6_clicked()
     para->setNameApp(6,"nothing");
     para->resetEmplacementApp(6);
     ui->IDC_RAC6->setText("App n°6 : "+QString::fromStdString(para->getNameApp(6)));
+    viewListAPP(9);
 }
 
 
@@ -369,6 +375,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC7_clicked()
     para->setNameApp(7,"nothing");
     para->resetEmplacementApp(7);
     ui->IDC_RAC7->setText("App n°7 : "+QString::fromStdString(para->getNameApp(7)));
+    viewListAPP(9);
 }
 
 
@@ -377,6 +384,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC8_clicked()
     para->setNameApp(8,"nothing");
     para->resetEmplacementApp(8);
     ui->IDC_RAC8->setText("App n°8 : "+QString::fromStdString(para->getNameApp(8)));
+    viewListAPP(9);
 }
 
 
@@ -385,6 +393,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC9_clicked()
     para->setNameApp(9,"nothing");
     para->resetEmplacementApp(9);
     ui->IDC_RAC9->setText("App n°9 : "+QString::fromStdString(para->getNameApp(9)));
+    viewListAPP(9);
 }
 
 
@@ -393,6 +402,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC10_clicked()
     para->setNameApp(10,"nothing");
     para->resetEmplacementApp(10);
     ui->IDC_RAC10->setText("App n°10 : "+QString::fromStdString(para->getNameApp(10)));
+    viewListAPP(9);
 }
 
 
@@ -401,6 +411,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC11_clicked()
     para->setNameApp(11,"nothing");
     para->resetEmplacementApp(11);
     ui->IDC_RAC11->setText("App n°11 : "+QString::fromStdString(para->getNameApp(11)));
+    viewListAPP(9);
 }
 
 
@@ -409,6 +420,7 @@ void CDAparaArreraLib::on_IDC_RESETRAC12_clicked()
     para->setNameApp(12,"nothing");
     para->resetEmplacementApp(12);
     ui->IDC_RAC12->setText("App n°12 : "+QString::fromStdString(para->getNameApp(12)));
+    viewListAPP(9);
 }
 
 // Racourci bar de tache liste
@@ -416,36 +428,42 @@ void CDAparaArreraLib::on_IDC_RESETRAC12_clicked()
 void CDAparaArreraLib::on_IDC_RESETTASK1_clicked()
 {
     para->setAppTaskBar(1,0,0);
+    viewListAPP(9);
 }
 
 
 void CDAparaArreraLib::on_IDC_RESETTASK2_clicked()
 {
-
+    para->setAppTaskBar(2,0,0);
+    viewListAPP(9);
 }
 
-
-void CDAparaArreraLib::on_IDC_RESETTASK1_3_clicked()
+void CDAparaArreraLib::on_IDC_RESETTASK3_clicked()
 {
-
+    para->setAppTaskBar(3,0,0);
+    viewListAPP(9);
 }
+void CDAparaArreraLib::on_IDC_RESETTASK1_3_clicked(){}
 
 
 void CDAparaArreraLib::on_IDC_RESETTASK4_clicked()
 {
-
+    para->setAppTaskBar(4,0,0);
+    viewListAPP(9);
 }
 
 
 void CDAparaArreraLib::on_IDC_RESETTASK5_clicked()
 {
-
+    para->setAppTaskBar(5,0,0);
+    viewListAPP(9);
 }
 
 
 void CDAparaArreraLib::on_IDC_TASKSHOWAPP_clicked()
 {
     viewListAPP(1);
+    viewListAPP(9);
 }
 
 
@@ -457,4 +475,7 @@ void CDAparaArreraLib::on_IDC_QUITHISTBIS_clicked()
     ui->FGESTTASKBAR->setVisible(true);
     ui->FHISTORICAPP->setVisible(false);
 }
+
+
+
 
