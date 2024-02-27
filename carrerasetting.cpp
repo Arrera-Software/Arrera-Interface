@@ -1275,7 +1275,8 @@ bool CArreraSetting::setAppTaskBar(int nbAppTaskbar,int nbAppSelected,int mode)
 bool CArreraSetting::setModeAppAsBoot(int mode,int nbAPPSelected)
 {
     gestionFileMode[mode-1].definirParametre("appBoot",to_string(nbAPPSelected));
-    return gestionFileMode[mode-1].sauvegarder(nameFileMode[mode-1]);
+    bool sortie = gestionFileMode[mode-1].sauvegarder(nameFileMode[mode-1]);
+    return sortie;
 }
 
 bool CArreraSetting::resetEmplacementApp(int app)
