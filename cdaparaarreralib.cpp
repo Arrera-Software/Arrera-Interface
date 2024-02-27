@@ -58,6 +58,86 @@ void CDAparaArreraLib::selectApp(int nb)
     ui->IDC_LAPPSELECTIONNER->setText("Application n°"+QString::number(nb));
     ui->FGESTAPP->setVisible(true);
 }
+
+void CDAparaArreraLib::viewListAPP(int mode)
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(false);
+    ui->FHISTORICAPP->setVisible(true);
+
+    ui->IDC_RAC1->setText("App n°1 : "+QString::fromStdString(para->getNameApp(1)));
+    ui->IDC_RAC2->setText("App n°2 : "+QString::fromStdString(para->getNameApp(2)));
+    ui->IDC_RAC3->setText("App n°3 : "+QString::fromStdString(para->getNameApp(3)));
+    ui->IDC_RAC4->setText("App n°4 : "+QString::fromStdString(para->getNameApp(4)));
+    ui->IDC_RAC5->setText("App n°5 : "+QString::fromStdString(para->getNameApp(5)));
+    ui->IDC_RAC6->setText("App n°6 : "+QString::fromStdString(para->getNameApp(6)));
+    ui->IDC_RAC7->setText("App n°7 : "+QString::fromStdString(para->getNameApp(7)));
+    ui->IDC_RAC8->setText("App n°8 : "+QString::fromStdString(para->getNameApp(8)));
+    ui->IDC_RAC9->setText("App n°9 : "+QString::fromStdString(para->getNameApp(9)));
+    ui->IDC_RAC10->setText("App n°10 : "+QString::fromStdString(para->getNameApp(10)));
+    ui->IDC_RAC11->setText("App n°11 : "+QString::fromStdString(para->getNameApp(11)));
+    ui->IDC_RAC12->setText("App n°12 : "+QString::fromStdString(para->getNameApp(12)));
+
+    if (para->getNbAppTaskbar(1,0)=="nothing")
+    {
+        ui->IDC_TASKRAC1->setText("Raccourci n°1 : App n°0");
+    }
+    else
+    {
+        ui->IDC_TASKRAC1->setText("Raccourci n°1 : App n°"+QString::fromStdString(para->getNbAppTaskbar(1,0)));
+    }
+
+    if (para->getNbAppTaskbar(2,0)=="nothing")
+    {
+        ui->IDC_TASKRAC2->setText("Raccourci n°2 : App n°0");
+    }
+    else
+    {
+        ui->IDC_TASKRAC2->setText("Raccourci n°2 : App n°"+QString::fromStdString(para->getNbAppTaskbar(2,0)));
+    }
+
+    if (para->getNbAppTaskbar(3,0)=="nothing")
+    {
+        ui->IDC_TASKRAC3->setText("Raccourci n°3 : App n°0");
+    }
+    else
+    {
+        ui->IDC_TASKRAC3->setText("Raccourci n°3 : App n°"+QString::fromStdString(para->getNbAppTaskbar(3,0)));
+    }
+
+    if (para->getNbAppTaskbar(4,0)=="nothing")
+    {
+        ui->IDC_TASKRAC4->setText("Raccourci n°4 : App n°0");
+    }
+    else
+    {
+        ui->IDC_TASKRAC4->setText("Raccourci n°4 : App n°"+QString::fromStdString(para->getNbAppTaskbar(4,0)));
+    }
+
+    if (para->getNbAppTaskbar(5,0)=="nothing")
+    {
+        ui->IDC_TASKRAC5->setText("Raccourci n°5 : App n°0");
+    }
+    else
+    {
+        ui->IDC_TASKRAC5->setText("Raccourci n°5 : App n°"+QString::fromStdString(para->getNbAppTaskbar(5,0)));
+    }
+    if (mode==0)
+    {
+        ui->IDC_QUITHIST->setVisible(true);
+        ui->IDC_QUITHISTBIS->setVisible(false);
+    }
+    else
+    {
+        if (mode==1)
+        {
+            ui->IDC_QUITHIST->setVisible(false);
+            ui->IDC_QUITHISTBIS->setVisible(true);
+        }
+    }
+}
 // Btn autre app
 void CDAparaArreraLib::on_IDC_GESTAPP1_clicked()
 {
@@ -222,69 +302,7 @@ void CDAparaArreraLib::on_IDC_VALIDERTASKBAR_clicked()
 
 void CDAparaArreraLib::on_IDC_APPHISTORIC_clicked()
 {
-    ui->FGESTAPP->setVisible(false);
-    ui->FArreraApp->setVisible(false);
-    ui->Fapp->setVisible(false);
-    ui->FGESTTASKBAR->setVisible(false);
-    ui->FHISTORICAPP->setVisible(true);
-
-    ui->IDC_RAC1->setText("App n°1 : "+QString::fromStdString(para->getNameApp(1)));
-    ui->IDC_RAC2->setText("App n°2 : "+QString::fromStdString(para->getNameApp(2)));
-    ui->IDC_RAC3->setText("App n°3 : "+QString::fromStdString(para->getNameApp(3)));
-    ui->IDC_RAC4->setText("App n°4 : "+QString::fromStdString(para->getNameApp(4)));
-    ui->IDC_RAC5->setText("App n°5 : "+QString::fromStdString(para->getNameApp(5)));
-    ui->IDC_RAC6->setText("App n°6 : "+QString::fromStdString(para->getNameApp(6)));
-    ui->IDC_RAC7->setText("App n°7 : "+QString::fromStdString(para->getNameApp(7)));
-    ui->IDC_RAC8->setText("App n°8 : "+QString::fromStdString(para->getNameApp(8)));
-    ui->IDC_RAC9->setText("App n°9 : "+QString::fromStdString(para->getNameApp(9)));
-    ui->IDC_RAC10->setText("App n°10 : "+QString::fromStdString(para->getNameApp(10)));
-    ui->IDC_RAC11->setText("App n°11 : "+QString::fromStdString(para->getNameApp(11)));
-    ui->IDC_RAC12->setText("App n°12 : "+QString::fromStdString(para->getNameApp(12)));
-
-    if (para->getNbAppTaskbar(1,0)=="nothing")
-    {
-        ui->IDC_TASKRAC1->setText("Raccourci n°1 : App n°0");
-    }
-    else
-    {
-        ui->IDC_TASKRAC1->setText("Raccourci n°1 : App n°"+QString::fromStdString(para->getNbAppTaskbar(1,0)));
-    }
-
-    if (para->getNbAppTaskbar(2,0)=="nothing")
-    {
-        ui->IDC_TASKRAC2->setText("Raccourci n°2 : App n°0");
-    }
-    else
-    {
-        ui->IDC_TASKRAC2->setText("Raccourci n°2 : App n°"+QString::fromStdString(para->getNbAppTaskbar(2,0)));
-    }
-
-    if (para->getNbAppTaskbar(3,0)=="nothing")
-    {
-        ui->IDC_TASKRAC3->setText("Raccourci n°3 : App n°0");
-    }
-    else
-    {
-        ui->IDC_TASKRAC3->setText("Raccourci n°3 : App n°"+QString::fromStdString(para->getNbAppTaskbar(3,0)));
-    }
-
-    if (para->getNbAppTaskbar(4,0)=="nothing")
-    {
-        ui->IDC_TASKRAC4->setText("Raccourci n°4 : App n°0");
-    }
-    else
-    {
-        ui->IDC_TASKRAC4->setText("Raccourci n°4 : App n°"+QString::fromStdString(para->getNbAppTaskbar(4,0)));
-    }
-
-    if (para->getNbAppTaskbar(5,0)=="nothing")
-    {
-        ui->IDC_TASKRAC5->setText("Raccourci n°5 : App n°0");
-    }
-    else
-    {
-        ui->IDC_TASKRAC5->setText("Raccourci n°5 : App n°"+QString::fromStdString(para->getNbAppTaskbar(5,0)));
-    }
+    viewListAPP(0);
 }
 
 void CDAparaArreraLib::on_IDC_QUITHIST_clicked()
@@ -422,5 +440,21 @@ void CDAparaArreraLib::on_IDC_RESETTASK4_clicked()
 void CDAparaArreraLib::on_IDC_RESETTASK5_clicked()
 {
 
+}
+
+
+void CDAparaArreraLib::on_IDC_TASKSHOWAPP_clicked()
+{
+    viewListAPP(1);
+}
+
+
+void CDAparaArreraLib::on_IDC_QUITHISTBIS_clicked()
+{
+    ui->FGESTAPP->setVisible(false);
+    ui->FArreraApp->setVisible(false);
+    ui->Fapp->setVisible(false);
+    ui->FGESTTASKBAR->setVisible(true);
+    ui->FHISTORICAPP->setVisible(false);
 }
 

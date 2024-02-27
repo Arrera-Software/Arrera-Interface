@@ -104,6 +104,10 @@ private slots:
 
     void on_IDC_RESETTASK5_clicked();
 
+    void on_IDC_TASKSHOWAPP_clicked();
+
+    void on_IDC_QUITHISTBIS_clicked();
+
 private:
     Ui::CDAparaArreraLib *ui;
     int nbAppSelect; // de 1 a 12
@@ -112,6 +116,7 @@ private:
     void clearGestApp();
     void selectApp(int nb);
     int modeSelected;
+    void viewListAPP(int mode);
 };
 
 #endif // CDAPARAARRERALIB_H

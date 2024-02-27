@@ -744,6 +744,26 @@ ajouter</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="IDC_TASKSHOWAPP">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Voir
+application</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QLabel" name="IDC_LBARAPP">
@@ -1672,8 +1692,26 @@ ajouter</string>
    <widget class="QPushButton" name="IDC_QUITHIST">
     <property name="geometry">
      <rect>
-      <x>469</x>
-      <y>633</y>
+      <x>470</x>
+      <y>640</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>retour</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="IDC_QUITHISTBIS">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>640</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -1688,10 +1726,10 @@ ajouter</string>
     </property>
    </widget>
   </widget>
-  <zorder>Fapp</zorder>
-  <zorder>FGESTTASKBAR</zorder>
   <zorder>FGESTAPP</zorder>
   <zorder>FArreraApp</zorder>
+  <zorder>Fapp</zorder>
+  <zorder>FGESTTASKBAR</zorder>
   <zorder>FHISTORICAPP</zorder>
  </widget>
  <resources>
