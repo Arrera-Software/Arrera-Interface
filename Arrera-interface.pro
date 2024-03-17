@@ -39,6 +39,7 @@ DISTFILES += \
     ArreraInterfaceLogo.png \
     ArreraInterfaceParametre.png \
     ArreraRecherche.png \
+    ArreraVideoDownload.png \
     annuler.png \
     app-drawer-Arrera.png \
     app-drawer.png \
