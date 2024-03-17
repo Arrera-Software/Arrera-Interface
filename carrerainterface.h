@@ -1,23 +1,22 @@
 #ifndef CARRERAINTERFACE_H
 #define CARRERAINTERFACE_H
 
-#include <QMainWindow>
+#include <QWidget>
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
 class CArreraInterface;
 }
-QT_END_NAMESPACE
 
-class CArreraInterface : public QMainWindow
+class CArreraInterface : public QWidget
 {
     Q_OBJECT
 
 public:
-    CArreraInterface(QWidget *parent = nullptr);
+    explicit CArreraInterface(QWidget *parent = nullptr);
     ~CArreraInterface();
 
 private:
     Ui::CArreraInterface *ui;
 };
+
 #endif // CARRERAINTERFACE_H

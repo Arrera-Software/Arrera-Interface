@@ -2,7 +2,7 @@
 #include "ui_carrerainterface.h"
 
 CArreraInterface::CArreraInterface(QWidget *parent)
-    : QMainWindow(parent)
+    : QWidget(parent)
     , ui(new Ui::CArreraInterface)
 {
     ui->setupUi(this);

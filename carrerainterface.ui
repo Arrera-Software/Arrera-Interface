@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>CArreraInterface</class>
- <widget class="QMainWindow" name="CArreraInterface">
+ <widget class="QWidget" name="CArreraInterface">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,22 +10,22 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>CArreraInterface</string>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <property name="windowTitle">
+   <string>Arrera</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="ArreraTheme.qrc">
+    <normaloff>:/IconArrera/ArreraI2025.png</normaloff>:/IconArrera/ArreraI2025.png</iconset>
+  </property>
  </widget>
- <resources/>
+ <resources>
+  <include location="ArreraTheme.qrc"/>
+ </resources>
  <connections/>
 </ui>
