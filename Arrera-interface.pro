@@ -27,3 +27,21 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ArreraTheme.qrc
+
+DISTFILES += \
+    ArreraCopiloteIcon.png \
+    ArreraDoc.png \
+    ArreraI2024.png \
+    ArreraInfo.png \
+    ArreraInterfaceLogo.png \
+    ArreraInterfaceParametre.png \
+    ArreraRecherche.png \
+    annuler.png \
+    app-drawer-Arrera.png \
+    app-drawer.png \
+    fondTask.png \
+    icon Assistant.png \
+    iconNavigateur.png
