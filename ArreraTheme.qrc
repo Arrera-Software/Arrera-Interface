@@ -22,8 +22,8 @@
         <file>showMTP.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
-        <file>ArreraI2024.png</file>
         <file>ArreraInterfaceLogo.png</file>
         <file>ArreraInterfaceParametre.png</file>
+        <file>ArreraI2025.png</file>
     </qresource>
 </RCC>

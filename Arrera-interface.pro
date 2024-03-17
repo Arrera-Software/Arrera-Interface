@@ -34,15 +34,23 @@ RESOURCES += \
 DISTFILES += \
     ArreraCopiloteIcon.png \
     ArreraDoc.png \
-    ArreraI2024.png \
+    ArreraI2025.png \
     ArreraInfo.png \
     ArreraInterfaceLogo.png \
     ArreraInterfaceParametre.png \
     ArreraRecherche.png \
-    ArreraVideoDownload.png \
+    Ryley.png \
     annuler.png \
     app-drawer-Arrera.png \
     app-drawer.png \
     fondTask.png \
     icon Assistant.png \
-    iconNavigateur.png
+    iconNavigateur.png \
+    iconPresentation.png \
+    iconTableur.png \
+    iconTraitementTexte.png \
+    quitter.png \
+    showMTP.png \
+    six.png \
+    valider.png \
+    validerMTP.png
