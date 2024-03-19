@@ -483,34 +483,6 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QLabel" name="IDC_INDNOMODE">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>500</width>
-          <height>35</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Aucun mode a ete parametrer</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
      </layout>
     </widget>
     <widget class="QLabel" name="IDC_LABELUSER">
@@ -848,6 +820,9 @@
     </widget>
    </widget>
    <widget class="QFrame" name="FLOGIN">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -1287,9 +1262,50 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QLabel" name="IDC_INDNOMODE">
+    <property name="geometry">
+     <rect>
+      <x>191</x>
+      <y>217</y>
+      <width>250</width>
+      <height>250</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>250</width>
+      <height>250</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>250</width>
+      <height>250</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ArreraTheme.qrc">:/IconArrera/ArreraI2024.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>FMode</zorder>
    <zorder>FLOGIN</zorder>
    <zorder>FGUI</zorder>
+   <zorder>IDC_INDNOMODE</zorder>
   </widget>
  </widget>
  <resources>

@@ -22,10 +22,12 @@ CArreraUI::CArreraUI(QWidget *parent)
     connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
     ui->FMode->setVisible(false);
-    ui->FGUI->setVisible(false);
+    ui->FGUI->setVisible(true);
     ui->FLOGIN->setVisible(false);
+    ui->IDC_INDNOMODE->setVisible(true);
     loadSetting();
     showMTP= 0;
+    /*
     if(userMTP=="0000")
     {
         ui->FGUI->setVisible(true);
@@ -34,6 +36,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     {
         ui->FLOGIN->setVisible(true);
     }
+    */
 }
 
 CArreraUI::~CArreraUI()
@@ -178,6 +181,7 @@ void CArreraUI::closeEvent(QCloseEvent *event)
 void CArreraUI::loadSetting()
 {
     QString nameUser;
+    int modeCharger = 0 ;
     nameUser = QString::fromStdString(objPara.getNameUser().c_str());
     if (nameUser=="Nothing")
     {
@@ -189,10 +193,12 @@ void CArreraUI::loadSetting()
         ui->IDC_LABELUSER->setVisible(true);
         ui->IDC_NAMEUSERLOGIN->setText("Utilisateur : "+nameUser);
     }
+
     if (objPara.getModeEnable(1)=="1")
     {
         ui->IDC_MODE1->setVisible(true);
         ui->IDC_MODE1->setText(objPara.getNameMode(1).c_str());
+        modeCharger++;
     }
     else
     {
@@ -202,6 +208,7 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_MODE2->setVisible(true);
         ui->IDC_MODE2->setText(objPara.getNameMode(2).c_str());
+        modeCharger++;
     }
     else
     {
@@ -211,6 +218,7 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_MODE3->setVisible(true);
         ui->IDC_MODE3->setText(objPara.getNameMode(3).c_str());
+        modeCharger++;
     }
     else
     {
@@ -220,6 +228,7 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_MODE4->setVisible(true);
         ui->IDC_MODE4->setText(objPara.getNameMode(4).c_str());
+        modeCharger++;
     }
     else
     {
@@ -229,12 +238,13 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_MODE5->setVisible(true);
         ui->IDC_MODE5->setText(objPara.getNameMode(5).c_str());
+        modeCharger++;
     }
     else
     {
         ui->IDC_MODE5->setVisible(false);
     }
-    if ((objPara.getModeEnable(1)=="0")&&(objPara.getModeEnable(2)=="0")&&(objPara.getModeEnable(3)=="0")&&(objPara.getModeEnable(4)=="0")&&(objPara.getModeEnable(5)=="0"))
+    if(modeCharger==0)
     {
         ui->IDC_INDNOMODE->setVisible(true);
     }
