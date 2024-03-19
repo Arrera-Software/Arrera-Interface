@@ -6,6 +6,7 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     , ui(new Ui::CArreraInterface)
 {
     ui->setupUi(this);
+
 }
 
 CArreraInterface::~CArreraInterface()
