@@ -1,6 +1,8 @@
 #include "carrerasetting.h"
 #include <qdebug.h>
 #include <QFileDialog>
+#include <fstream>
+
 
 CArreraSetting::CArreraSetting()
 {
@@ -22,10 +24,34 @@ CArreraSetting::CArreraSetting()
     nameFileTaskbarMode[4] = nameFileMode[3];
     nameFileTaskbarMode[5] = nameFileMode[4];
     // Chargement de fichier
-    chargedAllFile();
+    if (!chargedAllFile())
+    {
+        createFile();
+    }
 }
 
-void CArreraSetting::chargedAllFile()
+void CArreraSetting::createFile()
+{
+    int i ;
+    ofstream fichier1(nameFile);
+    ofstream fichier2(nameFileApp);
+    ofstream fichier3(nameFileMode[0]);
+    ofstream fichier4(nameFileMode[1]);
+    ofstream fichier5(nameFileMode[2]);
+    ofstream fichier6(nameFileMode[3]);
+    ofstream fichier7(nameFileMode[4]);
+    fichier1.close();
+    fichier2.close();
+    fichier3.close();
+    fichier4.close();
+    fichier5.close();
+    fichier6.close();
+    fichier7.close();
+    chargedAllFile();
+    resetAllPara();
+}
+
+bool CArreraSetting::chargedAllFile()
 {
     int i = 0 ;
     etatChargement = gestionFile.charger(nameFile);
@@ -35,11 +61,21 @@ void CArreraSetting::chargedAllFile()
         chargementMode[i] = gestionFileMode[i].charger(nameFileMode[i]);
     }
     etatFileTaskbar[0]=gestionFileTaskbar[0].charger(nameFile);
-    etatFileTaskbar[1]=gestionFileTaskbar[1].charger(nameFileMode[0]);
-    etatFileTaskbar[2]=gestionFileTaskbar[2].charger(nameFileMode[1]);
-    etatFileTaskbar[3]=gestionFileTaskbar[3].charger(nameFileMode[2]);
-    etatFileTaskbar[4]=gestionFileTaskbar[4].charger(nameFileMode[3]);
-    etatFileTaskbar[5]=gestionFileTaskbar[5].charger(nameFileMode[4]);
+    for (i=1;i<=5;i++)
+    {
+        etatFileTaskbar[i]=gestionFileTaskbar[i].charger(nameFileMode[i-1]);
+    }
+    if ((!etatChargement)||(!chargementFileApp)
+        ||(!chargementMode[0])||(!chargementMode[1])||(!chargementMode[2])||(!chargementMode[3])||(!chargementMode[4])
+        ||(!etatFileTaskbar[0])||(!etatFileTaskbar[1])||(!etatFileTaskbar[2])||(!etatFileTaskbar[3])
+        ||(!etatFileTaskbar[4])||(!etatFileTaskbar[5]))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }
 
 string CArreraSetting::getNameMode(int nb)

@@ -14,7 +14,8 @@ private :
     bool etatChargement, chargementMode[5],linuxOS,windowsOS,chargementFileApp;
     bool etatFileTaskbar[6];
     string nameFile,nameFileMode[5],nameFileApp , nameFileTaskbarMode[6];
-    void chargedAllFile();
+    bool chargedAllFile();
+    void createFile();
 public:
     CArreraSetting();
     string getNameUser();
