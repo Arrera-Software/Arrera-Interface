@@ -103,25 +103,25 @@ private slots:
 
 private:
     Ui::CArreraUI *ui;
-    CArreraSetting objPara;
+    // Fenetre fille
     CArreraApropos *winApropos;
     CDAParametre *winPara ;
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
+    // Objet de gestion
     CArreraOpenSoft objSoftware;
+    CArreraSetting objPara;
     COS osDetecteur ;
+    // Varriable
     int nbModeON;
+    // Fonction private
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
     void onMode(int nbMode);
     void offMode();
     void bootAssistantMode();
     void addNumberMTP(QString nb );
-    string userMTP;
-    QString mtpIn,mtpCacher;
-    int showMTP ;
-
-
-
+    //string userMTP;
+    //QString mtpIn,mtpCacher;
 };
 #endif // CARRERAUI_H

@@ -7,33 +7,39 @@ CArreraUI::CArreraUI(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::CArreraUI)
 {
+    //Initilisation de l'interface
     ui->setupUi(this);
     ui->IDC_COPILOTE->setVisible(false);
-    winPara = new CDAParametre(this);
-    winAPP = new ArreraAppLib(this);
-    winApropos = new CArreraApropos(this);
-    taskBar = new CArreraTakbar(this);
-    objSoftware.setObjPara(&objPara);
-    winPara->passObjPara(&objPara,&objSoftware);
-    winAPP->passObjet(&objPara,&objSoftware);
-    taskBar->passObj(&objPara,&objSoftware);
-    connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
-    connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
-    connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
-    connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
     ui->FMode->setVisible(false);
     ui->FGUI->setVisible(true);
     ui->FLOGIN->setVisible(false);
     ui->IDC_INDNOMODE->setVisible(true);
-    loadSetting();
-    showMTP= 0;
     ui->IDC_QUIT->setVisible(false);
     ui->IDC_RELOAD->setVisible(false);
-    connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
+    // Initilisation spesifique a linux
     if ((osDetecteur.getLinux())&&(!osDetecteur.getWindows()))
     {
         ui->IDC_SIX->setVisible(false);
     }
+    // Declaration des fenetre fille
+    winPara = new CDAParametre(this);
+    winAPP = new ArreraAppLib(this);
+    winApropos = new CArreraApropos(this);
+    taskBar = new CArreraTakbar(this);
+    // Passage de parametre au fenetre fille
+    objSoftware.setObjPara(&objPara);
+    winPara->passObjPara(&objPara,&objSoftware);
+    winAPP->passObjet(&objPara,&objSoftware);
+    taskBar->passObj(&objPara,&objSoftware);
+    // Ajout de la fermeture de tout les fenetre si la principal est quitter
+    connect(this,&CArreraUI::destroyed,winPara,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
+    connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
+    // Ajout de l'actulisation de la fenetre principal si les parametre son quitter
+    connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
+    // Chargement des parametre
+    loadSetting();
 }
 
 CArreraUI::~CArreraUI()
@@ -251,10 +257,12 @@ void CArreraUI::loadSetting()
     }
     winAPP->updateBTN();
     taskBar->loadPara(0);
+    /*
     mtpIn =  "";
     mtpCacher="";
     userMTP = objPara.getMTPUser();
     ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
+    */
 }
 
 void CArreraUI::on_IDC_RELOAD_clicked()
@@ -423,11 +431,13 @@ void CArreraUI::on_IDC_ASSISTANTMODE_clicked()
 
 void CArreraUI::addNumberMTP(QString nb)
 {
+    /*
     QString old = mtpIn , oldMtpCacher = mtpCacher;
     mtpIn = old+nb;
     mtpCacher = oldMtpCacher + "*";
     showMTP = 0 ;
     ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
+*/
 }
 
 void CArreraUI::on_IDC_MTPLOGIN1_clicked()
@@ -492,6 +502,7 @@ void CArreraUI::on_IDC_MTPLOGIN0_clicked()
 
 void CArreraUI::on_IDC_MTPLOGINQUIT_clicked()
 {
+    /*
     if (mtpIn=="")
     {
         qApp->quit();
@@ -502,11 +513,13 @@ void CArreraUI::on_IDC_MTPLOGINQUIT_clicked()
         mtpCacher = "";
         ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
     }
+*/
 }
 
 
 void CArreraUI::on_IDC_MTPLOGINVALIDER_clicked()
 {
+    /*
     string in = mtpIn.toStdString();
     if (in==userMTP)
     {
@@ -519,11 +532,13 @@ void CArreraUI::on_IDC_MTPLOGINVALIDER_clicked()
         mtpIn =  "" ;
         mtpCacher = "";
     }
+*/
 }
 
 
 void CArreraUI::on_IDC_MTPBTNSHOW_clicked()
 {
+    /*
     if (showMTP==0)
     {
         ui->IDC_SHOWMTPLOGIN->setText(mtpIn);
@@ -533,6 +548,6 @@ void CArreraUI::on_IDC_MTPBTNSHOW_clicked()
     {
         ui->IDC_SHOWMTPLOGIN->setText(mtpCacher);
         showMTP = 0 ;
-    }
+    }*/
 }
 
