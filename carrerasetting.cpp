@@ -1276,6 +1276,7 @@ bool CArreraSetting::setModeAppAsBoot(int mode,int nbAPPSelected)
 {
     gestionFileMode[mode-1].definirParametre("appBoot",to_string(nbAPPSelected));
     bool sortie = gestionFileMode[mode-1].sauvegarder(nameFileMode[mode-1]);
+    //qDebug() << sortie;
     return sortie;
 }
 

@@ -148,6 +148,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
     arreraTaskBar = ui->IDC_RARRERABAR->isChecked();
     nbAppBoot = ui->IDC_NBAPPBOOT->value();
+    //qDebug() << nbAppBoot ;
     if (modeSelectionner==0)
     {
         msgBox.setWindowTitle("Erreur de selection");
