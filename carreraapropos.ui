@@ -10,26 +10,14 @@
     <height>400</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>400</width>
-    <height>400</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>400</width>
-    <height>400</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>Arrera : A propos</string>
+   <string>CArreraApropos</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="IDC_ICONAPP">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>10</y>
       <width>200</width>
       <height>200</height>
@@ -48,13 +36,7 @@
      </size>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="ArreraTheme.qrc">:/IconArrera/ArreraI2024.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
+     <string>Icon App</string>
     </property>
    </widget>
    <widget class="QLabel" name="IDC_APPNAME">
@@ -69,10 +51,11 @@
     <property name="font">
      <font>
       <pointsize>14</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Arrera Interface</string>
+     <string>App Name</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -89,11 +72,12 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
+      <italic>true</italic>
      </font>
     </property>
     <property name="text">
-     <string>I2024-</string>
+     <string>App Version</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -141,10 +125,24 @@
      <string>Source</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>370</y>
+      <width>221</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Develop with QT 6.6.1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources>
-  <include location="ArreraTheme.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
