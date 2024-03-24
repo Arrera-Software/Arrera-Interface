@@ -40,6 +40,14 @@ CArreraUI::CArreraUI(QWidget *parent)
     connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
     // Chargement des parametre
     loadSetting();
+    // Verif des parametre
+    if(!objPara.getParaSetteur())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Votre interface n'est pas configurer");
+        msgBox.exec();
+        winPara->show();
+    }
 }
 
 CArreraUI::~CArreraUI()

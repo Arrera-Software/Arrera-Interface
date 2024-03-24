@@ -56,6 +56,8 @@ public:
     bool setModeEnable(int nbMode);
     bool resetMode(int nbMode);
     bool setMTPUser(string mtp);
+    bool setParaSetteur();
+    bool getParaSetteur();
 
 };
 
