@@ -300,9 +300,6 @@ void CDAParametre::on_IDC_VALIDERNAME_clicked()
     name = ui->IDC_NAMEUSER->toPlainText();
     ui->IDC_NAMEUSER->clear();
     objParametre->setNameUser(name.toStdString());
-    ui->FGESTINTERFACE->setVisible(false);
-    ui->FMTPUSER->setVisible(true);
-    ui->IDC_SHOWMTP->setText("");
 }
 
 
