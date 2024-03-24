@@ -32,7 +32,6 @@ CArreraSetting::CArreraSetting()
 
 void CArreraSetting::createFile()
 {
-    int i ;
     ofstream fichier1(nameFile);
     ofstream fichier2(nameFileApp);
     ofstream fichier3(nameFileMode[0]);
@@ -65,10 +64,10 @@ bool CArreraSetting::chargedAllFile()
     {
         etatFileTaskbar[i]=gestionFileTaskbar[i].charger(nameFileMode[i-1]);
     }
-    if ((!etatChargement)||(!chargementFileApp)
-        ||(!chargementMode[0])||(!chargementMode[1])||(!chargementMode[2])||(!chargementMode[3])||(!chargementMode[4])
-        ||(!etatFileTaskbar[0])||(!etatFileTaskbar[1])||(!etatFileTaskbar[2])||(!etatFileTaskbar[3])
-        ||(!etatFileTaskbar[4])||(!etatFileTaskbar[5]))
+    if ((!etatChargement)||(!chargementFileApp)||(!chargementMode[0])
+        ||(!chargementMode[1])||(!chargementMode[2])||(!chargementMode[3])
+        ||(!chargementMode[4])||(!etatFileTaskbar[0])||(!etatFileTaskbar[1])
+        ||(!etatFileTaskbar[2])||(!etatFileTaskbar[3])||(!etatFileTaskbar[4])||(!etatFileTaskbar[5]))
     {
         return false;
     }
