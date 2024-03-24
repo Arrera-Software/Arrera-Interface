@@ -44,7 +44,8 @@ CArreraUI::CArreraUI(QWidget *parent)
     if(!objPara.getParaSetteur())
     {
         QMessageBox msgBox;
-        msgBox.setText("Votre interface n'est pas configurer");
+        msgBox.setWindowTitle("Arrera : Information");
+        msgBox.setText("Votre interface n'est pas configurer aller\ndans les parametre pour la configurer");
         msgBox.exec();
         winPara->show();
     }

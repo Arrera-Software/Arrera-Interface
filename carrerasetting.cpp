@@ -458,6 +458,7 @@ bool CArreraSetting::resetAllPara()
         gestionFile.definirParametre("btnTaskbar4","nothing");
         gestionFile.definirParametre("btnTaskbar5","nothing");
         gestionFile.definirParametre("userMTP","0000");
+        gestionFile.definirParametre("paraSet","0");
 
         gestionFileApp.definirParametre("emplacementApp1","nothing");
         gestionFileApp.definirParametre("emplacementApp2","nothing");
