@@ -37,6 +37,7 @@ CArreraUI::CArreraUI(QWidget *parent)
         ui->FLOGIN->setVisible(true);
     }
     */
+    connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
 }
 
 CArreraUI::~CArreraUI()

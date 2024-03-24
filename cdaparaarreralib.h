@@ -119,6 +119,9 @@ private:
     void selectApp(int nb);
     int modeSelected;
     void viewListAPP(int mode);
+
+signals:
+    void parametresFerme();
 };
 
 #endif // CDAPARAARRERALIB_H

@@ -84,6 +84,7 @@ private slots:
 
     void on_IDC_ANNULERMTP_clicked();
 
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
@@ -93,6 +94,8 @@ private:
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;
     CDAparaArreraLib *winParaApp;
+signals:
+    void parametresFerme();
 };
 
 #endif // CDAPARAMETRE_H

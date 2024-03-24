@@ -120,5 +120,7 @@ private:
     QString mtpIn,mtpCacher;
     int showMTP ;
 
+
+
 };
 #endif // CARRERAUI_H

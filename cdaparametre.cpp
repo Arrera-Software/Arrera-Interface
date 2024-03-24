@@ -32,11 +32,11 @@ void CDAParametre::passObjPara(CArreraSetting* obj,CArreraOpenSoft *objSoft)
 
 }
 
-void CDAParametre::closeEvent(QCloseEvent *event) {
-    // Ajoutez votre logique de fermeture spécifique à la fenêtre enfant ici
-
-    // Appeler la méthode closeEvent de la classe de base pour effectuer la fermeture par défaut
-    QDialog::closeEvent(event);
+void CDAParametre::closeEvent(QCloseEvent *event)
+{
+    // Émettre le signal lorsque la fenêtre des paramètres est fermée
+    emit parametresFerme();
+    QWidget::closeEvent(event);
 }
 
 void CDAParametre::on_IDC_GESTMODE1_clicked()
@@ -476,4 +476,3 @@ void CDAParametre::on_IDC_ANNULERMTP_clicked()
     ui->FMTPUSER->setVisible(false);
     ui->FGESTINTERFACE->setVisible(true);
 }
-
