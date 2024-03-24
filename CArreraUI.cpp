@@ -30,6 +30,10 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->IDC_QUIT->setVisible(false);
     ui->IDC_RELOAD->setVisible(false);
     connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
+    if ((osDetecteur.getLinux())&&(!osDetecteur.getWindows()))
+    {
+        ui->IDC_SIX->setVisible(false);
+    }
 }
 
 CArreraUI::~CArreraUI()

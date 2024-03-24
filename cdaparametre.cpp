@@ -17,6 +17,12 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->FGESTMODE->setVisible(false);
     ui->FMODESET->setVisible(false);
     ui->FMTPUSER->setVisible(false);
+    if((osDetecteur.getLinux())&&(!osDetecteur.getWindows()))
+    {
+        ui->IDC_ESIX->setVisible(false);
+        ui->IDC_PSIX->setVisible(false);
+        ui->IDC_CHOIXSIX->setVisible(false);
+    }
 }
 
 CDAParametre::~CDAParametre()

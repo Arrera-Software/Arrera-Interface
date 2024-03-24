@@ -94,6 +94,7 @@ private:
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;
     CDAparaArreraLib *winParaApp;
+    COS osDetecteur ;
 signals:
     void parametresFerme();
 };

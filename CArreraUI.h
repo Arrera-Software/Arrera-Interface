@@ -109,6 +109,7 @@ private:
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
     CArreraOpenSoft objSoftware;
+    COS osDetecteur ;
     int nbModeON;
     void closeEvent(QCloseEvent *event);
     void errorOpenSoft();
