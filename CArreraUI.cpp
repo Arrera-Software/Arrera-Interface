@@ -27,16 +27,8 @@ CArreraUI::CArreraUI(QWidget *parent)
     ui->IDC_INDNOMODE->setVisible(true);
     loadSetting();
     showMTP= 0;
-    /*
-    if(userMTP=="0000")
-    {
-        ui->FGUI->setVisible(true);
-    }
-    else
-    {
-        ui->FLOGIN->setVisible(true);
-    }
-    */
+    ui->IDC_QUIT->setVisible(false);
+    ui->IDC_RELOAD->setVisible(false);
     connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
 }
 
