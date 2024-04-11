@@ -25,185 +25,35 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="top" stretch="0,1,0,0,1,1">
-     <item>
-      <widget class="QPushButton" name="IDC_BTABLEUR">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/iconTableur.png</normaloff>:/iconBTN/iconTableur.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_BWRITER">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/iconTraitementTexte.png</normaloff>:/iconBTN/iconTraitementTexte.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_BTASKBAR">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/fondTask.png</normaloff>:/iconBTN/fondTask.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_BAPP">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/app-drawer.png</normaloff>:/iconBTN/app-drawer.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_BWEB">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/iconNavigateur.png</normaloff>:/iconBTN/iconNavigateur.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="IDC_BPRESENTATION">
-       <property name="minimumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="ArreraTheme.qrc">
-         <normaloff>:/iconBTN/iconPresentation.png</normaloff>:/iconBTN/iconPresentation.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>70</width>
-         <height>70</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QLabel" name="IDC_TITRE">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Arrera</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer_3">
+    <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -316,7 +166,7 @@
     </layout>
    </item>
    <item>
-    <spacer name="verticalSpacer_2">
+    <spacer name="verticalSpacer_3">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -334,14 +184,14 @@
       <widget class="QPushButton" name="IDC_RYLEY">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="text">
@@ -353,8 +203,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
       </widget>
@@ -363,14 +213,14 @@
       <widget class="QPushButton" name="IDC_COPILOTE">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="text">
@@ -382,8 +232,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
       </widget>
@@ -392,14 +242,14 @@
       <widget class="QPushButton" name="IDC_SIX">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
        <property name="text">
@@ -411,8 +261,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>70</width>
+         <height>70</height>
         </size>
        </property>
       </widget>
@@ -420,7 +270,101 @@
     </layout>
    </item>
    <item>
-    <spacer name="verticalSpacer">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="top" stretch="0,0,0">
+     <item>
+      <widget class="QPushButton" name="IDC_TASKBAR">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/fondTask.png</normaloff>:/iconBTN/fondTask.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_DRAWERAPP">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/app-drawer.png</normaloff>:/iconBTN/app-drawer.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_RECHERCHE">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
