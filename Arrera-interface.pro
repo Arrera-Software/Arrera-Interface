@@ -18,8 +18,7 @@ HEADERS += \
 FORMS += \
     carrerainterface.ui
 
-TRANSLATIONS += \
-    Arrera-interface_fr_FR.ts
+
 CONFIG += lrelease
 CONFIG += embed_translations
 
