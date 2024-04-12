@@ -21,6 +21,9 @@
         <file>validerMTP.png</file>
         <file>showMTP.png</file>
         <file>ArreraApropos.png</file>
+        <file>recherche.png</file>
+        <file>domicile.png</file>
+        <file>travail.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraInterfaceLogo.png</file>
