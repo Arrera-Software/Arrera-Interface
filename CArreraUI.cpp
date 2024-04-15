@@ -264,6 +264,54 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_INDNOMODE->setVisible(false);
     }
+    if (objPara.getSoftTableur()=="nothing")
+    {
+        ui->IDC_TABLEUR->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_TABLEUR->setVisible(true);
+    }
+    if(objPara.getSixEmplacement()=="nothing")
+    {
+        ui->IDC_SIX->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_SIX->setVisible(true);
+    }
+    if(objPara.getSoftNavigateur()=="nothing")
+    {
+        ui->IDC_NAVIGATEUR->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_NAVIGATEUR->setVisible(true);
+    }
+    if(objPara.getRyleyEmplacement()=="nothing")
+    {
+        ui->IDC_RYLEY->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_RYLEY->setVisible(true);
+    }
+    if(objPara.getSoftPresentation()=="nothing")
+    {
+        ui->IDC_PRESENTATION->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_PRESENTATION->setVisible(true);
+    }
+    if(objPara.getSoftTTexte()=="nothing")
+    {
+        ui->IDC_TRAITEMENT->setVisible(false);
+    }
+    else
+    {
+        ui->IDC_TRAITEMENT->setVisible(true);
+    }
     winAPP->updateBTN();
     taskBar->loadPara(0);
     /*
