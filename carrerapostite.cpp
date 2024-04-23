@@ -53,3 +53,11 @@ void CArreraPostite::on_IDC_OUVRIR_clicked()
         ui->ZONETEXTE->setPlainText(contenu);
     }
 }
+
+void CArreraPostite::on_CArreraPostite_finished(int result)
+{
+    if(!ui->ZONETEXTE->toPlainText().isEmpty())
+    {
+        ui->ZONETEXTE->clear();
+    }
+}

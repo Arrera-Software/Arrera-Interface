@@ -23,6 +23,8 @@ private slots:
 
     void on_IDC_OUVRIR_clicked();
 
+    void on_CArreraPostite_finished(int result);
+
 private:
     Ui::CArreraPostite *ui;
 };
