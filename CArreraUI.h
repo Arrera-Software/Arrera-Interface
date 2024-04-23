@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "arreraapplib.h"
 #include "carreraapropos.h"
+#include "carrerapostite.h"
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
@@ -101,6 +102,8 @@ private slots:
 
     void on_IDC_MTPBTNSHOW_clicked();
 
+    void on_IDC_PENSEBETE_clicked();
+
 private:
     Ui::CArreraUI *ui;
     // Fenetre fille
@@ -108,6 +111,7 @@ private:
     CDAParametre *winPara ;
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
+    CArreraPostite *winPostite;
     // Objet de gestion
     CArreraOpenSoft objSoftware;
     CArreraSetting objPara;

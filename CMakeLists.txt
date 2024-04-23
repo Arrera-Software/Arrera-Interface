@@ -43,6 +43,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         cdaparaarreralib.h cdaparaarreralib.cpp cdaparaarreralib.ui
         carreraapropos.cpp carreraapropos.h carreraapropos.ui
         carreratakbar.h carreratakbar.cpp carreratakbar.ui
+        carrerapostite.h carrerapostite.cpp carrerapostite.ui
 
     )
 # Define target properties for Android with Qt 6 as:
