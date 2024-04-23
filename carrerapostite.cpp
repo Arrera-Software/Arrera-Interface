@@ -37,8 +37,19 @@ void CArreraPostite::on_IDC_SAVE_clicked()
 }
 
 
-
 void CArreraPostite::on_IDC_OUVRIR_clicked()
 {
-
+    QString contenu;
+    QString nomFichier ;
+    nomFichier = QFileDialog::getOpenFileName(this,
+        "Choisir un fichier à ouvrir",
+        QDir::homePath(), "Fichier Pense-bete (*.ab)");
+    QFile fichier(nomFichier);
+    if (fichier.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream in(&fichier);
+        contenu = in.readAll();
+        fichier.close();
+        ui->ZONETEXTE->setPlainText(contenu);
+    }
 }
