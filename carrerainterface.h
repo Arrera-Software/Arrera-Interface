@@ -2,6 +2,7 @@
 #define CARRERAINTERFACE_H
 
 #include <QWidget>
+#include "carreraapplicationdrawer.h"
 
 namespace Ui {
 class CArreraInterface;
@@ -15,8 +16,12 @@ public:
     explicit CArreraInterface(QWidget *parent = nullptr);
     ~CArreraInterface();
 
+private slots:
+    void on_IDC_DRAWERAPP_clicked();
+
 private:
     Ui::CArreraInterface *ui;
+    CArreraApplicationDrawer* winLib;
 };
 
 #endif // CARRERAINTERFACE_H
