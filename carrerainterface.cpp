@@ -6,7 +6,9 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     , ui(new Ui::CArreraInterface)
 {
     ui->setupUi(this);
-    winLib = new CArreraApplicationDrawer(this);
+    winPostite = new CArreraPostite(this);
+    winLib = new CArreraApplicationDrawer(this,winPostite);
+    connect(this,&CArreraInterface::destroyed,winPostite,&CArreraInterface::close);
     connect(this,&CArreraInterface::destroyed,winLib,&CArreraInterface::close);
 }
 

@@ -2,6 +2,7 @@
 #define CARRERAAPPLICATIONDRAWER_H
 
 #include <QDialog>
+#include "carrerapostite.h"
 
 namespace Ui {
 class CArreraApplicationDrawer;
@@ -12,7 +13,7 @@ class CArreraApplicationDrawer : public QDialog
     Q_OBJECT
 
 public:
-    explicit CArreraApplicationDrawer(QWidget *parent = nullptr);
+    explicit CArreraApplicationDrawer(QWidget *parent = nullptr,CArreraPostite *postite= nullptr);
     ~CArreraApplicationDrawer();
 
 private slots:
@@ -28,6 +29,7 @@ private slots:
 
 private:
     Ui::CArreraApplicationDrawer *ui;
+    CArreraPostite *winPostite;
 };
 
 #endif // CARRERAAPPLICATIONDRAWER_H

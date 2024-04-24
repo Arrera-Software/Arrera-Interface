@@ -1,11 +1,12 @@
 #include "carreraapplicationdrawer.h"
 #include "ui_carreraapplicationdrawer.h"
 
-CArreraApplicationDrawer::CArreraApplicationDrawer(QWidget *parent)
+CArreraApplicationDrawer::CArreraApplicationDrawer(QWidget *parent,CArreraPostite *postite)
     : QDialog(parent)
     , ui(new Ui::CArreraApplicationDrawer)
 {
     ui->setupUi(this);
+    winPostite = postite;
 }
 
 CArreraApplicationDrawer::~CArreraApplicationDrawer()
@@ -27,6 +28,7 @@ void CArreraApplicationDrawer::on_IDC_SOFTTABLEUR_clicked()
 
 void CArreraApplicationDrawer::on_IDC_SOFTPENSEBETE_clicked()
 {
+    winPostite->show();
     close();
 }
 

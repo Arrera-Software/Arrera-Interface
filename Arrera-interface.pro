@@ -11,15 +11,18 @@ CONFIG += c++17
 SOURCES += \
     carreraapplicationdrawer.cpp \
     carrerainterface.cpp \
+    carrerapostite.cpp \
     main.cpp
 
 HEADERS += \
     carreraapplicationdrawer.h \
-    carrerainterface.h
+    carrerainterface.h \
+    carrerapostite.h
 
 FORMS += \
     carreraapplicationdrawer.ui \
-    carrerainterface.ui
+    carrerainterface.ui \
+    carrerapostite.ui
 
 
 CONFIG += lrelease
