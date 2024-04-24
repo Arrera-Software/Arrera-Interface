@@ -95,6 +95,10 @@
      <property name="text">
       <string/>
      </property>
+     <property name="icon">
+      <iconset resource="ArreraTheme.qrc">
+       <normaloff>:/iconBTN/ArreraPensebete.png</normaloff>:/iconBTN/ArreraPensebete.png</iconset>
+     </property>
      <property name="iconSize">
       <size>
        <width>80</width>
