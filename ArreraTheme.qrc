@@ -18,6 +18,7 @@
         <file>recherche.png</file>
         <file>domicile.png</file>
         <file>travail.png</file>
+        <file>ArreraPensebete.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraInterfaceLogo.png</file>
