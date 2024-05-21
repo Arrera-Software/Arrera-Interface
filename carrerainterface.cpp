@@ -6,10 +6,10 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     , ui(new Ui::CArreraInterface)
 {
     ui->setupUi(this);
-    winPostite = new CArreraPostite(this);
-    winLib = new CArreraApplicationDrawer(this,winPostite);
-    connect(this,&CArreraInterface::destroyed,winPostite,&CArreraInterface::close);
-    connect(this,&CArreraInterface::destroyed,winLib,&CArreraInterface::close);
+    mainPageIndex = ui->PagesArrera->indexOf(ui->Mainpage);
+    libIndex =  ui->PagesArrera->indexOf(ui->ArreraLibPage);
+    PostiteIndex = ui->PagesArrera->indexOf(ui->PostitePage);
+    ui->PagesArrera->setCurrentIndex(mainPageIndex);
 }
 
 CArreraInterface::~CArreraInterface()
@@ -19,6 +19,6 @@ CArreraInterface::~CArreraInterface()
 
 void CArreraInterface::on_IDC_DRAWERAPP_clicked()
 {
-    winLib->show();
+    ui->PagesArrera->setCurrentIndex(libIndex);
 }
 

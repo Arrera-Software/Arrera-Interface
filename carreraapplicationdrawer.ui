@@ -29,6 +29,35 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="IDC_SOFTTEXTE">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/iconTraitementTexte.png</normaloff>:/iconBTN/iconTraitementTexte.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>80</width>
+        <height>80</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="1">
      <widget class="QPushButton" name="IDC_SOFTPRESENTATION">
       <property name="minimumSize">
@@ -107,35 +136,6 @@
       <property name="icon">
        <iconset resource="ArreraTheme.qrc">
         <normaloff>:/iconBTN/ArreraPensebete.png</normaloff>:/iconBTN/ArreraPensebete.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>80</width>
-        <height>80</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="IDC_SOFTTEXTE">
-      <property name="minimumSize">
-       <size>
-        <width>80</width>
-        <height>80</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>80</width>
-        <height>80</height>
-       </size>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="ArreraTheme.qrc">
-        <normaloff>:/iconBTN/iconTraitementTexte.png</normaloff>:/iconBTN/iconTraitementTexte.png</iconset>
       </property>
       <property name="iconSize">
        <size>

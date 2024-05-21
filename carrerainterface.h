@@ -21,8 +21,7 @@ private slots:
 
 private:
     Ui::CArreraInterface *ui;
-    CArreraApplicationDrawer* winLib;
-    CArreraPostite *winPostite;
+    int mainPageIndex,libIndex,PostiteIndex ;
 };
 
 #endif // CARRERAINTERFACE_H
