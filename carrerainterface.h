@@ -2,7 +2,9 @@
 #define CARRERAINTERFACE_H
 
 #include <QWidget>
-#include "carreraapplicationdrawer.h"
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class CArreraInterface;
@@ -18,6 +20,24 @@ public:
 
 private slots:
     void on_IDC_DRAWERAPP_clicked();
+
+    void on_IDC_LIBEXIT_clicked();
+
+    void on_IDC_SOFTPRESENTATION_clicked();
+
+    void on_IDC_SOFTTABLEUR_clicked();
+
+    void on_IDC_SOFTTEXTE_clicked();
+
+    void on_IDC_SOFTPENSEBETE_clicked();
+
+    void on_IDC_SOFTNAVIGATEUR_clicked();
+
+    void on_IDC_POSTITEEXIT_clicked();
+
+    void on_IDC_OUVRIR_clicked();
+
+    void on_IDC_SAVE_clicked();
 
 private:
     Ui::CArreraInterface *ui;
