@@ -8,10 +8,8 @@
         <file>iconTraitementTexte.png</file>
         <file>Ryley.png</file>
         <file>six.png</file>
-        <file>app-drawer-Arrera.png</file>
         <file>ArreraDoc.png</file>
         <file>ArreraInfo.png</file>
-        <file>ArreraRecherche.png</file>
         <file>fondTask.png</file>
         <file>icon Assistant.png</file>
         <file>ArreraApropos.png</file>
@@ -19,6 +17,8 @@
         <file>domicile.png</file>
         <file>travail.png</file>
         <file>ArreraPensebete.png</file>
+        <file>exit.png</file>
+        <file>rechercheHistorique.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraInterfaceLogo.png</file>

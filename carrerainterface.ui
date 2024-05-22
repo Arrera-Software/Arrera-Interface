@@ -33,7 +33,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="Mainpage">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -684,7 +684,17 @@
           </size>
          </property>
          <property name="text">
-          <string>PushButton</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="ArreraTheme.qrc">
+           <normaloff>:/iconBTN/exit.png</normaloff>:/iconBTN/exit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -814,8 +824,8 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
-              <normaloff>:/resource/historique.png</normaloff>:/resource/historique.png</iconset>
+             <iconset resource="ArreraTheme.qrc">
+              <normaloff>:/iconBTN/rechercheHistorique.png</normaloff>:/iconBTN/rechercheHistorique.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -843,8 +853,8 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset>
-              <normaloff>:/resource/IconAbout.png</normaloff>:/resource/IconAbout.png</iconset>
+             <iconset resource="ArreraTheme.qrc">
+              <normaloff>:/iconBTN/exit.png</normaloff>:/iconBTN/exit.png</iconset>
             </property>
             <property name="iconSize">
              <size>

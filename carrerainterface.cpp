@@ -259,4 +259,3 @@ void CArreraInterface::on_IDC_RETOURHISTRECHERCHE_clicked()
 {
     ui->PagesArrera->setCurrentIndex(rechercheIndex);
 }
-
