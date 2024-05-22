@@ -75,9 +75,11 @@ private slots:
 
     void on_IDC_RECHERCHEREVERSO_clicked();
 
+    void on_IDC_RETOURHISTRECHERCHE_clicked();
+
 private:
     Ui::CArreraInterface *ui;
-    int mainPageIndex,libIndex,PostiteIndex,rechercheIndex;
+    int mainPageIndex,libIndex,PostiteIndex,rechercheIndex,rechercheHistIndex;
 };
 
 #endif // CARRERAINTERFACE_H

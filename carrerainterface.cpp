@@ -14,6 +14,7 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     libIndex =  ui->PagesArrera->indexOf(ui->ArreraLibPage);
     PostiteIndex = ui->PagesArrera->indexOf(ui->PostitePage);
     rechercheIndex = ui->PagesArrera->indexOf(ui->PageRecherche);
+    rechercheHistIndex = ui->PagesArrera->indexOf(ui->PageRechercheHist);
     ui->PagesArrera->setCurrentIndex(mainPageIndex);
 }
 
@@ -136,9 +137,9 @@ void CArreraInterface::on_IDC_VALIDERRECHERCHE_clicked()
 
 void CArreraInterface::on_IDC_HIST_clicked()
 {
-
+    ui->IDC_LRECHERCHEHIST->setText(objRechercheHist.read());
+    ui->PagesArrera->setCurrentIndex(rechercheHistIndex);
 }
-
 
 void CArreraInterface::on_IDC_QUITARRERARECHERCHE_clicked()
 {
@@ -251,5 +252,11 @@ void CArreraInterface::on_IDC_RECHERCHEREVERSO_clicked()
     ui->IDC_BARRECHERCHE->setPlainText("");
     objRecherche.searchReverso(querry);
     objRechercheHist.add("reverso->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RETOURHISTRECHERCHE_clicked()
+{
+    ui->PagesArrera->setCurrentIndex(rechercheIndex);
 }
 
