@@ -10,10 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     carrerainterface.cpp \
+    carrerarecheche.cpp \
+    carrerarecherchehist.cpp \
     main.cpp
 
 HEADERS += \
-    carrerainterface.h
+    carrerainterface.h \
+    carrerarecheche.h \
+    carrerarecherchehist.h
 
 FORMS += \
     carrerainterface.ui

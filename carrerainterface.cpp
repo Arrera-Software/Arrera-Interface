@@ -6,9 +6,14 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     , ui(new Ui::CArreraInterface)
 {
     ui->setupUi(this);
+
+    objRecherche = CArreraRecheche();
+    objRechercheHist = CArreraRechercheHist();
+
     mainPageIndex = ui->PagesArrera->indexOf(ui->Mainpage);
     libIndex =  ui->PagesArrera->indexOf(ui->ArreraLibPage);
     PostiteIndex = ui->PagesArrera->indexOf(ui->PostitePage);
+    rechercheIndex = ui->PagesArrera->indexOf(ui->PageRecherche);
     ui->PagesArrera->setCurrentIndex(mainPageIndex);
 }
 
@@ -17,13 +22,19 @@ CArreraInterface::~CArreraInterface()
     delete ui;
 }
 
-// Librairy
+// Main
 
 void CArreraInterface::on_IDC_DRAWERAPP_clicked()
 {
     ui->PagesArrera->setCurrentIndex(libIndex);
 }
 
+void CArreraInterface::on_IDC_RECHERCHE_clicked()
+{
+    ui->PagesArrera->setCurrentIndex(rechercheIndex);
+}
+
+// Librairy
 
 void CArreraInterface::on_IDC_LIBEXIT_clicked()
 {
@@ -114,5 +125,131 @@ void CArreraInterface::on_IDC_SAVE_clicked()
         }
         file.close();
     }
+}
+
+// Recherche
+void CArreraInterface::on_IDC_VALIDERRECHERCHE_clicked()
+{
+
+}
+
+
+void CArreraInterface::on_IDC_HIST_clicked()
+{
+
+}
+
+
+void CArreraInterface::on_IDC_QUITARRERARECHERCHE_clicked()
+{
+    ui->PagesArrera->setCurrentIndex(mainPageIndex);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEGOOGLE_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchGoogle(querry);
+    objRechercheHist.add("google->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEDUCKDUCKGO_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchDuckduckgo(querry);
+    objRechercheHist.add("duck->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEBING_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchBing(querry);
+    objRechercheHist.add("bing->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEBRAVE_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchBrave(querry);
+    objRechercheHist.add("brave->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEQWANT_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchQwant(querry);
+    objRechercheHist.add("qwant->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEECOSIA_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchEcosia(querry);
+    objRechercheHist.add("ecosia->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_GRECHERCHE_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchAll(querry);
+    objRechercheHist.add("grecherche->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEWORKREFERENCE_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchWordreference(querry);
+    objRechercheHist.add("wordReference->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEYTMUSIC_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchYTmusic(querry);
+    objRechercheHist.add("YT Music->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEAMAZON_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchAmazon(querry);
+    objRechercheHist.add("amazon->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEWIKIPEDIA_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchWikipedia(querry);
+    objRechercheHist.add("wikipedia->"+querry);
+}
+
+
+void CArreraInterface::on_IDC_RECHERCHEREVERSO_clicked()
+{
+    QString querry =  ui->IDC_BARRECHERCHE->toPlainText();
+    ui->IDC_BARRECHERCHE->setPlainText("");
+    objRecherche.searchReverso(querry);
+    objRechercheHist.add("reverso->"+querry);
 }
 
