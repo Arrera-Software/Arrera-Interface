@@ -290,9 +290,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>0</x>
      <y>510</y>
-     <width>641</width>
+     <width>701</width>
      <height>37</height>
     </rect>
    </property>
@@ -343,7 +343,7 @@
      <widget class="QPushButton" name="IDC_BTNUTILITY">
       <property name="minimumSize">
        <size>
-        <width>135</width>
+        <width>90</width>
         <height>35</height>
        </size>
       </property>
@@ -355,6 +355,10 @@
       </property>
       <property name="text">
        <string>Utilitaire</string>
+      </property>
+      <property name="icon">
+       <iconset resource="ArreraTheme.qrc">
+        <normaloff>:/iconBTN/app-utility.png</normaloff>:/iconBTN/app-utility.png</iconset>
       </property>
       <property name="iconSize">
        <size>

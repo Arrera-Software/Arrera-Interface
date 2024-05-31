@@ -22,6 +22,7 @@
         <file>showMTP.png</file>
         <file>ArreraApropos.png</file>
         <file>ArreraPensebete.png</file>
+        <file>app-utility.png</file>
     </qresource>
     <qresource prefix="/IconArrera">
         <file>ArreraI2024.png</file>
