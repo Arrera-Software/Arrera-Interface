@@ -387,3 +387,91 @@ bool CArreraOpenSoft::openArreraApp(int nb)
         return false;
     }
 }
+
+bool CArreraOpenSoft::openVMStart()
+{
+    if (objSet)
+    {
+        string sortie = objPara->getVMStart();
+        if (sortie=="nothing")
+        {
+            QMessageBox::information(nullptr, "Information",
+                                     "Impossible de lancer la machine vituel si le raccourci n'est pas indiquer");
+            return false;
+        }
+        else
+        {
+
+            if ((windowsOS==true)&&(linuxOS==false))
+            {
+                if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(sortie)))) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                if ((windowsOS==false)&&(linuxOS==true))
+                {
+                    QProcess process;
+                    process.startDetached(sortie.c_str(), QStringList());
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraOpenSoft::openSoftTouchScreen()
+{
+    if (objSet)
+    {
+        string sortie = objPara->getScreenTouch();
+        if (sortie=="nothing")
+        {
+            QMessageBox::information(nullptr, "Information",
+                                     "Impossible de lancer le logiciel si vous avez defini le raccourcie");
+            return false;
+        }
+        else
+        {
+
+            if ((windowsOS==true)&&(linuxOS==false))
+            {
+                if (QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(sortie)))) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                if ((windowsOS==false)&&(linuxOS==true))
+                {
+                    QProcess process;
+                    process.startDetached(sortie.c_str(), QStringList());
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}

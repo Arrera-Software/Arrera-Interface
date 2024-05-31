@@ -5,6 +5,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QProcess>
+#include <QMessageBox>
 #include <QDebug>
 
 #define NAMELNKSIXWIN "Six.lnk"
@@ -36,6 +37,8 @@ public:
     bool openRyleyPara();
     bool openAppLib(int nb);
     bool openArreraApp(int nb);
+    bool openVMStart();
+    bool openSoftTouchScreen();
 };
 
 #endif // CARRERAOPENSOFT_H
