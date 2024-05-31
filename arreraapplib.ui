@@ -560,8 +560,8 @@
   </widget>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>FAPP</zorder>
-  <zorder>FARRERAAPP</zorder>
   <zorder>FNOAPP</zorder>
+  <zorder>FARRERAAPP</zorder>
  </widget>
  <resources>
   <include location="ArreraTheme.qrc"/>
