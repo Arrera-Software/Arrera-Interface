@@ -7,6 +7,7 @@ ArreraAppLib::ArreraAppLib(QWidget *parent)
 {
     ui->setupUi(this);
     ui->FARRERAAPP->setVisible(false);
+    ui->FUTILITY->setVisible(false);
     ui->IDC_BTNAPP->setVisible(false);
     ui->FAPP->setVisible(true);
     ui->IDC_BTNARRERAAPP->setVisible(true);
@@ -156,7 +157,9 @@ void ArreraAppLib::on_IDC_BTNAPP_clicked()
     ui->FARRERAAPP->setVisible(false);
     ui->IDC_BTNAPP->setVisible(false);
     ui->FAPP->setVisible(true);
+    ui->FUTILITY->setVisible(false);
     ui->IDC_BTNARRERAAPP->setVisible(true);
+    ui->IDC_BTNUTILITY->setVisible(true);
     updateBTN();
 }
 
@@ -165,9 +168,11 @@ void ArreraAppLib::on_IDC_BTNARRERAAPP_clicked()
 {
     ui->FARRERAAPP->setVisible(true);
     ui->IDC_BTNAPP->setVisible(true);
+    ui->FUTILITY->setVisible(false);
     ui->FAPP->setVisible(false);
     ui->IDC_BTNARRERAAPP->setVisible(false);
     ui->FNOAPP->setVisible(false);
+    ui->IDC_BTNUTILITY->setVisible(true);
 }
 
 // btn App
@@ -264,5 +269,30 @@ void ArreraAppLib::on_IDC_BTNAINFO_clicked()
 void ArreraAppLib::on_IDC_BTNARECHERCHE_clicked()
 {
     arreraOpen->openArreraApp(4);
+}
+
+// Zone utility
+
+void ArreraAppLib::on_IDC_BTNUTILITY_clicked()
+{
+    ui->FARRERAAPP->setVisible(false);
+    ui->IDC_BTNAPP->setVisible(true);
+    ui->FAPP->setVisible(false);
+    ui->FUTILITY->setVisible(true);
+    ui->IDC_BTNARRERAAPP->setVisible(true);
+    ui->IDC_BTNUTILITY->setVisible(false);
+    ui->FNOAPP->setVisible(false);
+}
+
+
+void ArreraAppLib::on_IDC_BTNVM_clicked()
+{
+
+}
+
+
+void ArreraAppLib::on_IDC_BTNSCREENTAB_clicked()
+{
+
 }
 

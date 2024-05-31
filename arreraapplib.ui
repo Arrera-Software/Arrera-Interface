@@ -340,6 +340,44 @@
      </spacer>
     </item>
     <item>
+     <widget class="QPushButton" name="IDC_BTNUTILITY">
+      <property name="minimumSize">
+       <size>
+        <width>135</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>135</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Utilitaire</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QPushButton" name="IDC_BTNARRERAAPP">
       <property name="minimumSize">
        <size>
@@ -558,10 +596,94 @@
     </layout>
    </widget>
   </widget>
+  <widget class="QFrame" name="FUTILITY">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>661</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>641</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="IDC_BTNVM">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_BTNSCREENTAB">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>75</width>
+         <height>75</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>FAPP</zorder>
   <zorder>FNOAPP</zorder>
   <zorder>FARRERAAPP</zorder>
+  <zorder>FUTILITY</zorder>
  </widget>
  <resources>
   <include location="ArreraTheme.qrc"/>

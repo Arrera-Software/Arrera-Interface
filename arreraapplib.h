@@ -54,6 +54,12 @@ private slots:
 
     void on_IDC_BTNARECHERCHE_clicked();
 
+    void on_IDC_BTNUTILITY_clicked();
+
+    void on_IDC_BTNVM_clicked();
+
+    void on_IDC_BTNSCREENTAB_clicked();
+
 private:
     Ui::ArreraAppLib *ui;
     CArreraSetting* parametreArrera;
