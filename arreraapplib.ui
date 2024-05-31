@@ -642,6 +642,10 @@
        <property name="text">
         <string/>
        </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/IconVM.png</normaloff>:/iconBTN/IconVM.png</iconset>
+       </property>
        <property name="iconSize">
         <size>
          <width>75</width>
@@ -671,6 +675,10 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="ArreraTheme.qrc">
+         <normaloff>:/iconBTN/IconScreenTablette.png</normaloff>:/iconBTN/IconScreenTablette.png</iconset>
        </property>
        <property name="iconSize">
         <size>
