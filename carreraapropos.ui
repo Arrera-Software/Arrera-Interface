@@ -83,7 +83,7 @@
      </font>
     </property>
     <property name="text">
-     <string>I2024-</string>
+     <string>I2024-1.09</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
