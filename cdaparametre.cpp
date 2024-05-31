@@ -480,3 +480,15 @@ void CDAParametre::on_IDC_ANNULERMTP_clicked()
     ui->FMTPUSER->setVisible(false);
     ui->FGESTINTERFACE->setVisible(true);
 }
+
+void CDAParametre::on_IDC_ADDUTILITYVM_clicked()
+{
+
+}
+
+
+void CDAParametre::on_IDC_SCREENTAB_clicked()
+{
+
+}
+

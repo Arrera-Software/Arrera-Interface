@@ -85,6 +85,10 @@ private slots:
     void on_IDC_ANNULERMTP_clicked();
 
 
+    void on_IDC_ADDUTILITYVM_clicked();
+
+    void on_IDC_SCREENTAB_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
