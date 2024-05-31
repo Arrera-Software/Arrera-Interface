@@ -491,4 +491,3 @@ void CDAParametre::on_IDC_SCREENTAB_clicked()
 {
     objParametre->setScreenTouch();
 }
-
