@@ -35,6 +35,8 @@ public:
     string getModeAppAsBoot(int mode);
     string getModeEnable(int mode);
     string getMTPUser();
+    string getVMStart();
+    string getScreenTouch();
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
@@ -58,6 +60,8 @@ public:
     bool setMTPUser(string mtp);
     bool setParaSetteur();
     bool getParaSetteur();
+    bool setVMStart();
+    bool setScreenTouch();
 
 };
 

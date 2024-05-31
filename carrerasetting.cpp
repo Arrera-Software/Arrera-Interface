@@ -434,6 +434,29 @@ string CArreraSetting::getMTPUser()
     }
 }
 
+string CArreraSetting::getVMStart()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("vm");
+    }
+    else
+    {
+        return "";
+    }
+}
+string CArreraSetting::getScreenTouch()
+{
+    if (etatChargement)
+    {
+        return gestionFile.obtenirParametre("touchScreen");
+    }
+    else
+    {
+        return "";
+    }
+}
+
 bool CArreraSetting::resetAllPara()
 {
     if (etatChargement)
@@ -487,6 +510,8 @@ bool CArreraSetting::resetAllPara()
         gestionFileApp.definirParametre("emplacementArreraDoc","nothing");
         gestionFileApp.definirParametre("emplacementArreraInfo","nothing");
         gestionFileApp.definirParametre("emplacementArreraRecherche","nothing");
+        gestionFile.definirParametre("vm","nothing");
+        gestionFile.definirParametre("touchScreen","nothing");
         gestionFileApp.sauvegarder(nameFileApp);
         gestionFile.sauvegarder(nameFile);
         if ((chargementMode[0])&&(chargementMode[1])&&(chargementMode[2])&&(chargementMode[3]&&(chargementMode[4])))
@@ -1515,6 +1540,86 @@ bool CArreraSetting::getParaSetteur()
         {
             return false;
         }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setVMStart()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Racourcie Machine vituel", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Application de la machine virtuel", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("vm",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CArreraSetting::setScreenTouch()
+{
+    QString emplacement;
+    if (etatChargement==true)
+    {
+        if ((windowsOS==true)&&(linuxOS==false))
+        {
+            emplacement = QFileDialog::getOpenFileName(nullptr,"Racourcie pour transformer votre tablette en ecran", QDir::homePath(), "Fichiers de raccourci (*.lnk)");
+        }
+        else
+        {
+            if ((windowsOS==false)&&(linuxOS==true))
+            {
+                emplacement = QFileDialog::getOpenFileName(nullptr,"Application pour transformer votre tablette en ecran", QDir::homePath());
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (emplacement.isNull())
+        {
+            return false ;
+        }
+        else
+        {
+            gestionFile.definirParametre("touchScreen",emplacement.toStdString());
+            gestionFile.sauvegarder(nameFile);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+
     }
     else
     {
