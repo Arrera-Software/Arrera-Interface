@@ -483,12 +483,12 @@ void CDAParametre::on_IDC_ANNULERMTP_clicked()
 
 void CDAParametre::on_IDC_ADDUTILITYVM_clicked()
 {
-
+    objParametre->setVMStart();
 }
 
 
 void CDAParametre::on_IDC_SCREENTAB_clicked()
 {
-
+    objParametre->setScreenTouch();
 }
 
