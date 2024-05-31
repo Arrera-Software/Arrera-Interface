@@ -287,12 +287,12 @@ void ArreraAppLib::on_IDC_BTNUTILITY_clicked()
 
 void ArreraAppLib::on_IDC_BTNVM_clicked()
 {
-
+    arreraOpen->openVMStart();
 }
 
 
 void ArreraAppLib::on_IDC_BTNSCREENTAB_clicked()
 {
-
+    arreraOpen->openSoftTouchScreen();
 }
 
