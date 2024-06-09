@@ -11,6 +11,8 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->IDC_MODESELECT->setText("Mode selectionner : Aucun");
     ui->IDC_CHOIXSIX->setChecked(true);
     ui->IDC_RARRERABAR->setChecked(false);
+    ui->IDC_CHECKVM->setChecked(false);
+    ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
     winParaApp = new CDAparaArreraLib(this);
     taskBarModeEnable = false;
     connect(this,&CDAParametre::destroyed,winParaApp,&CDAParametre::close);
@@ -52,6 +54,8 @@ void CDAParametre::on_IDC_GESTMODE1_clicked()
     {
 
         ui->IDC_MODESELECT->setText("Mode selectionner : Mode 1");
+        ui->IDC_CHECKVM->setChecked(false);
+        ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
         ui->FGESTMODE->setVisible(true);
         ui->FALLMODE->setVisible(false);
     }
@@ -72,6 +76,8 @@ void CDAParametre::on_IDC_GESTMODE2_clicked()
     {
 
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 2");
+    ui->IDC_CHECKVM->setChecked(false);
+    ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
     }
@@ -93,6 +99,8 @@ void CDAParametre::on_IDC_GESTMODE3_clicked()
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 3");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    ui->IDC_CHECKVM->setChecked(false);
+    ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
     }
     else
     {
@@ -112,6 +120,8 @@ void CDAParametre::on_IDC_GESTMODE4_clicked()
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 4");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    ui->IDC_CHECKVM->setChecked(false);
+    ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
     }
     else
     {
@@ -131,6 +141,8 @@ void CDAParametre::on_IDC_GESTMODE5_clicked()
     ui->IDC_MODESELECT->setText("Mode selectionner : Mode 5");
     ui->FGESTMODE->setVisible(true);
     ui->FALLMODE->setVisible(false);
+    ui->IDC_CHECKVM->setChecked(false);
+    ui->IDC_CHECKTOUCHSCREEN->setChecked(false);
     }
     else
     {
@@ -149,11 +161,14 @@ void CDAParametre::on_IDC_VALIDER_clicked()
     bool sortieEcriture=false,arreraTaskBar;
     QString valeurGUI ;
     string valeurString;
+    bool vmEnable=false,touchEnable=false;
     int nbAppBoot;
     sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
     arreraTaskBar = ui->IDC_RARRERABAR->isChecked();
     nbAppBoot = ui->IDC_NBAPPBOOT->value();
+    vmEnable = ui->IDC_CHECKVM->isChecked();
+    touchEnable = ui->IDC_CHECKTOUCHSCREEN->isChecked();
     //qDebug() << nbAppBoot ;
     if (modeSelectionner==0)
     {
@@ -174,6 +189,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(1,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(1,nbAppBoot);
+                sortieEcriture = objParametre->setEtatVM(1,vmEnable);
+                sortieEcriture = objParametre->setEtatTouch(1,touchEnable);
                 if (arreraTaskBar)
                 {
                     winParaApp->show();
@@ -188,6 +205,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(2,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(2,nbAppBoot);
+                sortieEcriture = objParametre->setEtatVM(2,vmEnable);
+                sortieEcriture = objParametre->setEtatTouch(2,touchEnable);
                 if (arreraTaskBar)
                 {
                     winParaApp->show();
@@ -202,6 +221,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(3,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(3,nbAppBoot);
+                sortieEcriture = objParametre->setEtatVM(3,vmEnable);
+                sortieEcriture = objParametre->setEtatTouch(3,touchEnable);
                 if (arreraTaskBar)
                 {
                     winParaApp->show();
@@ -216,6 +237,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(4,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(4,nbAppBoot);
+                sortieEcriture = objParametre->setEtatVM(4,vmEnable);
+                sortieEcriture = objParametre->setEtatTouch(4,touchEnable);
                 if (arreraTaskBar)
                 {
                     winParaApp->show();
@@ -230,6 +253,8 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix);
                 sortieEcriture = objParametre->setEtatTaskbar(5,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(5,nbAppBoot);
+                sortieEcriture = objParametre->setEtatVM(5,vmEnable);
+                sortieEcriture = objParametre->setEtatTouch(5,touchEnable);
                 if (arreraTaskBar)
                 {
                     winParaApp->show();

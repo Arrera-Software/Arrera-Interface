@@ -520,18 +520,16 @@ bool CArreraSetting::resetAllPara()
             {
                 gestionFileMode[i].definirParametre("assistant","nothing");
                 gestionFileMode[i].definirParametre("taskbar","false");
-                gestionFileMode[i].sauvegarder(nameFileMode[i]);
                 gestionFileMode[i].definirParametre("btnTaskbar1","nothing");
                 gestionFileMode[i].definirParametre("btnTaskbar2","nothing");
-                gestionFileMode[i].sauvegarder(nameFileMode[i]);
                 gestionFileMode[i].definirParametre("btnTaskbar3","nothing");
                 gestionFileMode[i].definirParametre("btnTaskbar4","nothing");
-                gestionFileMode[i].sauvegarder(nameFileMode[i]);
                 gestionFileMode[i].definirParametre("btnTaskbar5","nothing");
                 gestionFileMode[i].definirParametre("appBoot","0");
                 gestionFileMode[i].definirParametre("modeSet","0");
+                gestionFileMode[i].definirParametre("vm","false");
+                gestionFileMode[i].definirParametre("touch","false");
                 gestionFileMode[i].sauvegarder(nameFileMode[i]);
-
             }
             chargedAllFile();
             return true;
@@ -564,6 +562,29 @@ string CArreraSetting::getModeEnable(int mode)
     if (chargementMode[mode-1])
     {
         return gestionFileMode[mode-1].obtenirParametre("modeSet");
+    }
+    else
+    {
+        return "";
+    }
+}
+
+string CArreraSetting::getVMMode(int mode)
+{
+    if (chargementMode[mode-1])
+    {
+        return gestionFileMode[mode-1].obtenirParametre("vm");
+    }
+    else
+    {
+        return "";
+    }
+}
+string CArreraSetting::getTouchMode(int mode)
+{
+    if (chargementMode[mode-1])
+    {
+        return gestionFileMode[mode-1].obtenirParametre("touch");
     }
     else
     {
@@ -771,6 +792,234 @@ bool CArreraSetting::setEtatTaskbar(int nbMode,bool enable)
         break;
     }
 }
+
+bool CArreraSetting::setEtatVM(int nbMode,bool enable)
+{
+    switch (nbMode) {
+    case 1:
+        if (chargementMode[0]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[0].definirParametre("vm","true");
+            }
+            else
+            {
+                gestionFileMode[0].definirParametre("vm","false");
+            }
+            gestionFileMode[0].sauvegarder(nameFileMode[0]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 2:
+        if (chargementMode[1]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[1].definirParametre("vm","true");
+            }
+            else
+            {
+                gestionFileMode[1].definirParametre("vm","false");
+            }
+            gestionFileMode[1].sauvegarder(nameFileMode[1]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 3:
+        if (chargementMode[2]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[2].definirParametre("vm","true");
+            }
+            else
+            {
+                gestionFileMode[2].definirParametre("vm","false");
+            }
+            gestionFileMode[2].sauvegarder(nameFileMode[2]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 4:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[3].definirParametre("vm","true");
+            }
+            else
+            {
+                gestionFileMode[3].definirParametre("vm","false");
+            }
+            gestionFileMode[3].sauvegarder(nameFileMode[3]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 5:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[4].definirParametre("vm","true");
+            }
+            else
+            {
+                gestionFileMode[4].definirParametre("vm","false");
+            }
+            gestionFileMode[4].sauvegarder(nameFileMode[4]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    default:
+        return false;
+        break;
+    }
+}
+bool CArreraSetting::setEtatTouch(int nbMode,bool enable)
+{
+    switch (nbMode) {
+    case 1:
+        if (chargementMode[0]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[0].definirParametre("touch","true");
+            }
+            else
+            {
+                gestionFileMode[0].definirParametre("touch","false");
+            }
+            gestionFileMode[0].sauvegarder(nameFileMode[0]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 2:
+        if (chargementMode[1]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[1].definirParametre("touch","true");
+            }
+            else
+            {
+                gestionFileMode[1].definirParametre("touch","false");
+            }
+            gestionFileMode[1].sauvegarder(nameFileMode[1]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 3:
+        if (chargementMode[2]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[2].definirParametre("touch","true");
+            }
+            else
+            {
+                gestionFileMode[2].definirParametre("touch","false");
+            }
+            gestionFileMode[2].sauvegarder(nameFileMode[2]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 4:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[3].definirParametre("touch","true");
+            }
+            else
+            {
+                gestionFileMode[3].definirParametre("touch","false");
+            }
+            gestionFileMode[3].sauvegarder(nameFileMode[3]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    case 5:
+        if (chargementMode[3]==true)
+        {
+            if (enable==true)
+            {
+                gestionFileMode[4].definirParametre("touch","true");
+            }
+            else
+            {
+                gestionFileMode[4].definirParametre("touch","false");
+            }
+            gestionFileMode[4].sauvegarder(nameFileMode[4]);
+            chargedAllFile();
+            setParaSetteur();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        break;
+    default:
+        return false;
+        break;
+    }
+}
+
 
 bool CArreraSetting::setSoftNavigateur()
 {

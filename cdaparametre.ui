@@ -483,7 +483,7 @@ Mode 5</string>
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>330</y>
+      <y>430</y>
       <width>100</width>
       <height>35</height>
      </rect>
@@ -687,7 +687,7 @@ Mode 5</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>330</y>
+      <y>430</y>
       <width>100</width>
       <height>35</height>
      </rect>
@@ -716,6 +716,42 @@ Mode 5</string>
       <width>100</width>
       <height>35</height>
      </size>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="IDC_CHECKTOUCHSCREEN">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>251</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tablette Ecran</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="IDC_CHECKVM">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>231</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Machine Virtuel</string>
     </property>
    </widget>
   </widget>

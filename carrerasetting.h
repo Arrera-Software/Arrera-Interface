@@ -37,11 +37,15 @@ public:
     string getMTPUser();
     string getVMStart();
     string getScreenTouch();
+    string getVMMode(int nb);
+    string getTouchMode(int nb);
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
     bool setAssistantMode(int nbMode,bool ryley,bool six);
     bool setEtatTaskbar(int nbMode,bool enable);
+    bool setEtatVM(int nbMode,bool enable);
+    bool setEtatTouch(int nbMode,bool enable);
     bool setSoftTableur();
     bool setSoftTTexte();
     bool setSoftPresentation();
