@@ -397,6 +397,14 @@ void CArreraUI::onMode(int nbMode)
         {
             ui->IDC_ASSISTANTMODE->setVisible(false);
         }
+        if(objPara.getVMMode(nbMode)=="true")
+        {
+            objSoftware.openVMStart();
+        }
+        if(objPara.getTouchMode(nbMode)=="true")
+        {
+            objSoftware.openSoftTouchScreen();
+        }
     }
     else
     {
