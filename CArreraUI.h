@@ -104,6 +104,8 @@ private slots:
 
     void on_IDC_PENSEBETE_clicked();
 
+    void on_IDC_PENSEBETE_2_clicked();
+
 private:
     Ui::CArreraUI *ui;
     // Fenetre fille

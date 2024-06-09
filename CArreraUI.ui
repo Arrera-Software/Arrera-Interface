@@ -664,112 +664,14 @@
     <widget class="QWidget" name="horizontalLayoutWidget_5">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>550</y>
-       <width>561</width>
-       <height>91</height>
+       <x>0</x>
+       <y>490</y>
+       <width>604</width>
+       <height>148</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="APP_2">
-      <item>
-       <widget class="QPushButton" name="IDC_TABLEURMODE">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="ArreraTheme.qrc">
-          <normaloff>:/iconBTN/iconTableur.png</normaloff>:/iconBTN/iconTableur.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="IDC_TRAITEMENTMODE">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="ArreraTheme.qrc">
-          <normaloff>:/iconBTN/iconTraitementTexte.png</normaloff>:/iconBTN/iconTraitementTexte.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="IDC_APPMODE">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="ArreraTheme.qrc">
-          <normaloff>:/iconBTN/app-drawer.png</normaloff>:/iconBTN/app-drawer.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="IDC_ASSISTANTMODE">
-        <property name="minimumSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="ArreraTheme.qrc">
-          <normaloff>:/iconBTN/icon Assistant.png</normaloff>:/iconBTN/icon Assistant.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>70</width>
-          <height>70</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="4">
        <widget class="QPushButton" name="IDC_TASKBARMODE">
         <property name="minimumSize">
          <size>
@@ -798,8 +700,8 @@
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="IDC_NAVIGATEURMODE">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="IDC_TRAITEMENTMODE">
         <property name="maximumSize">
          <size>
           <width>70</width>
@@ -811,7 +713,7 @@
         </property>
         <property name="icon">
          <iconset resource="ArreraTheme.qrc">
-          <normaloff>:/iconBTN/iconNavigateur.png</normaloff>:/iconBTN/iconNavigateur.png</iconset>
+          <normaloff>:/iconBTN/iconTraitementTexte.png</normaloff>:/iconBTN/iconTraitementTexte.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -821,7 +723,59 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="IDC_APPMODE">
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/app-drawer.png</normaloff>:/iconBTN/app-drawer.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="IDC_ASSISTANTMODE">
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/icon Assistant.png</normaloff>:/iconBTN/icon Assistant.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
        <widget class="QPushButton" name="IDC_PRESENTATIONMODE">
         <property name="maximumSize">
          <size>
@@ -844,14 +798,90 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="4">
+       <widget class="QPushButton" name="IDC_PENSEBETE_2">
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/ArreraPensebete.png</normaloff>:/iconBTN/ArreraPensebete.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="IDC_NAVIGATEURMODE">
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/iconNavigateur.png</normaloff>:/iconBTN/iconNavigateur.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="IDC_TABLEURMODE">
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="ArreraTheme.qrc">
+          <normaloff>:/iconBTN/iconTableur.png</normaloff>:/iconBTN/iconTableur.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+       </widget>
+      </item>
      </layout>
      <zorder>IDC_ASSISTANTMODE</zorder>
-     <zorder>IDC_TABLEURMODE</zorder>
      <zorder>IDC_TRAITEMENTMODE</zorder>
      <zorder>IDC_APPMODE</zorder>
      <zorder>IDC_TASKBARMODE</zorder>
-     <zorder>IDC_NAVIGATEURMODE</zorder>
      <zorder>IDC_PRESENTATIONMODE</zorder>
+     <zorder>IDC_PENSEBETE_2</zorder>
+     <zorder>IDC_NAVIGATEURMODE</zorder>
+     <zorder>IDC_TABLEURMODE</zorder>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -1359,10 +1389,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <zorder>FMode</zorder>
-   <zorder>FLOGIN</zorder>
    <zorder>FGUI</zorder>
+   <zorder>FLOGIN</zorder>
    <zorder>IDC_INDNOMODE</zorder>
+   <zorder>FMode</zorder>
   </widget>
  </widget>
  <resources>

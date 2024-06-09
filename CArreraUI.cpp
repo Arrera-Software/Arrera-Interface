@@ -624,3 +624,9 @@ void CArreraUI::on_IDC_PENSEBETE_clicked()
     winPostite->show();
 }
 
+
+void CArreraUI::on_IDC_PENSEBETE_2_clicked()
+{
+    winPostite->show();
+}
+
