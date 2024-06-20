@@ -19,6 +19,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->FGESTMODE->setVisible(false);
     ui->FMODESET->setVisible(false);
     ui->FMTPUSER->setVisible(false);
+    ui->IDC_PSIX->setVisible(false);
     if((osDetecteur.getLinux())&&(!osDetecteur.getWindows()))
     {
         ui->IDC_ESIX->setVisible(false);
@@ -515,4 +516,9 @@ void CDAParametre::on_IDC_ADDUTILITYVM_clicked()
 void CDAParametre::on_IDC_SCREENTAB_clicked()
 {
     objParametre->setScreenTouch();
+}
+
+void CDAParametre::on_IDC_INSTALLCOPILOTE_clicked()
+{
+    objOpenSoft->openTiger();
 }

@@ -50,7 +50,7 @@
       <x>0</x>
       <y>0</y>
       <width>271</width>
-      <height>211</height>
+      <height>221</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -98,6 +98,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="IDC_PSIX">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -147,6 +150,18 @@
        </property>
        <property name="text">
         <string>Parametre Ryley</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IDC_INSTALLCOPILOTE">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Installer Copilote</string>
        </property>
       </widget>
      </item>

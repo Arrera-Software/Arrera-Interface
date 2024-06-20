@@ -89,6 +89,8 @@ private slots:
 
     void on_IDC_SCREENTAB_clicked();
 
+    void on_IDC_INSTALLCOPILOTE_clicked();
+
 private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);

@@ -475,3 +475,27 @@ bool CArreraOpenSoft::openSoftTouchScreen()
         return false;
     }
 }
+
+bool CArreraOpenSoft::openTiger()
+{
+    if ((windowsOS==true)&&(linuxOS==false))
+    {
+        if (QDesktopServices::openUrl(QUrl::fromLocalFile("tiger.exe"))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else
+    {
+        if ((windowsOS==false)&&(linuxOS==true))
+        {
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

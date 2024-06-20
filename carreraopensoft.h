@@ -39,6 +39,7 @@ public:
     bool openArreraApp(int nb);
     bool openVMStart();
     bool openSoftTouchScreen();
+    bool openTiger();
 };
 
 #endif // CARRERAOPENSOFT_H
