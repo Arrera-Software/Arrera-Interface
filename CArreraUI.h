@@ -117,6 +117,7 @@ private:
     // Objet de gestion
     CArreraOpenSoft objSoftware;
     CArreraSetting objPara;
+    CArreraTigerInteg objTiger ;
     COS osDetecteur ;
     // Varriable
     int nbModeON;

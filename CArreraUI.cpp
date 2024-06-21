@@ -84,7 +84,7 @@ void CArreraUI::on_IDC_SIX_clicked()
 
 void CArreraUI::on_IDC_COPILOTE_clicked()
 {
-
+    std::system("C:/Users/bapti/OneDrive/Bureau/Arrera-Copilote/copilote.exe");
 }
 
 
@@ -313,6 +313,14 @@ void CArreraUI::loadSetting()
     else
     {
         ui->IDC_TRAITEMENT->setVisible(true);
+    }
+    if(objTiger.copiloteInstall())
+    {
+        ui->IDC_COPILOTE->setVisible(true);
+    }
+    else
+    {
+        ui->IDC_COPILOTE->setVisible(false);
     }
     winAPP->updateBTN();
     taskBar->loadPara(0);

@@ -1,6 +1,6 @@
 #ifndef CARRERAOPENSOFT_H
 #define CARRERAOPENSOFT_H
-#include "carrerasetting.h"
+#include "carreratigerinteg.h"
 #include "cos.h"
 #include <QDesktopServices>
 #include <QUrl>
