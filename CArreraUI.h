@@ -117,7 +117,7 @@ private:
     // Objet de gestion
     CArreraOpenSoft objSoftware;
     CArreraSetting objPara;
-    CArreraTigerInteg objTiger ;
+    CArreraTigerInteg *objTiger ;
     COS osDetecteur ;
     // Varriable
     int nbModeON;
@@ -128,6 +128,7 @@ private:
     void offMode();
     void bootAssistantMode();
     void addNumberMTP(QString nb );
+    QProcess *process;
     //string userMTP;
     //QString mtpIn,mtpCacher;
 };

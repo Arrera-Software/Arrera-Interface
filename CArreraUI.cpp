@@ -3,9 +3,11 @@
 #include <QUrl>
 #include "./ui_CArreraUI.h"
 
+
 CArreraUI::CArreraUI(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::CArreraUI)
+    , ui(new Ui::CArreraUI),
+    process(new QProcess(this))
 {
     //Initilisation de l'interface
     ui->setupUi(this);
@@ -27,6 +29,7 @@ CArreraUI::CArreraUI(QWidget *parent)
     winApropos = new CArreraApropos(this);
     taskBar = new CArreraTakbar(this);
     winPostite = new CArreraPostite(this);
+    objTiger = new CArreraTigerInteg(process);
     // Passage de parametre au fenetre fille
     objSoftware.setObjPara(&objPara);
     winPara->passObjPara(&objPara,&objSoftware);
@@ -84,7 +87,7 @@ void CArreraUI::on_IDC_SIX_clicked()
 
 void CArreraUI::on_IDC_COPILOTE_clicked()
 {
-    std::system("C:/Users/bapti/OneDrive/Bureau/Arrera-Copilote/copilote.exe");
+    objTiger->startCopilote();
 }
 
 
@@ -314,7 +317,7 @@ void CArreraUI::loadSetting()
     {
         ui->IDC_TRAITEMENT->setVisible(true);
     }
-    if(objTiger.copiloteInstall())
+    if(objTiger->copiloteInstall())
     {
         ui->IDC_COPILOTE->setVisible(true);
     }

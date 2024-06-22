@@ -1,15 +1,15 @@
 #include "carreratigerinteg.h"
 
-CArreraTigerInteg::CArreraTigerInteg()
+CArreraTigerInteg::CArreraTigerInteg(QProcess *pProcces)
 {
-    settings = new QSettings("arreraSoft.ini", QSettings::IniFormat);
+    proccess = pProcces;
 }
 
 bool CArreraTigerInteg::copiloteInstall()
 {
-    settings->beginGroup("copilote");
-    QString valeur = settings->value("exe","").toString();
-    if (valeur=="copilote.exe")
+    QSettings settings("arreraSoft.ini", QSettings::IniFormat);
+    settings.beginGroup("copilote");
+    if (settings.value("exe","").toString()=="copilote.exe")
     {
         return true;
     }
@@ -17,4 +17,14 @@ bool CArreraTigerInteg::copiloteInstall()
     {
         return false;
     }
+}
+
+bool CArreraTigerInteg::startCopilote()
+{
+    QSettings settings("arreraSoft.ini", QSettings::IniFormat);
+    settings.beginGroup("copilote");
+    QString workingDirectory = settings.value("folder","").toString();
+    proccess->setWorkingDirectory(workingDirectory);
+    proccess->start(workingDirectory +"/"+ settings.value("exe","").toString());
+    return proccess->waitForStarted();
 }

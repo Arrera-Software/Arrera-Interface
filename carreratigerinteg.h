@@ -1,6 +1,7 @@
 #ifndef CARRERATIGERINTEG_H
 #define CARRERATIGERINTEG_H
 
+#include <QProcess>
 #include "carrerasetting.h"
 #include <QSettings>
 #include <QString>
@@ -8,12 +9,11 @@
 class CArreraTigerInteg
 {
 private :
-    string nameFile;
-    QSettings *settings;
+    QProcess *proccess;
 public:
-    CArreraTigerInteg();
+    CArreraTigerInteg(QProcess *pProcces);
     bool copiloteInstall();
-
+    bool startCopilote();
 };
 
 #endif // CARRERATIGERINTEG_H

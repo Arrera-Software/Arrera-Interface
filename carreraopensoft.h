@@ -4,7 +4,6 @@
 #include "cos.h"
 #include <QDesktopServices>
 #include <QUrl>
-#include <QProcess>
 #include <QMessageBox>
 #include <QDebug>
 
