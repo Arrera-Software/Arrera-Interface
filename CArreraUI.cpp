@@ -417,6 +417,10 @@ void CArreraUI::onMode(int nbMode)
         {
             ui->IDC_ASSISTANTMODE->setVisible(false);
         }
+        else
+        {
+            ui->IDC_ASSISTANTMODE->setVisible(true);
+        }
         if(objPara.getVMMode(nbMode)=="true")
         {
             objSoftware.openVMStart();
