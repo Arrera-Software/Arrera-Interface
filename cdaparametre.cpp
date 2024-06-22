@@ -167,6 +167,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
     sortieRyley = ui->IDC_CHOIXRYLEY->isChecked();
     sortieSix = ui->IDC_CHOIXSIX->isChecked();
     arreraTaskBar = ui->IDC_RARRERABAR->isChecked();
+    sortieCopilote = ui->IDC_CHOIXCOPILOTE->isChecked();
     nbAppBoot = ui->IDC_NBAPPBOOT->value();
     vmEnable = ui->IDC_CHECKVM->isChecked();
     touchEnable = ui->IDC_CHECKTOUCHSCREEN->isChecked();
@@ -187,7 +188,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 valeurString = valeurGUI.toStdString();
                 sortieEcriture = objParametre->setModeEnable(1);
                 sortieEcriture = objParametre->setNameMode(1,valeurString);
-                sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix);
+                sortieEcriture = objParametre->setAssistantMode(1,sortieRyley,sortieSix,sortieCopilote);
                 sortieEcriture = objParametre->setEtatTaskbar(1,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(1,nbAppBoot);
                 sortieEcriture = objParametre->setEtatVM(1,vmEnable);
@@ -203,7 +204,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 valeurString = valeurGUI.toStdString();
                 sortieEcriture = objParametre->setModeEnable(2);
                 sortieEcriture =objParametre->setNameMode(2,valeurString);
-                sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix);
+                sortieEcriture = objParametre->setAssistantMode(2,sortieRyley,sortieSix,sortieCopilote);
                 sortieEcriture = objParametre->setEtatTaskbar(2,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(2,nbAppBoot);
                 sortieEcriture = objParametre->setEtatVM(2,vmEnable);
@@ -219,7 +220,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 valeurString = valeurGUI.toStdString();
                 sortieEcriture = objParametre->setModeEnable(3);
                 sortieEcriture =objParametre->setNameMode(3,valeurString);
-                sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix);
+                sortieEcriture = objParametre->setAssistantMode(3,sortieRyley,sortieSix,sortieCopilote);
                 sortieEcriture = objParametre->setEtatTaskbar(3,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(3,nbAppBoot);
                 sortieEcriture = objParametre->setEtatVM(3,vmEnable);
@@ -235,7 +236,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 valeurString = valeurGUI.toStdString();
                 sortieEcriture = objParametre->setModeEnable(4);
                 sortieEcriture =objParametre->setNameMode(4,valeurString);
-                sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix);
+                sortieEcriture = objParametre->setAssistantMode(4,sortieRyley,sortieSix,sortieCopilote);
                 sortieEcriture = objParametre->setEtatTaskbar(4,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(4,nbAppBoot);
                 sortieEcriture = objParametre->setEtatVM(4,vmEnable);
@@ -251,7 +252,7 @@ void CDAParametre::on_IDC_VALIDER_clicked()
                 valeurString = valeurGUI.toStdString();
                 sortieEcriture = objParametre->setModeEnable(5);
                 sortieEcriture = objParametre->setNameMode(5,valeurString);
-                sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix);
+                sortieEcriture = objParametre->setAssistantMode(5,sortieRyley,sortieSix,sortieCopilote);
                 sortieEcriture = objParametre->setEtatTaskbar(5,arreraTaskBar);
                 sortieEcriture = objParametre->setModeAppAsBoot(5,nbAppBoot);
                 sortieEcriture = objParametre->setEtatVM(5,vmEnable);

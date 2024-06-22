@@ -25,7 +25,7 @@ public:
     string getSoftNavigateur();
     string getSixEmplacement();
     string getRyleyEmplacement();
-    string getAssistantMode(int nbMode);//0 : aucun / 1:six / 2:ryley
+    string getAssistantMode(int nbMode);//0 : aucun / 1:six / 2:ryley / 3:Copilote
     string getEtatTaskbar(int nbMode);
     string getSoftTTexte();
     string getNameApp(int nb);
@@ -42,7 +42,7 @@ public:
 
     bool resetAllPara();
     bool setNameMode(int nbMode,string valeur);
-    bool setAssistantMode(int nbMode,bool ryley,bool six);
+    bool setAssistantMode(int nbMode,bool ryley,bool six,bool copilote);
     bool setEtatTaskbar(int nbMode,bool enable);
     bool setEtatVM(int nbMode,bool enable);
     bool setEtatTouch(int nbMode,bool enable);

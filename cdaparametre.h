@@ -95,7 +95,7 @@ private:
     Ui::CDAParametre *ui;
     void closeEvent(QCloseEvent *event);
     int modeSelectionner;
-    bool sortieRyley,sortieSix,taskBarModeEnable;
+    bool sortieRyley,sortieSix,taskBarModeEnable,sortieCopilote;
     QString mtpUser;
     CArreraSetting* objParametre;
     CArreraOpenSoft *objOpenSoft;

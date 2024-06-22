@@ -643,12 +643,12 @@ bool CArreraSetting::setNameMode(int nbMode,string valeur)
     }
 }
 
-bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
+bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six,bool copilote)
 {
     bool sortie;
     if (chargementMode[nbMode-1])
     {
-        if ((six==true)&&(ryley==false))
+        if ((six==true)&&(ryley==false)&&(copilote==false))
         {
             gestionFileMode[nbMode-1].definirParametre("assistant","six");
             sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
@@ -657,7 +657,7 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
         }
         else
         {
-            if ((six==false)&&(ryley==true))
+            if ((six==false)&&(ryley==true)&&(copilote==false))
             {
                 gestionFileMode[nbMode-1].definirParametre("assistant","ryley");
                 sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
@@ -666,10 +666,20 @@ bool CArreraSetting::setAssistantMode(int nbMode,bool ryley,bool six)
             }
             else
             {
+                if ((six==false)&&(ryley==false)&&(copilote==true))
+                {
+                    gestionFileMode[nbMode-1].definirParametre("assistant","copilote");
+                    sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
+                    setParaSetteur();
+                    return sortie;
+                }
+                else
+                {
                 gestionFileMode[nbMode-1].definirParametre("assistant","nothing");
                 sortie = gestionFileMode[nbMode-1].sauvegarder(nameFileMode[nbMode-1]);
                 setParaSetteur();
                 return sortie;
+                }
             }
         }
     }
@@ -1738,7 +1748,7 @@ bool CArreraSetting::resetMode(int nbMode)
 {
     bool sortie ;
     sortie = setNameMode(nbMode,"Mode");
-    sortie = setAssistantMode(nbMode,false,false);
+    sortie = setAssistantMode(nbMode,false,false,false);
     sortie = setEtatTaskbar(nbMode,false);
     sortie = setModeAppAsBoot(nbMode,0);
     gestionFileMode[nbMode-1].definirParametre("modeSet","0");

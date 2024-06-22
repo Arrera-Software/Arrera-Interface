@@ -383,6 +383,15 @@ void CArreraUI::bootAssistantMode()
                 errorOpenSoft();
             }
         }
+        else {
+            if (objPara.getAssistantMode(nbModeON)=="copilote")
+            {
+                if(!objTiger->startCopilote())
+                {
+                    errorOpenSoft();
+                }
+            }
+        }
     }
 }
 
