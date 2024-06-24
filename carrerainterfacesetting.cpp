@@ -19,3 +19,39 @@ void CArreraInterfaceSetting::closeEvent(QCloseEvent *event)
     emit parametresFerme();
     QWidget::closeEvent(event);
 }
+
+void CArreraInterfaceSetting::on_IDC_MODE_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_ASSISTANT_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_ARRECHERCHE_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_ARRERAAPP_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_LIEU_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_APPLICATION_clicked()
+{
+
+}
+
