@@ -16,6 +16,9 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     rechercheIndex = ui->PagesArrera->indexOf(ui->PageRecherche);
     rechercheHistIndex = ui->PagesArrera->indexOf(ui->PageRechercheHist);
     ui->PagesArrera->setCurrentIndex(mainPageIndex);
+    winPara = new CArreraInterfaceSetting(this);
+    connect(this,&CArreraInterface::destroyed,winPara,&CArreraInterface::close);
+    connect(winPara,&CArreraInterfaceSetting::parametresFerme,this,&CArreraInterface::loadSetting);
 }
 
 CArreraInterface::~CArreraInterface()
@@ -259,3 +262,14 @@ void CArreraInterface::on_IDC_RETOURHISTRECHERCHE_clicked()
 {
     ui->PagesArrera->setCurrentIndex(rechercheIndex);
 }
+
+void CArreraInterface::loadSetting()
+{
+    qDebug() << "Load";
+}
+
+void CArreraInterface::on_IDC_PARAMETRE_clicked()
+{
+    winPara->show();
+}
+

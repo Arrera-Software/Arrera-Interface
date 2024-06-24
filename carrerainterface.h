@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <carrerarecheche.h>
 #include <carrerarecherchehist.h>
+#include <carrerainterfacesetting.h>
 
 namespace Ui {
 class CArreraInterface;
@@ -77,9 +78,14 @@ private slots:
 
     void on_IDC_RETOURHISTRECHERCHE_clicked();
 
+    void on_IDC_PARAMETRE_clicked();
+
+private :
+    void loadSetting();
 private:
     Ui::CArreraInterface *ui;
     int mainPageIndex,libIndex,PostiteIndex,rechercheIndex,rechercheHistIndex;
+    CArreraInterfaceSetting* winPara;
 };
 
 #endif // CARRERAINTERFACE_H
