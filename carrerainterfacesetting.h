@@ -18,6 +18,8 @@ public:
 private:
     Ui::CArreraInterfaceSetting *ui;
     void closeEvent(QCloseEvent *event);
+    int mainAcceuil,widgetApp ;
+    int acceuilApp ;
 signals:
     void parametresFerme();
 private slots:
@@ -27,6 +29,7 @@ private slots:
     void on_IDC_ARRERAAPP_clicked();
     void on_IDC_LIEU_clicked();
     void on_IDC_APPLICATION_clicked();
+    void on_IDC_BACKAPPACCEUIL_clicked();
 };
 
 #endif // CARRERAINTERFACESETTING_H
