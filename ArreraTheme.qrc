@@ -25,4 +25,12 @@
         <file>ArreraInterfaceParametre.png</file>
         <file>ArreraI2025.png</file>
     </qresource>
+    <qresource prefix="/iconParametre">
+        <file>IconApp.png</file>
+        <file>IconARecherche.png</file>
+        <file>IconArreraApp.png</file>
+        <file>IconAssistant.png</file>
+        <file>iconLieu.png</file>
+        <file>IconMode.png</file>
+    </qresource>
 </RCC>

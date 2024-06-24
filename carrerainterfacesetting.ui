@@ -83,7 +83,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/iconLieu.png</normaloff>:/iconParametre/iconLieu.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -128,7 +138,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/IconARecherche.png</normaloff>:/iconParametre/IconARecherche.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -147,7 +167,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/IconAssistant.png</normaloff>:/iconParametre/IconAssistant.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -166,7 +196,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/IconMode.png</normaloff>:/iconParametre/IconMode.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -185,7 +225,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/IconApp.png</normaloff>:/iconParametre/IconApp.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -204,7 +254,17 @@
             </size>
            </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconParametre/IconArreraApp.png</normaloff>:/iconParametre/IconArreraApp.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>90</width>
+             <height>90</height>
+            </size>
            </property>
           </widget>
          </item>
