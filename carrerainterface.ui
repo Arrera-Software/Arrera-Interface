@@ -33,7 +33,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Mainpage">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -265,96 +265,96 @@
            </property>
           </widget>
          </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="assistant">
          <item>
-          <layout class="QHBoxLayout" name="assistant">
-           <item>
-            <widget class="QPushButton" name="IDC_RYLEY">
-             <property name="minimumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="ArreraTheme.qrc">
-               <normaloff>:/iconBTN/Ryley.png</normaloff>:/iconBTN/Ryley.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="IDC_COPILOTE">
-             <property name="minimumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="ArreraTheme.qrc">
-               <normaloff>:/iconBTN/ArreraCopiloteIcon.png</normaloff>:/iconBTN/ArreraCopiloteIcon.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="IDC_SIX">
-             <property name="minimumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="ArreraTheme.qrc">
-               <normaloff>:/iconBTN/six.png</normaloff>:/iconBTN/six.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>70</width>
-               <height>70</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QPushButton" name="IDC_RYLEY">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconBTN/Ryley.png</normaloff>:/iconBTN/Ryley.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="IDC_COPILOTE">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconBTN/ArreraCopiloteIcon.png</normaloff>:/iconBTN/ArreraCopiloteIcon.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="IDC_SIX">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="ArreraTheme.qrc">
+             <normaloff>:/iconBTN/six.png</normaloff>:/iconBTN/six.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>70</width>
+             <height>70</height>
+            </size>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -530,64 +530,6 @@
      </widget>
      <widget class="QWidget" name="ArreraLibPage">
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="6">
-        <widget class="QPushButton" name="IDC_SOFTNAVIGATEUR">
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ArreraTheme.qrc">
-           <normaloff>:/iconBTN/iconNavigateur.png</normaloff>:/iconBTN/iconNavigateur.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="IDC_SOFTTABLEUR">
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="ArreraTheme.qrc">
-           <normaloff>:/iconBTN/iconTableur.png</normaloff>:/iconBTN/iconTableur.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="4">
         <widget class="QPushButton" name="IDC_SOFTPENSEBETE">
          <property name="minimumSize">
@@ -608,6 +550,35 @@
          <property name="icon">
           <iconset resource="ArreraTheme.qrc">
            <normaloff>:/iconBTN/ArreraPensebete.png</normaloff>:/iconBTN/ArreraPensebete.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QPushButton" name="IDC_SOFTNAVIGATEUR">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="ArreraTheme.qrc">
+           <normaloff>:/iconBTN/iconNavigateur.png</normaloff>:/iconBTN/iconNavigateur.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -675,7 +646,36 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="1" column="2">
+        <widget class="QPushButton" name="IDC_SOFTTABLEUR">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="ArreraTheme.qrc">
+           <normaloff>:/iconBTN/iconTableur.png</normaloff>:/iconBTN/iconTableur.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="6">
         <widget class="QPushButton" name="IDC_LIBEXIT">
          <property name="minimumSize">
           <size>
