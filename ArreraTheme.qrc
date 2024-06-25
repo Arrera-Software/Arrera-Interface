@@ -32,5 +32,7 @@
         <file>IconAssistant.png</file>
         <file>iconLieu.png</file>
         <file>IconMode.png</file>
+        <file>add.png</file>
+        <file>suppr.png</file>
     </qresource>
 </RCC>
