@@ -71,10 +71,46 @@ QVariant CArreraSetting::getValueGroup(int file,const QString &group,
             break;
     }
 }
+// Methode private pour gerer les fichier
 
+bool CArreraSetting::fileExists(const std::string &filePath)
+{
+    return filesystem::exists(filePath);
+}
+
+bool CArreraSetting::loadFiles()
+{
+    if (fileExists(NAMEFILEAPP))
+    {
+        settingApp = new QSettings(NAMEFILEAPP, QSettings::IniFormat, parent);
+        return true ;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void CArreraSetting::createFiles()
+{
+    ofstream fichier1(NAMEFILEAPP);
+
+    fichier1.close();
+}
 // Methode public
 
 CArreraSetting::CArreraSetting(QObject* p)
 {
+    bool loading;
     parent = p ;
+    loading = loadFiles();
+    if(!loading)
+    {
+        createFiles();
+    }
+}
+
+CArreraSetting::~CArreraSetting()
+{
+    delete settingApp;
 }
