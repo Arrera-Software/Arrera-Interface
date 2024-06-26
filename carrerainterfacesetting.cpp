@@ -13,6 +13,11 @@ CArreraInterfaceSetting::CArreraInterfaceSetting(QWidget *parent)
     ui->Main->setCurrentIndex(mainAcceuil);
 }
 
+void CArreraInterfaceSetting::passObjSetting(CArreraSetting *s)
+{
+    objSetting = s ;
+}
+
 CArreraInterfaceSetting::~CArreraInterfaceSetting()
 {
     delete ui;

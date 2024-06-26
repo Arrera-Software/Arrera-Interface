@@ -86,6 +86,7 @@ private:
     Ui::CArreraInterface *ui;
     int mainPageIndex,libIndex,PostiteIndex,rechercheIndex,rechercheHistIndex;
     CArreraInterfaceSetting* winPara;
+    CArreraSetting objSetting;
 };
 
 #endif // CARRERAINTERFACE_H

@@ -9,17 +9,21 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    COS.cpp \
     carrerainterface.cpp \
     carrerainterfacesetting.cpp \
     carrerarecheche.cpp \
     carrerarecherchehist.cpp \
+    carrerasetting.cpp \
     main.cpp
 
 HEADERS += \
+    COS.h \
     carrerainterface.h \
     carrerainterfacesetting.h \
     carrerarecheche.h \
-    carrerarecherchehist.h
+    carrerarecherchehist.h \
+    carrerasetting.h
 
 FORMS += \
     carrerainterface.ui \

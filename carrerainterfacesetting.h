@@ -2,6 +2,7 @@
 #define CARRERAINTERFACESETTING_H
 
 #include <QDialog>
+#include "carrerasetting.h"
 
 namespace Ui {
 class CArreraInterfaceSetting;
@@ -14,9 +15,10 @@ class CArreraInterfaceSetting : public QDialog
 public:
     explicit CArreraInterfaceSetting(QWidget *parent = nullptr);
     ~CArreraInterfaceSetting();
-
+    void passObjSetting(CArreraSetting *s);
 private:
     Ui::CArreraInterfaceSetting *ui;
+    CArreraSetting *objSetting;
     void closeEvent(QCloseEvent *event);
     int mainAcceuil,widgetApp ;
     int acceuilApp ;
