@@ -27,6 +27,8 @@ CArreraInterface::CArreraInterface(QWidget *parent)
 
 CArreraInterface::~CArreraInterface()
 {
+    delete winPara;
+    delete objSetting;
     delete ui;
 }
 
