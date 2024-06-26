@@ -3,6 +3,9 @@
 
 #include <QDialog>
 #include "carrerasetting.h"
+#include <QDir>
+#include <QFileDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class CArreraInterfaceSetting;
@@ -19,9 +22,10 @@ public:
 private:
     Ui::CArreraInterfaceSetting *ui;
     CArreraSetting *objSetting;
+    COS objOS;
     void closeEvent(QCloseEvent *event);
     int mainAcceuil,widgetApp ;
-    int acceuilApp ;
+    int acceuilApp,addAppChoix,addAppName ;
 signals:
     void parametresFerme();
 private slots:

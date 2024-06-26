@@ -276,4 +276,3 @@ void CArreraInterface::on_IDC_PARAMETRE_clicked()
 {
     winPara->show();
 }
-

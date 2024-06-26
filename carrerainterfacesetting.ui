@@ -319,7 +319,7 @@
        <item>
         <widget class="QStackedWidget" name="PartieApp">
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="AcceuilApp">
           <layout class="QVBoxLayout" name="verticalLayout_3">
