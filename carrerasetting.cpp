@@ -74,7 +74,7 @@ QVariant CArreraSetting::getValueGroup(int file,const QString &group,
 
 // Methode public
 
-CArreraSetting::CArreraSetting()
+CArreraSetting::CArreraSetting(QObject* p)
 {
-
+    parent = p ;
 }

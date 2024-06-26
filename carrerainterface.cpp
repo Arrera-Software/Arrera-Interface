@@ -17,10 +17,10 @@ CArreraInterface::CArreraInterface(QWidget *parent)
     rechercheHistIndex = ui->PagesArrera->indexOf(ui->PageRechercheHist);
     ui->PagesArrera->setCurrentIndex(mainPageIndex);
     // Declaration objet
-    objSetting  = CArreraSetting();
+    objSetting  = new CArreraSetting(this);
     // Declaration fenetre fille
     winPara = new CArreraInterfaceSetting(this);
-    winPara->passObjSetting(&objSetting);
+    winPara->passObjSetting(objSetting);
     connect(this,&CArreraInterface::destroyed,winPara,&CArreraInterface::close);
     connect(winPara,&CArreraInterfaceSetting::parametresFerme,this,&CArreraInterface::loadSetting);
 }
