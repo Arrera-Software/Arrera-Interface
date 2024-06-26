@@ -30,6 +30,16 @@ private slots:
     void on_IDC_LIEU_clicked();
     void on_IDC_APPLICATION_clicked();
     void on_IDC_BACKAPPACCEUIL_clicked();
+    void on_IDC_ADDAPP_clicked();
+    void on_IDC_SUPP_clicked();
+    void on_IDC_TASKBAR_clicked();
+    void on_IDC_VALIDERNAMEAPPADD_clicked();
+    void on_IDC_BACKAPPADDNAME_clicked();
+    void on_IDC_WINDOWSMENU_clicked();
+    void on_IDC_USERMENU_clicked();
+    void on_IDC_BACKAPPADD_clicked();
+    void on_IDC_OPENCHOIXAPPLINUX_clicked();
+    void on_IDC_BACKCHOIXAPPLINUX_clicked();
 };
 
 #endif // CARRERAINTERFACESETTING_H

@@ -67,3 +67,68 @@ void CArreraInterfaceSetting::on_IDC_BACKAPPACCEUIL_clicked()
     ui->Main->setCurrentIndex(mainAcceuil);
 }
 
+// Partie App
+void CArreraInterfaceSetting::on_IDC_ADDAPP_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_SUPP_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_TASKBAR_clicked()
+{
+
+}
+
+// Partie Add Name App
+
+void CArreraInterfaceSetting::on_IDC_VALIDERNAMEAPPADD_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_BACKAPPADDNAME_clicked()
+{
+
+}
+
+// Partie Add App lnk emplacement
+
+// Windows
+
+void CArreraInterfaceSetting::on_IDC_WINDOWSMENU_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_USERMENU_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_BACKAPPADD_clicked()
+{
+
+}
+
+// Linux
+
+void CArreraInterfaceSetting::on_IDC_OPENCHOIXAPPLINUX_clicked()
+{
+
+}
+
+
+void CArreraInterfaceSetting::on_IDC_BACKCHOIXAPPLINUX_clicked()
+{
+
+}
+
