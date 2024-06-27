@@ -23,7 +23,6 @@ private :
     bool fileExists(const std::string &filePath);
     bool loadFiles();
     void createFiles();
-    void writeNewFiles();
     // objQT
     QObject *parent;
     // Obj Setting
