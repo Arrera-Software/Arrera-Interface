@@ -97,6 +97,22 @@ void CArreraSetting::createFiles()
 
     fichier1.close();
 }
+
+void CArreraSetting::writeNewFiles()
+{
+    // File App
+    int i ;
+    QString group;
+    for (i=1;i<=12;i++)
+    {
+        group = "app"+QString::number(i);
+        settingApp->beginGroup(group);
+        settingApp->setValue("name","null");
+        settingApp->setValue("emplacement","null");
+        settingApp->setValue("icon","null");
+        settingApp->endGroup();
+    }
+}
 // Methode public
 
 CArreraSetting::CArreraSetting(QObject* p)
@@ -107,10 +123,17 @@ CArreraSetting::CArreraSetting(QObject* p)
     if(!loading)
     {
         createFiles();
+        loadFiles();
+        writeNewFiles();
     }
 }
 
 CArreraSetting::~CArreraSetting()
 {
     delete settingApp;
+}
+
+void CArreraSetting::resetFiles()
+{
+
 }

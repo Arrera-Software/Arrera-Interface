@@ -17,6 +17,7 @@ class CArreraSetting
 public:
     CArreraSetting(QObject* p);
     ~CArreraSetting();
+    void resetFiles();
 private :
     // Methode pour faciliter la gestion des fichier .ini
     void setValueGroup(int file,const QString &group,
@@ -32,6 +33,7 @@ private :
     bool fileExists(const std::string &filePath);
     bool loadFiles();
     void createFiles();
+    void writeNewFiles();
     // objQT
     QObject *parent;
     // Obj Setting
