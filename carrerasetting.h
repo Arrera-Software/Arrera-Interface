@@ -19,16 +19,6 @@ public:
     ~CArreraSetting();
     void resetFiles();
 private :
-    // Methode pour faciliter la gestion des fichier .ini
-    void setValueGroup(int file,const QString &group,
-                       const QString &key, const QVariant &value);
-    void setValueSimple(int file,const QString &key,
-                        const QVariant &value);
-    QVariant getValueSimple(int file,const QString &key,
-                            const QVariant &defaultValue) const;
-    QVariant getValueGroup(int file,const QString &group,
-                           const QString &key,
-                           const QVariant &defaultValue = QVariant()) const;
     // Methode private pour gerer les fichier
     bool fileExists(const std::string &filePath);
     bool loadFiles();
