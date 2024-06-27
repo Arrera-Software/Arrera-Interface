@@ -63,3 +63,82 @@ void CArreraSetting::resetFiles()
         settingApp->endGroup();
     }
 }
+
+// Methode de la partie APP
+bool CArreraSetting::addApp(int nb,QString name,QString emplacement,QString icon)
+{
+    if (nb <= 1 || nb >= 12)
+    {
+        return false;
+    }
+    else
+    {
+        settingApp->beginGroup("app"+QString::number(nb));
+        settingApp->setValue("name",name);
+        settingApp->setValue("emplacement",emplacement);
+        settingApp->setValue("icon",icon);
+        settingApp->endGroup();
+        return true;
+    }
+}
+
+bool CArreraSetting::supprApp(int nb)
+{
+    if (nb <= 1 || nb >= 12)
+    {
+        return false;
+    }
+    else
+    {
+        settingApp->beginGroup("app"+QString::number(nb));
+        settingApp->setValue("name","null");
+        settingApp->setValue("emplacement","null");
+        settingApp->setValue("icon","null");
+        settingApp->endGroup();
+        return true;
+    }
+}
+
+QString CArreraSetting::getNameApp(int nb)
+{
+    if (nb <= 1 || nb >= 12)
+    {
+        return "error";
+    }
+    else
+    {
+        settingApp->beginGroup("app"+QString::number(nb));
+        QString sortie = settingApp->value("name").toString();
+        settingApp->endGroup();
+        return sortie;
+    }
+}
+QString CArreraSetting::getEmplacementApp(int nb)
+{
+    if (nb <= 1 || nb >= 12)
+    {
+        return "error";
+    }
+    else
+    {
+        settingApp->beginGroup("app"+QString::number(nb));
+        QString sortie = settingApp->value("emplacement").toString();
+        settingApp->endGroup();
+        return sortie;
+    }
+}
+
+QString CArreraSetting::getIconApp(int nb)
+{
+    if (nb <= 1 || nb >= 12)
+    {
+        return "error";
+    }
+    else
+    {
+        settingApp->beginGroup("app"+QString::number(nb));
+        QString sortie = settingApp->value("icon").toString();
+        settingApp->endGroup();
+        return sortie;
+    }
+}
