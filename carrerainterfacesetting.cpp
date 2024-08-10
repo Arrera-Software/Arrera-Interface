@@ -148,6 +148,7 @@ void CArreraInterfaceSetting::on_IDC_WINDOWSMENU_clicked()
     else
     {
         QMessageBox::information(this, "Information : Parametre Arrera", "Application enregister");
+        objSetting->addApp(nameApp,emplacement);
     }
 }
 
@@ -167,6 +168,7 @@ void CArreraInterfaceSetting::on_IDC_USERMENU_clicked()
     else
     {
         QMessageBox::information(this, "Information : Parametre Arrera", "Application enregister");
+        objSetting->addApp(nameApp,emplacement);
     }
 }
 

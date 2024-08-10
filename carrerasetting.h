@@ -19,7 +19,7 @@ public:
     ~CArreraSetting();
     void resetFiles();
     // Methode de la partie APP
-    bool addApp(int nb,QString name,QString emplacement,QString icon = "null");
+    bool addApp(QString name,QString emplacement,QString icon = "null");
     bool supprApp(int nb);
     QString getNameApp(int nb);
     QString getEmplacementApp(int nb);

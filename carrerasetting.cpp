@@ -65,19 +65,31 @@ void CArreraSetting::resetFiles()
 }
 
 // Methode de la partie APP
-bool CArreraSetting::addApp(int nb,QString name,QString emplacement,QString icon)
+bool CArreraSetting::addApp(QString name,QString emplacement,QString icon)
 {
-    if (nb <= 1 || nb >= 12)
+    bool boucle = false;
+    int nbGroup = 1;
+    QString nameApp ;
+    while (!boucle && nbGroup < 13)
+    {
+        settingApp->beginGroup("app"+QString::number(nbGroup));
+        nameApp = settingApp->value("name").toString();
+        if (nameApp=="null")
+        {
+            settingApp->setValue("name",name);
+            settingApp->setValue("emplacement",emplacement);
+            settingApp->setValue("icon",icon);
+            boucle = true;
+        }
+        settingApp->endGroup();
+        nbGroup++;
+    }
+    if (nbGroup==13)
     {
         return false;
     }
     else
     {
-        settingApp->beginGroup("app"+QString::number(nb));
-        settingApp->setValue("name",name);
-        settingApp->setValue("emplacement",emplacement);
-        settingApp->setValue("icon",icon);
-        settingApp->endGroup();
         return true;
     }
 }
