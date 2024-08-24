@@ -28,7 +28,6 @@ CArreraUI::CArreraUI(QWidget *parent)
     winAPP = new ArreraAppLib(this);
     winApropos = new CArreraApropos(this);
     taskBar = new CArreraTakbar(this);
-    winPostite = new CArreraPostite(this);
     objTiger = new CArreraTigerInteg(process);
     // Passage de parametre au fenetre fille
     objSoftware.setObjPara(&objPara);
@@ -40,7 +39,6 @@ CArreraUI::CArreraUI(QWidget *parent)
     connect(this,&CArreraUI::destroyed,winAPP,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,winApropos,&CArreraUI::close);
     connect(this,&CArreraUI::destroyed,taskBar,&CArreraUI::close);
-    connect(this,&CArreraUI::destroyed,winPostite,&CArreraUI::close);
     // Ajout de l'actulisation de la fenetre principal si les parametre son quitter
     connect(winPara,&CDAParametre::parametresFerme,this,&CArreraUI::loadSetting);
     // Chargement des parametre
@@ -645,12 +643,12 @@ void CArreraUI::on_IDC_MTPBTNSHOW_clicked()
 
 void CArreraUI::on_IDC_PENSEBETE_clicked()
 {
-    winPostite->show();
+    objSoftware.openPostite();
 }
 
 
 void CArreraUI::on_IDC_PENSEBETE_2_clicked()
 {
-    winPostite->show();
+    objSoftware.openPostite();
 }
 

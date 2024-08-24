@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "arreraapplib.h"
 #include "carreraapropos.h"
-#include "carrerapostite.h"
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
@@ -113,7 +112,6 @@ private:
     CDAParametre *winPara ;
     ArreraAppLib *winAPP;
     CArreraTakbar *taskBar;
-    CArreraPostite *winPostite;
     // Objet de gestion
     CArreraOpenSoft objSoftware;
     CArreraSetting objPara;

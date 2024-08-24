@@ -39,6 +39,7 @@ public:
     bool openVMStart();
     bool openSoftTouchScreen();
     bool openTiger();
+    bool openPostite();
 };
 
 #endif // CARRERAOPENSOFT_H

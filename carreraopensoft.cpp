@@ -499,3 +499,27 @@ bool CArreraOpenSoft::openTiger()
         }
     }
 }
+
+bool CArreraOpenSoft::openPostite()
+{
+    if ((windowsOS==true)&&(linuxOS==false))
+    {
+        if (QDesktopServices::openUrl(QUrl::fromLocalFile("arrera-postite/release/Arrera-Postite.exe"))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else
+    {
+        if ((windowsOS==false)&&(linuxOS==true))
+        {
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
