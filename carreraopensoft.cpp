@@ -507,15 +507,18 @@ bool CArreraOpenSoft::openPostite()
         if (QDesktopServices::openUrl(QUrl::fromLocalFile("arrera-postite/release/Arrera-Postite.exe"))) {
             return true;
         }
-        else {
-            return false;
+        else
+        {
+            return false ;
         }
+
     }
     else
     {
         if ((windowsOS==false)&&(linuxOS==true))
         {
-            return false;
+            QProcess process;
+            return process.startDetached("arrera-postite/Arrera-Postite", QStringList());
         }
         else
         {
