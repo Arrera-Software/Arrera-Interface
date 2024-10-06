@@ -64,16 +64,16 @@
      <string>Arrera Interface</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="IDC_APPVERSION">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>0</x>
       <y>300</y>
-      <width>251</width>
-      <height>16</height>
+      <width>411</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -83,10 +83,10 @@
      </font>
     </property>
     <property name="text">
-     <string>I2024-</string>
+     <string>I2024-2.05.1</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="IDC_COPYWRITE">
@@ -102,7 +102,7 @@
      <string>Copyright Arrera Software by Baptiste P 2023-2024</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="IDC_QUIT">
@@ -144,7 +144,7 @@
      <string>Develop with QT 6.6.1</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
