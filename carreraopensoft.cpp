@@ -491,7 +491,8 @@ bool CArreraOpenSoft::openTiger()
     {
         if ((windowsOS==false)&&(linuxOS==true))
         {
-            return false;
+            QProcess process;
+            return process.startDetached("tiger", QStringList());
         }
         else
         {

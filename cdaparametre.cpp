@@ -25,6 +25,7 @@ CDAParametre::CDAParametre(QWidget *parent) :
         ui->IDC_ESIX->setVisible(false);
         ui->IDC_PSIX->setVisible(false);
         ui->IDC_CHOIXSIX->setVisible(false);
+        ui->IDC_INSTALLCOPILOTE->setVisible(false);
     }
 }
 
