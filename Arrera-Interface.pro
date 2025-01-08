@@ -10,13 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    arreragui.cpp
+    arreraui.cpp
 
 HEADERS += \
-    arreragui.h
+    arreraui.h
 
 FORMS += \
-    arreragui.ui
+    arreraui.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
