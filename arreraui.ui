@@ -31,7 +31,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QFrame" name="frame">
+    <widget class="QFrame" name="TOPFRAME">
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
      </property>

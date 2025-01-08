@@ -19,6 +19,7 @@ public:
 
 private:
     Ui::ArreraUI *ui;
+    int idPageI2025Main,idPageI2025App,idPageI2025Mode;
 };
 
 #endif // ARRERAUI_H
