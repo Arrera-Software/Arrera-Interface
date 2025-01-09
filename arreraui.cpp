@@ -15,6 +15,13 @@ ArreraUI::ArreraUI(QWidget *parent)
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
     ui->LINDICATIONARRERA->setText("Bienvenue sur Arrera I2025");
+    // Mise en place d'une image de fond pour l'affichage main
+    ui->TASKBARMAIN->setObjectName("MainWidget");
+    ui->TASKBARMAIN->setStyleSheet("#MainWidget {"
+                            "border: 2px solid black;"
+                            "border-radius: 15px;"
+                            "}");
+
 }
 
 ArreraUI::~ArreraUI()
