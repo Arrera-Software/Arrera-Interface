@@ -7,4 +7,11 @@
         <file>img/logo-six.png</file>
         <file>img/Ryley.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>img/historique-Arrera-Recherche-interface I2025.png</file>
+        <file>img/ExitArrera.png</file>
+        <file>img/Assistant.png</file>
+        <file>img/arrera-application.png</file>
+        <file>img/application.png</file>
+    </qresource>
 </RCC>
