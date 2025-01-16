@@ -13,5 +13,8 @@
         <file>img/Assistant.png</file>
         <file>img/arrera-application.png</file>
         <file>img/application.png</file>
+        <file>img/setting.png</file>
+        <file>img/search.png</file>
+        <file>img/arrera-tiger.png</file>
     </qresource>
 </RCC>
