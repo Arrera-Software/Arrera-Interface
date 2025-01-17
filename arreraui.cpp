@@ -28,3 +28,21 @@ ArreraUI::~ArreraUI()
 {
     delete ui;
 }
+
+void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
+{
+    int currentIndex = ui->I2025->currentIndex();
+
+    if (currentIndex != idPageI2025Main)
+    {
+        ui->I2025->setCurrentIndex(idPageI2025Main);
+    }
+}
+
+
+void ArreraUI::on_IDC_APPBUREAU_clicked()
+{
+    // Boutton pour afficher les Application enregistrer par l'utilisateur
+    ui->I2025->setCurrentIndex(idPageI2025App);
+}
+

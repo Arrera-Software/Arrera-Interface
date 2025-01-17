@@ -17,6 +17,11 @@ public:
     explicit ArreraUI(QWidget *parent = nullptr);
     ~ArreraUI();
 
+private slots:
+    void on_IDC_ACCEUILARRERA_clicked();
+
+    void on_IDC_APPBUREAU_clicked();
+
 private:
     Ui::ArreraUI *ui;
     int idPageI2025Main,idPageI2025App,idPageI2025Mode;
