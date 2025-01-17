@@ -20,5 +20,7 @@
         <file>img/tableur.png</file>
         <file>img/presentation.png</file>
         <file>img/navigateur.png</file>
+        <file>img/arrera-video-download.png</file>
+        <file>img/arrera-raccourci.png</file>
     </qresource>
 </RCC>

@@ -11,6 +11,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
     idPageI2025Mode = ui->I2025->indexOf(ui->mode);
+    idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -49,5 +50,11 @@ void ArreraUI::on_IDC_APPBUREAU_clicked()
 {
     // Boutton pour afficher les Application enregistrer par l'utilisateur
     ui->I2025->setCurrentIndex(idPageI2025App);
+}
+
+
+void ArreraUI::on_IDC_ARRERAAPP_clicked()
+{
+    ui->I2025->setCurrentIndex(idPageI2025ArreraApp);
 }
 

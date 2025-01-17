@@ -22,9 +22,11 @@ private slots:
 
     void on_IDC_APPBUREAU_clicked();
 
+    void on_IDC_ARRERAAPP_clicked();
+
 private:
     Ui::ArreraUI *ui;
-    int idPageI2025Main,idPageI2025App,idPageI2025Mode;
+    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp;
 };
 
 #endif // ARRERAUI_H
