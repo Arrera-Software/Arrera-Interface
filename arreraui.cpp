@@ -21,6 +21,11 @@ ArreraUI::ArreraUI(QWidget *parent)
                             "border: 2px solid black;"
                             "border-radius: 15px;"
                             "}");
+    ui->FBUREAUTIQUEAPP->setObjectName("MainWidget");
+    ui->FBUREAUTIQUEAPP->setStyleSheet("#MainWidget {"
+                                        "border: 2px solid black;"
+                                        "border-radius: 15px;"
+                                        "}");
 
 }
 
