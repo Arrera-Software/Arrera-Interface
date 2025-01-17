@@ -16,5 +16,9 @@
         <file>img/setting.png</file>
         <file>img/search.png</file>
         <file>img/arrera-tiger.png</file>
+        <file>img/traitementTexte.png</file>
+        <file>img/tableur.png</file>
+        <file>img/presentation.png</file>
+        <file>img/navigateur.png</file>
     </qresource>
 </RCC>
