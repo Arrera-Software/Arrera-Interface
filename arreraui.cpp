@@ -42,6 +42,7 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
     if (currentIndex != idPageI2025Main)
     {
         ui->I2025->setCurrentIndex(idPageI2025Main);
+        ui->LINDICATIONARRERA->setText("Arrera I2025");
     }
 }
 
@@ -50,11 +51,13 @@ void ArreraUI::on_IDC_APPBUREAU_clicked()
 {
     // Boutton pour afficher les Application enregistrer par l'utilisateur
     ui->I2025->setCurrentIndex(idPageI2025App);
+    ui->LINDICATIONARRERA->setText("Page application de l'ordinateur");
 }
 
 
 void ArreraUI::on_IDC_ARRERAAPP_clicked()
 {
     ui->I2025->setCurrentIndex(idPageI2025ArreraApp);
+    ui->LINDICATIONARRERA->setText("Page module Arrera");
 }
 
