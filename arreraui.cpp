@@ -11,6 +11,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
     idPageI2025Mode = ui->I2025->indexOf(ui->mode);
+    idPageApropos = ui->I2025->indexOf(ui->apropos);
     idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
