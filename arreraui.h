@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QUrl>
+#include "cainterfacesetting.h"
 
 namespace Ui {
 class ArreraUI;
@@ -34,6 +35,7 @@ private slots:
 
 private:
     Ui::ArreraUI *ui;
+    CAInterfaceSetting *objSetting;
     int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos;
 };
 
