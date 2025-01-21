@@ -1829,7 +1829,7 @@ color: rgb(0, 0, 0);</string>
           </font>
          </property>
          <property name="text">
-          <string>Cpyright Arrera Software by Baptiste P and Enzo B 2023-2025</string>
+          <string>Copyright Arrera Software by Baptiste P and Enzo B 2023-2025</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
