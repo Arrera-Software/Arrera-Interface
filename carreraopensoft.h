@@ -12,8 +12,8 @@
 #define NAMELNKPARASIXWIN "sixPara.lnk"
 #define NAMELNKPARARYLEYWIN "ryleyPara.lnk"
 
-#define NAMERYLEYSH "ryley.sh"
-#define NAMESIXSH "six.sh"
+#define NAMERYLEYSH "launch.sh"
+#define NAMESIXSH "launch.sh"
 #define NAMERYLEYPARASH "ryleyPara.sh"
 #define NAMESIXPARASH "sixPara.sh"
 

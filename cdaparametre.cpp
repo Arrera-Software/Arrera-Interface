@@ -20,11 +20,12 @@ CDAParametre::CDAParametre(QWidget *parent) :
     ui->FMODESET->setVisible(false);
     ui->FMTPUSER->setVisible(false);
     ui->IDC_PSIX->setVisible(false);
+    ui->IDC_PRYLEY->setVisible(false);
     if((osDetecteur.getLinux())&&(!osDetecteur.getWindows()))
     {
-        ui->IDC_ESIX->setVisible(false);
+        //ui->IDC_ESIX->setVisible(false);
         ui->IDC_PSIX->setVisible(false);
-        ui->IDC_CHOIXSIX->setVisible(false);
+        //ui->IDC_CHOIXSIX->setVisible(false);
         ui->IDC_INSTALLCOPILOTE->setVisible(false);
     }
 }
