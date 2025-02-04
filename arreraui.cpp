@@ -11,6 +11,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     QString confFile = "config.ini";
     QString tigerConf = "tiger.json";
     objSetting = new CAInterfaceSetting(confFile,tigerConf);
+    // Ajout de l'objet de l'interface des parametre
+    uipara = new ArreraSettingUI(this);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
@@ -32,6 +34,9 @@ ArreraUI::ArreraUI(QWidget *parent)
                                         "border: 2px solid black;"
                                         "border-radius: 15px;"
                                        "}");
+    // Connection de l'interface principale est le parametre
+    connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
+    connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
 
 }
 
@@ -87,3 +92,13 @@ void ArreraUI::on_IDC_WEBSITE_clicked()
     QDesktopServices::openUrl(url);
 }
 
+
+void ArreraUI::on_IDC_PARA_clicked()
+{
+    uipara->show();
+}
+
+void ArreraUI::loadSetting()
+{
+
+}

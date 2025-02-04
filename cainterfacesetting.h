@@ -80,6 +80,7 @@ public:
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);
     bool setAppNavigateur(QString emplacement);
+
 };
 
 #endif // CAINTERFACESETTING_H

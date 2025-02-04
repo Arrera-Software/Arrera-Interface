@@ -8,6 +8,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include "cainterfacesetting.h"
+#include "arrerasettingui.h"
 
 namespace Ui {
 class ArreraUI;
@@ -33,9 +34,13 @@ private slots:
 
     void on_IDC_WEBSITE_clicked();
 
+    void on_IDC_PARA_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
+    ArreraSettingUI *uipara;
+    void loadSetting();
     int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos;
 };
 

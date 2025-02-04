@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arrerasettingui.cpp \
     cainterfacesetting.cpp \
     cjsonword.cpp \
     csetting.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     arreraui.cpp
 
 HEADERS += \
+    arrerasettingui.h \
     arreraui.h \
     cainterfacesetting.h \
     cjsonword.h \
     csetting.h
 
 FORMS += \
+    arrerasettingui.ui \
     arreraui.ui
 
 # Default rules for deployment.
