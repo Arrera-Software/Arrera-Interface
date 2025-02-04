@@ -14,10 +14,15 @@ class ArreraSettingUI : public QDialog
 public:
     explicit ArreraSettingUI(QWidget *parent = nullptr);
     ~ArreraSettingUI();
+    void show();
 
 private:
     Ui::ArreraSettingUI *ui;
     void closeEvent(QCloseEvent *event);
+    // Id de mainstaked
+    int idMainPage,idModePage;
+    // id de modestaked
+    int idMainModePage;
 
 signals:
     void parametresFerme();
