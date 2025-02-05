@@ -14,7 +14,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     idAssistantPage= ui->mainstacked->indexOf(ui->main);
     idApplicationPage = ui->mainstacked->indexOf(ui->application);
     idLieuPage = ui->mainstacked->indexOf(ui->main);
-    idRecherchePage = ui->mainstacked->indexOf(ui->main);
+    idRecherchePage = ui->mainstacked->indexOf(ui->recherche);
     // id de modestaked
     idMainModePage = ui->modestacked->indexOf(ui->mainmode);
     idAddMode = ui->modestacked->indexOf(ui->addmode);
@@ -27,6 +27,12 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     ui->IDC_LISTASSISTANTMODE->addItem("SIX");
     ui->IDC_LISTASSISTANTMODE->addItem("RYLEY");
     ui->IDC_LISTASSISTANTMODE->addItem("COPILOTE");
+    // Mise en place des moteur de recherche dans IDC_LISTEMOTEURERECHERCHE
+    ui->IDC_LISTEMOTEURERECHERCHE->addItem("GOOGLE");
+    ui->IDC_LISTEMOTEURERECHERCHE->addItem("DUCKDUCKGO");
+    ui->IDC_LISTEMOTEURERECHERCHE->addItem("ECOSIA");
+    ui->IDC_LISTEMOTEURERECHERCHE->addItem("BING");
+    ui->IDC_LISTEMOTEURERECHERCHE->addItem("BRAVE");
 }
 
 ArreraSettingUI::~ArreraSettingUI()
@@ -88,7 +94,8 @@ void ArreraSettingUI::on_IDC_LIEU_clicked()
 
 void ArreraSettingUI::on_IDC_RECHERCHE_clicked()
 {
-
+    ui->mainstacked->setCurrentIndex(idRecherchePage);
+    ui->LINDICATIONSETTING->setText("Parametre de recherche");
 }
 
 // Top bar
@@ -163,6 +170,37 @@ void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
     ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
+// Partie gest mode
+
+void ArreraSettingUI::on_IDC_RESETMODE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_CHANGENAME_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_ASSISTANTMAJGESTMODE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_MAJAPPGESTMODE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RETOURGESTMODE_clicked()
+{
+
+}
+
 // Partie Parametre generaux
 void ArreraSettingUI::on_IDC_RETOURGENERAUXUSER_clicked()
 {
@@ -224,6 +262,12 @@ void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
 }
 
 void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
+{
+
+}
+
+// Partie Recherche
+void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 {
 
 }

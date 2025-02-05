@@ -50,6 +50,12 @@ private slots:
     // BTN addmode
     void on_IDC_VALIDERMODE_clicked();
     void on_IDC_RETOURMODE_clicked();
+    // Partie gest mode
+    void on_IDC_RESETMODE_clicked();
+    void on_IDC_CHANGENAME_clicked();
+    void on_IDC_ASSISTANTMAJGESTMODE_clicked();
+    void on_IDC_MAJAPPGESTMODE_clicked();
+    void on_IDC_RETOURGESTMODE_clicked();
 
     // Partie Parametre generaux
     void on_IDC_RETOURGENERAUXUSER_clicked();
@@ -67,6 +73,9 @@ private slots:
     //Partie acceuil d'app
     void on_IDC_ADDAPPPC_clicked();
     void on_IDC_SUPPRAPPPC_clicked();
+    // Partie Recherche
+    void on_IDC_VALIDERRECHERCHE_clicked();
+
 };
 
 #endif // ARRERASETTINGUI_H
