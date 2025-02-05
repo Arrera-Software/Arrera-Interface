@@ -29,29 +29,42 @@ private:
 signals:
     void parametresFerme();
 private slots:
+    // Partie acceuil
     void on_IDC_MODE_clicked();
     void on_IDC_GENERAUX_clicked();
     void on_IDC_ASSISTANT_clicked();
     void on_IDC_APPLICATION_clicked();
     void on_IDC_LIEU_clicked();
     void on_IDC_RECHERCHE_clicked();
+
+    // Bouton TOP bar
     void on_IDC_ACCEUILPARAMETRE_clicked();
+
+    // Partie mode
     void on_IDC_BTNMODE1_clicked();
     void on_IDC_BTNMODE2_clicked();
     void on_IDC_BTNMODE3_clicked();
     void on_IDC_BTNMODE4_clicked();
     void on_IDC_BTNMODE5_clicked();
     void on_IDC_BTNMODE6_clicked();
+    // BTN addmode
     void on_IDC_VALIDERMODE_clicked();
     void on_IDC_RETOURMODE_clicked();
+
+    // Partie Parametre generaux
     void on_IDC_RETOURGENERAUXUSER_clicked();
     void on_IDC_VALIDERNAMEUSER_clicked();
+
+    // Partie application
+    //Partie ajout de l'app
     void on_IDC_SETAPPPC_clicked();
     void on_IDC_ICONAPPPC_clicked();
     void on_IDC_VALIDERAPPPC_clicked();
     void on_IDC_CANCELAPPPC_clicked();
+    //Partie suppr de l'app
     void on_IDC_CANCELSUPPRAPP_clicked();
     void on_IDC_VALIDERSUPRR_clicked();
+    //Partie acceuil d'app
     void on_IDC_ADDAPPPC_clicked();
     void on_IDC_SUPPRAPPPC_clicked();
 };

@@ -1,6 +1,7 @@
 #include "arrerasettingui.h"
 #include "ui_arrerasettingui.h"
 
+// Methode principal public
 ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ArreraSettingUI)
@@ -49,6 +50,8 @@ void ArreraSettingUI::show()
     ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
 }
 
+// Partie acceuil
+
 void ArreraSettingUI::on_IDC_MODE_clicked()
 {
     ui->mainstacked->setCurrentIndex(idModePage);
@@ -57,7 +60,6 @@ void ArreraSettingUI::on_IDC_MODE_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
 
-// Partie Mode
 void ArreraSettingUI::on_IDC_GENERAUX_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre generaux");
@@ -89,7 +91,7 @@ void ArreraSettingUI::on_IDC_RECHERCHE_clicked()
 
 }
 
-
+// Top bar
 void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
 {
     int currentIndex = ui->mainstacked->currentIndex();
@@ -100,7 +102,7 @@ void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
     }
 }
 
-
+// Partie mode
 void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
 {
     ui->LINDICATIONMODE->setText("Parametrage du Mode 1");
@@ -161,7 +163,7 @@ void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
     ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
-
+// Partie Parametre generaux
 void ArreraSettingUI::on_IDC_RETOURGENERAUXUSER_clicked()
 {
     ui->mainstacked->setCurrentIndex(idMainPage);
@@ -174,26 +176,8 @@ void ArreraSettingUI::on_IDC_VALIDERNAMEUSER_clicked()
 
 }
 
-
-void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
-{
-    ui->LINDICATIONSETTING->setText("Ajout d'une application");
-    ui->appstocked->setCurrentIndex(idAddAppStacked);
-}
-
-
-void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
-{
-    ui->LINDICATIONSETTING->setText("Supprimer d'une application");
-    ui->appstocked->setCurrentIndex(idSupprAppStacked);
-}
-
-void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
-{
-
-}
-
-
+// Partie application
+//Partie ajout de l'app
 void ArreraSettingUI::on_IDC_ICONAPPPC_clicked()
 {
 
@@ -212,7 +196,7 @@ void ArreraSettingUI::on_IDC_CANCELAPPPC_clicked()
     ui->appstocked->setCurrentIndex(idMainAppStaked);
 }
 
-
+//Partie suppr de l'app
 void ArreraSettingUI::on_IDC_CANCELSUPPRAPP_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre des applications");
@@ -225,6 +209,21 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
     ui->appstocked->setCurrentIndex(idMainAppStaked);
 }
 
+//Partie acceuil d'app
+void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Ajout d'une application");
+    ui->appstocked->setCurrentIndex(idAddAppStacked);
+}
 
 
+void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Supprimer d'une application");
+    ui->appstocked->setCurrentIndex(idSupprAppStacked);
+}
 
+void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
+{
+
+}
