@@ -16,6 +16,12 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     idRecherchePage = ui->mainstacked->indexOf(ui->main);
     // id de modestaked
     idMainModePage = ui->modestacked->indexOf(ui->mainmode);
+    idAddMode = ui->modestacked->indexOf(ui->addmode);
+    // Mise en place des item sur le IDC_LISTASSISTANTMODE
+    ui->IDC_LISTASSISTANTMODE->addItem("AUCUN");
+    ui->IDC_LISTASSISTANTMODE->addItem("SIX");
+    ui->IDC_LISTASSISTANTMODE->addItem("RYLEY");
+    ui->IDC_LISTASSISTANTMODE->addItem("COPILOTE");
 }
 
 ArreraSettingUI::~ArreraSettingUI()
@@ -45,7 +51,7 @@ void ArreraSettingUI::on_IDC_MODE_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
 
-
+// Partie Mode
 void ArreraSettingUI::on_IDC_GENERAUX_clicked()
 {
 
@@ -84,5 +90,66 @@ void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
         ui->mainstacked->setCurrentIndex(idMainPage);
         ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
     }
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 1");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 1");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 2");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 2");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 3");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 3");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 4");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 4");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 5");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 5");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_BTNMODE6_clicked()
+{
+    ui->LINDICATIONMODE->setText("Parametrage du Mode 6");
+    ui->LINDICATIONSETTING->setText("Parametrage mode 6");
+    ui->modestacked->setCurrentIndex(idAddMode);
+}
+
+
+void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Parametre des modes");
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 

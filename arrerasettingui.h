@@ -22,7 +22,7 @@ private:
     // Id de mainstaked
     int idMainPage,idModePage,idGenerauxPage,idAssistantPage,idApplicationPage,idLieuPage,idRecherchePage;
     // id de modestaked
-    int idMainModePage;
+    int idMainModePage,idAddMode;
 
 signals:
     void parametresFerme();
@@ -34,6 +34,14 @@ private slots:
     void on_IDC_LIEU_clicked();
     void on_IDC_RECHERCHE_clicked();
     void on_IDC_ACCEUILPARAMETRE_clicked();
+    void on_IDC_BTNMODE1_clicked();
+    void on_IDC_BTNMODE2_clicked();
+    void on_IDC_BTNMODE3_clicked();
+    void on_IDC_BTNMODE4_clicked();
+    void on_IDC_BTNMODE5_clicked();
+    void on_IDC_BTNMODE6_clicked();
+    void on_IDC_VALIDERMODE_clicked();
+    void on_IDC_RETOURMODE_clicked();
 };
 
 #endif // ARRERASETTINGUI_H
