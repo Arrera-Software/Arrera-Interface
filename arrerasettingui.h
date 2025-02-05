@@ -23,6 +23,8 @@ private:
     int idMainPage,idModePage,idGenerauxPage,idAssistantPage,idApplicationPage,idLieuPage,idRecherchePage;
     // id de modestaked
     int idMainModePage,idAddMode;
+    // id appstacked
+    int idMainAppStaked, idAddAppStacked,idSupprAppStacked;
 
 signals:
     void parametresFerme();
@@ -42,6 +44,16 @@ private slots:
     void on_IDC_BTNMODE6_clicked();
     void on_IDC_VALIDERMODE_clicked();
     void on_IDC_RETOURMODE_clicked();
+    void on_IDC_RETOURGENERAUXUSER_clicked();
+    void on_IDC_VALIDERNAMEUSER_clicked();
+    void on_IDC_SETAPPPC_clicked();
+    void on_IDC_ICONAPPPC_clicked();
+    void on_IDC_VALIDERAPPPC_clicked();
+    void on_IDC_CANCELAPPPC_clicked();
+    void on_IDC_CANCELSUPPRAPP_clicked();
+    void on_IDC_VALIDERSUPRR_clicked();
+    void on_IDC_ADDAPPPC_clicked();
+    void on_IDC_SUPPRAPPPC_clicked();
 };
 
 #endif // ARRERASETTINGUI_H
