@@ -13,7 +13,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     idGenerauxPage = ui->mainstacked->indexOf(ui->generaux);
     idAssistantPage= ui->mainstacked->indexOf(ui->main);
     idApplicationPage = ui->mainstacked->indexOf(ui->application);
-    idLieuPage = ui->mainstacked->indexOf(ui->main);
+    idLieuPage = ui->mainstacked->indexOf(ui->lieu);
     idRecherchePage = ui->mainstacked->indexOf(ui->recherche);
     // id de modestaked
     idMainModePage = ui->modestacked->indexOf(ui->mainmode);
@@ -22,6 +22,10 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent)
     idMainAppStaked = ui->appstocked->indexOf(ui->mainpcapp);
     idAddAppStacked = ui->appstocked->indexOf(ui->addpcapp);
     idSupprAppStacked = ui->appstocked->indexOf(ui->supprpcapp);
+    // id lieustacked
+    idMainLieu= ui->lieustacked->indexOf(ui->mainlieu);
+    idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
+    idManageLieu = ui->lieustacked->indexOf(ui->managelieu);
     // Mise en place des item sur le IDC_LISTASSISTANTMODE
     ui->IDC_LISTASSISTANTMODE->addItem("AUCUN");
     ui->IDC_LISTASSISTANTMODE->addItem("SIX");
@@ -53,6 +57,7 @@ void ArreraSettingUI::show()
     ui->mainstacked->setCurrentIndex(idMainPage);
     ui->modestacked->setCurrentIndex(idMainModePage);
     ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->lieustacked->setCurrentIndex(idMainLieu);
     ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
 }
 
@@ -63,6 +68,7 @@ void ArreraSettingUI::on_IDC_MODE_clicked()
     ui->mainstacked->setCurrentIndex(idModePage);
     ui->modestacked->setCurrentIndex(idMainModePage);
     ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->lieustacked->setCurrentIndex(idMainLieu);
     ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
 
@@ -88,6 +94,8 @@ void ArreraSettingUI::on_IDC_APPLICATION_clicked()
 
 void ArreraSettingUI::on_IDC_LIEU_clicked()
 {
+    ui->mainstacked->setCurrentIndex(idLieuPage);
+    ui->LINDICATIONSETTING->setText("Parametre des lieu");
 
 }
 
@@ -267,7 +275,55 @@ void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
 }
 
 // Partie Recherche
+
 void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 {
 
 }
+
+// Partie Lieu
+
+// Acceuil lieu
+void ArreraSettingUI::on_IDC_MANAGELIEU1_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_MANAGELIEU1_2_clicked()
+{
+
+}
+
+// Create
+
+void ArreraSettingUI::on_IDC_CREALIEU_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_CANCELCREATELIEU_clicked()
+{
+    ui->lieustacked->setCurrentIndex(idMainLieu);
+}
+
+// Manage lieu
+
+void ArreraSettingUI::on_IDC_CHANGENAMELIEU_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_CHANGEASSISTANTLIEU_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_ANNULERMANAGELIEU_clicked()
+{
+    ui->lieustacked->setCurrentIndex(idMainLieu);
+}
+

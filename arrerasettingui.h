@@ -25,6 +25,8 @@ private:
     int idMainModePage,idAddMode;
     // id appstacked
     int idMainAppStaked, idAddAppStacked,idSupprAppStacked;
+    // id lieustacked
+    int idMainLieu,idAddLieu,idManageLieu;
 
 signals:
     void parametresFerme();
@@ -75,7 +77,17 @@ private slots:
     void on_IDC_SUPPRAPPPC_clicked();
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();
-
+    // Partie Lieu
+    // Acceuil lieu
+    void on_IDC_MANAGELIEU1_clicked();
+    void on_IDC_MANAGELIEU1_2_clicked();
+    // Create
+    void on_IDC_CREALIEU_clicked();
+    void on_IDC_CANCELCREATELIEU_clicked();
+    // Manage lieu
+    void on_IDC_CHANGENAMELIEU_clicked();
+    void on_IDC_CHANGEASSISTANTLIEU_clicked();
+    void on_IDC_ANNULERMANAGELIEU_clicked();
 };
 
 #endif // ARRERASETTINGUI_H
