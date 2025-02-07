@@ -221,7 +221,15 @@ void ArreraSettingUI::on_IDC_RETOURGENERAUXUSER_clicked()
 
 void ArreraSettingUI::on_IDC_VALIDERNAMEUSER_clicked()
 {
-
+    // Recuperation de la valeur
+    QString nameUser = ui->ICD_LINENAMEUSER->text();
+    // Effacement de ICD_LINENAMEUSER
+    ui->ICD_LINENAMEUSER->clear();
+    // Teste si ICD_LINENAMEUSER etais vide
+    if (!nameUser.isEmpty())
+    {
+        objPara->setNameUser(nameUser);
+    }
 }
 
 // Partie application
