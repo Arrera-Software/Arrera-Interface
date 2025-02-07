@@ -40,6 +40,8 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     ui->IDC_ASSISTANTGESTMODE->addItems(listAssistant);
     // Mise en place des moteur de recherche dans IDC_LISTEMOTEURERECHERCHE
     ui->IDC_LISTEMOTEURERECHERCHE->addItems(listMoteur);
+    // Desactivation du bouton assistant
+    ui->IDC_ASSISTANT->setVisible(false);
 }
 
 ArreraSettingUI::~ArreraSettingUI()
