@@ -25,6 +25,9 @@ public:
     QString getNameMode5();
     QString getNameMode6();
 
+    QString getNameLieu1();
+    QString getNameLieu2();
+
     bool getAppMode1(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
     bool getAppMode2(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
     bool getAppMode3(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
@@ -60,6 +63,9 @@ public:
     bool setNameMode4(QString& name);
     bool setNameMode5(QString& name);
     bool setNameMode6(QString& name);
+
+    bool setNameLieu1(QString& name);
+    bool setNameLieu2(QString& name);
 
     bool setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4);
     bool setAppMode2(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4);

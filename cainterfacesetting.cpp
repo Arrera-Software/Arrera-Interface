@@ -38,6 +38,14 @@ QString CAInterfaceSetting::getNameMode6(){
     return fileINI->getValeur("mode6","name");
 }
 
+QString CAInterfaceSetting::getNameLieu1(){
+    return fileINI->getValeur("lieu1","name");
+}
+
+QString CAInterfaceSetting::getNameLieu2(){
+    return fileINI->getValeur("lieu2","name");
+}
+
 // Getteurs App mode
 
 bool CAInterfaceSetting::getAppMode1(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
@@ -74,13 +82,40 @@ QString CAInterfaceSetting::getArreraVideoDownload(){}
 QString CAInterfaceSetting::getArreraRaccourci(){}
 
 // Setteurs
-bool CAInterfaceSetting::setNameUser(QString& user){}
-bool CAInterfaceSetting::setNameMode1(QString& name){}
-bool CAInterfaceSetting::setNameMode2(QString& name){}
-bool CAInterfaceSetting::setNameMode3(QString& name){}
-bool CAInterfaceSetting::setNameMode4(QString& name){}
-bool CAInterfaceSetting::setNameMode5(QString& name){}
-bool CAInterfaceSetting::setNameMode6(QString& name){}
+bool CAInterfaceSetting::setNameUser(QString& user){
+    return fileINI->setValeur("interface","user",user);
+}
+
+bool CAInterfaceSetting::setNameMode1(QString& name){
+    return fileINI->setValeur("mode1","name",name);
+}
+
+bool CAInterfaceSetting::setNameMode2(QString& name){
+    return fileINI->setValeur("mode2","name",name);
+}
+
+bool CAInterfaceSetting::setNameMode3(QString& name){
+    return fileINI->setValeur("mode3","name",name);
+}
+
+bool CAInterfaceSetting::setNameMode4(QString& name){
+    return fileINI->setValeur("mode4","name",name);
+}
+bool CAInterfaceSetting::setNameMode5(QString& name){
+    return fileINI->setValeur("mode5","name",name);
+}
+
+bool CAInterfaceSetting::setNameMode6(QString& name){
+    return fileINI->setValeur("mode6","name",name);
+}
+
+bool CAInterfaceSetting::setNameLieu1(QString& name){
+    return fileINI->setValeur("lieu1","name",name);
+}
+
+bool CAInterfaceSetting::setNameLieu2(QString& name){
+    return fileINI->setValeur("lieu2","name",name);
+}
 
 bool CAInterfaceSetting::setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
 bool CAInterfaceSetting::setAppMode2(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
