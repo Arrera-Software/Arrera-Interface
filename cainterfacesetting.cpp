@@ -14,6 +14,10 @@ QList <QString>  CAInterfaceSetting::getListAssistant(){
     return QList<QString>({"SIX", "RYLEY", "AUCUN"});
 }
 
+QList <QString>  CAInterfaceSetting::getListMoteur(){
+    return QList<QString>({"GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE"});
+}
+
 QString CAInterfaceSetting::getNameUser(){
     return fileINI->getValeur("interface","user");
 }

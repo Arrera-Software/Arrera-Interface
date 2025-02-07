@@ -18,6 +18,7 @@ public:
 
     // Getteur
     QList <QString> getListAssistant();
+    QList <QString> getListMoteur();
 
     QString getNameUser();
     QString getNameMode1();
