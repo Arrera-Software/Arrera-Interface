@@ -9,6 +9,8 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     ui->setupUi(this);
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
+    // Recuperation List des assistant
+    QList listAssistant = objPara->getListAssistant();
     // Id de mainstaked
     idMainPage = ui->mainstacked->indexOf(ui->main);
     idModePage = ui->mainstacked->indexOf(ui->mode);
@@ -29,10 +31,9 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
     idManageLieu = ui->lieustacked->indexOf(ui->managelieu);
     // Mise en place des item sur le IDC_LISTASSISTANTMODE
-    ui->IDC_LISTASSISTANTMODE->addItem("AUCUN");
-    ui->IDC_LISTASSISTANTMODE->addItem("SIX");
-    ui->IDC_LISTASSISTANTMODE->addItem("RYLEY");
-    ui->IDC_LISTASSISTANTMODE->addItem("COPILOTE");
+    ui->IDC_LISTASSISTANTMODE->addItems(listAssistant);
+    ui->IDC_LISTASSISTANTMANAGELIEU->addItems(listAssistant);
+    ui->IDC_ASSISTANTGESTMODE->addItems(listAssistant);
     // Mise en place des moteur de recherche dans IDC_LISTEMOTEURERECHERCHE
     ui->IDC_LISTEMOTEURERECHERCHE->addItem("GOOGLE");
     ui->IDC_LISTEMOTEURERECHERCHE->addItem("DUCKDUCKGO");

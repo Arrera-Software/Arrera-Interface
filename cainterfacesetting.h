@@ -16,7 +16,9 @@ public:
     CAInterfaceSetting(QString& inifile,QString& jsonfile);
     ~CAInterfaceSetting();
 
-    // Getteurs
+    // Getteur
+    QList <QString> getListAssistant();
+
     QString getNameUser();
     QString getNameMode1();
     QString getNameMode2();

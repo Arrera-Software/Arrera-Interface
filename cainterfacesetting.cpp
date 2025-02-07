@@ -10,6 +10,10 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
 CAInterfaceSetting::~CAInterfaceSetting(){}
 
 // Getteurs
+QList <QString>  CAInterfaceSetting::getListAssistant(){
+    return QList<QString>({"SIX", "RYLEY", "AUCUN"});
+}
+
 QString CAInterfaceSetting::getNameUser(){
     return fileINI->getValeur("interface","user");
 }
