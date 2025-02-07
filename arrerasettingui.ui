@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>1</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1316,6 +1316,18 @@ color: rgb(0, 0, 0);</string>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="LINDICATIONNOMGENERAUX">
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Votre nom :</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QLineEdit" name="ICD_LINENAMEUSER"/>
          </item>
