@@ -2,6 +2,7 @@
 #define ARRERASETTINGUI_H
 
 #include <QDialog>
+#include "cainterfacesetting.h"
 
 namespace Ui {
 class ArreraSettingUI;
@@ -12,13 +13,15 @@ class ArreraSettingUI : public QDialog
     Q_OBJECT
 
 public:
-    explicit ArreraSettingUI(QWidget *parent = nullptr);
+    explicit ArreraSettingUI(QWidget *parent = nullptr,CAInterfaceSetting *obp = nullptr);
     ~ArreraSettingUI();
     void show();
 
 private:
     Ui::ArreraSettingUI *ui;
     void closeEvent(QCloseEvent *event);
+    // Atribut de l'objet CAInterfaceSetting
+    CAInterfaceSetting *objPara;
     // Id de mainstaked
     int idMainPage,idModePage,idGenerauxPage,idAssistantPage,idApplicationPage,idLieuPage,idRecherchePage;
     // id de modestaked

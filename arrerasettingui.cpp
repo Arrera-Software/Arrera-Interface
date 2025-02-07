@@ -2,11 +2,13 @@
 #include "ui_arrerasettingui.h"
 
 // Methode principal public
-ArreraSettingUI::ArreraSettingUI(QWidget *parent)
+ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     : QDialog(parent)
     , ui(new Ui::ArreraSettingUI)
 {
     ui->setupUi(this);
+    // Mise en place de CAInterfaceSetting dans son atribut
+    objPara = obp;
     // Id de mainstaked
     idMainPage = ui->mainstacked->indexOf(ui->main);
     idModePage = ui->mainstacked->indexOf(ui->mode);
