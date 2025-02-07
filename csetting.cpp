@@ -5,6 +5,17 @@ CSetting::CSetting() : fileOpen(false), fileCreated(false), settings(nullptr) {}
 CSetting::CSetting(const QString &file) {
     QFileInfo checkFile(file);
     fileCreated = !checkFile.exists();
+
+    fileCreated = !checkFile.exists();
+
+    if (fileCreated) {
+        // Si le fichier n'existe pas, on le crée
+        QFile newFile(file);
+        if (newFile.open(QIODevice::WriteOnly)) {  // Crée et vide le fichier
+            newFile.close();
+        }
+    }
+
     settings = new QSettings(file, QSettings::IniFormat);
     fileOpen = true;
 }
@@ -17,6 +28,7 @@ bool CSetting::setValeur(const QString &section, const QString &key, const QStri
     if (!fileOpen) return false;
     if (section.isEmpty() || key.isEmpty() || value.isEmpty()) return false;
     settings->setValue(section + "/" + key, value);
+    settings->sync();
     return true;
 }
 
