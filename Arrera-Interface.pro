@@ -11,6 +11,8 @@ CONFIG += c++17
 SOURCES += \
     arrerasettingui.cpp \
     cainterfacesetting.cpp \
+    calieu.cpp \
+    camode.cpp \
     camodelieu.cpp \
     cjsonword.cpp \
     csetting.cpp \
@@ -21,6 +23,8 @@ HEADERS += \
     arrerasettingui.h \
     arreraui.h \
     cainterfacesetting.h \
+    calieu.h \
+    camode.h \
     camodelieu.h \
     cjsonword.h \
     csetting.h
