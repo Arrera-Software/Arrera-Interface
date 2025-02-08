@@ -16,7 +16,7 @@ public:
     ~CAModeLieu();
     QString getNameView();
     QString getAssistant();
-    bool setNameView(QString name);
+    bool setNameView(QString pname);
     bool setAssistant(QString assistant);
 };
 
