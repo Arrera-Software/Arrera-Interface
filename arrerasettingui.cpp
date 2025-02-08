@@ -340,3 +340,7 @@ void ArreraSettingUI::on_IDC_ANNULERMANAGELIEU_clicked()
     ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
+void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
+{
+
+}
