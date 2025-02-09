@@ -102,7 +102,6 @@ public:
     bool setAppNavigateur(QString emplacement);
 
     // Methode pour savoir si les lieu ou mode son paramétrer
-
     bool mode1IsSeted();
     bool mode2IsSeted();
     bool mode3IsSeted();
@@ -112,6 +111,17 @@ public:
 
     bool lieu1IsSeted();
     bool lieu2IsSeted();
+
+    // Methode pour remettre a Zero les modes et lieu
+    bool resetMode1();
+    bool resetMode2();
+    bool resetMode3();
+    bool resetMode4();
+    bool resetMode5();
+    bool resetMode6();
+
+    bool resetLieu1();
+    bool resetLieu2();
 };
 
 #endif // CAINTERFACESETTING_H

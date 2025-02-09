@@ -271,3 +271,36 @@ bool CAInterfaceSetting::lieu1IsSeted(){
 bool CAInterfaceSetting::lieu2IsSeted(){
     return lieu2.isSeted();
 }
+
+// Methode pour remettre a Zero les modes et lieu
+bool CAInterfaceSetting::resetMode1(){
+    return mode1.resetMode();
+}
+
+bool CAInterfaceSetting::resetMode2(){
+    return mode2.resetMode();
+}
+
+bool CAInterfaceSetting::resetMode3(){
+    return mode3.resetMode();
+}
+
+bool CAInterfaceSetting::resetMode4(){
+    return mode4.resetMode();
+}
+
+bool CAInterfaceSetting::resetMode5(){
+    return mode5.resetMode();
+}
+
+bool CAInterfaceSetting::resetMode6(){
+    return mode6.resetMode();
+}
+
+bool CAInterfaceSetting::resetLieu1(){
+    return lieu1.resetLieu();
+}
+
+bool CAInterfaceSetting::resetLieu2(){
+    return lieu2.resetLieu();
+}
