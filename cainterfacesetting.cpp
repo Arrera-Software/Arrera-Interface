@@ -237,3 +237,37 @@ bool CAInterfaceSetting::setAppTableur(QString emplacement){}
 bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){}
 bool CAInterfaceSetting::setAppNavigateur(QString emplacement){}
+
+// Methode pour savoir si les lieu ou mode son paramétrer
+
+bool CAInterfaceSetting::mode1IsSeted(){
+    return mode1.isSeted();
+}
+
+bool CAInterfaceSetting::mode2IsSeted(){
+    return mode2.isSeted();
+}
+
+bool CAInterfaceSetting::mode3IsSeted(){
+    return mode3.isSeted();
+}
+
+bool CAInterfaceSetting::mode4IsSeted(){
+    return mode4.isSeted();
+}
+
+bool CAInterfaceSetting::mode5IsSeted(){
+    return mode5.isSeted();
+}
+
+bool CAInterfaceSetting::mode6IsSeted(){
+    return mode6.isSeted();
+}
+
+bool CAInterfaceSetting::lieu1IsSeted(){
+    return lieu1.isSeted();
+}
+
+bool CAInterfaceSetting::lieu2IsSeted(){
+    return lieu2.isSeted();
+}
