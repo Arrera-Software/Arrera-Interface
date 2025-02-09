@@ -3,7 +3,7 @@
 CAModeLieu::CAModeLieu() {}
 
 CAModeLieu::CAModeLieu(QString pname,CSetting *psetting){
-    objSetting = *psetting;
+    objSetting = psetting;
     name = pname;
 }
 

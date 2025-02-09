@@ -5,7 +5,7 @@
 
 class CAModeLieu
 {
-private:
+protected:
     QString name ;
     QString nameView ;
     QString assistant;
