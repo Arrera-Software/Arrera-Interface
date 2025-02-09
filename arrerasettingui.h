@@ -26,7 +26,7 @@ private:
     // Id de mainstaked
     int idMainPage,idModePage,idGenerauxPage,idAssistantPage,idApplicationPage,idLieuPage,idRecherchePage;
     // id de modestaked
-    int idMainModePage,idAddMode;
+    int idMainModePage,idAddMode,idGestMode;
     // id appstacked
     int idMainAppStaked, idAddAppStacked,idSupprAppStacked;
     // id lieustacked

@@ -26,6 +26,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     // id de modestaked
     idMainModePage = ui->modestacked->indexOf(ui->mainmode);
     idAddMode = ui->modestacked->indexOf(ui->addmode);
+    idGestMode = ui->modestacked->indexOf(ui->gestMode);
     // id de appstacked
     idMainAppStaked = ui->appstocked->indexOf(ui->mainpcapp);
     idAddAppStacked = ui->appstocked->indexOf(ui->addpcapp);
@@ -138,9 +139,18 @@ void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
 // Partie mode
 void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 1");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 1");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 1");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 1");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 1");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 1");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 1;
     setAppComboBox();
 }
@@ -148,9 +158,18 @@ void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 2");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 2");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 2");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 2");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 2");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 2");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 2;
     setAppComboBox();
 }
@@ -158,9 +177,18 @@ void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 3");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 3");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 3");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 3");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 3");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 3");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 3;
     setAppComboBox();
 }
@@ -168,9 +196,18 @@ void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 4");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 4");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 4");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 4");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 4");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 4");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 4;
     setAppComboBox();
 }
@@ -178,9 +215,18 @@ void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 5");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 5");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 5");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 5");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 5");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 5");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 5;
     setAppComboBox();
 }
@@ -188,9 +234,18 @@ void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE6_clicked()
 {
-    ui->LINDICATIONMODE->setText("Parametrage du Mode 6");
-    ui->LINDICATIONSETTING->setText("Parametrage mode 6");
-    ui->modestacked->setCurrentIndex(idAddMode);
+    if (!objPara->mode1IsSeted())
+    {
+        ui->LINDICATIONMODE->setText("Parametrage du Mode 6");
+        ui->LINDICATIONSETTING->setText("Parametrage mode 6");
+        ui->modestacked->setCurrentIndex(idAddMode);
+    }
+    else {
+        ui->LINDICATIONSETTING->setText("Modification du mode 6");
+        ui->LINDICATIONGESTMODE->setText("Modification du mode 6");
+        ui->modestacked->setCurrentIndex(idGestMode);
+    }
+
     modeSelected = 6;
     setAppComboBox();
 }
