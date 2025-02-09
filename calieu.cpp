@@ -2,6 +2,8 @@
 
 CALieu::CALieu() {}
 
+CALieu::CALieu(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting){}
+
 QString CALieu::getLieuGeographique()
 {
     return objSetting->getValeur(name,"geo");

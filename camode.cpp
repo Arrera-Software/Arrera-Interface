@@ -2,6 +2,8 @@
 
 CAMode::CAMode() {}
 
+CAMode::CAMode(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting) {}
+
 QString CAMode::getApp1(){
     return objSetting->getValeur(name,"app1");
 }

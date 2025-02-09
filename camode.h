@@ -7,6 +7,7 @@ class CAMode : public CAModeLieu
 {
 public:
     CAMode();
+    CAMode(QString pname,CSetting *psetting);
     QString getApp1();
     QString getApp2();
     QString getApp3();

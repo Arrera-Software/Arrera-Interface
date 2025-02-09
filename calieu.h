@@ -7,6 +7,7 @@ class CALieu : public CAModeLieu
 {
 public:
     CALieu();
+    CALieu(QString pname,CSetting *psetting);
     QString getLieuGeographique();
     bool setLieuGeographique(QString lieu);
 };
