@@ -16,6 +16,7 @@ public:
     bool setApp2(QString app);
     bool setApp3(QString app);
     bool setApp4(QString app);
+    bool resetMode();
 };
 
 #endif // CAMODE_H

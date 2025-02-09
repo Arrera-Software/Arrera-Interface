@@ -42,3 +42,17 @@ bool CAMode::setApp3(QString app){
 bool CAMode::setApp4(QString app){
     return objSetting->setValeur(name,"app4",app);
 }
+
+bool CAMode::resetMode(){
+    bool sname = objSetting->setValeur(name,"name","nothing");
+    bool sapp1 = objSetting->setValeur(name,"app1","nothing");
+    bool sapp2 = objSetting->setValeur(name,"app2","nothing");
+    bool sapp3 = objSetting->setValeur(name,"app3","nothing");
+    bool sapp4 = objSetting->setValeur(name,"app4","nothing");
+    bool sassistant = objSetting->setValeur(name,"assistant","nothing");
+    if (sname && sapp1 && sapp2 && sapp3 && sapp4 && sassistant){
+        return true;
+    }else{
+        return false;
+    }
+}
