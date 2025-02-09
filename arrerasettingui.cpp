@@ -340,7 +340,38 @@ void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
 
 void ArreraSettingUI::on_IDC_RESETMODE_clicked()
 {
-
+    bool sortie;
+    switch(modeSelected){
+        case 1 :
+            sortie = objPara->resetMode1();
+            break;
+        case 2 :
+            sortie = objPara->resetMode2();
+            break;
+        case 3 :
+            sortie = objPara->resetMode3();
+            break;
+        case 4 :
+            sortie = objPara->resetMode4();
+            break;
+        case 5 :
+            sortie = objPara->resetMode5();
+            break;
+        case 6 :
+            sortie = objPara->resetMode6();
+            break;
+        default :
+            sortie = false;
+            break;
+    }
+    if (sortie){
+        QMessageBox::information(this,"Mode reset",
+                                 "Le mode "+QString::number(modeSelected)+"a bien été réinitialisé.");
+    }else{
+        QMessageBox::critical(this,"Erreur",
+                              "Une erreur s'est produite");
+    }
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
 
@@ -364,7 +395,9 @@ void ArreraSettingUI::on_IDC_MAJAPPGESTMODE_clicked()
 
 void ArreraSettingUI::on_IDC_RETOURGESTMODE_clicked()
 {
-
+    ui->LINDICATIONSETTING->setText("Parametre des modes");
+    ui->modestacked->setCurrentIndex(idMainModePage);
+    modeSelected = 0;
 }
 
 // Partie Parametre generaux
