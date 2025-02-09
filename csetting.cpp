@@ -4,16 +4,17 @@ CSetting::CSetting() : fileOpen(false), fileCreated(false), settings(nullptr) {}
 
 CSetting::CSetting(const QString &file) {
     QFileInfo checkFile(file);
-    fileCreated = !checkFile.exists();
 
-    fileCreated = !checkFile.exists();
-
-    if (fileCreated) {
+    if (!checkFile.exists()) {
         // Si le fichier n'existe pas, on le crée
         QFile newFile(file);
         if (newFile.open(QIODevice::WriteOnly)) {  // Crée et vide le fichier
             newFile.close();
         }
+        fileCreated = true;
+    }
+    else{
+        fileCreated = false;
     }
 
     settings = new QSettings(file, QSettings::IniFormat);
