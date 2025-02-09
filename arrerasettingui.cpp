@@ -206,62 +206,71 @@ void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
     QString app2 = ui->IDC_APP2MODE->currentText();
     QString app3 = ui->IDC_APP3MODE->currentText();
     QString app4 = ui->IDC_APP4MODE->currentText();
+    // Clear des combox et QLine
+    ui->IDC_APP1MODE->clear();
+    ui->IDC_APP2MODE->clear();
+    ui->IDC_APP3MODE->clear();
+    ui->IDC_APP4MODE->clear();
+    ui->IDC_LINENAMEMODE->clear();
     // Teste de valeur récupérer
     if (name.isEmpty()){
         QMessageBox::critical(this,"Erreur de création du mode",
                               "Impossible de créer un mode sans nom");
     }
     else {
+        bool sortieApp,sortieName,sortieAssistant;
         // Ecriture dans le mode selectionner
         switch (modeSelected) {
             case 1 :
-                objPara->setNameMode1(name);
-                objPara->setAppMode1(app1,app2,app3,app4);
-                objPara->setAssistantMode1(assistant);
-                QMessageBox::information(this,"Mode 1","Le mode 1 a bien été paramétré");
+                sortieName = objPara->setNameMode1(name);
+                sortieAssistant = objPara->setAppMode1(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode1(assistant);
                 break;
             case 2 :
-                objPara->setNameMode2(name);
-                objPara->setAppMode2(app1,app2,app3,app4);
-                objPara->setAssistantMode2(assistant);
-                QMessageBox::information(this,"Mode 2","Le mode 2 a bien été paramétré");
+                sortieName = objPara->setNameMode2(name);
+                sortieAssistant = objPara->setAppMode2(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode2(assistant);
                 break;
 
             case 3 :
-                objPara->setNameMode3(name);
-                objPara->setAppMode3(app1,app2,app3,app4);
-                objPara->setAssistantMode3(assistant);
-                QMessageBox::information(this,"Mode 3","Le mode 3 a bien été paramétré");
+                sortieName = objPara->setNameMode3(name);
+                sortieAssistant = objPara->setAppMode3(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode3(assistant);
                 break;
 
             case 4 :
-                objPara->setNameMode4(name);
-                objPara->setAppMode4(app1,app2,app3,app4);
-                objPara->setAssistantMode4(assistant);
-                QMessageBox::information(this,"Mode 4","Le mode 4 a bien été paramétré");
+                sortieName = objPara->setNameMode4(name);
+                sortieAssistant = objPara->setAppMode4(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode4(assistant);
                 break;
 
             case 5 :
-                objPara->setNameMode5(name);
-                objPara->setAppMode5(app1,app2,app3,app4);
-                objPara->setAssistantMode5(assistant);
-                QMessageBox::information(this,"Mode 5","Le mode 5 a bien été paramétré");
+                sortieName = objPara->setNameMode5(name);
+                sortieAssistant = objPara->setAppMode5(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode5(assistant);
                 break;
 
             case 6 :
-                objPara->setNameMode6(name);
-                objPara->setAppMode6(app1,app2,app3,app4);
-                objPara->setAssistantMode6(assistant);
-                QMessageBox::information(this,"Mode 6","Le mode 6 a bien été paramétré");
+                sortieName = objPara->setNameMode6(name);
+                sortieAssistant = objPara->setAppMode6(app1,app2,app3,app4);
+                sortieApp = objPara->setAssistantMode6(assistant);
                 break;
 
             default :
-                QMessageBox::critical(this,"Erreur",
-                                      "Une erreur s'est produite");
+                sortieName = false ;
+                sortieAssistant = false ;
+                sortieApp = false ;
                 break;
         }
+        if (sortieName && sortieApp && sortieAssistant){
+            QMessageBox::information(this,"Mode "+QString::number(modeSelected),
+                                     "Le mode "+QString::number(modeSelected)+" a bien été paramétré");
+        }else{
+            QMessageBox::critical(this,"Erreur",
+                                  "Une erreur s'est produite");
+        }
     }
-
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
 
