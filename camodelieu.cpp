@@ -28,3 +28,11 @@ bool CAModeLieu::setNameView(QString pname){
 bool CAModeLieu::setAssistant(QString assistant){
     return objSetting->setValeur(name,"assistant",assistant);
 }
+
+bool CAModeLieu::isSeted(){
+    if (getNameView() == "nothing"){
+        return false;
+    }else{
+        return true;
+    }
+}

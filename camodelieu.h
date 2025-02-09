@@ -18,6 +18,7 @@ public:
     QString getAssistant();
     bool setNameView(QString pname);
     bool setAssistant(QString assistant);
+    bool isSeted();
 };
 
 #endif // CAMODELIEU_H
