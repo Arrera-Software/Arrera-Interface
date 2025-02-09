@@ -4,11 +4,22 @@
 #include <QString>
 #include "cjsonword.h"
 #include "csetting.h"
+#include "camode.h"
+#include "calieu.h"
 
 class CAInterfaceSetting {
+
 private:
     CSetting* fileINI;
     CJSONWORD* fileTiger;
+    CALieu lieu1;
+    CALieu lieu2;
+    CAMode mode1;
+    CAMode mode2;
+    CAMode mode3;
+    CAMode mode4;
+    CAMode mode5;
+    CAMode mode6;
 
 public:
     // Constructeurs et destructeur

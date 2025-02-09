@@ -5,6 +5,16 @@ CAInterfaceSetting::CAInterfaceSetting() {}
 CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
     fileINI = new CSetting(inifile);
     fileTiger = new CJSONWORD(jsonfile);
+    // Instentation des mode
+    mode1 = CAMode("mode1",fileINI);
+    mode2 = CAMode("mode2",fileINI);
+    mode3 = CAMode("mode3",fileINI);
+    mode4 = CAMode("mode4",fileINI);
+    mode5 = CAMode("mode5",fileINI);
+    mode6 = CAMode("mode6",fileINI);
+    // Instentation des lieu
+    lieu1 = CALieu("lieu1",fileINI);
+    lieu2 = CALieu("lieu2",fileINI);
 }
 
 CAInterfaceSetting::~CAInterfaceSetting(){}
@@ -23,35 +33,35 @@ QString CAInterfaceSetting::getNameUser(){
 }
 
 QString CAInterfaceSetting::getNameMode1(){
-    return fileINI->getValeur("mode1","name");
+    return mode1.getNameView();
 }
 
 QString CAInterfaceSetting::getNameMode2(){
-    return fileINI->getValeur("mode2","name");
+    return mode2.getNameView();
 }
 
 QString CAInterfaceSetting::getNameMode3(){
-    return fileINI->getValeur("mode3","name");
+    return mode3.getNameView();
 }
 
 QString CAInterfaceSetting::getNameMode4(){
-    return fileINI->getValeur("mode4","name");
+    return mode4.getNameView();
 }
 
 QString CAInterfaceSetting::getNameMode5(){
-    return fileINI->getValeur("mode5","name");
+    return mode5.getNameView();
 }
 
 QString CAInterfaceSetting::getNameMode6(){
-    return fileINI->getValeur("mode6","name");
+    return mode6.getNameView();
 }
 
 QString CAInterfaceSetting::getNameLieu1(){
-    return fileINI->getValeur("lieu1","name");
+    return lieu1.getNameView();
 }
 
 QString CAInterfaceSetting::getNameLieu2(){
-    return fileINI->getValeur("lieu2","name");
+    return lieu2.getNameView();
 }
 
 // Getteurs App mode
@@ -95,49 +105,132 @@ bool CAInterfaceSetting::setNameUser(QString& user){
 }
 
 bool CAInterfaceSetting::setNameMode1(QString& name){
-    return fileINI->setValeur("mode1","name",name);
+    return mode1.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameMode2(QString& name){
-    return fileINI->setValeur("mode2","name",name);
+    return mode2.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameMode3(QString& name){
-    return fileINI->setValeur("mode3","name",name);
+    return mode3.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameMode4(QString& name){
-    return fileINI->setValeur("mode4","name",name);
+    return mode4.setNameView(name);
 }
 bool CAInterfaceSetting::setNameMode5(QString& name){
-    return fileINI->setValeur("mode5","name",name);
+    return mode5.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameMode6(QString& name){
-    return fileINI->setValeur("mode6","name",name);
+    return mode6.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameLieu1(QString& name){
-    return fileINI->setValeur("lieu1","name",name);
+    return lieu1.setNameView(name);
 }
 
 bool CAInterfaceSetting::setNameLieu2(QString& name){
-    return fileINI->setValeur("lieu2","name",name);
+    return lieu2.setNameView(name);
 }
 
-bool CAInterfaceSetting::setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
-bool CAInterfaceSetting::setAppMode2(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
-bool CAInterfaceSetting::setAppMode3(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
-bool CAInterfaceSetting::setAppMode4(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
-bool CAInterfaceSetting::setAppMode5(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
-bool CAInterfaceSetting::setAppMode6(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){}
+bool CAInterfaceSetting::setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode1.setApp1(nameApp1);
+    bool sortie2 = mode1.setApp2(nameApp2);
+    bool sortie3 = mode1.setApp3(nameApp3);
+    bool sortie4 = mode1.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
-bool CAInterfaceSetting::setAssistantMode1(QString& assistant){}
-bool CAInterfaceSetting::setAssistantMode2(QString& assistant){}
-bool CAInterfaceSetting::setAssistantMode3(QString& assistant){}
-bool CAInterfaceSetting::setAssistantMode4(QString& assistant){}
-bool CAInterfaceSetting::setAssistantMode5(QString& assistant){}
-bool CAInterfaceSetting::setAssistantMode6(QString& assistant){}
+bool CAInterfaceSetting::setAppMode2(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode2.setApp1(nameApp1);
+    bool sortie2 = mode2.setApp2(nameApp2);
+    bool sortie3 = mode2.setApp3(nameApp3);
+    bool sortie4 = mode2.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::setAppMode3(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode3.setApp1(nameApp1);
+    bool sortie2 = mode3.setApp2(nameApp2);
+    bool sortie3 = mode3.setApp3(nameApp3);
+    bool sortie4 = mode3.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::setAppMode4(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode4.setApp1(nameApp1);
+    bool sortie2 = mode4.setApp2(nameApp2);
+    bool sortie3 = mode4.setApp3(nameApp3);
+    bool sortie4 = mode6.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::setAppMode5(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode5.setApp1(nameApp1);
+    bool sortie2 = mode5.setApp2(nameApp2);
+    bool sortie3 = mode5.setApp3(nameApp3);
+    bool sortie4 = mode5.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::setAppMode6(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
+    bool sortie1 = mode6.setApp1(nameApp1);
+    bool sortie2 = mode6.setApp2(nameApp2);
+    bool sortie3 = mode6.setApp3(nameApp3);
+    bool sortie4 = mode6.setApp4(nameApp4);
+    if (sortie1 && sortie2 && sortie3 && sortie4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::setAssistantMode1(QString& assistant){
+    return mode1.setAssistant(assistant);
+}
+bool CAInterfaceSetting::setAssistantMode2(QString& assistant){
+    return mode2.setAssistant(assistant);
+}
+bool CAInterfaceSetting::setAssistantMode3(QString& assistant){
+    return mode3.setAssistant(assistant);
+}
+bool CAInterfaceSetting::setAssistantMode4(QString& assistant){
+    return mode4.setAssistant(assistant);
+}
+bool CAInterfaceSetting::setAssistantMode5(QString& assistant){
+    return mode5.setAssistant(assistant);
+}
+bool CAInterfaceSetting::setAssistantMode6(QString& assistant){
+    return mode6.setAssistant(assistant);
+}
 
 bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplacement){}
 bool CAInterfaceSetting::setAppTableur(QString emplacement){}
