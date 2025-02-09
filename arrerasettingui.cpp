@@ -7,6 +7,8 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     , ui(new Ui::ArreraSettingUI)
 {
     ui->setupUi(this);
+    // Varrible systeme
+    modeSelected = 0;
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
     // Recuperation List des assistant
@@ -54,6 +56,17 @@ void ArreraSettingUI::closeEvent(QCloseEvent *event)
     // Émettre le signal lorsque la fenêtre des paramètres est fermée
     emit parametresFerme();
     QWidget::closeEvent(event);
+}
+
+void ArreraSettingUI::setAppComboBox(){
+    ui->IDC_APP1MODE->addItem("nothing");
+    ui->IDC_APP2MODE->addItem("nothing");
+    ui->IDC_APP3MODE->addItem("nothing");
+    ui->IDC_APP4MODE->addItem("nothing");
+    ui->IDC_APP1GESTMODE->addItem("nothing");
+    ui->IDC_APP1GESTMODE->addItem("nothing");
+    ui->IDC_APP1GESTMODE->addItem("nothing");
+    ui->IDC_APP4GESTMODE->addItem("nothing");
 }
 
 void ArreraSettingUI::show()
@@ -128,6 +141,8 @@ void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 1");
     ui->LINDICATIONSETTING->setText("Parametrage mode 1");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 1;
+    setAppComboBox();
 }
 
 
@@ -136,6 +151,8 @@ void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 2");
     ui->LINDICATIONSETTING->setText("Parametrage mode 2");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 2;
+    setAppComboBox();
 }
 
 
@@ -144,6 +161,8 @@ void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 3");
     ui->LINDICATIONSETTING->setText("Parametrage mode 3");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 3;
+    setAppComboBox();
 }
 
 
@@ -152,6 +171,8 @@ void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 4");
     ui->LINDICATIONSETTING->setText("Parametrage mode 4");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 4;
+    setAppComboBox();
 }
 
 
@@ -160,6 +181,8 @@ void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 5");
     ui->LINDICATIONSETTING->setText("Parametrage mode 5");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 5;
+    setAppComboBox();
 }
 
 
@@ -168,11 +191,76 @@ void ArreraSettingUI::on_IDC_BTNMODE6_clicked()
     ui->LINDICATIONMODE->setText("Parametrage du Mode 6");
     ui->LINDICATIONSETTING->setText("Parametrage mode 6");
     ui->modestacked->setCurrentIndex(idAddMode);
+    modeSelected = 6;
+    setAppComboBox();
 }
 
 
 void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
 {
+    // Recuperation valeur entrer par l'user
+    QString name = ui->IDC_LINENAMEMODE->text();
+    QString assistant = ui->IDC_LISTASSISTANTMODE->currentText();
+    // Recuperation de application
+    QString app1 = ui->IDC_APP1MODE->currentText();
+    QString app2 = ui->IDC_APP2MODE->currentText();
+    QString app3 = ui->IDC_APP3MODE->currentText();
+    QString app4 = ui->IDC_APP4MODE->currentText();
+    // Teste de valeur récupérer
+    if (name.isEmpty()){
+        QMessageBox::critical(this,"Erreur de création du mode",
+                              "Impossible de créer un mode sans nom");
+    }
+    else {
+        // Ecriture dans le mode selectionner
+        switch (modeSelected) {
+            case 1 :
+                objPara->setNameMode1(name);
+                objPara->setAppMode1(app1,app2,app3,app4);
+                objPara->setAssistantMode1(assistant);
+                QMessageBox::information(this,"Mode 1","Le mode 1 a bien été paramétré");
+                break;
+            case 2 :
+                objPara->setNameMode2(name);
+                objPara->setAppMode2(app1,app2,app3,app4);
+                objPara->setAssistantMode2(assistant);
+                QMessageBox::information(this,"Mode 2","Le mode 2 a bien été paramétré");
+                break;
+
+            case 3 :
+                objPara->setNameMode3(name);
+                objPara->setAppMode3(app1,app2,app3,app4);
+                objPara->setAssistantMode3(assistant);
+                QMessageBox::information(this,"Mode 3","Le mode 3 a bien été paramétré");
+                break;
+
+            case 4 :
+                objPara->setNameMode4(name);
+                objPara->setAppMode4(app1,app2,app3,app4);
+                objPara->setAssistantMode4(assistant);
+                QMessageBox::information(this,"Mode 4","Le mode 4 a bien été paramétré");
+                break;
+
+            case 5 :
+                objPara->setNameMode5(name);
+                objPara->setAppMode5(app1,app2,app3,app4);
+                objPara->setAssistantMode5(assistant);
+                QMessageBox::information(this,"Mode 5","Le mode 5 a bien été paramétré");
+                break;
+
+            case 6 :
+                objPara->setNameMode6(name);
+                objPara->setAppMode6(app1,app2,app3,app4);
+                objPara->setAssistantMode6(assistant);
+                QMessageBox::information(this,"Mode 6","Le mode 6 a bien été paramétré");
+                break;
+
+            default :
+                QMessageBox::critical(this,"Erreur",
+                                      "Une erreur s'est produite");
+                break;
+        }
+    }
 
 }
 
@@ -181,6 +269,7 @@ void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre des modes");
     ui->modestacked->setCurrentIndex(idMainModePage);
+    modeSelected = 0;
 }
 
 // Partie gest mode

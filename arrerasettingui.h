@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "cainterfacesetting.h"
+#include <QMessageBox>
 
 namespace Ui {
 class ArreraSettingUI;
@@ -30,6 +31,10 @@ private:
     int idMainAppStaked, idAddAppStacked,idSupprAppStacked;
     // id lieustacked
     int idMainLieu,idAddLieu,idManageLieu;
+    // varriable qui permet de savoir quelle mode qui est selectionner
+    int modeSelected;
+    // Set valeur combo box app
+    void setAppComboBox();
 
 signals:
     void parametresFerme();

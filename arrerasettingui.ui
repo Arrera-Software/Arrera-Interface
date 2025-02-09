@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>1</number>
+      <number>6</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -310,7 +310,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="lieustacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainlieu">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1427,7 +1427,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="modestacked">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="mainmode">
           <layout class="QVBoxLayout" name="verticalLayout_4">
