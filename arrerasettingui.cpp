@@ -326,6 +326,7 @@ void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
         }
     }
     ui->modestacked->setCurrentIndex(idMainModePage);
+    ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
 
 
@@ -372,6 +373,7 @@ void ArreraSettingUI::on_IDC_RESETMODE_clicked()
                               "Une erreur s'est produite");
     }
     ui->modestacked->setCurrentIndex(idMainModePage);
+    ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
 
 
