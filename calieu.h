@@ -10,6 +10,7 @@ public:
     CALieu(QString pname,CSetting *psetting);
     QString getLieuGeographique();
     bool setLieuGeographique(QString lieu);
+    bool resetLieu();
 };
 
 #endif // CALIEU_H
