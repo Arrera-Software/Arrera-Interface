@@ -2,7 +2,11 @@
 
 CALieu::CALieu() {}
 
-CALieu::CALieu(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting){}
+CALieu::CALieu(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting){
+    if (objSetting->getFileCreated()){
+        objSetting->setValeur(name,"geo","nothing");
+    }
+}
 
 QString CALieu::getLieuGeographique()
 {

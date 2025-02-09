@@ -2,7 +2,14 @@
 
 CAMode::CAMode() {}
 
-CAMode::CAMode(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting) {}
+CAMode::CAMode(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting) {
+    if (objSetting->getFileCreated()){
+        objSetting->setValeur(name,"app1","nothing");
+        objSetting->setValeur(name,"app2","nothing");
+        objSetting->setValeur(name,"app3","nothing");
+        objSetting->setValeur(name,"app4","nothing");
+    }
+}
 
 QString CAMode::getApp1(){
     return objSetting->getValeur(name,"app1");

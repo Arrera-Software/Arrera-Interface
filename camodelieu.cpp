@@ -5,6 +5,10 @@ CAModeLieu::CAModeLieu() {}
 CAModeLieu::CAModeLieu(QString pname,CSetting *psetting){
     objSetting = psetting;
     name = pname;
+    if (objSetting->getFileCreated()){
+        objSetting->setValeur(name,"name","nothing");
+        objSetting->setValeur(name,"assistant","nothing");
+    }
 }
 
 CAModeLieu::~CAModeLieu(){}
