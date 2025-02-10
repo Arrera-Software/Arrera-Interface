@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "cainterfacesetting.h"
 #include <QMessageBox>
+#include <QListWidget>
+#include <QDir>
 
 namespace Ui {
 class ArreraSettingUI;
@@ -35,7 +37,6 @@ private:
     int modeSelected;
     // Set valeur combo box app
     void setAppComboBox();
-
 signals:
     void parametresFerme();
 private slots:
@@ -97,6 +98,7 @@ private slots:
     void on_IDC_CHANGEASSISTANTLIEU_clicked();
     void on_IDC_ANNULERMANAGELIEU_clicked();
     void on_IDC_CHANGEGEOMANAGE_clicked();
+    void on_IDC_ICONMODEADD_clicked();
 };
 
 #endif // ARRERASETTINGUI_H

@@ -1427,7 +1427,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="modestacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="mainmode">
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1760,6 +1760,26 @@ color: rgb(0, 0, 0);</string>
            </item>
            <item>
             <spacer name="verticalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="IDC_ICONMODEADD">
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_39">
              <property name="orientation">
               <enum>Qt::Orientation::Vertical</enum>
              </property>

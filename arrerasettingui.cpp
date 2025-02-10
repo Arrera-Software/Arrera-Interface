@@ -532,3 +532,63 @@ void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
 {
 
 }
+
+void ArreraSettingUI::on_IDC_ICONMODEADD_clicked()
+{
+    QString m_selectedIconPath;
+    QIcon m_selectedIcon;
+    // Créer une boîte de dialogue personnalisée
+    QDialog iconDialog(this);
+    iconDialog.setWindowTitle(tr("Choisir une icône"));
+    iconDialog.setModal(true);
+
+    // Créer le layout
+    QVBoxLayout* layout = new QVBoxLayout(&iconDialog);
+
+    // Créer une liste pour afficher les icônes
+    QListWidget* iconList = new QListWidget(&iconDialog);
+    iconList->setViewMode(QListWidget::IconMode);
+    iconList->setIconSize(QSize(32, 32));
+    iconList->setSpacing(10);
+    iconList->setResizeMode(QListWidget::Adjust);
+
+    // Charger toutes les icônes du répertoire /icon dans le .qrc
+    QDir resourceDir(":/icon/img");
+    QStringList filters;
+    filters << "*.png" << "*.jpg" << "*.jpeg" << "*.gif" << "*.bmp";
+    resourceDir.setNameFilters(filters);
+
+    foreach(const QString &fileName, resourceDir.entryList()) {
+        QListWidgetItem* item = new QListWidgetItem(fileName);
+        item->setIcon(QIcon(":/icon/img/" + fileName));
+        item->setData(Qt::UserRole, ":/icon/img/" + fileName); // Stocker le chemin complet
+        iconList->addItem(item);
+    }
+
+    // Ajouter les boutons OK et Annuler
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(
+        QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+
+    // Connecter les signaux des boutons
+    connect(buttonBox, &QDialogButtonBox::accepted, &iconDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, &iconDialog, &QDialog::reject);
+
+    // Ajouter les widgets au layout
+    layout->addWidget(iconList);
+    layout->addWidget(buttonBox);
+
+    // Exécuter la boîte de dialogue
+    if (iconDialog.exec() == QDialog::Accepted) {
+        QListWidgetItem* selectedItem = iconList->currentItem();
+        if (selectedItem) {
+            QString iconPath = selectedItem->data(Qt::UserRole).toString();
+            QIcon selectedIcon(iconPath);
+
+            // Stocker l'icône sélectionnée
+            m_selectedIcon = selectedIcon;
+            m_selectedIconPath = iconPath;
+        }
+    }
+}
+
+
