@@ -1427,7 +1427,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="modestacked">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainmode">
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1461,7 +1461,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>MODE 6</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode6.png</normaloff>:/mode-lieu/img/mode6.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1480,7 +1490,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>MODE 3</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode3.png</normaloff>:/mode-lieu/img/mode3.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1512,7 +1532,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>MODE 2</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode2.png</normaloff>:/mode-lieu/img/mode2.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1531,7 +1561,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>MODE 5</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode5.png</normaloff>:/mode-lieu/img/mode5.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1550,7 +1590,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>MODE 4</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode4.png</normaloff>:/mode-lieu/img/mode4.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1569,7 +1619,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string> MODE 1</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/mode1.png</normaloff>:/mode-lieu/img/mode1.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>85</width>
+                 <height>85</height>
+                </size>
                </property>
               </widget>
              </item>

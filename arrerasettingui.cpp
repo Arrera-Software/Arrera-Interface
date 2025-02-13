@@ -553,15 +553,15 @@ void ArreraSettingUI::on_IDC_ICONMODEADD_clicked()
     iconList->setResizeMode(QListWidget::Adjust);
 
     // Charger toutes les icônes du répertoire /icon dans le .qrc
-    QDir resourceDir(":/icon/img");
+    QDir resourceDir(":/mode-lieu/img");
     QStringList filters;
     filters << "*.png" << "*.jpg" << "*.jpeg" << "*.gif" << "*.bmp";
     resourceDir.setNameFilters(filters);
 
     foreach(const QString &fileName, resourceDir.entryList()) {
         QListWidgetItem* item = new QListWidgetItem(fileName);
-        item->setIcon(QIcon(":/icon/img/" + fileName));
-        item->setData(Qt::UserRole, ":/icon/img/" + fileName); // Stocker le chemin complet
+        item->setIcon(QIcon(":/mode-lieu/img/" + fileName));
+        item->setData(Qt::UserRole, ":/mode-lieu/img/" + fileName); // Stocker le chemin complet
         iconList->addItem(item);
     }
 

@@ -24,4 +24,21 @@
         <file>img/arrera-raccourci.png</file>
         <file>img/arrera-postite.png</file>
     </qresource>
+    <qresource prefix="/mode-lieu">
+        <file>img/work.png</file>
+        <file>img/school.png</file>
+        <file>img/mode6.png</file>
+        <file>img/mode5.png</file>
+        <file>img/mode4.png</file>
+        <file>img/mode3.png</file>
+        <file>img/mode2.png</file>
+        <file>img/mode1.png</file>
+        <file>img/image-maker2.png</file>
+        <file>img/image-maker1.png</file>
+        <file>img/domicile.png</file>
+        <file>img/dev2.png</file>
+        <file>img/dev1.png</file>
+        <file>img/bureautique2.png</file>
+        <file>img/bureautique1.png</file>
+    </qresource>
 </RCC>
