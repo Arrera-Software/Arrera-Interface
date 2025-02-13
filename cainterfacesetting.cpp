@@ -82,6 +82,15 @@ QString CAInterfaceSetting::getAssistantMode4(){}
 QString CAInterfaceSetting::getAssistantMode5(){}
 QString CAInterfaceSetting::getAssistantMode6(){}
 
+// getteur Icon Mode
+
+QString CAInterfaceSetting::getIconMode1(){}
+QString CAInterfaceSetting::getIconMode2(){}
+QString CAInterfaceSetting::getIconMode3(){}
+QString CAInterfaceSetting::getIconMode4(){}
+QString CAInterfaceSetting::getIconMode5(){}
+QString CAInterfaceSetting::getIconMode6(){}
+
 // Getteur application
 
 QString CAInterfaceSetting::getApplication(int nb){}
@@ -230,6 +239,32 @@ bool CAInterfaceSetting::setAssistantMode5(QString& assistant){
 }
 bool CAInterfaceSetting::setAssistantMode6(QString& assistant){
     return mode6.setAssistant(assistant);
+}
+
+// Setteur icon mode
+
+bool CAInterfaceSetting::setIconMode1(QString icon){
+    return mode1.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconMode2(QString icon){
+    return mode2.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconMode3(QString icon){
+    return mode3.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconMode4(QString icon){
+    return mode4.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconMode5(QString icon){
+    return mode5.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconMode6(QString icon){
+    return mode6.setIcon(icon);
 }
 
 bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplacement){}

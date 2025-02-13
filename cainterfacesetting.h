@@ -56,6 +56,13 @@ public:
     QString getAssistantMode5();
     QString getAssistantMode6();
 
+    QString getIconMode1();
+    QString getIconMode2();
+    QString getIconMode3();
+    QString getIconMode4();
+    QString getIconMode5();
+    QString getIconMode6();
+
     QString getApplication(int nb);
     QString getAppTableur();
     QString getAppTraitementTexte();
@@ -94,6 +101,13 @@ public:
     bool setAssistantMode4(QString& assistant);
     bool setAssistantMode5(QString& assistant);
     bool setAssistantMode6(QString& assistant);
+
+    bool setIconMode1(QString icon);
+    bool setIconMode2(QString icon);
+    bool setIconMode3(QString icon);
+    bool setIconMode4(QString icon);
+    bool setIconMode5(QString icon);
+    bool setIconMode6(QString icon);
 
     bool setApplication(int nb,QString nameApp,QString emplacement);
     bool setAppTableur(QString emplacement);

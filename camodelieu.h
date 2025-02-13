@@ -16,9 +16,11 @@ public:
     ~CAModeLieu();
     QString getNameView();
     QString getAssistant();
+    QString getIcon();
     bool setNameView(QString pname);
     bool setAssistant(QString assistant);
     bool isSeted();
+    bool setIcon(QString icon);
 };
 
 #endif // CAMODELIEU_H

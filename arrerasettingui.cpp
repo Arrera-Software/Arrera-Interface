@@ -80,6 +80,67 @@ void ArreraSettingUI::show()
     ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
 }
 
+QString ArreraSettingUI::chooseIcon(){
+
+    QString m_selectedIconPath;
+    QIcon m_selectedIcon;
+    // Créer une boîte de dialogue personnalisée
+    QDialog iconDialog(this);
+    iconDialog.setWindowTitle(tr("Choisir une icône"));
+    iconDialog.setModal(true);
+
+    // Créer le layout
+    QVBoxLayout* layout = new QVBoxLayout(&iconDialog);
+
+    // Créer une liste pour afficher les icônes
+    QListWidget* iconList = new QListWidget(&iconDialog);
+    iconList->setViewMode(QListWidget::IconMode);
+    iconList->setIconSize(QSize(32, 32));
+    iconList->setSpacing(10);
+    iconList->setResizeMode(QListWidget::Adjust);
+
+    // Charger toutes les icônes du répertoire /icon dans le .qrc
+    QDir resourceDir(DIRICONMODELIEU);
+    QStringList filters;
+    filters << "*.png" << "*.jpg" << "*.jpeg" << "*.gif" << "*.bmp";
+    resourceDir.setNameFilters(filters);
+
+    foreach(const QString &fileName, resourceDir.entryList()) {
+        QListWidgetItem* item = new QListWidgetItem(fileName);
+        item->setIcon(QIcon(DIRICONMODELIEU + fileName));
+        item->setData(Qt::UserRole, DIRICONMODELIEU + fileName); // Stocker le chemin complet
+        iconList->addItem(item);
+    }
+
+    // Ajouter les boutons OK et Annuler
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(
+        QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+
+    // Connecter les signaux des boutons
+    connect(buttonBox, &QDialogButtonBox::accepted, &iconDialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, &iconDialog, &QDialog::reject);
+
+    // Ajouter les widgets au layout
+    layout->addWidget(iconList);
+    layout->addWidget(buttonBox);
+
+    // Exécuter la boîte de dialogue
+    if (iconDialog.exec() == QDialog::Accepted) {
+        QListWidgetItem* selectedItem = iconList->currentItem();
+        if (selectedItem) {
+            QString iconPath = selectedItem->data(Qt::UserRole).toString();
+            QIcon selectedIcon(iconPath);
+
+            // Stocker l'icône sélectionnée
+            m_selectedIcon = selectedIcon;
+            return iconPath;
+        }
+        else{
+            return "";
+        }
+    }
+}
+
 // Partie acceuil
 
 void ArreraSettingUI::on_IDC_MODE_clicked()
@@ -337,6 +398,47 @@ void ArreraSettingUI::on_IDC_RETOURMODE_clicked()
     modeSelected = 0;
 }
 
+void ArreraSettingUI::on_IDC_ICONMODEADD_clicked(){
+    QString icon = chooseIcon();
+    bool sortie;
+    if (!icon.isEmpty()){
+        switch (modeSelected) {
+        case 1:
+            sortie = objPara->setIconMode1(icon);
+            break;
+        case 2:
+            sortie = objPara->setIconMode2(icon);
+            break;
+        case 3:
+            sortie = objPara->setIconMode3(icon);
+            break;
+        case 4:
+            sortie = objPara->setIconMode4(icon);
+            break;
+        case 5:
+            sortie = objPara->setIconMode5(icon);
+            break;
+        case 6:
+            sortie = objPara->setIconMode6(icon);
+            break;
+        default:
+            sortie = false;
+            break;
+        }
+
+        if (sortie){
+            QMessageBox::information(this,"Icon Mode","L'icône a bien été enregistrée pour ce mode.");
+        }else{
+            QMessageBox::critical(this,"Icon Mode","Impossible d'ajouter l'icône, une erreur est survenue.");
+        }
+
+
+    }
+    else{
+        QMessageBox::critical(this,"Icone Mode","Vous n'avez pas sélectionné d'icône.");
+    }
+}
+
 // Partie gest mode
 
 void ArreraSettingUI::on_IDC_RESETMODE_clicked()
@@ -400,6 +502,11 @@ void ArreraSettingUI::on_IDC_RETOURGESTMODE_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des modes");
     ui->modestacked->setCurrentIndex(idMainModePage);
     modeSelected = 0;
+}
+
+void ArreraSettingUI::on_IDC_CHANGEICONMODEGEST_clicked()
+{
+    on_IDC_ICONMODEADD_clicked();
 }
 
 // Partie Parametre generaux
@@ -532,63 +639,3 @@ void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
 {
 
 }
-
-void ArreraSettingUI::on_IDC_ICONMODEADD_clicked()
-{
-    QString m_selectedIconPath;
-    QIcon m_selectedIcon;
-    // Créer une boîte de dialogue personnalisée
-    QDialog iconDialog(this);
-    iconDialog.setWindowTitle(tr("Choisir une icône"));
-    iconDialog.setModal(true);
-
-    // Créer le layout
-    QVBoxLayout* layout = new QVBoxLayout(&iconDialog);
-
-    // Créer une liste pour afficher les icônes
-    QListWidget* iconList = new QListWidget(&iconDialog);
-    iconList->setViewMode(QListWidget::IconMode);
-    iconList->setIconSize(QSize(32, 32));
-    iconList->setSpacing(10);
-    iconList->setResizeMode(QListWidget::Adjust);
-
-    // Charger toutes les icônes du répertoire /icon dans le .qrc
-    QDir resourceDir(":/mode-lieu/img");
-    QStringList filters;
-    filters << "*.png" << "*.jpg" << "*.jpeg" << "*.gif" << "*.bmp";
-    resourceDir.setNameFilters(filters);
-
-    foreach(const QString &fileName, resourceDir.entryList()) {
-        QListWidgetItem* item = new QListWidgetItem(fileName);
-        item->setIcon(QIcon(":/mode-lieu/img/" + fileName));
-        item->setData(Qt::UserRole, ":/mode-lieu/img/" + fileName); // Stocker le chemin complet
-        iconList->addItem(item);
-    }
-
-    // Ajouter les boutons OK et Annuler
-    QDialogButtonBox* buttonBox = new QDialogButtonBox(
-        QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-
-    // Connecter les signaux des boutons
-    connect(buttonBox, &QDialogButtonBox::accepted, &iconDialog, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, &iconDialog, &QDialog::reject);
-
-    // Ajouter les widgets au layout
-    layout->addWidget(iconList);
-    layout->addWidget(buttonBox);
-
-    // Exécuter la boîte de dialogue
-    if (iconDialog.exec() == QDialog::Accepted) {
-        QListWidgetItem* selectedItem = iconList->currentItem();
-        if (selectedItem) {
-            QString iconPath = selectedItem->data(Qt::UserRole).toString();
-            QIcon selectedIcon(iconPath);
-
-            // Stocker l'icône sélectionnée
-            m_selectedIcon = selectedIcon;
-            m_selectedIconPath = iconPath;
-        }
-    }
-}
-
-

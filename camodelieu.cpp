@@ -8,6 +8,7 @@ CAModeLieu::CAModeLieu(QString pname,CSetting *psetting){
     if (objSetting->getFileCreated()){
         objSetting->setValeur(name,"name","nothing");
         objSetting->setValeur(name,"assistant","nothing");
+        objSetting->setValeur(name,"icon","nothing");
     }
 }
 
@@ -19,6 +20,10 @@ QString CAModeLieu::getNameView(){
 
 QString CAModeLieu::getAssistant(){
     return objSetting->getValeur(name,"assistant");
+}
+
+QString CAModeLieu::getIcon(){
+    return objSetting->getValeur(name,"icon");
 }
 
 bool CAModeLieu::setNameView(QString pname){
@@ -35,4 +40,8 @@ bool CAModeLieu::isSeted(){
     }else{
         return true;
     }
+}
+
+bool CAModeLieu::setIcon(QString icon){
+    return objSetting->setValeur(name,"icon",icon);
 }

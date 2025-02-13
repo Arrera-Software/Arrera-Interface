@@ -7,6 +7,8 @@
 #include <QListWidget>
 #include <QDir>
 
+#define DIRICONMODELIEU ":/mode-lieu/img/"
+
 namespace Ui {
 class ArreraSettingUI;
 }
@@ -37,6 +39,8 @@ private:
     int modeSelected;
     // Set valeur combo box app
     void setAppComboBox();
+    // Methode pour choisir un icon pour les bouton Mode et lieu
+    QString chooseIcon();
 signals:
     void parametresFerme();
 private slots:
@@ -61,12 +65,14 @@ private slots:
     // BTN addmode
     void on_IDC_VALIDERMODE_clicked();
     void on_IDC_RETOURMODE_clicked();
+    void on_IDC_ICONMODEADD_clicked();
     // Partie gest mode
     void on_IDC_RESETMODE_clicked();
     void on_IDC_CHANGENAME_clicked();
     void on_IDC_ASSISTANTMAJGESTMODE_clicked();
     void on_IDC_MAJAPPGESTMODE_clicked();
     void on_IDC_RETOURGESTMODE_clicked();
+    void on_IDC_CHANGEICONMODEGEST_clicked();
 
     // Partie Parametre generaux
     void on_IDC_RETOURGENERAUXUSER_clicked();
@@ -98,7 +104,6 @@ private slots:
     void on_IDC_CHANGEASSISTANTLIEU_clicked();
     void on_IDC_ANNULERMANAGELIEU_clicked();
     void on_IDC_CHANGEGEOMANAGE_clicked();
-    void on_IDC_ICONMODEADD_clicked();
 };
 
 #endif // ARRERASETTINGUI_H
