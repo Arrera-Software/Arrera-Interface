@@ -442,7 +442,17 @@ color: rgb(0, 0, 0);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Lieu 1</string>
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="resource.qrc">
+                   <normaloff>:/mode-lieu/img/lieu1.png</normaloff>:/mode-lieu/img/lieu1.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>90</width>
+                   <height>90</height>
+                  </size>
                  </property>
                 </widget>
                </item>
@@ -658,7 +668,17 @@ color: rgb(0, 0, 0);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Lieu 2</string>
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="resource.qrc">
+                   <normaloff>:/mode-lieu/img/lieu2.png</normaloff>:/mode-lieu/img/lieu2.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>90</width>
+                   <height>90</height>
+                  </size>
                  </property>
                 </widget>
                </item>

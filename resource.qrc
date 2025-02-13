@@ -40,5 +40,7 @@
         <file>img/dev1.png</file>
         <file>img/bureautique2.png</file>
         <file>img/bureautique1.png</file>
+        <file>img/lieu2.png</file>
+        <file>img/lieu1.png</file>
     </qresource>
 </RCC>
