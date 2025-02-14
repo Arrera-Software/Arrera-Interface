@@ -9,6 +9,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     ui->setupUi(this);
     // Varrible systeme
     modeSelected = 0;
+    lieuSelected = 0;
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
     // Recuperation List des assistant
@@ -65,8 +66,8 @@ void ArreraSettingUI::setAppComboBox(){
     ui->IDC_APP3MODE->addItem("nothing");
     ui->IDC_APP4MODE->addItem("nothing");
     ui->IDC_APP1GESTMODE->addItem("nothing");
-    ui->IDC_APP1GESTMODE->addItem("nothing");
-    ui->IDC_APP1GESTMODE->addItem("nothing");
+    ui->IDC_APP2GESTMODE->addItem("nothing");
+    ui->IDC_APP3GESTMODE->addItem("nothing");
     ui->IDC_APP4GESTMODE->addItem("nothing");
 }
 
@@ -139,6 +140,7 @@ QString ArreraSettingUI::chooseIcon(){
             return "";
         }
     }
+    return "";
 }
 
 // Partie acceuil
@@ -481,19 +483,133 @@ void ArreraSettingUI::on_IDC_RESETMODE_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGENAME_clicked()
 {
+    QString newName = ui->IDC_LINECHANGENAMEMODE->text();
+    bool sortie;
 
+    if (newName.isEmpty()){
+        QMessageBox::critical(this,"Erreur de modification du mode",
+                              "Impossible de changer le nom du mode par un nom vide.");
+    }
+
+    switch (modeSelected) {
+    case 1:
+        sortie = objPara->setNameMode1(newName);
+        break;
+    case 2:
+        sortie = objPara->setNameMode2(newName);
+        break;
+    case 3:
+        sortie = objPara->setNameMode3(newName);
+        break;
+    case 4:
+        sortie = objPara->setNameMode4(newName);
+        break;
+    case 5:
+        sortie = objPara->setNameMode5(newName);
+        break;
+    case 6:
+        sortie = objPara->setNameMode6(newName);
+        break;
+    default:
+        sortie = false;
+        break;
+    }
+
+    if (sortie){
+        QMessageBox::information(this,"Nom changé",
+                                 "Le nom du mode a bien été changé.");
+    }else{
+        QMessageBox::critical(this,"Erreur lors du changement du nom",
+                              "Le nom du mode n'a pas pu être changé.");
+    }
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
 
 void ArreraSettingUI::on_IDC_ASSISTANTMAJGESTMODE_clicked()
 {
+    QString assistant = ui->IDC_ASSISTANTGESTMODE->currentText();
+    bool sortie;
+    switch (modeSelected) {
+    case 1:
+        sortie = objPara->setAssistantMode1(assistant);
+        break;
+    case 2:
+        sortie = objPara->setAssistantMode2(assistant);
+        break;
+    case 3:
+        sortie = objPara->setAssistantMode3(assistant);
+        break;
+    case 4:
+        sortie = objPara->setAssistantMode4(assistant);
+        break;
+    case 5:
+        sortie = objPara->setAssistantMode5(assistant);
+        break;
+    case 6:
+        sortie = objPara->setAssistantMode6(assistant);
+        break;
+    default:
+        break;
+    }
 
+    if (sortie){
+        QMessageBox::information(this,
+                                 "Assistant du mode "+QString::number(modeSelected),
+                                 "L'assistant du mode "+
+                                     QString::number(modeSelected)+" à été mis à jour");
+    }else{
+        QMessageBox::critical(this,"Erreur sur la mise a jour",
+                              "Imposible de mettre a jour l'assistant du mode "+
+                                  QString::number(modeSelected));
+    }
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
 
 void ArreraSettingUI::on_IDC_MAJAPPGESTMODE_clicked()
 {
+    bool sortie;
+    QString app1 = ui->IDC_APP1GESTMODE->currentText();
+    QString app2 = ui->IDC_APP2GESTMODE->currentText();
+    QString app3 = ui->IDC_APP3GESTMODE->currentText();
+    QString app4 = ui->IDC_APP4GESTMODE->currentText();
 
+    switch (modeSelected) {
+    case 1:
+        sortie = objPara->setAppMode1(app1,app2,app3,app4);
+        break;
+    case 2:
+        sortie = objPara->setAppMode2(app1,app2,app3,app4);
+        break;
+    case 3:
+        sortie = objPara->setAppMode3(app1,app2,app3,app4);
+        break;
+    case 4:
+        sortie = objPara->setAppMode4(app1,app2,app3,app4);
+        break;
+    case 5:
+        sortie = objPara->setAppMode5(app1,app2,app3,app4);
+        break;
+    case 6:
+        sortie = objPara->setAppMode6(app1,app2,app3,app4);
+        break;
+    default:
+        sortie = false;
+        break;
+    }
+
+    if (sortie){
+        QMessageBox::information(this,
+                                 "Application mode "+QString::number(modeSelected),
+                                 "Les applications du mode "+
+                                     QString::number(modeSelected)+" à été mis à jour");
+    }else{
+        QMessageBox::critical(this,"Erreur sur la mise a jour",
+                              "Imposible de mettre a jour les application du mode "+
+                                  QString::number(modeSelected));
+    }
+    ui->modestacked->setCurrentIndex(idMainModePage);
 }
 
 

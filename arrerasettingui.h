@@ -37,6 +37,8 @@ private:
     int idMainLieu,idAddLieu,idManageLieu;
     // varriable qui permet de savoir quelle mode qui est selectionner
     int modeSelected;
+    // Variable qui permet de savoir quelle lieu est selectionner
+    int lieuSelected;
     // Set valeur combo box app
     void setAppComboBox();
     // Methode pour choisir un icon pour les bouton Mode et lieu

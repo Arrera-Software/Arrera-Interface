@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>1</number>
+      <number>6</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1993,7 +1993,7 @@ color: rgb(0, 0, 0);</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
-              <widget class="QLineEdit" name="lineEdit"/>
+              <widget class="QLineEdit" name="IDC_LINECHANGENAMEMODE"/>
              </item>
              <item>
               <widget class="QPushButton" name="IDC_CHANGENAME">
