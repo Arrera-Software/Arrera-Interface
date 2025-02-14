@@ -88,6 +88,15 @@ public:
     bool setNameLieu1(QString& name);
     bool setNameLieu2(QString& name);
 
+    bool setAssistantLieu1(QString& assistant);
+    bool setAssistantLieu2(QString& assistant);
+
+    bool setGeoLieu1(QString& geo);
+    bool setGeoLieu2(QString& geo);
+
+    bool setIconLieu1(QString& icon);
+    bool setIconLieu2(QString& icon);
+
     bool setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4);
     bool setAppMode2(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4);
     bool setAppMode3(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4);

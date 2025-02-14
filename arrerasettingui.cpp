@@ -42,6 +42,10 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     ui->IDC_LISTASSISTANTMANAGELIEU->addItems(listAssistant);
     // Mise en place des item sur le IDC_ASSISTANTGESTMODE
     ui->IDC_ASSISTANTGESTMODE->addItems(listAssistant);
+    // Mise en place des item sur le IDC_LISTASSISTANTLIEU
+    ui->IDC_LISTASSISTANTLIEU->addItems(listAssistant);
+    // Mise en place des item sur le IDC_LISTASSISTANTMANAGELIEU
+    ui->IDC_LISTASSISTANTMANAGELIEU->addItems(listAssistant);
     // Mise en place des moteur de recherche dans IDC_LISTEMOTEURERECHERCHE
     ui->IDC_LISTEMOTEURERECHERCHE->addItems(listMoteur);
     // Desactivation du bouton assistant
@@ -710,26 +714,87 @@ void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 // Acceuil lieu
 void ArreraSettingUI::on_IDC_MANAGELIEU1_clicked()
 {
-
+    ui->lieustacked->setCurrentIndex(idAddLieu);
+    ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 1");
+    lieuSelected = 1;
 }
 
 
 void ArreraSettingUI::on_IDC_MANAGELIEU1_2_clicked()
 {
-
+    ui->lieustacked->setCurrentIndex(idAddLieu);
+    ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 2");
+    lieuSelected = 2;
 }
 
 // Create
 
 void ArreraSettingUI::on_IDC_CREALIEU_clicked()
 {
+    // Recuperation des valeur
+    QString name = ui->IDC_NAMECREATELIEU->text();
+    QString geo = ui->IDC_EDITLIEUADD->text();
+    QString assistant = ui->IDC_LISTASSISTANTLIEU->currentText();
 
+    ui->IDC_NAMECREATELIEU->clear();
+    ui->IDC_EDITLIEUADD->clear();
+
+    // Teste des valeur
+    bool nameIsSetted = name.isEmpty();
+    bool geoIsSetted = geo.isEmpty();
+
+    // Creation des var pour tester les ecriture
+    bool sortieName,sortieAssistant,sortieGeo;
+
+    if (nameIsSetted && geoIsSetted ){
+        QMessageBox::critical(this,"Erreur lieu",
+                              "Impossible de créer un lieu sans son emplacement géographique et sans nom.");
+    }else{
+        if (nameIsSetted){
+            QMessageBox::critical(this,"Erreur lieu",
+                                  "Impossible de créer un lieu sans nom.");
+        }else{
+            if (geoIsSetted){
+                QMessageBox::critical(this,"Erreur lieu",
+                                      "Impossible de créer un lieu sans un emplacement géographique.");
+            }
+            else{
+                switch (lieuSelected) {
+                case 1:
+                    sortieName = objPara->setNameLieu1(name);
+                    sortieAssistant = objPara->setAssistantLieu1(assistant);
+                    sortieGeo = objPara->setGeoLieu1(geo);
+                    break;
+                case 2:
+                    sortieName = objPara->setNameLieu2(name);
+                    sortieAssistant = objPara->setAssistantLieu2(assistant);
+                    sortieGeo = objPara->setGeoLieu2(geo);
+                    break;
+                default:
+                    sortieName = false;
+                    sortieAssistant = false;
+                    sortieGeo = false;
+                    break;
+                }
+                if (sortieAssistant && sortieName && sortieGeo){
+                    QMessageBox::information(this,"Parametrage du lieu"+QString::number(lieuSelected),
+                                             "Le lieu numéro "+QString::number(lieuSelected)+" est bien paramétré.");
+                }else{
+                    QMessageBox::critical(this,"Erreur lieu",
+                                          "Une erreur est survenue, il est donc impossible de créer le lieu");
+                }
+            }
+        }
+    }
+    ui->lieustacked->setCurrentIndex(idMainLieu);
+    lieuSelected = 0;
 }
 
 
 void ArreraSettingUI::on_IDC_CANCELCREATELIEU_clicked()
 {
     ui->lieustacked->setCurrentIndex(idMainLieu);
+    lieuSelected = 0;
 }
 
 void ArreraSettingUI::on_IDC_ICONCHOOSELIEU_clicked()

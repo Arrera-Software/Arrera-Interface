@@ -144,6 +144,30 @@ bool CAInterfaceSetting::setNameLieu2(QString& name){
     return lieu2.setNameView(name);
 }
 
+bool CAInterfaceSetting::setAssistantLieu1(QString& assistant){
+    return lieu1.setAssistant(assistant);
+}
+
+bool CAInterfaceSetting::setAssistantLieu2(QString& assistant){
+    return lieu2.setAssistant(assistant);
+}
+
+bool CAInterfaceSetting::setGeoLieu1(QString& geo){
+    return lieu1.setLieuGeographique(geo);
+}
+
+bool CAInterfaceSetting::setGeoLieu2(QString& geo){
+    return lieu2.setLieuGeographique(geo);
+}
+
+bool CAInterfaceSetting::setIconLieu1(QString& icon){
+    return lieu1.setIcon(icon);
+}
+
+bool CAInterfaceSetting::setIconLieu2(QString& icon){
+    return lieu2.setIcon(icon);
+}
+
 bool CAInterfaceSetting::setAppMode1(QString& nameApp1,QString& nameApp2,QString& nameApp3,QString& nameApp4){
     bool sortie1 = mode1.setApp1(nameApp1);
     bool sortie2 = mode1.setApp2(nameApp2);
