@@ -616,6 +616,11 @@ void ArreraSettingUI::on_IDC_CANCELCREATELIEU_clicked()
     ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
+void ArreraSettingUI::on_IDC_ICONCHOOSELIEU_clicked()
+{
+
+}
+
 // Manage lieu
 
 void ArreraSettingUI::on_IDC_CHANGENAMELIEU_clicked()
@@ -639,3 +644,9 @@ void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
 {
 
 }
+
+void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
+{
+
+}
+

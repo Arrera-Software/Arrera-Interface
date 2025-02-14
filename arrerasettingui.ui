@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>6</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -310,7 +310,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="lieustacked">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="mainlieu">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -597,6 +597,31 @@ color: rgb(0, 0, 0);</string>
             </spacer>
            </item>
            <item>
+            <widget class="QPushButton" name="IDC_ICONCHOOSELIEU">
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Choisir l'icon du lieu</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_41">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_16">
              <item>
               <widget class="QPushButton" name="IDC_CANCELCREATELIEU">
@@ -806,6 +831,31 @@ color: rgb(0, 0, 0);</string>
            </item>
            <item>
             <spacer name="verticalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="IDC_CHANGEICONLIEU">
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Changer l'icon du lieu</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_42">
              <property name="orientation">
               <enum>Qt::Orientation::Vertical</enum>
              </property>

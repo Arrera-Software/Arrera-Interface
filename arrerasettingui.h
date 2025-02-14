@@ -62,10 +62,12 @@ private slots:
     void on_IDC_BTNMODE4_clicked();
     void on_IDC_BTNMODE5_clicked();
     void on_IDC_BTNMODE6_clicked();
+
     // BTN addmode
     void on_IDC_VALIDERMODE_clicked();
     void on_IDC_RETOURMODE_clicked();
     void on_IDC_ICONMODEADD_clicked();
+
     // Partie gest mode
     void on_IDC_RESETMODE_clicked();
     void on_IDC_CHANGENAME_clicked();
@@ -84,14 +86,18 @@ private slots:
     void on_IDC_ICONAPPPC_clicked();
     void on_IDC_VALIDERAPPPC_clicked();
     void on_IDC_CANCELAPPPC_clicked();
+
     //Partie suppr de l'app
     void on_IDC_CANCELSUPPRAPP_clicked();
     void on_IDC_VALIDERSUPRR_clicked();
+
     //Partie acceuil d'app
     void on_IDC_ADDAPPPC_clicked();
     void on_IDC_SUPPRAPPPC_clicked();
+
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();
+
     // Partie Lieu
     // Acceuil lieu
     void on_IDC_MANAGELIEU1_clicked();
@@ -104,6 +110,8 @@ private slots:
     void on_IDC_CHANGEASSISTANTLIEU_clicked();
     void on_IDC_ANNULERMANAGELIEU_clicked();
     void on_IDC_CHANGEGEOMANAGE_clicked();
+    void on_IDC_ICONCHOOSELIEU_clicked();
+    void on_IDC_CHANGEICONLIEU_clicked();
 };
 
 #endif // ARRERASETTINGUI_H
