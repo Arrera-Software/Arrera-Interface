@@ -799,7 +799,32 @@ void ArreraSettingUI::on_IDC_CANCELCREATELIEU_clicked()
 
 void ArreraSettingUI::on_IDC_ICONCHOOSELIEU_clicked()
 {
-
+    QString icon = chooseIcon();
+    bool sortie ;
+    if (!icon.isEmpty()){
+        switch (lieuSelected) {
+        case 1:
+            sortie = objPara->setIconLieu1(icon);
+            break;
+        case 2:
+            sortie = objPara->setIconLieu1(icon);
+            break;
+        default:
+            sortie = false;
+            break;
+        }
+        if (sortie){
+            QMessageBox::information(this,"Icône lieu",
+                                     "L'icône de votre lieu a bien été enregistrée.");
+        }else{
+            QMessageBox::critical(this,"Erreur icône lieu",
+                                  "Une erreur s'est produite, je ne peux pas enregistrer l'icône pour ce lieu.");
+        }
+    }
+    else{
+        QMessageBox::critical(this,"Erreur icône lieu",
+                              "Vous n'avez pas sélectionné d'icône.");
+    }
 }
 
 // Manage lieu
