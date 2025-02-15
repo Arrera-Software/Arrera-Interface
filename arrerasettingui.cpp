@@ -714,16 +714,30 @@ void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 // Acceuil lieu
 void ArreraSettingUI::on_IDC_MANAGELIEU1_clicked()
 {
-    ui->lieustacked->setCurrentIndex(idAddLieu);
-    ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 1");
+    if (!objPara->lieu1IsSeted()){
+        ui->lieustacked->setCurrentIndex(idAddLieu);
+        ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 1");
+        ui->IDC_INDCLIEUADD->setText("Création du lieu numéro 1");
+    }else{
+        ui->lieustacked->setCurrentIndex(idManageLieu);
+        ui->LINDICATIONSETTING->setText("Modification du lieu numéro 1");
+        ui->LINDICATIONMANAGELIEU->setText("Modification du lieu numéro 1");
+    }
     lieuSelected = 1;
 }
 
 
 void ArreraSettingUI::on_IDC_MANAGELIEU1_2_clicked()
 {
-    ui->lieustacked->setCurrentIndex(idAddLieu);
-    ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 2");
+    if (!objPara->lieu2IsSeted()){
+        ui->lieustacked->setCurrentIndex(idAddLieu);
+        ui->LINDICATIONSETTING->setText("Paramétrage du lieu numéro 2");
+        ui->IDC_INDCLIEUADD->setText("Création du lieu numéro 2");
+    }else{
+        ui->lieustacked->setCurrentIndex(idManageLieu);
+        ui->LINDICATIONSETTING->setText("Modification du lieu numéro 2");
+         ui->LINDICATIONMANAGELIEU->setText("Modification du lieu numéro 2");
+    }
     lieuSelected = 2;
 }
 
@@ -794,6 +808,7 @@ void ArreraSettingUI::on_IDC_CREALIEU_clicked()
 void ArreraSettingUI::on_IDC_CANCELCREATELIEU_clicked()
 {
     ui->lieustacked->setCurrentIndex(idMainLieu);
+    ui->LINDICATIONSETTING->setText("Parametre des lieu");
     lieuSelected = 0;
 }
 
@@ -831,7 +846,40 @@ void ArreraSettingUI::on_IDC_ICONCHOOSELIEU_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGENAMELIEU_clicked()
 {
+    QString name = ui->IDC_LINECHANGENAMELIEU->text();
+    bool sortie;
 
+    ui->IDC_LINECHANGENAMELIEU->clear();
+
+    if (!name.isEmpty()){
+        switch (lieuSelected) {
+        case 1:
+            sortie = objPara->setNameLieu1(name);
+            break;
+        case 2:
+            sortie = objPara->setNameLieu2(name);
+            break;
+        default:
+            sortie = false;
+            break;
+        }
+
+        if(sortie){
+            QMessageBox::information(this,"Changement d'icône du lieu "+
+                                               QString::number(lieuSelected),
+                                     "Le nouveau nom du lieu "+
+                                         QString::number(lieuSelected)+" est bien enregistré.");
+        }else{
+            QMessageBox::critical(this,"Changement d'icône du lieu "+
+                                               QString::number(lieuSelected),
+                                  "Une erreur s'est produite, impossible de changer le nom du lieu.");
+        }
+    }else{
+        QMessageBox::critical(this,"Changement d'icône du lieu "+
+                                        QString::number(lieuSelected),
+                              "Impossible de changer le nom du lieu si le nouveau nom est vide.");
+    }
+    ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
 
@@ -844,6 +892,8 @@ void ArreraSettingUI::on_IDC_CHANGEASSISTANTLIEU_clicked()
 void ArreraSettingUI::on_IDC_ANNULERMANAGELIEU_clicked()
 {
     ui->lieustacked->setCurrentIndex(idMainLieu);
+    ui->LINDICATIONSETTING->setText("Parametre des lieu");
+    lieuSelected = 0 ;
 }
 
 void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
@@ -853,6 +903,7 @@ void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
 {
-
+    on_IDC_ICONCHOOSELIEU_clicked();
+    ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
