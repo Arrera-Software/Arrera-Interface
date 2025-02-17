@@ -106,48 +106,112 @@ void ArreraUI::loadSetting()
     if (objSetting->mode1IsSeted()){
         ui->IDC_MODE1->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode1IsSetted()){
+            QIcon icon(objSetting->getIconMode1());
+            ui->IDC_MODE1->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode1.png");
+            ui->IDC_MODE1->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE1->setVisible(false);}
 
     if (objSetting->mode2IsSeted()){
         ui->IDC_MODE2->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode2IsSetted()){
+            QIcon icon(objSetting->getIconMode2());
+            ui->IDC_MODE2->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode2.png");
+            ui->IDC_MODE2->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE2->setVisible(false);}
 
     if (objSetting->mode3IsSeted()){
         ui->IDC_MODE3->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode3IsSetted()){
+            QIcon icon(objSetting->getIconMode3());
+            ui->IDC_MODE3->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode3.png");
+            ui->IDC_MODE3->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE3->setVisible(false);}
 
     if (objSetting->mode4IsSeted()){
         ui->IDC_MODE4->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode4IsSetted()){
+            QIcon icon(objSetting->getIconMode4());
+            ui->IDC_MODE4->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode4.png");
+            ui->IDC_MODE4->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE4->setVisible(false);}
 
     if (objSetting->mode5IsSeted()){
         ui->IDC_MODE5->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode5IsSetted()){
+            QIcon icon(objSetting->getIconMode5());
+            ui->IDC_MODE5->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode5.png");
+            ui->IDC_MODE5->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE5->setVisible(false);}
 
     if (objSetting->mode6IsSeted()){
         ui->IDC_MODE6->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconMode6IsSetted()){
+            QIcon icon(objSetting->getIconMode6());
+            ui->IDC_MODE6->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/mode6.png");
+            ui->IDC_MODE6->setIcon(icon);
+        }
     }else{
         ui->IDC_MODE6->setVisible(false);}
 
     if (objSetting->lieu1IsSeted()){
         ui->IDC_LIEU1->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconLieu1IsSetted()){
+            QIcon icon(objSetting->getIconLieu1());
+            ui->IDC_LIEU1->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/lieu1.png");
+            ui->IDC_LIEU1->setIcon(icon);
+        }
     }else{
         ui->IDC_LIEU1->setVisible(false);}
 
     if (objSetting->lieu2IsSeted()){
         ui->IDC_LIEU2->setVisible(true);
         ui->IDC_INDCNOLIEUMODE->setVisible(false);
+        // Mise en place de l'icon
+        if (objSetting->iconLieu2IsSetted()){
+            QIcon icon(objSetting->getIconLieu2());
+            ui->IDC_LIEU2->setIcon(icon);
+        }else{
+            QIcon icon(":mode-lieu/img/lieu2.png");
+            ui->IDC_LIEU2->setIcon(icon);
+        }
     }else{
         ui->IDC_LIEU2->setVisible(false);}
 
