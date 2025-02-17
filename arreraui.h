@@ -36,6 +36,10 @@ private slots:
 
     void on_IDC_PARA_clicked();
 
+    void on_IDC_SHOWHIST_clicked();
+
+    void on_IDC_AUTREMOTEUR_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;

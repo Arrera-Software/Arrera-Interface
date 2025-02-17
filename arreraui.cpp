@@ -216,3 +216,15 @@ void ArreraUI::loadSetting()
         ui->IDC_LIEU2->setVisible(false);}
 
 }
+
+void ArreraUI::on_IDC_SHOWHIST_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
+{
+
+}
+
