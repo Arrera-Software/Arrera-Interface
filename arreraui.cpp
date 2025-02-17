@@ -37,6 +37,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Connection de l'interface principale est le parametre
     connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
+    // Chargement des parametre
+    loadSetting();
 
 }
 
@@ -100,5 +102,53 @@ void ArreraUI::on_IDC_PARA_clicked()
 
 void ArreraUI::loadSetting()
 {
+    ui->IDC_INDCNOLIEUMODE->setVisible(true);
+    if (objSetting->mode1IsSeted()){
+        ui->IDC_MODE1->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE1->setVisible(false);}
+
+    if (objSetting->mode2IsSeted()){
+        ui->IDC_MODE2->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE2->setVisible(false);}
+
+    if (objSetting->mode3IsSeted()){
+        ui->IDC_MODE3->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE3->setVisible(false);}
+
+    if (objSetting->mode4IsSeted()){
+        ui->IDC_MODE4->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE4->setVisible(false);}
+
+    if (objSetting->mode5IsSeted()){
+        ui->IDC_MODE5->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE5->setVisible(false);}
+
+    if (objSetting->mode6IsSeted()){
+        ui->IDC_MODE6->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_MODE6->setVisible(false);}
+
+    if (objSetting->lieu1IsSeted()){
+        ui->IDC_LIEU1->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_LIEU1->setVisible(false);}
+
+    if (objSetting->lieu2IsSeted()){
+        ui->IDC_LIEU2->setVisible(true);
+        ui->IDC_INDCNOLIEUMODE->setVisible(false);
+    }else{
+        ui->IDC_LIEU2->setVisible(false);}
 
 }
