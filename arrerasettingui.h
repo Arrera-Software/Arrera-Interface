@@ -99,6 +99,7 @@ private slots:
 
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();
+    void on_IDC_SUPPRHIST_clicked();
 
     // Partie Lieu
     // Acceuil lieu

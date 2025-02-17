@@ -712,6 +712,11 @@ void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 
 }
 
+void ArreraSettingUI::on_IDC_SUPPRHIST_clicked()
+{
+
+}
+
 // Partie Lieu
 
 // Acceuil lieu
@@ -965,4 +970,3 @@ void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des lieu");
     lieuSelected = 0 ;
 }
-

@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1000,6 +1000,19 @@ color: rgb(0, 0, 0);</string>
           <widget class="QComboBox" name="IDC_LISTEMOTEURERECHERCHE"/>
          </item>
          <item>
+          <spacer name="horizontalSpacer_34">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <spacer name="horizontalSpacer_18">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
@@ -1012,7 +1025,44 @@ color: rgb(0, 0, 0);</string>
            </property>
           </spacer>
          </item>
+         <item>
+          <widget class="QPushButton" name="IDC_VALIDERRECHERCHE">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Changer le moteur</string>
+           </property>
+          </widget>
+         </item>
         </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_43">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="IDC_SUPPRHIST">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Supprimer l'historique</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_21">
@@ -1026,18 +1076,6 @@ color: rgb(0, 0, 0);</string>
           </size>
          </property>
         </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IDC_VALIDERRECHERCHE">
-         <property name="font">
-          <font>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Valider</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
