@@ -885,7 +885,30 @@ void ArreraSettingUI::on_IDC_CHANGENAMELIEU_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGEASSISTANTLIEU_clicked()
 {
+    QString newAssistant = ui->IDC_LISTASSISTANTMANAGELIEU->currentText();
+    bool sortie ;
 
+    switch (lieuSelected) {
+    case 1:
+        sortie = objPara->setAssistantLieu1(newAssistant);
+        break;
+    case 2:
+        sortie = objPara->setAssistantLieu2(newAssistant);
+        break;
+    default:
+        sortie = false;
+        break;
+    }
+
+    if (sortie){
+        QMessageBox::information(this,"Lieu assistant",
+                                 "L'assistant du lieu "+
+                                     QString::number(lieuSelected)+
+                                     " a bien été changé.");
+    }else{
+        QMessageBox::critical(this,"Lieu assistant",
+                              "Impossible de changer l'assistant, une erreur s'est produite.");
+    }
 }
 
 
@@ -898,7 +921,34 @@ void ArreraSettingUI::on_IDC_ANNULERMANAGELIEU_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
 {
+    QString geo = ui->ID_GEOLIEUMANAGE->text();
+    bool sortie;
+    if (!geo.isEmpty()){
+        switch (lieuSelected) {
+        case 1:
+            sortie = objPara->setAssistantLieu1(geo);
+            break;
+        case 2:
+            sortie = objPara->setAssistantLieu2(geo);
+            break;
+        default:
+            sortie = false;
+            break;
+        }
 
+        if(sortie){
+            QMessageBox::information(this,"Emplacement lieu",
+                                     "L'emplacement du lieu "+QString::number(lieuSelected)+
+                                         " a bien été changé.");
+        }else{
+            QMessageBox::critical(this,"Emplacement lieu",
+                                     "L'emplacement du lieu "+QString::number(lieuSelected)+
+                                      " n'a pas pu être changé.");
+        }
+    }else{
+        QMessageBox::critical(this,"Emplacement vide",
+                              "Impossible de changer l'emplacement avec quelque chose de vide.");
+    }
 }
 
 void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
