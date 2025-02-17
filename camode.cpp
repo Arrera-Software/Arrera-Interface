@@ -50,7 +50,8 @@ bool CAMode::resetMode(){
     bool sapp3 = objSetting->setValeur(name,"app3","nothing");
     bool sapp4 = objSetting->setValeur(name,"app4","nothing");
     bool sassistant = objSetting->setValeur(name,"assistant","nothing");
-    if (sname && sapp1 && sapp2 && sapp3 && sapp4 && sassistant){
+    bool sicon = objSetting->setValeur(name,"icon","nothing");
+    if (sname && sapp1 && sapp2 && sapp3 && sapp4 && sassistant && sicon){
         return true;
     }else{
         return false;

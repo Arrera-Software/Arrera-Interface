@@ -22,7 +22,8 @@ bool CALieu::resetLieu(){
     bool sname = objSetting->setValeur(name,"name","nothing");
     bool sgeo = objSetting->setValeur(name,"geo","nothing");
     bool sassistant = objSetting->setValeur(name,"assistant","nothing");
-    if (sname && sgeo && sassistant){
+    bool sicon = objSetting->setValeur(name,"icon","nothing");
+    if (sname && sgeo && sassistant && sicon){
         return true;
     }else{
         return false;
