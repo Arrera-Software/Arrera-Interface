@@ -130,7 +130,17 @@ color: rgb(0, 0, 0);</string>
             </size>
            </property>
            <property name="text">
-            <string>MODE</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/img/mode-setting.png</normaloff>:/icon/img/mode-setting.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -278,7 +288,17 @@ color: rgb(0, 0, 0);</string>
             </size>
            </property>
            <property name="text">
-            <string>Lieu</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/img/lieu-setting.png</normaloff>:/icon/img/lieu-setting.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -310,7 +330,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="lieustacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainlieu">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -378,7 +398,17 @@ color: rgb(0, 0, 0);</string>
                 </font>
                </property>
                <property name="text">
-                <string>LIEU 1</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/lieu1.png</normaloff>:/mode-lieu/img/lieu1.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -415,7 +445,17 @@ color: rgb(0, 0, 0);</string>
                 </font>
                </property>
                <property name="text">
-                <string>LIEU 2</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/mode-lieu/img/lieu2.png</normaloff>:/mode-lieu/img/lieu2.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1477,7 +1517,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="modestacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainmode">
           <layout class="QVBoxLayout" name="verticalLayout_4">
