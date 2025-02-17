@@ -909,6 +909,8 @@ void ArreraSettingUI::on_IDC_CHANGEASSISTANTLIEU_clicked()
         QMessageBox::critical(this,"Lieu assistant",
                               "Impossible de changer l'assistant, une erreur s'est produite.");
     }
+
+    ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
 
@@ -949,6 +951,8 @@ void ArreraSettingUI::on_IDC_CHANGEGEOMANAGE_clicked()
         QMessageBox::critical(this,"Emplacement vide",
                               "Impossible de changer l'emplacement avec quelque chose de vide.");
     }
+
+    ui->lieustacked->setCurrentIndex(idMainLieu);
 }
 
 void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
