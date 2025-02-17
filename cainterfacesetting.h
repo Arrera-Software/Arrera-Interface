@@ -63,6 +63,9 @@ public:
     QString getIconMode5();
     QString getIconMode6();
 
+    QString getIconLieu1();
+    QString getIconLieu2();
+
     QString getApplication(int nb);
     QString getAppTableur();
     QString getAppTraitementTexte();
@@ -134,6 +137,16 @@ public:
 
     bool lieu1IsSeted();
     bool lieu2IsSeted();
+
+    // Methode pour savoir si une icon est parametrer pour le mode
+    bool iconMode1IsSetted();
+    bool iconMode2IsSetted();
+    bool iconMode3IsSetted();
+    bool iconMode4IsSetted();
+    bool iconMode5IsSetted();
+    bool iconMode6IsSetted();
+    bool iconLieu1IsSetted();
+    bool iconLieu2IsSetted();
 
     // Methode pour remettre a Zero les modes et lieu
     bool resetMode1();

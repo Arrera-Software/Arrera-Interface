@@ -84,12 +84,38 @@ QString CAInterfaceSetting::getAssistantMode6(){}
 
 // getteur Icon Mode
 
-QString CAInterfaceSetting::getIconMode1(){}
-QString CAInterfaceSetting::getIconMode2(){}
-QString CAInterfaceSetting::getIconMode3(){}
-QString CAInterfaceSetting::getIconMode4(){}
-QString CAInterfaceSetting::getIconMode5(){}
-QString CAInterfaceSetting::getIconMode6(){}
+QString CAInterfaceSetting::getIconMode1(){
+    return mode1.getIcon();
+}
+
+QString CAInterfaceSetting::getIconMode2(){
+    return mode2.getIcon();
+}
+
+QString CAInterfaceSetting::getIconMode3(){
+    return mode3.getIcon();
+}
+
+QString CAInterfaceSetting::getIconMode4(){
+    return mode4.getIcon();
+}
+
+QString CAInterfaceSetting::getIconMode5(){
+    return mode5.getIcon();
+}
+
+QString CAInterfaceSetting::getIconMode6(){
+    return mode6.getIcon();
+}
+
+// Getteur icon lieu
+QString CAInterfaceSetting::getIconLieu1(){
+    return lieu1.getIcon();
+}
+
+QString CAInterfaceSetting::getIconLieu2(){
+    return lieu2.getIcon();
+}
 
 // Getteur application
 
@@ -329,6 +355,64 @@ bool CAInterfaceSetting::lieu1IsSeted(){
 
 bool CAInterfaceSetting::lieu2IsSeted(){
     return lieu2.isSeted();
+}
+
+// Methode pour savoir si une icon est parametrer pour le mode
+
+bool CAInterfaceSetting::iconMode1IsSetted(){
+    if (getIconMode1()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconMode2IsSetted(){
+    if (getIconMode2()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconMode3IsSetted(){
+    if (getIconMode3()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconMode4IsSetted(){
+    if (getIconMode4()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconMode5IsSetted(){
+    if (getIconMode5()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconMode6IsSetted(){
+    if (getIconMode6()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconLieu1IsSetted(){
+    if (getIconLieu1()=="nothing"){
+        return false;
+    }else{
+        return true;}
+}
+
+bool CAInterfaceSetting::iconLieu2IsSetted(){
+    if (getIconLieu2()=="nothing"){
+        return false;
+    }else{
+        return true;}
 }
 
 // Methode pour remettre a Zero les modes et lieu
