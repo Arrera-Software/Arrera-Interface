@@ -627,6 +627,9 @@ void ArreraSettingUI::on_IDC_RETOURGESTMODE_clicked()
 void ArreraSettingUI::on_IDC_CHANGEICONMODEGEST_clicked()
 {
     on_IDC_ICONMODEADD_clicked();
+    ui->LINDICATIONSETTING->setText("Parametre des modes");
+    ui->modestacked->setCurrentIndex(idMainModePage);
+    modeSelected = 0;
 }
 
 // Partie Parametre generaux
@@ -822,7 +825,7 @@ void ArreraSettingUI::on_IDC_ICONCHOOSELIEU_clicked()
             sortie = objPara->setIconLieu1(icon);
             break;
         case 2:
-            sortie = objPara->setIconLieu1(icon);
+            sortie = objPara->setIconLieu2(icon);
             break;
         default:
             sortie = false;
@@ -959,5 +962,7 @@ void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
 {
     on_IDC_ICONCHOOSELIEU_clicked();
     ui->lieustacked->setCurrentIndex(idMainLieu);
+    ui->LINDICATIONSETTING->setText("Parametre des lieu");
+    lieuSelected = 0 ;
 }
 
