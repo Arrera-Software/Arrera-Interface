@@ -40,12 +40,36 @@ private slots:
 
     void on_IDC_AUTREMOTEUR_clicked();
 
+    void on_IDC_MOTEURDUCK_clicked();
+
+    void on_IDC_MOTEURGOOGLE_clicked();
+
+    void on_IDC_MOTEURBING_clicked();
+
+    void on_IDC_MOTEURBRAVE_clicked();
+
+    void on_IDC_MOTEURECOSIA_clicked();
+
+    void on_IDC_MOTEURQWANT_clicked();
+
+    void on_IDC_MOTEURBIGSEARCH_clicked();
+
+    void on_IDC_MOTEURWIKIPEDIA_clicked();
+
+    void on_IDC_MOTEURAMAZON_clicked();
+
+    void on_IDC_MOTEURWORDREFERENCE_clicked();
+
+    void on_IDC_MOTEURYT_clicked();
+
+    void on_IDC_MOTEURREVERSO_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
     ArreraSettingUI *uipara;
     void loadSetting();
-    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos;
+    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos,idPageRecherche;
 };
 
 #endif // ARRERAUI_H

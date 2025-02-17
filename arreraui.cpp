@@ -19,6 +19,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageI2025Mode = ui->I2025->indexOf(ui->mode);
     idPageApropos = ui->I2025->indexOf(ui->apropos);
     idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
+    idPageRecherche = ui->I2025->indexOf(ui->recherchePage);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -224,6 +225,78 @@ void ArreraUI::on_IDC_SHOWHIST_clicked()
 
 
 void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURDUCK_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURGOOGLE_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURBING_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURBRAVE_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURECOSIA_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURQWANT_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURBIGSEARCH_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURWIKIPEDIA_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURAMAZON_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURWORDREFERENCE_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURYT_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
 {
 
 }
