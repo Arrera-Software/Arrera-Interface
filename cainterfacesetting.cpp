@@ -15,6 +15,10 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
     // Instentation des lieu
     lieu1 = CALieu("lieu1",fileINI);
     lieu2 = CALieu("lieu2",fileINI);
+    if(fileINI->getFileCreated()){
+        fileINI->setValeur("arrera-recherche","moteur","nothing");
+        fileINI->setValeur("interface","user","nothing");
+    }
 }
 
 CAInterfaceSetting::~CAInterfaceSetting(){}
@@ -133,6 +137,10 @@ QString CAInterfaceSetting::getArreraCopilote(){}
 QString CAInterfaceSetting::getArreraPostite(){}
 QString CAInterfaceSetting::getArreraVideoDownload(){}
 QString CAInterfaceSetting::getArreraRaccourci(){}
+
+QString CAInterfaceSetting::getMoteurRecherche(){
+    return fileINI->getValeur("arrera-recherche","moteur");
+}
 
 // Setteurs
 bool CAInterfaceSetting::setNameUser(QString& user){
@@ -323,6 +331,9 @@ bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){}
 bool CAInterfaceSetting::setAppNavigateur(QString emplacement){}
 
+bool CAInterfaceSetting::setMoteurRecherche(QString moteur){
+    return fileINI->setValeur("arrera-recherche","moteur",moteur);
+}
 // Methode pour savoir si les lieu ou mode son paramétrer
 
 bool CAInterfaceSetting::mode1IsSeted(){

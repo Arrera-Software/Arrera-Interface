@@ -78,6 +78,7 @@ public:
     QString getArreraPostite();
     QString getArreraVideoDownload();
     QString getArreraRaccourci();
+    QString getMoteurRecherche();
 
     // Setteurs
     bool setNameUser(QString& user);
@@ -126,6 +127,7 @@ public:
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);
     bool setAppNavigateur(QString emplacement);
+    bool setMoteurRecherche(QString moteur);
 
     // Methode pour savoir si les lieu ou mode son paramétrer
     bool mode1IsSeted();
