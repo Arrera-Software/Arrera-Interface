@@ -14,6 +14,8 @@ SOURCES += \
     calieu.cpp \
     camode.cpp \
     camodelieu.cpp \
+    carrerarecheche.cpp \
+    carrerarecherchehist.cpp \
     cjsonword.cpp \
     csetting.cpp \
     main.cpp \
@@ -26,6 +28,8 @@ HEADERS += \
     calieu.h \
     camode.h \
     camodelieu.h \
+    carrerarecheche.h \
+    carrerarecherchehist.h \
     cjsonword.h \
     csetting.h
 
@@ -39,6 +43,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    resource.qrc \
     resource.qrc
 
 DISTFILES += \
