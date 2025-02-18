@@ -1041,6 +1041,9 @@ color: rgb(0, 0, 0);</string>
       <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
         <widget class="QStackedWidget" name="arreraRecherche">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
          <widget class="QWidget" name="moteur">
           <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
@@ -1345,7 +1348,29 @@ color: rgb(0, 0, 0);</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="historique"/>
+         <widget class="QWidget" name="historique">
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QLabel" name="LINCHISTRECHERCHE">
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Historique de recherche</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="SHOWHISTORIQUEUSER"/>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>

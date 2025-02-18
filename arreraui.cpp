@@ -20,6 +20,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageApropos = ui->I2025->indexOf(ui->apropos);
     idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
     idPageRecherche = ui->I2025->indexOf(ui->recherchePage);
+    // Id Page recherche
+    idPageRechercheMoteur = ui->arreraRecherche->indexOf(ui->moteur);
+    idPageRechercheHist = ui->arreraRecherche->indexOf(ui->historique);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -220,13 +223,17 @@ void ArreraUI::loadSetting()
 
 void ArreraUI::on_IDC_SHOWHIST_clicked()
 {
-
+    ui->I2025->setCurrentIndex(idPageRecherche);
+    ui->LINDICATIONARRERA->setText("Historique de recherche");
+    ui->arreraRecherche->setCurrentIndex(idPageRechercheHist);
 }
 
 
 void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
 {
-
+    ui->I2025->setCurrentIndex(idPageRecherche);
+    ui->LINDICATIONARRERA->setText("Recherche Arrera");
+    ui->arreraRecherche->setCurrentIndex(idPageRechercheMoteur);
 }
 
 

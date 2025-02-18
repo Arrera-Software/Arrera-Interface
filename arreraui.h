@@ -69,7 +69,10 @@ private:
     CAInterfaceSetting *objSetting;
     ArreraSettingUI *uipara;
     void loadSetting();
+    // Id du staked widget I2025
     int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos,idPageRecherche;
+    // Ide du staked widget arreraRecherche
+    int idPageRechercheMoteur, idPageRechercheHist;
 };
 
 #endif // ARRERAUI_H

@@ -225,7 +225,7 @@ void ArreraSettingUI::on_IDC_BTNMODE1_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
 {
-    if (!objPara->mode1IsSeted())
+    if (!objPara->mode2IsSeted())
     {
         ui->LINDICATIONMODE->setText("Parametrage du Mode 2");
         ui->LINDICATIONSETTING->setText("Parametrage mode 2");
@@ -244,7 +244,7 @@ void ArreraSettingUI::on_IDC_BTNMODE2_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
 {
-    if (!objPara->mode1IsSeted())
+    if (!objPara->mode3IsSeted())
     {
         ui->LINDICATIONMODE->setText("Parametrage du Mode 3");
         ui->LINDICATIONSETTING->setText("Parametrage mode 3");
@@ -263,7 +263,7 @@ void ArreraSettingUI::on_IDC_BTNMODE3_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
 {
-    if (!objPara->mode1IsSeted())
+    if (!objPara->mode4IsSeted())
     {
         ui->LINDICATIONMODE->setText("Parametrage du Mode 4");
         ui->LINDICATIONSETTING->setText("Parametrage mode 4");
@@ -282,7 +282,7 @@ void ArreraSettingUI::on_IDC_BTNMODE4_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
 {
-    if (!objPara->mode1IsSeted())
+    if (!objPara->mode5IsSeted())
     {
         ui->LINDICATIONMODE->setText("Parametrage du Mode 5");
         ui->LINDICATIONSETTING->setText("Parametrage mode 5");
@@ -301,7 +301,7 @@ void ArreraSettingUI::on_IDC_BTNMODE5_clicked()
 
 void ArreraSettingUI::on_IDC_BTNMODE6_clicked()
 {
-    if (!objPara->mode1IsSeted())
+    if (!objPara->mode6IsSeted())
     {
         ui->LINDICATIONMODE->setText("Parametrage du Mode 6");
         ui->LINDICATIONSETTING->setText("Parametrage mode 6");
