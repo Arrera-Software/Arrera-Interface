@@ -14,66 +14,121 @@ CArreraRecheche::~CArreraRecheche()
 bool CArreraRecheche::searchDuckduckgo(QString q)
 {
     QString url = "https://duckduckgo.com/?q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("duckduckgo",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchGoogle(QString q)
 {
     QString url = "https://www.google.com/search?q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("google",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchQwant(QString q)
 {
     QString url = "https://www.qwant.com/?l=fr&q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("qwant",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchEcosia(QString q)
 {
     QString url = "https://www.ecosia.org/search?method=index&q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("ecosia",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchBrave(QString q)
 {
     QString url = "https://search.brave.com/search?q="+q+"&source=web";
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("brave",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchBing(QString q)
 {
     QString url = "https://www.bing.com/search?q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("bing",q);
+    }
+    else{
+        return false;
+    }
 }
 bool CArreraRecheche::searchAmazon(QString q)
 {
     QString url = "https://www.amazon.fr/s?k="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("amazon",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchWikipedia(QString q)
 {
     QString url = "https://fr.wikipedia.org/wiki/"+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("wikipedia",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchReverso(QString q)
 {
     QString url = "https://www.reverso.net/traduction-texte#sl=fra&tl=eng&text="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("reverso",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchWordreference(QString q)
 {
     QString url = "https://www.wordreference.com/fren/"+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("wordreference",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchYTmusic(QString q)
 {
     QString url = "https://music.youtube.com/search&q="+q;
-    return QDesktopServices::openUrl(QUrl(url));
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("youtube",q);
+    }
+    else{
+        return false;
+    }
 }
 
 bool CArreraRecheche::searchAll(QString q)
@@ -84,7 +139,7 @@ bool CArreraRecheche::searchAll(QString q)
                 if (searchQwant(q)){
                     if(searchDuckduckgo(q)){
                         if (searchEcosia(q)){
-                            return true;
+                            return add("all",q);
                         }
                         else{
                             return false;

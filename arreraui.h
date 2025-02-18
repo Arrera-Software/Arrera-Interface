@@ -10,7 +10,6 @@
 #include "cainterfacesetting.h"
 #include "arrerasettingui.h"
 #include "carrerarecheche.h"
-#include "carrerarecherchehist.h"
 
 namespace Ui {
 class ArreraUI;
@@ -71,7 +70,6 @@ private:
     CAInterfaceSetting *objSetting;
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
-    CArreraRechercheHist historique;
     // Methode private
     void loadSetting();
     // Methode de recherche
