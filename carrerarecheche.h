@@ -3,7 +3,8 @@
 
 #include <QDesktopServices>
 #include <QUrl>
-#include <string.h>
+#include <QFile>
+#include <QTextStream>
 
 using namespace std ;
 
@@ -11,9 +12,11 @@ class CArreraRecheche
 {
 private :
     bool etatInternet ;
+    QString filePath;
 public:
     CArreraRecheche();
     ~CArreraRecheche();
+    // Partie recherche
     bool searchDuckduckgo(QString q);
     bool searchGoogle(QString q);
     bool searchQwant(QString q);
@@ -26,6 +29,10 @@ public:
     bool searchWordreference(QString q);
     bool searchYTmusic(QString q);
     bool searchAll(QString q);
+    // Partie hist
+    bool add(QString moteur,QString recherche);
+    bool clear();
+    QString read();
 };
 
 #endif // CARRERARECHECHE_H

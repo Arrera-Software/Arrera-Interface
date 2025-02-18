@@ -2,7 +2,7 @@
 
 CArreraRecheche::CArreraRecheche()
 {
-
+    filePath = "hist.txt";
 }
 
 CArreraRecheche::~CArreraRecheche()
@@ -10,6 +10,7 @@ CArreraRecheche::~CArreraRecheche()
 
 }
 
+// Partie recherche
 bool CArreraRecheche::searchDuckduckgo(QString q)
 {
     QString url = "https://duckduckgo.com/?q="+q;
@@ -103,4 +104,39 @@ bool CArreraRecheche::searchAll(QString q)
     }else{
         return false;
     }
+}
+
+// Partie hist
+bool CArreraRecheche::add(QString moteur,QString recherche){
+    QFile file(filePath);
+    QString valeur = moteur+"->"+recherche;
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
+    {
+        return false;
+    }
+    QTextStream out(&file);
+    out << valeur << Qt::endl;
+    file.close();
+    return true;
+}
+
+bool CArreraRecheche::clear(){
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        return false;
+    }
+
+    // Fermer le fichier après l'avoir ouvert en mode écriture
+    file.close();
+    return true;
+}
+
+QString CArreraRecheche::read(){
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        return "-1";
+    }
+    QTextStream in(&file);
+    return in.readAll();
 }
