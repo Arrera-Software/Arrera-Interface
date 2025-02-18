@@ -238,6 +238,7 @@ void ArreraUI::launchSearch(int mode){
     */
     QString recherche = ui->IDC_SEARCHBAR->text();
     bool sortie;
+    ui->IDC_SEARCHBAR->clear();
 
     if (!recherche.isEmpty()){
         switch (mode) {
@@ -309,72 +310,72 @@ void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
 
 void ArreraUI::on_IDC_MOTEURDUCK_clicked()
 {
-
+    launchSearch(1);
 }
 
 
 void ArreraUI::on_IDC_MOTEURGOOGLE_clicked()
 {
-
+    launchSearch(2);
 }
 
 
 void ArreraUI::on_IDC_MOTEURBING_clicked()
 {
-
+    launchSearch(6);
 }
 
 
 void ArreraUI::on_IDC_MOTEURBRAVE_clicked()
 {
-
+    launchSearch(5);
 }
 
 
 void ArreraUI::on_IDC_MOTEURECOSIA_clicked()
 {
-
+    launchSearch(4);
 }
 
 
 void ArreraUI::on_IDC_MOTEURQWANT_clicked()
 {
-
+    launchSearch(3);
 }
 
 
 void ArreraUI::on_IDC_MOTEURBIGSEARCH_clicked()
 {
-
+    launchSearch(12);
 }
 
 
 void ArreraUI::on_IDC_MOTEURWIKIPEDIA_clicked()
 {
-
+    launchSearch(8);
 }
 
 
 void ArreraUI::on_IDC_MOTEURAMAZON_clicked()
 {
-
+    launchSearch(7);
 }
 
 
 void ArreraUI::on_IDC_MOTEURWORDREFERENCE_clicked()
 {
-
+    launchSearch(10);
 }
 
 
 void ArreraUI::on_IDC_MOTEURYT_clicked()
 {
-
+    launchSearch(11);
 }
 
 
 void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
 {
-
+    launchSearch(9);
 }
 
