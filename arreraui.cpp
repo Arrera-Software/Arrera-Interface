@@ -239,7 +239,6 @@ void ArreraUI::launchSearch(int mode){
     QString recherche = ui->IDC_SEARCHBAR->text();
     bool sortie;
     ui->IDC_SEARCHBAR->clear();
-
     if (!recherche.isEmpty()){
         switch (mode) {
         case 1: // duck
@@ -379,3 +378,41 @@ void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
     launchSearch(9);
 }
 
+
+void ArreraUI::on_IDC_BTNSEACH_clicked()
+{
+    // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
+    QString moteur = objSetting->getMoteurRecherche();
+
+    if (moteur == "GOOGLE"){
+        launchSearch(2);
+        return ;
+    }else{
+        if (moteur == "DUCKDUCKGO"){
+            launchSearch(1);
+            return;
+        }else{
+            if (moteur == "ECOSIA"){
+                launchSearch(4);
+                return ;
+            }else{
+                if (moteur == "BING"){
+                    launchSearch(6);
+                    return ;
+                }else{
+                    if (moteur == "BRAVE"){
+                        launchSearch(5);
+                        return;
+                    }else{
+                        if (moteur == "QWANT"){
+                            launchSearch(3);
+                            return ;
+                        }else{
+                            launchSearch(2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -65,6 +65,8 @@ private slots:
 
     void on_IDC_MOTEURREVERSO_clicked();
 
+    void on_IDC_BTNSEACH_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;

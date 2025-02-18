@@ -709,7 +709,18 @@ void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
 
 void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 {
+    QString moteur = ui->IDC_LISTEMOTEURERECHERCHE->currentText();
+    bool sortie = objPara->setMoteurRecherche(moteur);
 
+    if (sortie){
+        QMessageBox::information(this,
+                                 "Paramètre de recherche",
+                                 "Le moteur de recherche a été modifié.");
+    }else{
+        QMessageBox::critical(this,"Paramètre de recherche",
+                              "Impossible de changer le moteur de recherche.");
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 void ArreraSettingUI::on_IDC_SUPPRHIST_clicked()

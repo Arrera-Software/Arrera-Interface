@@ -29,7 +29,7 @@ QList <QString>  CAInterfaceSetting::getListAssistant(){
 }
 
 QList <QString>  CAInterfaceSetting::getListMoteur(){
-    return QList<QString>({"GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE"});
+    return QList<QString>({"GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"});
 }
 
 QString CAInterfaceSetting::getNameUser(){
