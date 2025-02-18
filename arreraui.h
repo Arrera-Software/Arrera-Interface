@@ -9,6 +9,8 @@
 #include <QUrl>
 #include "cainterfacesetting.h"
 #include "arrerasettingui.h"
+#include "carrerarecheche.h"
+#include "carrerarecherchehist.h"
 
 namespace Ui {
 class ArreraUI;
@@ -68,7 +70,12 @@ private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
     ArreraSettingUI *uipara;
+    CArreraRecheche arecherche;
+    CArreraRechercheHist historique;
+    // Methode private
     void loadSetting();
+    // Methode de recherche
+    void launchSearch(int mode);
     // Id du staked widget I2025
     int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos,idPageRecherche;
     // Ide du staked widget arreraRecherche

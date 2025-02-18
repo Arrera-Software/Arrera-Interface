@@ -221,6 +221,76 @@ void ArreraUI::loadSetting()
 
 }
 
+void ArreraUI::launchSearch(int mode){
+    /*
+     * 1. Duckduckgo
+     * 2. Google
+     * 3. Qwant
+     * 4. Ecosia
+     * 5. Brave
+     * 6. Bing
+     * 7. Amazon
+     * 8. Wikipedia
+     * 9. Reverso
+     * 10. Wordreference
+     * 11. YT
+     * 12. all
+    */
+    QString recherche = ui->IDC_SEARCHBAR->text();
+    bool sortie;
+
+    if (!recherche.isEmpty()){
+        switch (mode) {
+        case 1: // duck
+            sortie = arecherche.searchDuckduckgo(recherche);
+            break;
+        case 2: // google
+            sortie = arecherche.searchGoogle(recherche);
+            break;
+        case 3: // qwant
+            sortie = arecherche.searchQwant(recherche);
+            break;
+        case 4: // ecosia
+            sortie = arecherche.searchEcosia(recherche);
+            break;
+        case 5: // brave
+            sortie = arecherche.searchBrave(recherche);
+            break;
+        case 6: // bing
+            sortie = arecherche.searchBing(recherche);
+            break;
+        case 7: // amazon
+            sortie = arecherche.searchAmazon(recherche);
+            break;
+        case 8: // wikipedia
+            sortie = arecherche.searchWikipedia(recherche);
+            break;
+        case 9: // reverso
+            sortie = arecherche.searchReverso(recherche);
+            break;
+        case 10: // wordreference
+            sortie = arecherche.searchWordreference(recherche);
+            break;
+        case 11: // YT
+            sortie = arecherche.searchYTmusic(recherche);
+            break;
+        case 12: // all
+            sortie = arecherche.searchAll(recherche);
+            break;
+        default:
+            sortie = false;
+            break;
+        }
+        if (!sortie){
+            QMessageBox::critical(this,"Recherche Arrera",
+                                  "Une erreur s'est produite : impossible de faire la recherche.");
+        }
+    }else{
+        QMessageBox::critical(this,"Recherche Arrera",
+                              "Une erreur s'est produite : impossible de faire la recherche.");
+    }
+}
+
 void ArreraUI::on_IDC_SHOWHIST_clicked()
 {
     ui->I2025->setCurrentIndex(idPageRecherche);

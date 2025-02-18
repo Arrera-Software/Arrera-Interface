@@ -14,18 +14,18 @@ private :
 public:
     CArreraRecheche();
     ~CArreraRecheche();
-    void searchDuckduckgo(QString q);
-    void searchGoogle(QString q);
-    void searchQwant(QString q);
-    void searchEcosia(QString q);
-    void searchBrave(QString q);
-    void searchBing(QString q);
-    void searchAmazon(QString q);
-    void searchWikipedia(QString q);
-    void searchReverso(QString q);
-    void searchWordreference(QString q);
-    void searchYTmusic(QString q);
-    void searchAll(QString q);
+    bool searchDuckduckgo(QString q);
+    bool searchGoogle(QString q);
+    bool searchQwant(QString q);
+    bool searchEcosia(QString q);
+    bool searchBrave(QString q);
+    bool searchBing(QString q);
+    bool searchAmazon(QString q);
+    bool searchWikipedia(QString q);
+    bool searchReverso(QString q);
+    bool searchWordreference(QString q);
+    bool searchYTmusic(QString q);
+    bool searchAll(QString q);
 };
 
 #endif // CARRERARECHECHE_H
