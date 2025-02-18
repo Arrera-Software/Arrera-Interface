@@ -293,9 +293,24 @@ void ArreraUI::launchSearch(int mode){
 
 void ArreraUI::on_IDC_SHOWHIST_clicked()
 {
+    // Affichage de la page historique
     ui->I2025->setCurrentIndex(idPageRecherche);
     ui->LINDICATIONARRERA->setText("Historique de recherche");
     ui->arreraRecherche->setCurrentIndex(idPageRechercheHist);
+    // Clear de SHOWHISTORIQUEUSER
+    ui->SHOWHISTORIQUEUSER->clear();
+    // Ajout de l'historique dans le text edit
+    ui->SHOWHISTORIQUEUSER->setReadOnly(false);
+    QString historique = arecherche.read();
+    if (historique == "-1"){
+        QMessageBox::critical(this,"Historique Arrera recherche",
+                              "Impossible d'afficher l'historique de recherche");
+        ui->I2025->setCurrentIndex(idPageI2025Main);
+    }
+    else{
+        ui->SHOWHISTORIQUEUSER->appendPlainText(historique);
+    }
+    ui->SHOWHISTORIQUEUSER->setReadOnly(true);
 }
 
 
