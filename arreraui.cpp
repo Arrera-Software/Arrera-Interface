@@ -59,6 +59,8 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
     {
         ui->I2025->setCurrentIndex(idPageI2025Main);
         ui->LINDICATIONARRERA->setText("Arrera I2025");
+        ui->IDC_SHOWHIST->setVisible(true);
+        ui->IDC_AUTREMOTEUR->setVisible(true);
     }
     else
     {
@@ -293,6 +295,8 @@ void ArreraUI::launchSearch(int mode){
 
 void ArreraUI::on_IDC_SHOWHIST_clicked()
 {
+    ui->IDC_AUTREMOTEUR->setVisible(true);
+    ui->IDC_SHOWHIST->setVisible(false);
     // Affichage de la page historique
     ui->I2025->setCurrentIndex(idPageRecherche);
     ui->LINDICATIONARRERA->setText("Historique de recherche");
@@ -306,6 +310,7 @@ void ArreraUI::on_IDC_SHOWHIST_clicked()
         QMessageBox::critical(this,"Historique Arrera recherche",
                               "Impossible d'afficher l'historique de recherche");
         ui->I2025->setCurrentIndex(idPageI2025Main);
+        ui->IDC_SHOWHIST->setVisible(true);
     }
     else{
         ui->SHOWHISTORIQUEUSER->appendPlainText(historique);
@@ -319,6 +324,8 @@ void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
     ui->I2025->setCurrentIndex(idPageRecherche);
     ui->LINDICATIONARRERA->setText("Recherche Arrera");
     ui->arreraRecherche->setCurrentIndex(idPageRechercheMoteur);
+    ui->IDC_AUTREMOTEUR->setVisible(false);
+    ui->IDC_SHOWHIST->setVisible(true);
 }
 
 
