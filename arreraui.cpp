@@ -12,7 +12,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     QString tigerConf = "tiger.json";
     objSetting = new CAInterfaceSetting(confFile,tigerConf);
     // Ajout de l'objet de l'interface des parametre
-    uipara = new ArreraSettingUI(this,objSetting);
+    uipara = new ArreraSettingUI(this,objSetting,&arecherche);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);

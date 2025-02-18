@@ -2,7 +2,7 @@
 #include "ui_arrerasettingui.h"
 
 // Methode principal public
-ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
+ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArreraRecheche *ar)
     : QDialog(parent)
     , ui(new Ui::ArreraSettingUI)
 {
@@ -12,6 +12,8 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp)
     lieuSelected = 0;
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
+    // Mise en place de l'objet Arrera Recherche
+    objRecherche = ar;
     // Recuperation List des assistant
     QList listAssistant = objPara->getListAssistant();
     // Recuperation liste moteur
@@ -725,7 +727,17 @@ void ArreraSettingUI::on_IDC_VALIDERRECHERCHE_clicked()
 
 void ArreraSettingUI::on_IDC_SUPPRHIST_clicked()
 {
-
+    bool sortie = objRecherche->clear();
+    if(sortie){
+        QMessageBox::information(this,
+                                 "Historique Arrera Recherche",
+                                 "L'historique de recherche a été supprimé.");
+    }else{
+        QMessageBox::critical(this,
+                                 "Historique Arrera Recherche",
+                                 "Impossible de supprimer l'historique.");
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 // Partie Lieu

@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QListWidget>
 #include <QDir>
+#include "carrerarecheche.h"
 
 #define DIRICONMODELIEU ":/mode-lieu/img/"
 
@@ -18,7 +19,7 @@ class ArreraSettingUI : public QDialog
     Q_OBJECT
 
 public:
-    explicit ArreraSettingUI(QWidget *parent = nullptr,CAInterfaceSetting *obp = nullptr);
+    explicit ArreraSettingUI(QWidget *parent = nullptr,CAInterfaceSetting *obp = nullptr,CArreraRecheche *ar = nullptr);
     ~ArreraSettingUI();
     void show();
 
@@ -27,6 +28,8 @@ private:
     void closeEvent(QCloseEvent *event);
     // Atribut de l'objet CAInterfaceSetting
     CAInterfaceSetting *objPara;
+    // Atribut de l'objet CArreraRecherche
+    CArreraRecheche *objRecherche;
     // Id de mainstaked
     int idMainPage,idModePage,idGenerauxPage,idAssistantPage,idApplicationPage,idLieuPage,idRecherchePage;
     // id de modestaked
