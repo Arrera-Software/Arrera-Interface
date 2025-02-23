@@ -35,7 +35,7 @@ private:
     // id de modestaked
     int idMainModePage,idAddMode,idGestMode;
     // id appstacked
-    int idMainAppStaked, idAddAppStacked,idSupprAppStacked;
+    int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp;
     // id lieustacked
     int idMainLieu,idAddLieu,idManageLieu;
     // varriable qui permet de savoir quelle mode qui est selectionner
@@ -99,6 +99,11 @@ private slots:
     //Partie acceuil d'app
     void on_IDC_ADDAPPPC_clicked();
     void on_IDC_SUPPRAPPPC_clicked();
+    void on_IDC_CHANGEICON_clicked();
+
+    //Partie icon d'App
+    void on_IDC_CANCELCHANGEICON_clicked();
+    void on_IDC_CHANGEICONE_clicked();
 
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();

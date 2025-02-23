@@ -31,9 +31,10 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     idAddMode = ui->modestacked->indexOf(ui->addmode);
     idGestMode = ui->modestacked->indexOf(ui->gestMode);
     // id de appstacked
-    idMainAppStaked = ui->appstocked->indexOf(ui->mainpcapp);
-    idAddAppStacked = ui->appstocked->indexOf(ui->addpcapp);
-    idSupprAppStacked = ui->appstocked->indexOf(ui->supprpcapp);
+    idMainAppStaked = ui->appstacked->indexOf(ui->mainpcapp);
+    idAddAppStacked = ui->appstacked->indexOf(ui->addpcapp);
+    idSupprAppStacked = ui->appstacked->indexOf(ui->supprpcapp);
+    idIconChangeApp = ui->appstacked->indexOf(ui->iconchangedapp);
     // id lieustacked
     idMainLieu= ui->lieustacked->indexOf(ui->mainlieu);
     idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
@@ -75,6 +76,8 @@ void ArreraSettingUI::setAppComboBox(){
     ui->IDC_APP2GESTMODE->addItem("nothing");
     ui->IDC_APP3GESTMODE->addItem("nothing");
     ui->IDC_APP4GESTMODE->addItem("nothing");
+    // LISTAPPCHANGEICON
+    // LISTOPTIONAPPSUPPR
 }
 
 void ArreraSettingUI::show()
@@ -82,7 +85,7 @@ void ArreraSettingUI::show()
     QDialog::show();
     ui->mainstacked->setCurrentIndex(idMainPage);
     ui->modestacked->setCurrentIndex(idMainModePage);
-    ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
     ui->lieustacked->setCurrentIndex(idMainLieu);
     ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
 }
@@ -155,7 +158,7 @@ void ArreraSettingUI::on_IDC_MODE_clicked()
 {
     ui->mainstacked->setCurrentIndex(idModePage);
     ui->modestacked->setCurrentIndex(idMainModePage);
-    ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
     ui->lieustacked->setCurrentIndex(idMainLieu);
     ui->LINDICATIONSETTING->setText("Parametre des modes");
 }
@@ -672,34 +675,53 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 void ArreraSettingUI::on_IDC_CANCELAPPPC_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre des applications");
-    ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 //Partie suppr de l'app
 void ArreraSettingUI::on_IDC_CANCELSUPPRAPP_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre des applications");
-    ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 
 void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 {
-    ui->appstocked->setCurrentIndex(idMainAppStaked);
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 //Partie acceuil d'app
 void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Ajout d'une application");
-    ui->appstocked->setCurrentIndex(idAddAppStacked);
+    ui->LINDICATIONSETTING->setText("Ajouter une application");
+    ui->appstacked->setCurrentIndex(idAddAppStacked);
 }
 
 
 void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Supprimer d'une application");
-    ui->appstocked->setCurrentIndex(idSupprAppStacked);
+    ui->LINDICATIONSETTING->setText("Supprimer une application");
+    ui->appstacked->setCurrentIndex(idSupprAppStacked);
+}
+
+void ArreraSettingUI::on_IDC_CHANGEICON_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Changer l'icône des applications");
+    ui->appstacked->setCurrentIndex(idIconChangeApp);
+}
+
+// Partie changement icon APP
+
+void ArreraSettingUI::on_IDC_CANCELCHANGEICON_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
+{
+
 }
 
 void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
