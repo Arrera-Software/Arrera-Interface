@@ -2,10 +2,13 @@
 #define CAINTERFACESETTING_H
 
 #include <QString>
+#include <iostream>
 #include "cjsonword.h"
 #include "csetting.h"
 #include "camode.h"
 #include "calieu.h"
+
+using namespace std;
 
 class CAInterfaceSetting {
 
@@ -82,6 +85,7 @@ public:
 
     // Setteurs
     bool setNameUser(QString& user);
+
     bool setNameMode1(QString& name);
     bool setNameMode2(QString& name);
     bool setNameMode3(QString& name);
@@ -122,7 +126,7 @@ public:
     bool setIconMode5(QString icon);
     bool setIconMode6(QString icon);
 
-    bool setApplication(int nb,QString nameApp,QString emplacement);
+    bool setApplication(int nb,QString nameApp,QString emplacement,QString icon);
     bool setAppTableur(QString emplacement);
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);

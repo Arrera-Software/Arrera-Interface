@@ -3,6 +3,8 @@
 CAInterfaceSetting::CAInterfaceSetting() {}
 
 CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
+    // Var
+    int i ;
     fileINI = new CSetting(inifile);
     fileTiger = new CJSONWORD(jsonfile);
     // Instentation des mode
@@ -18,6 +20,11 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
     if(fileINI->getFileCreated()){
         fileINI->setValeur("arrera-recherche","moteur","nothing");
         fileINI->setValeur("interface","user","nothing");
+        for (i = 1 ; i <= 21 ; i++){
+            fileINI->setValeur("app"+QString::number(i),"name","nothing");
+            fileINI->setValeur("app"+QString::number(i),"exe","nothing");
+            fileINI->setValeur("app"+QString::number(i),"icon","nothing");
+        }
     }
 }
 
@@ -325,7 +332,24 @@ bool CAInterfaceSetting::setIconMode6(QString icon){
     return mode6.setIcon(icon);
 }
 
-bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplacement){}
+bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplacement,QString icon){
+    if (nameApp.isEmpty() or emplacement.isEmpty()){
+        return false;
+    }else{
+        if(clamp(nb, 1, 21) == nb){
+
+            fileINI->setValeur("app"+QString::number(nb),"name",nameApp);
+            fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
+
+            if (!icon.isEmpty()){
+                fileINI->setValeur("app"+QString::number(nb),"icon","nothing");
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
 bool CAInterfaceSetting::setAppTableur(QString emplacement){}
 bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){}
