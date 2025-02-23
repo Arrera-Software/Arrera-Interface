@@ -671,6 +671,10 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 
 }
 
+void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
+{
+
+}
 
 void ArreraSettingUI::on_IDC_CANCELAPPPC_clicked()
 {
@@ -720,11 +724,6 @@ void ArreraSettingUI::on_IDC_CANCELCHANGEICON_clicked()
 
 
 void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
-{
-
-}
-
-void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
 {
 
 }
