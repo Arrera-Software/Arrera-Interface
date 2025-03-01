@@ -1114,7 +1114,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="appstacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="mainpcapp">
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1215,6 +1215,41 @@ l'icon</string>
               </widget>
              </item>
              <item>
+              <spacer name="horizontalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="IDC_MODIFEMPLACMENTAPPPC">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>110</width>
+                 <height>110</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Modifier
+l'emplacement
+d'une
+application</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <spacer name="horizontalSpacer_8">
                <property name="orientation">
                 <enum>Qt::Orientation::Horizontal</enum>
@@ -1286,7 +1321,7 @@ l'icon</string>
               </font>
              </property>
              <property name="text">
-              <string>Changement d'icone</string>
+              <string>Changement d'icône.</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1311,7 +1346,7 @@ l'icon</string>
              <item>
               <widget class="QLabel" name="LINCSELECTIONNEAPP">
                <property name="text">
-                <string>Sélectionner l'application : </string>
+                <string>Sélectionner l'application :</string>
                </property>
               </widget>
              </item>
@@ -1372,7 +1407,7 @@ l'icon</string>
             <widget class="QLabel" name="LINDICATIONAPPADDPC">
              <property name="font">
               <font>
-               <pointsize>14</pointsize>
+               <pointsize>20</pointsize>
                <bold>true</bold>
               </font>
              </property>
@@ -1383,22 +1418,6 @@ l'icon</string>
               <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_18">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="IDC_LINENAMEAPPLICATINPC"/>
            </item>
            <item>
             <spacer name="verticalSpacer_16">
@@ -1414,83 +1433,28 @@ l'icon</string>
             </spacer>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <layout class="QHBoxLayout" name="horizontalLayout_23">
              <item>
-              <spacer name="horizontalSpacer_14">
-               <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="IDC_SETAPPPC">
-               <property name="minimumSize">
-                <size>
-                 <width>90</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>90</width>
-                 <height>90</height>
-                </size>
+              <widget class="QLabel" name="LINCNAMEAPP">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                 <bold>true</bold>
+                </font>
                </property>
                <property name="text">
-                <string>Emplacemnt</string>
+                <string>Nom de l'application :</string>
                </property>
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_12">
-               <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="IDC_ICONAPPPC">
-               <property name="minimumSize">
-                <size>
-                 <width>90</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>90</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>icon</string>
+              <widget class="QLineEdit" name="IDC_LINENAMEAPPLICATINPC">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
                </property>
               </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_15">
-               <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
              </item>
             </layout>
            </item>
@@ -1508,11 +1472,216 @@ l'icon</string>
             </spacer>
            </item>
            <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="LINCEMPLACEMENTAPP">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Emplacement de l'application :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="IDC_SETAPPPC">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Choisir l'application</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_18">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_8">
              <item>
-              <widget class="QPushButton" name="IDC_VALIDERAPPPC">
+              <widget class="QLabel" name="LINCICONAPP">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
-                <string>Valider</string>
+                <string>Icon de l'application : </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="IDC_ICONAPPPC">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>icon</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_45">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="IDC_VALIDERAPPPC">
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Valider</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_44">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="IDC_CANCELAPPPC">
+             <property name="font">
+              <font>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Annuler</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="changeemplacement">
+          <layout class="QVBoxLayout" name="verticalLayout_20">
+           <item>
+            <widget class="QLabel" name="LTITLEEMPLACEMENTAPP">
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Modifier l'emplacement</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_47">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_24">
+             <item>
+              <widget class="QLabel" name="LINCAPPEMPLACEMENT">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Application  :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="LISTAPPCHANGEEMPLACEMENT"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_46">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_25">
+             <item>
+              <widget class="QPushButton" name="IDC_CANCELEMPLACEMENTAPP">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Annuler</string>
                </property>
               </widget>
              </item>
@@ -1530,18 +1699,20 @@ l'icon</string>
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="IDC_CANCELAPPPC">
+              <widget class="QPushButton" name="IDC_VALIDERCHANGEEMPLACEMENTAPP">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
                <property name="text">
-                <string>Annuler</string>
+                <string>Changer l'emplacement</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
           </layout>
-         </widget>
-         <widget class="QWidget" name="chooseapp">
-          <layout class="QVBoxLayout" name="verticalLayout_20"/>
          </widget>
          <widget class="QWidget" name="supprpcapp">
           <layout class="QVBoxLayout" name="verticalLayout_10">

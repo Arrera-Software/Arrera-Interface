@@ -7,6 +7,7 @@
 #include <QListWidget>
 #include <QDir>
 #include "carrerarecheche.h"
+#include <QFileDialog>
 
 #define DIRICONMODELIEU ":/mode-lieu/img/"
 
@@ -19,7 +20,7 @@ class ArreraSettingUI : public QDialog
     Q_OBJECT
 
 public:
-    explicit ArreraSettingUI(QWidget *parent = nullptr,CAInterfaceSetting *obp = nullptr,CArreraRecheche *ar = nullptr);
+    explicit ArreraSettingUI(QWidget *parent = nullptr,CAInterfaceSetting *obp = nullptr,CArreraRecheche *ar = nullptr,CDetectionOS *pos = nullptr);
     ~ArreraSettingUI();
     void show();
 
@@ -28,6 +29,8 @@ private:
     void closeEvent(QCloseEvent *event);
     // Atribut de l'objet CAInterfaceSetting
     CAInterfaceSetting *objPara;
+    // Atribut de l'objet pour savoir l'os
+    CDetectionOS *dectOS;
     // Atribut de l'objet CArreraRecherche
     CArreraRecheche *objRecherche;
     // Id de mainstaked
@@ -35,7 +38,7 @@ private:
     // id de modestaked
     int idMainModePage,idAddMode,idGestMode;
     // id appstacked
-    int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp;
+    int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp,idEmplacementAppStacked;
     // id lieustacked
     int idMainLieu,idAddLieu,idManageLieu;
     // varriable qui permet de savoir quelle mode qui est selectionner
@@ -46,6 +49,8 @@ private:
     void setAppComboBox();
     // Methode pour choisir un icon pour les bouton Mode et lieu
     QString chooseIcon();
+    // Attribut pour gerer les app
+    QString appEmplacement,appIcon;
 signals:
     void parametresFerme();
 private slots:
@@ -100,10 +105,14 @@ private slots:
     void on_IDC_ADDAPPPC_clicked();
     void on_IDC_SUPPRAPPPC_clicked();
     void on_IDC_CHANGEICON_clicked();
+    void on_IDC_MODIFEMPLACMENTAPPPC_clicked();
 
     //Partie icon d'App
     void on_IDC_CANCELCHANGEICON_clicked();
     void on_IDC_CHANGEICONE_clicked();
+    // Partie changement emplacement app
+    void on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked();
+    void on_IDC_CANCELEMPLACEMENTAPP_clicked();
 
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();

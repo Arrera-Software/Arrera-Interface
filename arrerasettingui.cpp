@@ -2,7 +2,7 @@
 #include "ui_arrerasettingui.h"
 
 // Methode principal public
-ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArreraRecheche *ar)
+ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArreraRecheche *ar,CDetectionOS *pos)
     : QDialog(parent)
     , ui(new Ui::ArreraSettingUI)
 {
@@ -12,6 +12,8 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     lieuSelected = 0;
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
+    // Mise en place de l'objet dectetion os
+    dectOS = pos;
     // Mise en place de l'objet Arrera Recherche
     objRecherche = ar;
     // Recuperation List des assistant
@@ -35,6 +37,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     idAddAppStacked = ui->appstacked->indexOf(ui->addpcapp);
     idSupprAppStacked = ui->appstacked->indexOf(ui->supprpcapp);
     idIconChangeApp = ui->appstacked->indexOf(ui->iconchangedapp);
+    idEmplacementAppStacked = ui->appstacked->indexOf(ui->changeemplacement);
     // id lieustacked
     idMainLieu= ui->lieustacked->indexOf(ui->mainlieu);
     idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
@@ -662,17 +665,81 @@ void ArreraSettingUI::on_IDC_VALIDERNAMEUSER_clicked()
 //Partie ajout de l'app
 void ArreraSettingUI::on_IDC_ICONAPPPC_clicked()
 {
+    QString imageFilter = "Images ("
+                          "*.bmp *.gif *.jpg *.jpeg *.jpe *.jfif *.png "
+                          "*.tif *.tiff *.webp *.svg *.svgz "
+                          "*.ico *.icns *.ppm *.pgm *.pbm *.xpm *.xbm)";
+    appIcon = QFileDialog::getOpenFileName(
+        this,                       // Parent widget
+        "Sélectionner l'application",  // Titre de la boîte de dialogue
+        QDir::homePath(),       // Répertoire initial
+        imageFilter);
 
+    if (!appIcon.isEmpty()){
+        ui->IDC_ICONAPPPC->setStyleSheet("background-color: #4CAF50;color: white;");
+    }
 }
 
 
 void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 {
+    int nbApp;
+    bool sortie;
+    QString nameApp = ui->IDC_LINENAMEAPPLICATINPC->text();
+    ui->IDC_LINENAMEAPPLICATINPC->clear();
+    if (!nameApp.isEmpty() && !appEmplacement.isEmpty()){
+        nbApp = objPara->getNBAppNoSetted();
+        if (appIcon.isEmpty()){
+            sortie = objPara->setApplication(nbApp,nameApp,appEmplacement,"");
+        }else{
+            sortie =objPara->setApplication(nbApp,nameApp,appEmplacement,appIcon);
+        }
+
+        if (sortie){
+            QMessageBox::information(this,"Enregistrement application",
+                                     "L'application a bien été enregistrée.");
+        }else{
+            QMessageBox::critical(this,"Enregistrement application",
+                                  "Impossible d'enregistrer l'application");
+        }
+    }
+    else{
+        QMessageBox::critical(this,"Enregistrement application",
+                              "Il manque une information pour enregistrer l'application.");
+    }
+
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 
 }
 
 void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
 {
+    if (dectOS->getosLinux() == true){
+        QString appDirectory ;
+        int rMessage = QMessageBox::question(this,"Emplacement application",
+        "L'application est-elle dans le /bin ou dans votre /home ?",
+        QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+        if (rMessage == QMessageBox::Yes){
+            // Dossier /bin
+            appDirectory = "/bin";
+        }else{
+            // Dossier /home
+            appDirectory = QDir::homePath();
+        }
+        appEmplacement = QFileDialog::getOpenFileName(
+            this,                       // Parent widget
+            "Sélectionner l'application",  // Titre de la boîte de dialogue
+            appDirectory           // Répertoire initial
+            );
+    }
+
+    // Teste si l'application a etais choisie
+    if (appEmplacement != ""){
+        ui->IDC_VALIDERAPPPC->setVisible(true);
+        ui->IDC_SETAPPPC->setStyleSheet("background-color: #4CAF50;color: white;");
+    }
+
 
 }
 
@@ -698,8 +765,16 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 //Partie acceuil d'app
 void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Ajouter une application");
-    ui->appstacked->setCurrentIndex(idAddAppStacked);
+    if (objPara->getNBAppNoSetted() !=0){
+        ui->LINDICATIONSETTING->setText("Ajouter une application");
+        ui->appstacked->setCurrentIndex(idAddAppStacked);
+        ui->IDC_VALIDERAPPPC->setVisible(false);
+        ui->IDC_LINENAMEAPPLICATINPC->clear();
+        appEmplacement = "";
+        appIcon = "";
+        ui->IDC_ICONAPPPC->setStyleSheet("");
+        ui->IDC_SETAPPPC->setStyleSheet("");
+    }
 }
 
 
@@ -715,11 +790,18 @@ void ArreraSettingUI::on_IDC_CHANGEICON_clicked()
     ui->appstacked->setCurrentIndex(idIconChangeApp);
 }
 
+void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Changer l'emplacement des applications");
+    ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
+}
+
 // Partie changement icon APP
 
 void ArreraSettingUI::on_IDC_CANCELCHANGEICON_clicked()
 {
-
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 
@@ -727,6 +809,19 @@ void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
 {
 
 }
+
+// Partie changement emplacement app
+void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
+{
+
+}
+
+void ArreraSettingUI::on_IDC_CANCELEMPLACEMENTAPP_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
+}
+
 
 // Partie Recherche
 

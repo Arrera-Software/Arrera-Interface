@@ -72,6 +72,7 @@ private:
     CAInterfaceSetting *objSetting;
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
+    CDetectionOS dectOS;
     // Methode private
     void loadSetting();
     // Methode de recherche

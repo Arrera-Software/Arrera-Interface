@@ -7,12 +7,12 @@ ArreraUI::ArreraUI(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
-    // Objet
+    // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
     QString tigerConf = "tiger.json";
     objSetting = new CAInterfaceSetting(confFile,tigerConf);
     // Ajout de l'objet de l'interface des parametre
-    uipara = new ArreraSettingUI(this,objSetting,&arecherche);
+    uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
