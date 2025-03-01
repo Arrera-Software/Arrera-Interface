@@ -7,6 +7,7 @@
 #include "csetting.h"
 #include "camode.h"
 #include "calieu.h"
+#include "cdetectionos.h"
 
 using namespace std;
 
@@ -69,7 +70,8 @@ public:
     QString getIconLieu1();
     QString getIconLieu2();
 
-    QString getApplication(int nb);
+    int getNBAppNoSetted();
+    QString getApplication(int nb,QString *name,QString *exe);
     QString getAppTableur();
     QString getAppTraitementTexte();
     QString getAppPresentation();

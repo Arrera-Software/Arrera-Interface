@@ -130,7 +130,18 @@ QString CAInterfaceSetting::getIconLieu2(){
 
 // Getteur application
 
-QString CAInterfaceSetting::getApplication(int nb){}
+int CAInterfaceSetting::getNBAppNoSetted(){
+    for (int i = 1 ; i <= 21 ; i++){
+        if(fileINI->getValeur("app"+QString::number(i),"name")=="nothing"){
+            return i;
+        }
+    }
+    return 0;
+}
+
+QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
+
+}
 QString CAInterfaceSetting::getAppTableur(){}
 QString CAInterfaceSetting::getAppTraitementTexte(){}
 QString CAInterfaceSetting::getAppPresentation(){}
@@ -342,7 +353,7 @@ bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplaceme
             fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
 
             if (!icon.isEmpty()){
-                fileINI->setValeur("app"+QString::number(nb),"icon","nothing");
+                fileINI->setValeur("app"+QString::number(nb),"icon",icon);
             }
             return true;
         }else{
