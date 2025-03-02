@@ -590,6 +590,7 @@ void ArreraSettingUI::on_IDC_ASSISTANTMAJGESTMODE_clicked()
         sortie = objPara->setAssistantMode6(assistant);
         break;
     default:
+        sortie = false;
         break;
     }
 
@@ -747,9 +748,11 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 
 void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
 {
+    int rMessage;
+    QString appDirectory ;
+    // Partie linux
     if (dectOS->getosLinux() == true){
-        QString appDirectory ;
-        int rMessage = QMessageBox::question(this,"Emplacement application",
+        rMessage = QMessageBox::question(this,"Emplacement application",
         "L'application est-elle dans le /bin ou dans votre /home ?",
         QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
 
@@ -765,6 +768,25 @@ void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
             "Sélectionner l'application",  // Titre de la boîte de dialogue
             appDirectory           // Répertoire initial
             );
+    }else{
+        if(dectOS->getosWin()==true){
+            rMessage = QMessageBox::question(this,"Emplacement application",
+                                                 "Le raccourci se trouve dans le menu Démarrer global ?",
+                                                 QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+            if (rMessage == QMessageBox::Yes){
+                // Dossier programme data
+                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
+            }else{
+                // Menu demarer dans le dossier utilisateur
+                appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+            }
+            appEmplacement = QFileDialog::getOpenFileName(
+                this,                       // Parent widget
+                "Sélectionner l'application",  // Titre de la boîte de dialogue
+                appDirectory           // Répertoire initial
+                );
+        }
     }
 
     // Teste si l'application a etais choisie
@@ -916,6 +938,8 @@ void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
 void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
 {
     bool sortie;
+    int rMessage;
+    QString appDirectory ;
 
     QString nameApp = ui->LISTAPPCHANGEEMPLACEMENT->currentText();
     int nbApp = objPara->getNbAppWithName(nameApp);
@@ -923,8 +947,8 @@ void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
     QString newEmplacement ;
 
     if (dectOS->getosLinux() == true){
-        QString appDirectory ;
-        int rMessage = QMessageBox::question(this,"Emplacement application",
+
+        rMessage = QMessageBox::question(this,"Emplacement application",
                                              "L'application est-elle dans le /bin ou dans votre /home ?",
                                              QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
 
@@ -940,6 +964,25 @@ void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
             "Sélectionner l'application",  // Titre de la boîte de dialogue
             appDirectory           // Répertoire initial
             );
+    }else{
+        if(dectOS->getosWin()==true){
+            rMessage = QMessageBox::question(this,"Emplacement application",
+                                             "Le raccourci se trouve dans le menu Démarrer global ?",
+                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+            if (rMessage == QMessageBox::Yes){
+                // Dossier programme data
+                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
+            }else{
+                // Menu demarer dans le dossier utilisateur
+                appDirectory = appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+            }
+            newEmplacement = QFileDialog::getOpenFileName(
+                this,                       // Parent widget
+                "Sélectionner l'application",  // Titre de la boîte de dialogue
+                appDirectory           // Répertoire initial
+                );
+        }
     }
 
     // Teste si l'application a etais choisie

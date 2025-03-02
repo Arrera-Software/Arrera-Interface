@@ -8,6 +8,7 @@
 #include <QDir>
 #include "carrerarecheche.h"
 #include <QFileDialog>
+#include <QStandardPaths>
 
 #define DIRICONMODELIEU ":/mode-lieu/img/"
 
