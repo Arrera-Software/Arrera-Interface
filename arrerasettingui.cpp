@@ -71,16 +71,33 @@ void ArreraSettingUI::closeEvent(QCloseEvent *event)
 }
 
 void ArreraSettingUI::setAppComboBox(){
-    ui->IDC_APP1MODE->addItem("nothing");
-    ui->IDC_APP2MODE->addItem("nothing");
-    ui->IDC_APP3MODE->addItem("nothing");
-    ui->IDC_APP4MODE->addItem("nothing");
-    ui->IDC_APP1GESTMODE->addItem("nothing");
-    ui->IDC_APP2GESTMODE->addItem("nothing");
-    ui->IDC_APP3GESTMODE->addItem("nothing");
-    ui->IDC_APP4GESTMODE->addItem("nothing");
-    // LISTAPPCHANGEICON
-    // LISTOPTIONAPPSUPPR
+
+    QList <QString> listApp = objPara->getListNameAppSetted();
+    if (listApp.isEmpty()){
+        ui->IDC_APP1MODE->addItem("nothing");
+        ui->IDC_APP2MODE->addItem("nothing");
+        ui->IDC_APP3MODE->addItem("nothing");
+        ui->IDC_APP4MODE->addItem("nothing");
+        ui->IDC_APP1GESTMODE->addItem("nothing");
+        ui->IDC_APP2GESTMODE->addItem("nothing");
+        ui->IDC_APP3GESTMODE->addItem("nothing");
+        ui->IDC_APP4GESTMODE->addItem("nothing");
+        ui->LISTAPPCHANGEICON->addItem("nothing");
+        ui->LISTOPTIONAPPSUPPR->addItem("nothing");
+        ui->LISTAPPCHANGEEMPLACEMENT->addItem("nothing");
+    }else{
+        ui->IDC_APP1MODE->addItems(listApp);
+        ui->IDC_APP2MODE->addItems(listApp);
+        ui->IDC_APP3MODE->addItems(listApp);
+        ui->IDC_APP4MODE->addItems(listApp);
+        ui->IDC_APP1GESTMODE->addItems(listApp);
+        ui->IDC_APP2GESTMODE->addItems(listApp);
+        ui->IDC_APP3GESTMODE->addItems(listApp);
+        ui->IDC_APP4GESTMODE->addItems(listApp);
+        ui->LISTAPPCHANGEICON->addItems(listApp);
+        ui->LISTOPTIONAPPSUPPR->addItems(listApp);
+        ui->LISTAPPCHANGEEMPLACEMENT->addItems(listApp);
+    }
 }
 
 void ArreraSettingUI::show()

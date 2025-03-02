@@ -159,7 +159,14 @@ bool CAInterfaceSetting::getAppSetted(int nbApp){
 }
 
 QList <QString> CAInterfaceSetting::getListNameAppSetted(){
-
+    QList <QString> listOut;
+    listOut = QList<QString>();
+    for (int i = 1;i<=21;i++){
+        if (getAppSetted(i)){
+            listOut.append(fileINI->getValeur("app"+QString::number(i),"name"));
+        }
+    }
+    return listOut;
 }
 
 QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
