@@ -862,7 +862,38 @@ void ArreraSettingUI::on_IDC_CANCELCHANGEICON_clicked()
 
 void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
 {
+    bool sortie;
 
+    QString nameApp = ui->LISTAPPCHANGEICON->currentText();
+    int nbApp = objPara->getNbAppWithName(nameApp);
+
+    QString imageFilter = "Images ("
+                          "*.bmp *.gif *.jpg *.jpeg *.jpe *.jfif *.png "
+                          "*.tif *.tiff *.webp *.svg *.svgz "
+                          "*.ico *.icns *.ppm *.pgm *.pbm *.xpm *.xbm)";
+    QString newIcon = QFileDialog::getOpenFileName(
+        this,                       // Parent widget
+        "Sélectionner l'application",  // Titre de la boîte de dialogue
+        QDir::homePath(),       // Répertoire initial
+        imageFilter);
+
+    if (!newIcon.isEmpty()){
+        sortie = objPara->setNewIconApplication(nbApp,newIcon);
+
+        if (sortie){
+            QMessageBox::information(this,"Icon application",
+                                     "L'icône a bien été changée.");
+        }
+        else{
+            QMessageBox::critical(this,"Icon application",
+                                  "Impossible de changer l'icône.");
+        }
+
+    }
+    else{
+        QMessageBox::critical(this,"Icon application",
+                              "Aucune icône sélectionnée.");
+    }
 }
 
 // Partie changement emplacement app
