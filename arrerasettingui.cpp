@@ -763,7 +763,7 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 //Partie acceuil d'app
 void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
 {
-    if (objPara->getFirstUnsetNumber() !=0){
+    if (objPara->getnbAppSetted() < 21){
         ui->LINDICATIONSETTING->setText("Ajouter une application");
         ui->appstacked->setCurrentIndex(idAddAppStacked);
         ui->IDC_VALIDERAPPPC->setVisible(false);
@@ -772,26 +772,48 @@ void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
         appIcon = "";
         ui->IDC_ICONAPPPC->setStyleSheet("");
         ui->IDC_SETAPPPC->setStyleSheet("");
+    }else{
+        QMessageBox::critical(this,
+                              "Gestion application",
+                              "Vous n'avez plus d'emplacement pour enregistrer une application.");
     }
 }
 
 
 void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Supprimer une application");
-    ui->appstacked->setCurrentIndex(idSupprAppStacked);
+    if (objPara->getnbAppSetted() == 0){
+        QMessageBox::critical(this,
+            "Gestion application",
+            "Il n'y a aucune application pour enregistrer");
+    }else{
+        ui->LINDICATIONSETTING->setText("Supprimer une application");
+        ui->appstacked->setCurrentIndex(idSupprAppStacked);
+    }
 }
 
 void ArreraSettingUI::on_IDC_CHANGEICON_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Changer l'icône des applications");
-    ui->appstacked->setCurrentIndex(idIconChangeApp);
+    if (objPara->getnbAppSetted() == 0){
+        QMessageBox::critical(this,
+                              "Gestion application",
+                              "Il n'y a aucune application pour enregistrer");
+    }else{
+        ui->LINDICATIONSETTING->setText("Changer l'icône des applications");
+        ui->appstacked->setCurrentIndex(idIconChangeApp);
+    }
 }
 
 void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
 {
-    ui->LINDICATIONSETTING->setText("Changer l'emplacement des applications");
-    ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
+    if (objPara->getnbAppSetted() == 0){
+        QMessageBox::critical(this,
+                              "Gestion application",
+                              "Il n'y a aucune application pour enregistrer");
+    }else{
+        ui->LINDICATIONSETTING->setText("Changer l'emplacement des applications");
+        ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
+    }
 }
 
 // Partie changement icon APP
