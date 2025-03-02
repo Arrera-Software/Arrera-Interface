@@ -73,6 +73,17 @@ void ArreraSettingUI::closeEvent(QCloseEvent *event)
 void ArreraSettingUI::setAppComboBox(){
 
     QList <QString> listApp = objPara->getListNameAppSetted();
+    ui->IDC_APP1MODE->clear();
+    ui->IDC_APP2MODE->clear();
+    ui->IDC_APP3MODE->clear();
+    ui->IDC_APP4MODE->clear();
+    ui->IDC_APP1GESTMODE->clear();
+    ui->IDC_APP2GESTMODE->clear();
+    ui->IDC_APP3GESTMODE->clear();
+    ui->IDC_APP4GESTMODE->clear();
+    ui->LISTAPPCHANGEICON->clear();
+    ui->LISTOPTIONAPPSUPPR->clear();
+    ui->LISTAPPCHANGEEMPLACEMENT->clear();
     if (listApp.isEmpty()){
         ui->IDC_APP1MODE->addItem("nothing");
         ui->IDC_APP2MODE->addItem("nothing");
@@ -809,6 +820,7 @@ void ArreraSettingUI::on_IDC_SUPPRAPPPC_clicked()
             "Gestion application",
             "Il n'y a aucune application pour enregistrer");
     }else{
+        setAppComboBox();
         ui->LINDICATIONSETTING->setText("Supprimer une application");
         ui->appstacked->setCurrentIndex(idSupprAppStacked);
     }
@@ -821,6 +833,7 @@ void ArreraSettingUI::on_IDC_CHANGEICON_clicked()
                               "Gestion application",
                               "Il n'y a aucune application pour enregistrer");
     }else{
+        setAppComboBox();
         ui->LINDICATIONSETTING->setText("Changer l'icône des applications");
         ui->appstacked->setCurrentIndex(idIconChangeApp);
     }
