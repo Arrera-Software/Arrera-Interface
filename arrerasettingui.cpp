@@ -702,29 +702,34 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 {
     int nbApp;
     bool sortie;
-    QString nameApp = ui->IDC_LINENAMEAPPLICATINPC->text();
+    QString nameApp = ui->IDC_LINENAMEAPPLICATINPC->text().toLower();
     ui->IDC_LINENAMEAPPLICATINPC->clear();
-    if (!nameApp.isEmpty() && !appEmplacement.isEmpty()){
-        nbApp = objPara->getFirstUnsetNumber();
-        if (appIcon.isEmpty()){
-            sortie = objPara->setApplication(nbApp,nameApp,appEmplacement,"");
-        }else{
-            sortie =objPara->setApplication(nbApp,nameApp,appEmplacement,appIcon);
-        }
+    if (objPara->checkNameAppIsAvailable(nameApp)){
+        if (!nameApp.isEmpty() && !appEmplacement.isEmpty()){
+            nbApp = objPara->getFirstUnsetNumber();
+            if (appIcon.isEmpty()){
+                sortie = objPara->setApplication(nbApp,nameApp,appEmplacement,"");
+            }else{
+                sortie =objPara->setApplication(nbApp,nameApp,appEmplacement,appIcon);
+            }
 
-        if (sortie){
-            QMessageBox::information(this,"Enregistrement application",
-                                     "L'application a bien été enregistrée.");
-        }else{
+            if (sortie){
+                QMessageBox::information(this,"Enregistrement application",
+                                         "L'application a bien été enregistrée.");
+            }else{
+                QMessageBox::critical(this,"Enregistrement application",
+                                      "Impossible d'enregistrer l'application");
+            }
+        }
+        else{
             QMessageBox::critical(this,"Enregistrement application",
-                                  "Impossible d'enregistrer l'application");
+                                  "Il manque une information pour enregistrer l'application.");
         }
     }
     else{
         QMessageBox::critical(this,"Enregistrement application",
-                              "Il manque une information pour enregistrer l'application.");
+                             "Il est impossible d'avoir deux applications qui ont le même nom.");
     }
-
     ui->appstacked->setCurrentIndex(idMainAppStaked);
 
 }

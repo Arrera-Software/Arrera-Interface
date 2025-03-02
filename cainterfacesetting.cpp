@@ -169,6 +169,15 @@ QList <QString> CAInterfaceSetting::getListNameAppSetted(){
     return listOut;
 }
 
+bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
+    for (int i = 1;i<=21;i++){
+        if (fileINI->getValeur("app"+QString::number(i),"name")==name){
+            return false;
+        }
+    }
+    return true;
+}
+
 QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
 
 }
