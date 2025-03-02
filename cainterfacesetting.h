@@ -75,6 +75,7 @@ public:
     bool getAppSetted(int nbApp);
     QList <QString> getListNameAppSetted();
     bool checkNameAppIsAvailable(QString name);
+    int getNbAppWithName(QString name);
     QString getApplication(int nb,QString *name,QString *exe);
     QString getAppTableur();
     QString getAppTraitementTexte();
@@ -133,6 +134,8 @@ public:
     bool setIconMode6(QString icon);
 
     bool setApplication(int nb,QString nameApp,QString emplacement,QString icon);
+    bool setNewExeApplication(int nb,QString emplacement);
+    bool setNewIconApplication(int nb,QString icon);
     bool setAppTableur(QString emplacement);
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);

@@ -178,6 +178,15 @@ bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
     return true;
 }
 
+int CAInterfaceSetting::getNbAppWithName(QString name){
+    for (int i = 1;i<=21;i++){
+        if (fileINI->getValeur("app"+QString::number(i),"name")==name){
+            return i;
+        }
+    }
+    return -1;
+}
+
 QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
 
 }
@@ -400,6 +409,15 @@ bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplaceme
         }
     }
 }
+
+bool CAInterfaceSetting::setNewExeApplication(int nb,QString emplacement){
+    return fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
+}
+
+bool CAInterfaceSetting::setNewIconApplication(int nb,QString icon){
+    return fileINI->setValeur("app"+QString::number(nb),"icon",icon);
+}
+
 bool CAInterfaceSetting::setAppTableur(QString emplacement){}
 bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){}
