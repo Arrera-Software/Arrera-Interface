@@ -418,6 +418,19 @@ bool CAInterfaceSetting::setNewIconApplication(int nb,QString icon){
     return fileINI->setValeur("app"+QString::number(nb),"icon",icon);
 }
 
+bool CAInterfaceSetting::setSupprApplication(int nb){
+    if (fileINI->setValeur("app"+QString::number(nb),"name","nothing")){
+        if (fileINI->setValeur("app"+QString::number(nb),"exe","nothing")){
+            return fileINI->setValeur("app"+QString::number(nb),"icon","nothing");
+        }
+        else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
 bool CAInterfaceSetting::setAppTableur(QString emplacement){}
 bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){}

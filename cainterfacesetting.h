@@ -136,6 +136,7 @@ public:
     bool setApplication(int nb,QString nameApp,QString emplacement,QString icon);
     bool setNewExeApplication(int nb,QString emplacement);
     bool setNewIconApplication(int nb,QString icon);
+    bool setSupprApplication(int nb);
     bool setAppTableur(QString emplacement);
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);
