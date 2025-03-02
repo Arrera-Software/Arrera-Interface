@@ -790,7 +790,16 @@ void ArreraSettingUI::on_IDC_CANCELSUPPRAPP_clicked()
 
 void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 {
-    ui->appstacked->setCurrentIndex(idMainAppStaked);
+    QString nameApp = ui->LISTOPTIONAPPSUPPR->currentText();
+    int nbApp = objPara->getNbAppWithName(nameApp);
+
+    if (objPara->setSupprApplication(nbApp)){
+        QMessageBox::information(this,"Suppression d'une application",
+                              "L'application a bien été supprimée.");
+    }else{
+        QMessageBox::critical(this,"Suppression d'une application",
+                              "Impossible de supprimer l'application.");
+    }
 }
 
 //Partie acceuil d'app
@@ -846,6 +855,7 @@ void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
                               "Gestion application",
                               "Il n'y a aucune application pour enregistrer");
     }else{
+        setAppComboBox();
         ui->LINDICATIONSETTING->setText("Changer l'emplacement des applications");
         ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
     }
@@ -894,12 +904,58 @@ void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
         QMessageBox::critical(this,"Icon application",
                               "Aucune icône sélectionnée.");
     }
+
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 // Partie changement emplacement app
 void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
 {
+    bool sortie;
 
+    QString nameApp = ui->LISTAPPCHANGEEMPLACEMENT->currentText();
+    int nbApp = objPara->getNbAppWithName(nameApp);
+
+    QString newEmplacement ;
+
+    if (dectOS->getosLinux() == true){
+        QString appDirectory ;
+        int rMessage = QMessageBox::question(this,"Emplacement application",
+                                             "L'application est-elle dans le /bin ou dans votre /home ?",
+                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+        if (rMessage == QMessageBox::Yes){
+            // Dossier /bin
+            appDirectory = "/bin";
+        }else{
+            // Dossier /home
+            appDirectory = QDir::homePath();
+        }
+        newEmplacement = QFileDialog::getOpenFileName(
+            this,                       // Parent widget
+            "Sélectionner l'application",  // Titre de la boîte de dialogue
+            appDirectory           // Répertoire initial
+            );
+    }
+
+    // Teste si l'application a etais choisie
+    if (newEmplacement != ""){
+        sortie = objPara->setNewExeApplication(nbApp,newEmplacement);
+        if (sortie){
+            QMessageBox::information(this,"Nouveau emplacement",
+                                     "Le nouvel emplacement de l'application a été enregistré.");
+        }else{
+            QMessageBox::critical(this,"Nouveau emplacement",
+                                  "Impossible d'enregistrer le nouvel emplacement.");
+        }
+    }else{
+        QMessageBox::critical(this,"Nouveau emplacement",
+                              "Vous n'avez pas sélectionné l'application.");
+    }
+
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 void ArreraSettingUI::on_IDC_CANCELEMPLACEMENTAPP_clicked()
