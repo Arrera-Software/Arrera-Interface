@@ -70,7 +70,7 @@ public:
     QString getIconLieu1();
     QString getIconLieu2();
 
-    int getNBAppNoSetted();
+    int getFirstUnsetNumber();
     QString getApplication(int nb,QString *name,QString *exe);
     QString getAppTableur();
     QString getAppTraitementTexte();

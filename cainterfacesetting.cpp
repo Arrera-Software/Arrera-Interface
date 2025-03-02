@@ -130,7 +130,7 @@ QString CAInterfaceSetting::getIconLieu2(){
 
 // Getteur application
 
-int CAInterfaceSetting::getNBAppNoSetted(){
+int CAInterfaceSetting::getFirstUnsetNumber(){
     for (int i = 1 ; i <= 21 ; i++){
         if(fileINI->getValeur("app"+QString::number(i),"name")=="nothing"){
             return i;

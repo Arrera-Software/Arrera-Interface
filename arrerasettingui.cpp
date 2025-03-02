@@ -688,7 +688,7 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
     QString nameApp = ui->IDC_LINENAMEAPPLICATINPC->text();
     ui->IDC_LINENAMEAPPLICATINPC->clear();
     if (!nameApp.isEmpty() && !appEmplacement.isEmpty()){
-        nbApp = objPara->getNBAppNoSetted();
+        nbApp = objPara->getFirstUnsetNumber();
         if (appIcon.isEmpty()){
             sortie = objPara->setApplication(nbApp,nameApp,appEmplacement,"");
         }else{
@@ -739,8 +739,6 @@ void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
         ui->IDC_VALIDERAPPPC->setVisible(true);
         ui->IDC_SETAPPPC->setStyleSheet("background-color: #4CAF50;color: white;");
     }
-
-
 }
 
 void ArreraSettingUI::on_IDC_CANCELAPPPC_clicked()
@@ -765,7 +763,7 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 //Partie acceuil d'app
 void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
 {
-    if (objPara->getNBAppNoSetted() !=0){
+    if (objPara->getFirstUnsetNumber() !=0){
         ui->LINDICATIONSETTING->setText("Ajouter une application");
         ui->appstacked->setCurrentIndex(idAddAppStacked);
         ui->IDC_VALIDERAPPPC->setVisible(false);
