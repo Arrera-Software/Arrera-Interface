@@ -800,6 +800,9 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
         QMessageBox::critical(this,"Suppression d'une application",
                               "Impossible de supprimer l'application.");
     }
+
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 //Partie acceuil d'app
