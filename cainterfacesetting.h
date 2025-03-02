@@ -71,6 +71,9 @@ public:
     QString getIconLieu2();
 
     int getFirstUnsetNumber();
+    int getnbAppSetted();
+    bool getAppSetted(int nbApp);
+    QList <QString> getListNameAppSetted();
     QString getApplication(int nb,QString *name,QString *exe);
     QString getAppTableur();
     QString getAppTraitementTexte();

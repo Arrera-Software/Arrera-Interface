@@ -139,6 +139,29 @@ int CAInterfaceSetting::getFirstUnsetNumber(){
     return 0;
 }
 
+int CAInterfaceSetting::getnbAppSetted(){
+    int nbApp=0;
+    for(int i = 1;i<=21;i++){
+        if(fileINI->getValeur("app"+QString::number(i),"name")!="nothing"){
+            nbApp++;
+        }
+    }
+    return nbApp;
+}
+
+bool CAInterfaceSetting::getAppSetted(int nbApp){
+    QString nameApp = fileINI->getValeur("app"+QString::number(nbApp),"name");
+    if (nameApp=="nothing"){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+QList <QString> CAInterfaceSetting::getListNameAppSetted(){
+
+}
+
 QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
 
 }
