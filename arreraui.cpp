@@ -41,6 +41,27 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Connection de l'interface principale est le parametre
     connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
+    // Mise en place de bouton d'application
+    appPC1 = CAppPC(1,objSetting,ui->IDC_APP_001,&dectOS);
+    appPC2 = CAppPC(2,objSetting,ui->IDC_APP_002,&dectOS);
+    appPC3 = CAppPC(3,objSetting,ui->IDC_APP_003,&dectOS);
+    appPC4 = CAppPC(4,objSetting,ui->IDC_APP_004,&dectOS);
+    appPC5 = CAppPC(5,objSetting,ui->IDC_APP_005,&dectOS);
+    appPC6 = CAppPC(6,objSetting,ui->IDC_APP_006,&dectOS);
+    appPC7 = CAppPC(7,objSetting,ui->IDC_APP_007,&dectOS);
+    appPC8 = CAppPC(8,objSetting,ui->IDC_APP_008,&dectOS);
+    appPC9 = CAppPC(9,objSetting,ui->IDC_APP_009,&dectOS);
+    appPC10 = CAppPC(10,objSetting,ui->IDC_APP_010,&dectOS);
+    appPC11 = CAppPC(11,objSetting,ui->IDC_APP_011,&dectOS);
+    appPC12 = CAppPC(12,objSetting,ui->IDC_APP_012,&dectOS);
+    appPC13 = CAppPC(13,objSetting,ui->IDC_APP_013,&dectOS);
+    appPC14 = CAppPC(14,objSetting,ui->IDC_APP_014,&dectOS);
+    appPC15 = CAppPC(15,objSetting,ui->IDC_APP_015,&dectOS);
+    appPC16 = CAppPC(16,objSetting,ui->IDC_APP_016,&dectOS);
+    appPC17 = CAppPC(17,objSetting,ui->IDC_APP_017,&dectOS);
+    appPC18 = CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS);
+    appPC19 = CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS);
+    appPC20 = CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS);
     // Chargement des parametre
     loadSetting();
 
@@ -219,8 +240,25 @@ void ArreraUI::loadSetting()
             ui->IDC_LIEU2->setIcon(icon);
         }
     }else{
-        ui->IDC_LIEU2->setVisible(false);}
-
+        ui->IDC_LIEU2->setVisible(false);
+    }
+    appPC1.loadData();
+    appPC2.loadData();
+    appPC3.loadData();
+    appPC4.loadData();
+    appPC5.loadData();
+    appPC6.loadData();
+    appPC10.loadData();
+    appPC11.loadData();
+    appPC12.loadData();
+    appPC13.loadData();
+    appPC14.loadData();
+    appPC15.loadData();
+    appPC16.loadData();
+    appPC17.loadData();
+    appPC18.loadData();
+    appPC19.loadData();
+    appPC20.loadData();
 }
 
 void ArreraUI::launchSearch(int mode){

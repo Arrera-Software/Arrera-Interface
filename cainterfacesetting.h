@@ -76,7 +76,7 @@ public:
     QList <QString> getListNameAppSetted();
     bool checkNameAppIsAvailable(QString name);
     int getNbAppWithName(QString name);
-    QString getApplication(int nb,QString *name,QString *exe);
+    bool getApplication(int nb,QString *name,QString *exe,QString *icon);
     QString getAppTableur();
     QString getAppTraitementTexte();
     QString getAppPresentation();

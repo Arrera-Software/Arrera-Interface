@@ -10,6 +10,7 @@
 #include "cainterfacesetting.h"
 #include "arrerasettingui.h"
 #include "carrerarecheche.h"
+#include "capppc.h"
 
 namespace Ui {
 class ArreraUI;
@@ -73,6 +74,9 @@ private:
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
     CDetectionOS dectOS;
+    CAppPC appPC1,appPC2,appPC3,appPC4,appPC5,appPC6,appPC7,appPC8;
+    CAppPC appPC9,appPC10,appPC11,appPC12,appPC13,appPC14,appPC15,appPC16;
+    CAppPC appPC17,appPC18,appPC19,appPC20,appPC21;
     // Methode private
     void loadSetting();
     // Methode de recherche

@@ -187,8 +187,15 @@ int CAInterfaceSetting::getNbAppWithName(QString name){
     return -1;
 }
 
-QString CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe){
-
+bool CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe,QString *icon){
+    if (nb >= 1 && nb <= 21) {
+        *name = fileINI->getValeur("app"+QString::number(nb),"name");
+        *exe = fileINI->getValeur("app"+QString::number(nb),"exe");
+        *icon = fileINI->getValeur("app"+QString::number(nb),"icon");
+        return true;
+    } else {
+        return false;
+    }
 }
 QString CAInterfaceSetting::getAppTableur(){}
 QString CAInterfaceSetting::getAppTraitementTexte(){}

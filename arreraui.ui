@@ -1379,82 +1379,6 @@ color: rgb(0, 0, 0);</string>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="5" column="3">
-          <widget class="QPushButton" name="IDC_APP_3">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="5">
-          <widget class="QPushButton" name="IDC_APP_20">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="7">
-          <widget class="QPushButton" name="IDC_APP_10">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="7">
-          <widget class="QPushButton" name="IDC_APP_7">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="6">
           <spacer name="horizontalSpacer_22">
            <property name="orientation">
@@ -1467,25 +1391,6 @@ color: rgb(0, 0, 0);</string>
             </size>
            </property>
           </spacer>
-         </item>
-         <item row="3" column="5">
-          <widget class="QPushButton" name="IDC_APP_6">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
          </item>
          <item row="1" column="2">
           <spacer name="horizontalSpacer_20">
@@ -1526,25 +1431,6 @@ color: rgb(0, 0, 0);</string>
            </property>
           </spacer>
          </item>
-         <item row="5" column="1">
-          <widget class="QPushButton" name="IDC_APP_13">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="6" column="1">
           <spacer name="verticalSpacer_10">
            <property name="orientation">
@@ -1558,63 +1444,6 @@ color: rgb(0, 0, 0);</string>
            </property>
           </spacer>
          </item>
-         <item row="5" column="7">
-          <widget class="QPushButton" name="IDC_APP_11">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QPushButton" name="IDC_APP_9">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="QPushButton" name="IDC_APP_8">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="4">
           <spacer name="horizontalSpacer_21">
            <property name="orientation">
@@ -1627,44 +1456,6 @@ color: rgb(0, 0, 0);</string>
             </size>
            </property>
           </spacer>
-         </item>
-         <item row="3" column="1">
-          <widget class="QPushButton" name="IDC_APP_2">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QPushButton" name="IDC_APP_16">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
          </item>
          <item row="0" column="1">
           <spacer name="verticalSpacer_11">
@@ -1692,63 +1483,6 @@ color: rgb(0, 0, 0);</string>
            </property>
           </spacer>
          </item>
-         <item row="1" column="5">
-          <widget class="QPushButton" name="IDC_APP_14">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5">
-          <widget class="QPushButton" name="IDC_APP_5">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="7">
-          <widget class="QPushButton" name="IDC_APP_21">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="8" column="1">
           <spacer name="verticalSpacer_4">
            <property name="orientation">
@@ -1775,103 +1509,8 @@ color: rgb(0, 0, 0);</string>
            </property>
           </spacer>
          </item>
-         <item row="9" column="3">
-          <widget class="QPushButton" name="IDC_APP_19">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="7">
-          <widget class="QPushButton" name="IDC_APP_15">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QPushButton" name="IDC_APP_4">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="1">
-          <widget class="QPushButton" name="IDC_APP_1">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="1">
-          <widget class="QPushButton" name="IDC_APP_18">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="5">
-          <widget class="QPushButton" name="IDC_APP_12">
+          <widget class="QPushButton" name="IDC_APP_001">
            <property name="minimumSize">
             <size>
              <width>60</width>
@@ -1901,6 +1540,367 @@ color: rgb(0, 0, 0);</string>
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="IDC_APP_002">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="7">
+          <widget class="QPushButton" name="IDC_APP_004">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="5">
+          <widget class="QPushButton" name="IDC_APP_003">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QPushButton" name="IDC_APP_006">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="IDC_APP_005">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="5">
+          <widget class="QPushButton" name="IDC_APP_007">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="7">
+          <widget class="QPushButton" name="IDC_APP_008">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QPushButton" name="IDC_APP_009">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5">
+          <widget class="QPushButton" name="IDC_APP_011">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QPushButton" name="IDC_APP_010">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="7">
+          <widget class="QPushButton" name="IDC_APP_012">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QPushButton" name="IDC_APP_013">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QPushButton" name="IDC_APP_014">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="5">
+          <widget class="QPushButton" name="IDC_APP_015">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="7">
+          <widget class="QPushButton" name="IDC_APP_016">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="5">
+          <widget class="QPushButton" name="IDC_APP_019">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3">
+          <widget class="QPushButton" name="IDC_APP_018">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QPushButton" name="IDC_APP_017">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="7">
+          <widget class="QPushButton" name="IDC_APP_020">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
