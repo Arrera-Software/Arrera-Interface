@@ -476,3 +476,123 @@ void ArreraUI::on_IDC_BTNSEACH_clicked()
         }
     }
 }
+
+void ArreraUI::on_IDC_APP_001_clicked()
+{
+    appPC1.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_002_clicked()
+{
+    appPC2.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_003_clicked()
+{
+    appPC3.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_004_clicked()
+{
+    appPC4.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_005_clicked()
+{
+    appPC4.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_006_clicked()
+{
+    appPC6.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_007_clicked()
+{
+    appPC7.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_008_clicked()
+{
+    appPC8.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_009_clicked()
+{
+    appPC9.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_010_clicked()
+{
+    appPC10.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_011_clicked()
+{
+    appPC11.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_012_clicked()
+{
+    appPC12.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_013_clicked()
+{
+    appPC13.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_014_clicked()
+{
+    appPC14.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_015_clicked()
+{
+    appPC15.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_016_clicked()
+{
+    appPC16.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_017_clicked()
+{
+    appPC17.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_018_clicked()
+{
+    appPC18.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_019_clicked()
+{
+    appPC19.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_APP_020_clicked()
+{
+    appPC20.executeApplication();
+}
+

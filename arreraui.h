@@ -68,6 +68,46 @@ private slots:
 
     void on_IDC_BTNSEACH_clicked();
 
+    void on_IDC_APP_001_clicked();
+
+    void on_IDC_APP_002_clicked();
+
+    void on_IDC_APP_003_clicked();
+
+    void on_IDC_APP_004_clicked();
+
+    void on_IDC_APP_005_clicked();
+
+    void on_IDC_APP_006_clicked();
+
+    void on_IDC_APP_007_clicked();
+
+    void on_IDC_APP_008_clicked();
+
+    void on_IDC_APP_009_clicked();
+
+    void on_IDC_APP_010_clicked();
+
+    void on_IDC_APP_011_clicked();
+
+    void on_IDC_APP_012_clicked();
+
+    void on_IDC_APP_013_clicked();
+
+    void on_IDC_APP_014_clicked();
+
+    void on_IDC_APP_015_clicked();
+
+    void on_IDC_APP_016_clicked();
+
+    void on_IDC_APP_017_clicked();
+
+    void on_IDC_APP_018_clicked();
+
+    void on_IDC_APP_019_clicked();
+
+    void on_IDC_APP_020_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
