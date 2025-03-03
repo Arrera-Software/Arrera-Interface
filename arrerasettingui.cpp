@@ -237,6 +237,9 @@ void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
         ui->mainstacked->setCurrentIndex(idMainPage);
         ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
     }
+    else{
+        this->close();
+    }
 }
 
 // Partie mode
