@@ -20,7 +20,7 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
     if(fileINI->getFileCreated()){
         fileINI->setValeur("arrera-recherche","moteur","nothing");
         fileINI->setValeur("interface","user","nothing");
-        for (i = 1 ; i <= 21 ; i++){
+        for (i = 1 ; i <= 20 ; i++){
             fileINI->setValeur("app"+QString::number(i),"name","nothing");
             fileINI->setValeur("app"+QString::number(i),"exe","nothing");
             fileINI->setValeur("app"+QString::number(i),"icon","nothing");
@@ -141,7 +141,7 @@ int CAInterfaceSetting::getFirstUnsetNumber(){
 
 int CAInterfaceSetting::getnbAppSetted(){
     int nbApp=0;
-    for(int i = 1;i<=21;i++){
+    for(int i = 1;i<=20;i++){
         if(fileINI->getValeur("app"+QString::number(i),"name")!="nothing"){
             nbApp++;
         }
@@ -161,7 +161,7 @@ bool CAInterfaceSetting::getAppSetted(int nbApp){
 QList <QString> CAInterfaceSetting::getListNameAppSetted(){
     QList <QString> listOut;
     listOut = QList<QString>();
-    for (int i = 1;i<=21;i++){
+    for (int i = 1;i<=20;i++){
         if (getAppSetted(i)){
             listOut.append(fileINI->getValeur("app"+QString::number(i),"name"));
         }
@@ -170,7 +170,7 @@ QList <QString> CAInterfaceSetting::getListNameAppSetted(){
 }
 
 bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
-    for (int i = 1;i<=21;i++){
+    for (int i = 1;i<=20;i++){
         if (fileINI->getValeur("app"+QString::number(i),"name")==name){
             return false;
         }
@@ -179,7 +179,7 @@ bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
 }
 
 int CAInterfaceSetting::getNbAppWithName(QString name){
-    for (int i = 1;i<=21;i++){
+    for (int i = 1;i<=20;i++){
         if (fileINI->getValeur("app"+QString::number(i),"name")==name){
             return i;
         }
@@ -188,7 +188,7 @@ int CAInterfaceSetting::getNbAppWithName(QString name){
 }
 
 bool CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe,QString *icon){
-    if (nb >= 1 && nb <= 21) {
+    if (nb >= 1 && nb <= 20) {
         *name = fileINI->getValeur("app"+QString::number(nb),"name");
         *exe = fileINI->getValeur("app"+QString::number(nb),"exe");
         *icon = fileINI->getValeur("app"+QString::number(nb),"icon");
@@ -402,7 +402,7 @@ bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplaceme
     if (nameApp.isEmpty() or emplacement.isEmpty()){
         return false;
     }else{
-        if(clamp(nb, 1, 21) == nb){
+        if(clamp(nb, 1, 20) == nb){
 
             fileINI->setValeur("app"+QString::number(nb),"name",nameApp);
             fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
