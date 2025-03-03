@@ -14,6 +14,7 @@ SOURCES += \
     calieu.cpp \
     camode.cpp \
     camodelieu.cpp \
+    capplication.cpp \
     carrerarecheche.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     calieu.h \
     camode.h \
     camodelieu.h \
+    capplication.h \
     carrerarecheche.h \
     cdetectionos.h \
     cjsonword.h \
