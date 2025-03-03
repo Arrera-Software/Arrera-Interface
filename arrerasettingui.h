@@ -107,6 +107,10 @@ private slots:
     void on_IDC_SUPPRAPPPC_clicked();
     void on_IDC_CHANGEICON_clicked();
     void on_IDC_MODIFEMPLACMENTAPPPC_clicked();
+    void on_IDC_EDITTABLEUR_clicked();
+    void on_IDC_EDITTRAITEMENTTEXTE_clicked();
+    void on_IDC_EDITNAVIGATEUR_clicked();
+    void on_IDC_EDITPRESENTATION_clicked();
 
     //Partie icon d'App
     void on_IDC_CANCELCHANGEICON_clicked();
@@ -133,6 +137,7 @@ private slots:
     void on_IDC_CHANGEGEOMANAGE_clicked();
     void on_IDC_ICONCHOOSELIEU_clicked();
     void on_IDC_CHANGEICONLIEU_clicked();
+
 };
 
 #endif // ARRERASETTINGUI_H

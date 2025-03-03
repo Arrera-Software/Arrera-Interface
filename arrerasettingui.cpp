@@ -889,6 +889,29 @@ void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
     }
 }
 
+void ArreraSettingUI::on_IDC_EDITTABLEUR_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_EDITTRAITEMENTTEXTE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_EDITNAVIGATEUR_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_EDITPRESENTATION_clicked()
+{
+
+}
+
 // Partie changement icon APP
 
 void ArreraSettingUI::on_IDC_CANCELCHANGEICON_clicked()
