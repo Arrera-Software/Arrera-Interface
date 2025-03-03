@@ -20,6 +20,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageApropos = ui->I2025->indexOf(ui->apropos);
     idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
     idPageRecherche = ui->I2025->indexOf(ui->recherchePage);
+    idAppView=ui->appStaked->indexOf(ui->AppView);
+    idNoApp=ui->appStaked->indexOf(ui->NoApp);
     // Id Page recherche
     idPageRechercheMoteur = ui->arreraRecherche->indexOf(ui->moteur);
     idPageRechercheHist = ui->arreraRecherche->indexOf(ui->historique);
@@ -248,6 +250,9 @@ void ArreraUI::loadSetting()
     appPC4.loadData();
     appPC5.loadData();
     appPC6.loadData();
+    appPC7.loadData();
+    appPC8.loadData();
+    appPC9.loadData();
     appPC10.loadData();
     appPC11.loadData();
     appPC12.loadData();
@@ -259,6 +264,21 @@ void ArreraUI::loadSetting()
     appPC18.loadData();
     appPC19.loadData();
     appPC20.loadData();
+
+    if (!appPC1.getAppSetted()&&!appPC2.getAppSetted()&&
+        !appPC3.getAppSetted()&&!appPC4.getAppSetted()&&
+        !appPC5.getAppSetted()&&!appPC6.getAppSetted()&&
+        !appPC7.getAppSetted()&&!appPC8.getAppSetted()&&
+        !appPC9.getAppSetted()&&!appPC10.getAppSetted()&&
+        !appPC11.getAppSetted()&&!appPC12.getAppSetted()&&
+        !appPC13.getAppSetted()&&!appPC14.getAppSetted()&&
+        !appPC15.getAppSetted()&&!appPC16.getAppSetted()&&
+        !appPC17.getAppSetted()&&!appPC18.getAppSetted()&&
+        !appPC19.getAppSetted()&&!appPC20.getAppSetted()){
+        ui->appStaked->setCurrentIndex(idNoApp);
+    }else{
+        ui->appStaked->setCurrentIndex(idAppView);
+    }
 }
 
 void ArreraUI::launchSearch(int mode){

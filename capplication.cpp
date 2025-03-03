@@ -47,3 +47,7 @@ bool CApplication::executeApplication(){
         return false;
     }
 }
+
+bool CApplication::getAppSetted(){
+    return appSetted;
+}

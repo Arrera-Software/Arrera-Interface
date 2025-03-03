@@ -23,6 +23,7 @@ public:
     virtual ~CApplication();  // Ajoutez le mot-clé 'virtual'
     virtual bool loadData();  // Vous devez implémenter cette méthode
     bool executeApplication();
+    bool getAppSetted();
 };
 
 #endif // CAPPLICATION_H
