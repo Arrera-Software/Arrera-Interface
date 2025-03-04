@@ -135,6 +135,8 @@ private:
     int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos,idPageRecherche;
     // Ide du staked widget arreraRecherche
     int idPageRechercheMoteur, idPageRechercheHist;
+    // id du acceuilStacked
+    int idNonMode, idYesMode;
     // id de appstacked
     int idAppView,idNoApp;
 };
