@@ -1398,6 +1398,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="2" column="4">
@@ -1429,6 +1435,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1462,6 +1474,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="1" column="5">
@@ -1480,6 +1498,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1500,6 +1524,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="0" column="1">
@@ -1518,6 +1548,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1538,6 +1574,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="2" column="3">
@@ -1556,6 +1598,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1589,6 +1637,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="1" column="7">
@@ -1607,6 +1661,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1627,6 +1687,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="2" column="5">
@@ -1645,6 +1711,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1665,6 +1737,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="3" column="3">
@@ -1683,6 +1761,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1703,6 +1787,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="1" column="3">
@@ -1721,6 +1811,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1741,6 +1837,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="3" column="7">
@@ -1759,6 +1861,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1779,6 +1887,12 @@ color: rgb(0, 0, 0);</string>
              <property name="text">
               <string/>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="0" column="7">
@@ -1797,6 +1911,12 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>55</width>
+               <height>55</height>
+              </size>
              </property>
             </widget>
            </item>
