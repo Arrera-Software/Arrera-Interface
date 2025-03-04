@@ -45,4 +45,17 @@
         <file>img/lieu2.png</file>
         <file>img/lieu1.png</file>
     </qresource>
+    <qresource prefix="/recherche">
+        <file>img/recherche/amazon.png</file>
+        <file>img/recherche/bing.png</file>
+        <file>img/recherche/brave.png</file>
+        <file>img/recherche/duckduckgo.png</file>
+        <file>img/recherche/ecosia.png</file>
+        <file>img/recherche/google.png</file>
+        <file>img/recherche/qwant.png</file>
+        <file>img/recherche/reverso.png</file>
+        <file>img/recherche/wikipedia.png</file>
+        <file>img/recherche/wordreference.png</file>
+        <file>img/recherche/youtube.png</file>
+    </qresource>
 </RCC>

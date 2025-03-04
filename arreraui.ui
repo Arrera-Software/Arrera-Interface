@@ -190,7 +190,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1037,7 +1037,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>wordreference</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/wordreference.png</normaloff>:/recherche/img/recherche/wordreference.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1075,7 +1085,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>bing</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/bing.png</normaloff>:/recherche/img/recherche/bing.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1094,7 +1114,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>brave</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/brave.png</normaloff>:/recherche/img/recherche/brave.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1126,7 +1156,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>qwant</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/qwant.png</normaloff>:/recherche/img/recherche/qwant.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1158,7 +1198,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>reverso</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/reverso.png</normaloff>:/recherche/img/recherche/reverso.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1177,7 +1227,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>amazon</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/amazon.png</normaloff>:/recherche/img/recherche/amazon.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1196,7 +1256,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>yt</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/youtube.png</normaloff>:/recherche/img/recherche/youtube.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1215,7 +1285,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>wikipedia</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/wikipedia.png</normaloff>:/recherche/img/recherche/wikipedia.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1234,7 +1314,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>duck</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/duckduckgo.png</normaloff>:/recherche/img/recherche/duckduckgo.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1253,7 +1343,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>google</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/google.png</normaloff>:/recherche/img/recherche/google.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1285,7 +1385,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>ecosia</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/recherche/img/recherche/ecosia.png</normaloff>:/recherche/img/recherche/ecosia.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
