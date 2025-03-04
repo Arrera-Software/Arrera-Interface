@@ -57,5 +57,6 @@
         <file>img/recherche/wikipedia.png</file>
         <file>img/recherche/wordreference.png</file>
         <file>img/recherche/youtube.png</file>
+        <file>img/recherche/bigsearch.png</file>
     </qresource>
 </RCC>
