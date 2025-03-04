@@ -38,6 +38,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     idSupprAppStacked = ui->appstacked->indexOf(ui->supprpcapp);
     idIconChangeApp = ui->appstacked->indexOf(ui->iconchangedapp);
     idEmplacementAppStacked = ui->appstacked->indexOf(ui->changeemplacement);
+    idManageAppSpeciaux = ui->appstacked->indexOf(ui->manageappspe);
     // id lieustacked
     idMainLieu= ui->lieustacked->indexOf(ui->mainlieu);
     idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
@@ -1036,6 +1037,23 @@ void ArreraSettingUI::on_IDC_CANCELEMPLACEMENTAPP_clicked()
     ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
+// Partie app speciaux
+void ArreraSettingUI::on_IDC_CANCELAPPSPEMANAGE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_CHOOSEAPPSPE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RESETAPPSPEC_clicked()
+{
+
+}
 
 // Partie Recherche
 

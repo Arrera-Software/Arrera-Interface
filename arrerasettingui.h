@@ -39,7 +39,7 @@ private:
     // id de modestaked
     int idMainModePage,idAddMode,idGestMode;
     // id appstacked
-    int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp,idEmplacementAppStacked;
+    int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp,idEmplacementAppStacked,idManageAppSpeciaux;
     // id lieustacked
     int idMainLieu,idAddLieu,idManageLieu;
     // varriable qui permet de savoir quelle mode qui est selectionner
@@ -115,9 +115,15 @@ private slots:
     //Partie icon d'App
     void on_IDC_CANCELCHANGEICON_clicked();
     void on_IDC_CHANGEICONE_clicked();
+
     // Partie changement emplacement app
     void on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked();
     void on_IDC_CANCELEMPLACEMENTAPP_clicked();
+
+    // Partie appspeciaux
+    void on_IDC_CANCELAPPSPEMANAGE_clicked();
+    void on_IDC_CHOOSEAPPSPE_clicked();
+    void on_IDC_RESETAPPSPEC_clicked();
 
     // Partie Recherche
     void on_IDC_VALIDERRECHERCHE_clicked();
@@ -137,7 +143,6 @@ private slots:
     void on_IDC_CHANGEGEOMANAGE_clicked();
     void on_IDC_ICONCHOOSELIEU_clicked();
     void on_IDC_CHANGEICONLIEU_clicked();
-
 };
 
 #endif // ARRERASETTINGUI_H
