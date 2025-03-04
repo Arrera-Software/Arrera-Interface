@@ -1114,7 +1114,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="appstacked">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainpcapp">
           <layout class="QVBoxLayout" name="verticalLayout_8">

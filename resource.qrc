@@ -25,6 +25,10 @@
         <file>img/arrera-postite.png</file>
         <file>img/mode-setting.png</file>
         <file>img/lieu-setting.png</file>
+        <file>img/navigateur-para.png</file>
+        <file>img/presentation-para.png</file>
+        <file>img/tableur-para.png</file>
+        <file>img/traitementTexte-para.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>
