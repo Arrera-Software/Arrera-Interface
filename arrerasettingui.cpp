@@ -890,7 +890,7 @@ void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
         ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
     }
 }
-// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
+
 void ArreraSettingUI::on_IDC_EDITTABLEUR_clicked()
 {
     if (objPara->getAppSpeciauxSetted(3)){
@@ -941,7 +941,7 @@ void ArreraSettingUI::on_IDC_EDITNAVIGATEUR_clicked()
 
 void ArreraSettingUI::on_IDC_EDITPRESENTATION_clicked()
 {
-    if (objPara->getAppSpeciauxSetted(1)){
+    if (objPara->getAppSpeciauxSetted(2)){
         ui->IDC_RESETAPPSPEC->setVisible(true);
         ui->IDC_CHOOSEAPPSPE->setVisible(false);
     }else{
@@ -949,7 +949,7 @@ void ArreraSettingUI::on_IDC_EDITPRESENTATION_clicked()
         ui->IDC_CHOOSEAPPSPE->setVisible(true);
     }
     ui->appstacked->setCurrentIndex(idManageAppSpeciaux);
-    appSpeSelected = 1;
+    appSpeSelected = 2;
     ui->LINCAPPSPEMANAGE->setText("Gestion de l'enregistrement de l'application\nde presentation");
     ui->LINDICATIONSETTING->setText("Parametre application presentation");
 }
@@ -1088,13 +1088,110 @@ void ArreraSettingUI::on_IDC_CANCELAPPSPEMANAGE_clicked()
 
 void ArreraSettingUI::on_IDC_CHOOSEAPPSPE_clicked()
 {
+    QString speAppEmplacement,appDirectory;
+    int rMessage;
+    bool sortie;
+    if (dectOS->getosLinux() == true){
+        rMessage = QMessageBox::question(this,"Emplacement application",
+                                         "L'application est-elle dans le /bin ou dans votre /home ?",
+                                         QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
 
+        if (rMessage == QMessageBox::Yes){
+            // Dossier /bin
+            appDirectory = "/bin";
+        }else{
+            // Dossier /home
+            appDirectory = QDir::homePath();
+        }
+        speAppEmplacement = QFileDialog::getOpenFileName(
+            this,                       // Parent widget
+            "Sélectionner l'application",  // Titre de la boîte de dialogue
+            appDirectory           // Répertoire initial
+            );
+    }else{
+        if(dectOS->getosWin()==true){
+            rMessage = QMessageBox::question(this,"Emplacement application",
+                                             "Le raccourci se trouve dans le menu Démarrer global ?",
+                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+
+            if (rMessage == QMessageBox::Yes){
+                // Dossier programme data
+                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
+            }else{
+                // Menu demarer dans le dossier utilisateur
+                appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+            }
+            speAppEmplacement = QFileDialog::getOpenFileName(
+                this,                       // Parent widget
+                "Sélectionner l'application",  // Titre de la boîte de dialogue
+                appDirectory           // Répertoire initial
+                );
+        }
+    }
+
+    // Teste si l'application a etais choisie
+    // 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
+    if (speAppEmplacement != ""){
+        switch (appSpeSelected) {
+        case 1:
+            sortie = objPara->setAppNavigateur(speAppEmplacement);
+            break;
+        case 2:
+            sortie = objPara->setAppPresentation(speAppEmplacement);
+            break;
+        case 3:
+            sortie = objPara->setAppTableur(speAppEmplacement);
+            break;
+        case 4:
+            sortie = objPara->setAppTraitementTexte(speAppEmplacement);
+            break;
+        default:
+            break;
+        }
+    }
+    if (sortie){
+        QMessageBox::information(this,"Application",
+                                 "L'application a bien été enregistrée.");
+    }else{
+        QMessageBox::critical(this,"Application",
+                              "Impossible d'enregistrer l'application.");
+    }
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 
 void ArreraSettingUI::on_IDC_RESETAPPSPEC_clicked()
 {
+    bool sortie;
+    // 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
+    switch (appSpeSelected) {
+    case 1:
+        sortie = objPara->setSupprAppNavigateur();
+        break;
+    case 2:
+        sortie = objPara->setSupprAppPresentation();
+        break;
+    case 3:
+        sortie = objPara->setSupprAppTableur();
+        break;
+    case 4:
+        sortie = objPara->setSupprAppTraitementTexte();
+        break;
+    default:
+        break;
+    }
 
+    if (sortie){
+        QMessageBox::information(this,"Application",
+                                 "L'application a été supprimée.");
+    }else{
+        QMessageBox::critical(this,"Application",
+                              "Impossible de supprimer l'application.");
+    }
+
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 // Partie Recherche
