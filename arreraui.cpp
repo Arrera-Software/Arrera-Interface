@@ -136,6 +136,7 @@ void ArreraUI::on_IDC_PARA_clicked()
 
 void ArreraUI::loadSetting()
 {
+    bool appSetted;
     ui->IDC_INDCNOLIEUMODE->setVisible(true);
     if (objSetting->mode1IsSeted()){
         ui->IDC_MODE1->setVisible(true);
@@ -281,14 +282,27 @@ void ArreraUI::loadSetting()
         !appPC17.getAppSetted()&&!appPC18.getAppSetted()&&
         !appPC19.getAppSetted()&&!appPC20.getAppSetted()){
         ui->appStaked->setCurrentIndex(idNoApp);
+        appSetted=false;
     }else{
         ui->appStaked->setCurrentIndex(idAppView);
+        appSetted=true;
     }
 
     appNavigateur.loadData();
     appPresentation.loadData();
     appTableur.loadData();
     appTraitementTexte.loadData();
+
+    if (!appNavigateur.getAppSetted()&&
+        !appPresentation.getAppSetted()&&
+        !appTableur.getAppSetted()&&
+        !appTraitementTexte.getAppSetted()&&
+        !appSetted)
+    {
+        ui->IDC_APPBUREAU->setVisible(false);
+    }else{
+        ui->IDC_APPBUREAU->setVisible(true);
+    }
 }
 
 void ArreraUI::launchSearch(int mode){

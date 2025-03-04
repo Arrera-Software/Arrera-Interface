@@ -190,7 +190,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1042,7 +1042,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="arreraRecherche">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="moteur">
           <layout class="QVBoxLayout" name="verticalLayout_10">
