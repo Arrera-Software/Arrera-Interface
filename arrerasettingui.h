@@ -46,6 +46,8 @@ private:
     int modeSelected;
     // Variable qui permet de savoir quelle lieu est selectionner
     int lieuSelected;
+    // Variable qui permet de savoir quelle app speciaux est selectionner
+    int appSpeSelected;
     // Set valeur combo box app
     void setAppComboBox();
     // Methode pour choisir un icon pour les bouton Mode et lieu

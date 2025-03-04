@@ -25,6 +25,10 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
             fileINI->setValeur("app"+QString::number(i),"exe","nothing");
             fileINI->setValeur("app"+QString::number(i),"icon","nothing");
         }
+        fileINI->setValeur("navigateur","exe","nothing");
+        fileINI->setValeur("tableur","exe","nothing");
+        fileINI->setValeur("presentation","exe","nothing");
+        fileINI->setValeur("traitement","exe","nothing");
     }
 }
 
@@ -197,10 +201,54 @@ bool CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe,QStrin
         return false;
     }
 }
-QString CAInterfaceSetting::getAppTableur(){}
-QString CAInterfaceSetting::getAppTraitementTexte(){}
-QString CAInterfaceSetting::getAppPresentation(){}
-QString CAInterfaceSetting::getAppNavigateur(){}
+
+QString CAInterfaceSetting::getAppSpeciaux(int app){
+    switch (app) {
+    case 1: // 1.Navigateur
+        return fileINI->getValeur("navigateur","exe");
+        break;
+    case 2: // 2.Presentation
+        return fileINI->getValeur("presentation","exe");
+        break;
+    case 3: // 3.tableur
+        return fileINI->getValeur("tableur","exe");
+        break;
+    case 4: // 4.Traitement de texte
+        return fileINI->getValeur("traitement","exe");
+        break;
+    default:
+        return "error";
+        break;
+    }
+}
+
+bool CAInterfaceSetting::getAppSpeciauxSetted(int app){
+    QString emplacementapp;
+    switch (app) {
+    case 1: // 1.Navigateur
+        emplacementapp = fileINI->getValeur("navigateur","exe");
+        break;
+    case 2: // 2.Presentation
+        emplacementapp = fileINI->getValeur("presentation","exe");
+        break;
+    case 3: // 3.tableur
+        emplacementapp = fileINI->getValeur("tableur","exe");
+        break;
+    case 4: // 4.Traitement de texte
+        emplacementapp = fileINI->getValeur("traitement","exe");
+        break;
+    default:
+        return false;
+        break;
+    }
+
+    if (emplacementapp =="nothing"){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 // Getteur application Arrera
 
@@ -438,10 +486,32 @@ bool CAInterfaceSetting::setSupprApplication(int nb){
     }
 }
 
-bool CAInterfaceSetting::setAppTableur(QString emplacement){}
-bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){}
-bool CAInterfaceSetting::setAppPresentation(QString emplacement){}
-bool CAInterfaceSetting::setAppNavigateur(QString emplacement){}
+bool CAInterfaceSetting::setAppTableur(QString emplacement){
+    return fileINI->setValeur("tableur","exe",emplacement);
+}
+bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){
+    return fileINI->setValeur("traitement","exe",emplacement);
+}
+bool CAInterfaceSetting::setAppPresentation(QString emplacement){
+    return fileINI->setValeur("presentation","exe",emplacement);
+}
+bool CAInterfaceSetting::setAppNavigateur(QString emplacement){
+    return fileINI->setValeur("navigateur","exe",emplacement);
+}
+
+
+bool CAInterfaceSetting::setSupprAppTableur(){
+    return fileINI->setValeur("tableur","exe","nothing");
+}
+bool CAInterfaceSetting::setSupprAppTraitementTexte(){
+    return fileINI->setValeur("traitement","exe","nothing");
+}
+bool CAInterfaceSetting::setSupprAppPresentation(){
+    return fileINI->setValeur("presentation","exe","nothing");
+}
+bool CAInterfaceSetting::setSupprAppNavigateur(){
+    return fileINI->setValeur("navigateur","exe","nothing");
+}
 
 bool CAInterfaceSetting::setMoteurRecherche(QString moteur){
     return fileINI->setValeur("arrera-recherche","moteur",moteur);

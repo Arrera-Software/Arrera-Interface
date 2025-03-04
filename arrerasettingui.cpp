@@ -10,6 +10,7 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     // Varrible systeme
     modeSelected = 0;
     lieuSelected = 0;
+    appSpeSelected = 0;// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
     // Mise en place de CAInterfaceSetting dans son atribut
     objPara = obp;
     // Mise en place de l'objet dectetion os
@@ -889,28 +890,68 @@ void ArreraSettingUI::on_IDC_MODIFEMPLACMENTAPPPC_clicked()
         ui->appstacked->setCurrentIndex(idEmplacementAppStacked);
     }
 }
-
+// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
 void ArreraSettingUI::on_IDC_EDITTABLEUR_clicked()
 {
-
+    if (objPara->getAppSpeciauxSetted(3)){
+        ui->IDC_RESETAPPSPEC->setVisible(true);
+        ui->IDC_CHOOSEAPPSPE->setVisible(false);
+    }else{
+        ui->IDC_RESETAPPSPEC->setVisible(false);
+        ui->IDC_CHOOSEAPPSPE->setVisible(true);
+    }
+    ui->appstacked->setCurrentIndex(idManageAppSpeciaux);
+    appSpeSelected = 3;
+    ui->LINCAPPSPEMANAGE->setText("Gestion de l'enregistrement de l'application tableur");
+    ui->LINDICATIONSETTING->setText("Parametre application tableur");
 }
 
 
 void ArreraSettingUI::on_IDC_EDITTRAITEMENTTEXTE_clicked()
 {
-
+    if (objPara->getAppSpeciauxSetted(4)){
+        ui->IDC_RESETAPPSPEC->setVisible(true);
+        ui->IDC_CHOOSEAPPSPE->setVisible(false);
+    }else{
+        ui->IDC_RESETAPPSPEC->setVisible(false);
+        ui->IDC_CHOOSEAPPSPE->setVisible(true);
+    }
+    ui->appstacked->setCurrentIndex(idManageAppSpeciaux);
+    appSpeSelected = 4;
+    ui->LINCAPPSPEMANAGE->setText("Gestion de l'enregistrement de l'application\nde traitement de texte");
+    ui->LINDICATIONSETTING->setText("Parametre application de traitement de texte");
 }
 
 
 void ArreraSettingUI::on_IDC_EDITNAVIGATEUR_clicked()
 {
-
+    if (objPara->getAppSpeciauxSetted(1)){
+        ui->IDC_RESETAPPSPEC->setVisible(true);
+        ui->IDC_CHOOSEAPPSPE->setVisible(false);
+    }else{
+        ui->IDC_RESETAPPSPEC->setVisible(false);
+        ui->IDC_CHOOSEAPPSPE->setVisible(true);
+    }
+    ui->appstacked->setCurrentIndex(idManageAppSpeciaux);
+    appSpeSelected = 1;
+    ui->LINCAPPSPEMANAGE->setText("Gestion de l'enregistrement de l'application navigateur");
+    ui->LINDICATIONSETTING->setText("Parametre application navigateur");
 }
 
 
 void ArreraSettingUI::on_IDC_EDITPRESENTATION_clicked()
 {
-
+    if (objPara->getAppSpeciauxSetted(1)){
+        ui->IDC_RESETAPPSPEC->setVisible(true);
+        ui->IDC_CHOOSEAPPSPE->setVisible(false);
+    }else{
+        ui->IDC_RESETAPPSPEC->setVisible(false);
+        ui->IDC_CHOOSEAPPSPE->setVisible(true);
+    }
+    ui->appstacked->setCurrentIndex(idManageAppSpeciaux);
+    appSpeSelected = 1;
+    ui->LINCAPPSPEMANAGE->setText("Gestion de l'enregistrement de l'application\nde presentation");
+    ui->LINDICATIONSETTING->setText("Parametre application presentation");
 }
 
 // Partie changement icon APP
@@ -1040,7 +1081,8 @@ void ArreraSettingUI::on_IDC_CANCELEMPLACEMENTAPP_clicked()
 // Partie app speciaux
 void ArreraSettingUI::on_IDC_CANCELAPPSPEMANAGE_clicked()
 {
-
+    ui->LINDICATIONSETTING->setText("Parametre des applications");
+    ui->appstacked->setCurrentIndex(idMainAppStaked);
 }
 
 

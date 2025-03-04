@@ -77,10 +77,8 @@ public:
     bool checkNameAppIsAvailable(QString name);
     int getNbAppWithName(QString name);
     bool getApplication(int nb,QString *name,QString *exe,QString *icon);
-    QString getAppTableur();
-    QString getAppTraitementTexte();
-    QString getAppPresentation();
-    QString getAppNavigateur();
+    QString getAppSpeciaux(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
+    bool getAppSpeciauxSetted(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
 
     QString getArreraRyley();
     QString getArreraSix();
@@ -137,10 +135,17 @@ public:
     bool setNewExeApplication(int nb,QString emplacement);
     bool setNewIconApplication(int nb,QString icon);
     bool setSupprApplication(int nb);
+
     bool setAppTableur(QString emplacement);
     bool setAppTraitementTexte(QString emplacement);
     bool setAppPresentation(QString emplacement);
     bool setAppNavigateur(QString emplacement);
+
+    bool setSupprAppTableur();
+    bool setSupprAppTraitementTexte();
+    bool setSupprAppPresentation();
+    bool setSupprAppNavigateur();
+
     bool setMoteurRecherche(QString moteur);
 
     // Methode pour savoir si les lieu ou mode son paramétrer
