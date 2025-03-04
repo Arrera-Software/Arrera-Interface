@@ -64,6 +64,11 @@ ArreraUI::ArreraUI(QWidget *parent)
     appPC18 = CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS);
     appPC19 = CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS);
     appPC20 = CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS);
+    // Mise en place des app speciaux
+    appNavigateur = CAppSpeciaux(1,objSetting,ui->IDC_NAVIGATEUR,&dectOS);
+    appPresentation = CAppSpeciaux(2,objSetting,ui->IDC_PRESENTATION,&dectOS);
+    appTableur = CAppSpeciaux(3,objSetting,ui->IDC_TABLEUR,&dectOS);
+    appTraitementTexte = CAppSpeciaux(4,objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
     // Chargement des parametre
     loadSetting();
 
@@ -279,6 +284,11 @@ void ArreraUI::loadSetting()
     }else{
         ui->appStaked->setCurrentIndex(idAppView);
     }
+
+    appNavigateur.loadData();
+    appPresentation.loadData();
+    appTableur.loadData();
+    appTraitementTexte.loadData();
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -614,5 +624,29 @@ void ArreraUI::on_IDC_APP_019_clicked()
 void ArreraUI::on_IDC_APP_020_clicked()
 {
     appPC20.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_NAVIGATEUR_clicked()
+{
+    appNavigateur.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_PRESENTATION_clicked()
+{
+    appPresentation.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_TABLEUR_clicked()
+{
+    appTableur.executeApplication();
+}
+
+
+void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
+{
+    appTraitementTexte.executeApplication();
 }
 

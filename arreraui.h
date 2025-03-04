@@ -11,6 +11,7 @@
 #include "arrerasettingui.h"
 #include "carrerarecheche.h"
 #include "capppc.h"
+#include "cappspeciaux.h"
 
 namespace Ui {
 class ArreraUI;
@@ -108,6 +109,14 @@ private slots:
 
     void on_IDC_APP_020_clicked();
 
+    void on_IDC_NAVIGATEUR_clicked();
+
+    void on_IDC_PRESENTATION_clicked();
+
+    void on_IDC_TABLEUR_clicked();
+
+    void on_IDC_TRAITEMENTTEXTE_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
@@ -117,6 +126,7 @@ private:
     CAppPC appPC1,appPC2,appPC3,appPC4,appPC5,appPC6,appPC7,appPC8;
     CAppPC appPC9,appPC10,appPC11,appPC12,appPC13,appPC14,appPC15,appPC16;
     CAppPC appPC17,appPC18,appPC19,appPC20,appPC21;
+    CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     // Methode private
     void loadSetting();
     // Methode de recherche
