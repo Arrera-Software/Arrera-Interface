@@ -17,6 +17,7 @@ SOURCES += \
     capplication.cpp \
     capppc.cpp \
     cappspeciaux.cpp \
+    carreraapp.cpp \
     carrerarecheche.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     capplication.h \
     capppc.h \
     cappspeciaux.h \
+    carreraapp.h \
     carrerarecheche.h \
     cdetectionos.h \
     cjsonword.h \
