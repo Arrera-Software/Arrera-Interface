@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <iostream>
-#include "cjsonword.h"
 #include "csetting.h"
 #include "camode.h"
 #include "calieu.h"
@@ -15,7 +14,6 @@ class CAInterfaceSetting {
 
 private:
     CSetting* fileINI;
-    CJSONWORD* fileTiger;
     CALieu lieu1;
     CALieu lieu2;
     CAMode mode1;
@@ -28,7 +26,7 @@ private:
 public:
     // Constructeurs et destructeur
     CAInterfaceSetting();
-    CAInterfaceSetting(QString& inifile,QString& jsonfile);
+    CAInterfaceSetting(QString& inifile);
     ~CAInterfaceSetting();
 
     // Getteur

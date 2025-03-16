@@ -27,10 +27,21 @@ public:
 
 private slots:
     void on_IDC_ACCEUILARRERA_clicked();
+    // Bar des taches
 
     void on_IDC_APPBUREAU_clicked();
 
     void on_IDC_ARRERAAPP_clicked();
+
+    void on_IDC_TIGER_clicked();
+
+    void on_IDC_RYLEY_clicked();
+
+    void on_IDC_COPILOTE_clicked();
+
+    void on_IDC_SIX_clicked();
+
+    void on_IDC_ARRERAPOSTITE_clicked();
 
     // Partie Apropos
     void on_IDC_SOURCECODE_clicked();
@@ -116,6 +127,9 @@ private slots:
     void on_IDC_TABLEUR_clicked();
 
     void on_IDC_TRAITEMENTTEXTE_clicked();
+
+    // Bar des taches
+
 
 private:
     Ui::ArreraUI *ui;

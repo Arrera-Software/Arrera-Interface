@@ -2,11 +2,10 @@
 
 CAInterfaceSetting::CAInterfaceSetting() {}
 
-CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QString& jsonfile){
+CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
     // Var
     int i ;
     fileINI = new CSetting(inifile);
-    fileTiger = new CJSONWORD(jsonfile);
     // Instentation des mode
     mode1 = CAMode("mode1",fileINI);
     mode2 = CAMode("mode2",fileINI);

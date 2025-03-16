@@ -10,7 +10,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
     QString tigerConf = "tiger.json";
-    objSetting = new CAInterfaceSetting(confFile,tigerConf);
+    objSetting = new CAInterfaceSetting(confFile);
     // Ajout de l'objet de l'interface des parametre
     uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
     // Recuperation ID de widget
@@ -100,7 +100,7 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
     }
 }
 
-
+// Bar des taches
 void ArreraUI::on_IDC_APPBUREAU_clicked()
 {
     // Boutton pour afficher les Application enregistrer par l'utilisateur
@@ -115,7 +115,34 @@ void ArreraUI::on_IDC_ARRERAAPP_clicked()
     ui->LINDICATIONARRERA->setText("Page module Arrera");
 }
 
+void ArreraUI::on_IDC_TIGER_clicked()
+{
 
+}
+
+
+void ArreraUI::on_IDC_RYLEY_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_COPILOTE_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_SIX_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
+{
+
+}
 
 // Partie Apropos
 void ArreraUI::on_IDC_SOURCECODE_clicked()
@@ -666,4 +693,3 @@ void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
 {
     appTraitementTexte.executeApplication();
 }
-
