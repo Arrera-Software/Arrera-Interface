@@ -7,6 +7,7 @@
 #include "camode.h"
 #include "calieu.h"
 #include "cdetectionos.h"
+#include "cjsonword.h"
 
 using namespace std;
 
@@ -78,13 +79,8 @@ public:
     QString getAppSpeciaux(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
     bool getAppSpeciauxSetted(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
 
-    QString getArreraRyley();
-    QString getArreraSix();
-    QString getArreraCopilote();
-    QString getArreraPostite();
-    QString getArreraVideoDownload();
-    QString getArreraRaccourci();
-    QString getMoteurRecherche();
+    QString getFileJson();
+    QString getEmplacementStore();
 
     // Setteurs
     bool setNameUser(QString& user);
@@ -177,6 +173,10 @@ public:
 
     bool resetLieu1();
     bool resetLieu2();
+
+    bool setFileJson(QString file);
+
+    bool setEmplacementStore(QString emplacement);
 };
 
 #endif // CAINTERFACESETTING_H
