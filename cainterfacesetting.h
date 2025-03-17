@@ -23,6 +23,11 @@ private:
     CAMode mode4;
     CAMode mode5;
     CAMode mode6;
+    QStringList listApp = {"ryley","six",
+                           "arrera-raccourci",
+                           "arrera-postite",
+                           "arrera-video-download",
+                           "arrera-copilote"};
 
 public:
     // Constructeurs et destructeur
@@ -82,6 +87,7 @@ public:
     QString getMoteurRecherche();
     QString getFileJson();
     QString getEmplacementStore();
+    QString getExeArreraApp(QString nameApp);
 
     // Setteurs
     bool setNameUser(QString& user);
@@ -178,6 +184,7 @@ public:
     bool setFileJson(QString file);
 
     bool setEmplacementStore(QString emplacement);
+    bool setEmplacementArreraApp(QString nameApp,QString emplacement);
 };
 
 #endif // CAINTERFACESETTING_H

@@ -21,6 +21,12 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
         fileINI->setValeur("interface","user","nothing");
         fileINI->setValeur("arrera-app","fileJson","nothing");
         fileINI->setValeur("arrera-app","store","nothing");
+        fileINI->setValeur("arrera-app","ryley","nothing");
+        fileINI->setValeur("arrera-app","six","nothing");
+        fileINI->setValeur("arrera-app","arrera-raccourci","nothing");
+        fileINI->setValeur("arrera-app","arrera-postite","nothing");
+        fileINI->setValeur("arrera-app","arrera-video-download","nothing");
+        fileINI->setValeur("arrera-app","arrera-copilote","nothing");
         for (i = 1 ; i <= 20 ; i++){
             fileINI->setValeur("app"+QString::number(i),"name","nothing");
             fileINI->setValeur("app"+QString::number(i),"exe","nothing");
@@ -263,6 +269,15 @@ QString CAInterfaceSetting::getFileJson(){
 
 QString CAInterfaceSetting::getEmplacementStore(){
     return fileINI->getValeur("arrera-app","store");
+}
+
+QString CAInterfaceSetting::getExeArreraApp(QString nameApp){
+    if (listApp.contains(nameApp)){
+        return fileINI->getValeur("arrera-app",nameApp);
+    }
+    else{
+        return "";
+    }
 }
 
 // Setteurs
@@ -649,4 +664,21 @@ bool CAInterfaceSetting::setFileJson(QString file){
 
 bool CAInterfaceSetting::setEmplacementStore(QString emplacement){
     return fileINI->setValeur("arrera-app","store",emplacement);
+}
+
+bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplacement){
+    /*
+     App possible:
+         * "ryley"
+         * "six"
+         * "arrera-raccourci"
+         * "arrera-postite"
+         * "arrera-video-download"
+         * "arrera-copilote"
+    */
+    if (listApp.contains(nameApp)){
+        return fileINI->setValeur("arrera-app",nameApp,emplacement);
+    }else{
+        return false;
+    }
 }
