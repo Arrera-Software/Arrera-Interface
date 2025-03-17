@@ -1,4 +1,8 @@
 #include "carreraapp.h"
+#include "QFile"
+
+#include "iostream"
+using namespace std ;
 
 CArreraApp::CArreraApp() {}
 
@@ -18,17 +22,12 @@ CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
 
 bool  CArreraApp::exectute(QString app,bool appSetted){
     if (!appSetted){
+        QProcess process;
         if (dectOS->getosWin()){
-            if (QDesktopServices::openUrl(QUrl::fromLocalFile(
-                    app))) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return process.startDetached(app);
         }else{
             if(dectOS->getosLinux()){
-                QProcess process;
+
                 return process.startDetached(app, QStringList());
             }else{
                 return false;
