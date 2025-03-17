@@ -64,7 +64,17 @@ bool CArreraApp::openStore(){
             }
         }else{
             if (dectOS->getosWin()){
-                if (psetting->setEmplacementStore(appEmplacement+"/"+exeWin) &&
+                QString fileBat = appEmplacement+"/"+"lauch.bat";
+                QFile file(fileBat);
+                if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                    return false;
+                }
+                QTextStream out(&file);
+                out << "@echo off" << Qt::endl;
+                out << "cd "+appEmplacement << Qt::endl;
+                out << ".\\" + appEmplacement+exeWin << Qt::endl;
+
+                if (psetting->setEmplacementStore(appEmplacement+"/lauch.bat") &&
                     psetting->setFileJson(appEmplacement+"/"+jsonFile)){
                     return true;
                 }else{
