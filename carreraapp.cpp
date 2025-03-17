@@ -48,7 +48,8 @@ bool CArreraApp::openStore(){
 
     if (emplacementStore == "nothing"){
         QString appEmplacement;
-        // Partie linux
+        QMessageBox::information(widget,"Information",
+                                 "Selectionner l'emplacement le dossier ou vous avez installer l'Arrera Store");
         appEmplacement = QFileDialog::getExistingDirectory(
             widget,
             "Sélectionner un dossier",
@@ -72,7 +73,7 @@ bool CArreraApp::openStore(){
                 QTextStream out(&file);
                 out << "@echo off" << Qt::endl;
                 out << "cd "+appEmplacement << Qt::endl;
-                out << ".\\" + appEmplacement+exeWin << Qt::endl;
+                out << ".\\"+exeWin << Qt::endl;
 
                 if (psetting->setEmplacementStore(appEmplacement+"/lauch.bat") &&
                     psetting->setFileJson(appEmplacement+"/"+jsonFile)){
