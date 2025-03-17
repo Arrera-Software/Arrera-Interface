@@ -75,6 +75,7 @@ bool CArreraApp::openStore(){
     }else{
         return exectute(emplacementStore,emplacementStore.isEmpty());
     }
+    return  false;
 }
 
 
