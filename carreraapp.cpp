@@ -49,7 +49,7 @@ bool CArreraApp::openStore(){
     if (emplacementStore == "nothing"){
         QString appEmplacement;
         QMessageBox::information(widget,"Information",
-                                 "Selectionner l'emplacement le dossier ou vous avez installer l'Arrera Store");
+                                 "Veuillez sélectionner l'emplacement du dossier où vous avez installé l'Arrera Store.");
         appEmplacement = QFileDialog::getExistingDirectory(
             widget,
             "Sélectionner un dossier",
