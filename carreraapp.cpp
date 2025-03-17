@@ -10,12 +10,16 @@ CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
     psetting = p;
     dectOS = os;
     widget = pw;
+}
 
+bool CArreraApp::loadJson(){
     tigerFile = psetting->getFileJson();
 
     if (tigerFile=="nothing"){
+        jsonFile = nullptr;
         tigerFileSetted = false;
     }else{
+        jsonFile = new CJSONWORD(tigerFile);
         tigerFileSetted = true;
     }
 }
@@ -38,8 +42,24 @@ bool  CArreraApp::exectute(QString app,bool appSetted){
     }
 }
 
+bool CArreraApp::setBatWindows(QString emplacement){
+    QString workingDir = QFileInfo(emplacement).absolutePath();
+    QString exeWin = emplacement.remove(workingDir);
+    QString batFile = workingDir+"/"+"lauch.bat";
+
+    QFile file(batFile);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        return false;
+    }
+    QTextStream out(&file);
+    out << "@echo off" << Qt::endl;
+    out << "cd "+workingDir << Qt::endl;
+    out << ".\\"+exeWin << Qt::endl;
+    file.close();
+    return true;
+}
+
 bool CArreraApp::openStore(){
-    //
     QString exeLinux = "lauch.sh" ;
     QString exeWin = "arrera-store.exe" ;
     QString jsonFile = "json/tigerConf.json";
@@ -74,6 +94,7 @@ bool CArreraApp::openStore(){
                 out << "@echo off" << Qt::endl;
                 out << "cd "+appEmplacement << Qt::endl;
                 out << ".\\"+exeWin << Qt::endl;
+                file.close();
 
                 if (psetting->setEmplacementStore(appEmplacement+"/lauch.bat") &&
                     psetting->setFileJson(appEmplacement+"/"+jsonFile)){
@@ -89,4 +110,64 @@ bool CArreraApp::openStore(){
     return  false;
 }
 
+bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
+{
+    /*
+     App possible:
+         * "ryley"
+         * "six"
+         * "arrera-raccourci"
+         * "arrera-postite"
+         * "arrera-video-download"
+         * "arrera-copilote"
+     */
 
+    // Verification si l'app a etais setted
+
+    QString exeApp = psetting->getExeArreraApp(nameApp);
+
+    if (exeApp=="nothing"){
+        bool clesExisted = jsonFile->isExist(nameApp);
+        if (!clesExisted){
+            button->setVisible(false);
+            return false;
+        }
+
+        QString emplacement = jsonFile->read(nameApp);
+
+        if (emplacement == "nothing"){
+            button->setVisible(false);
+            return false;
+        }else{
+
+            if (dectOS->osLinux()){
+                psetting->setEmplacementArreraApp(nameApp,emplacement);
+            }else{
+                if (dectOS->osWin()){
+
+                }
+            }
+
+            button->setVisible(true);
+            return true;
+        }
+    }else{
+        button->setVisible(true);
+        return true;
+    }
+
+
+
+}
+
+bool CArreraApp::executeApp(QString nameApp){
+    /*
+     App possible:
+         * "ryley"
+         * "six"
+         * "arrera-raccourci"
+         * "arrera-postite"
+         * "arrera-video-download"
+         * "arrera-copilote"
+     */
+}
