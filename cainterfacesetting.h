@@ -79,6 +79,7 @@ public:
     QString getAppSpeciaux(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
     bool getAppSpeciauxSetted(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
 
+    QString getMoteurRecherche();
     QString getFileJson();
     QString getEmplacementStore();
 

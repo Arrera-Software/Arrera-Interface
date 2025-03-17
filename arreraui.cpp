@@ -13,6 +13,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     objSetting = new CAInterfaceSetting(confFile);
     // Ajout de l'objet de l'interface des parametre
     uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
+    // Ajout de l'objet pour gerer les application Arrera
+    arreraApp = new CArreraApp(objSetting,&dectOS,this);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
@@ -117,7 +119,11 @@ void ArreraUI::on_IDC_ARRERAAPP_clicked()
 
 void ArreraUI::on_IDC_TIGER_clicked()
 {
-
+    bool sortie = arreraApp->openStore();
+    if (!sortie){
+        QMessageBox::critical(this,"Ouverture Arrera Store",
+                              "Impossible de lancer Arrera Store.");
+    }
 }
 
 
