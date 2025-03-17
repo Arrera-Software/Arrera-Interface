@@ -40,49 +40,37 @@ bool  CArreraApp::exectute(QString app,bool appSetted){
 }
 
 bool CArreraApp::openStore(){
+    //
+    QString exeLinux = "lauch.sh" ;
+    QString exeWin = "arrera-store.exe" ;
+    QString jsonFile = "json/tigerConf.json";
+
     QString emplacementStore = psetting->getEmplacementStore();
+
     if (emplacementStore == "nothing"){
-        int rMessage;
-        QString appDirectory ;
         QString appEmplacement;
         // Partie linux
-        if (dectOS->getosLinux() == true){
-            rMessage = QMessageBox::question(widget,"Emplacement application",
-                                             "L'application Arrera Store se trouve dans votre /home ou dans le /bin ?",
-                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-            if (rMessage == QMessageBox::Yes){
-                // Dossier /bin
-                appDirectory = "/bin";
+        appEmplacement = QFileDialog::getExistingDirectory(
+            widget,
+            "Sélectionner un dossier",
+            QDir::homePath(),
+            QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
+            );
+        if (dectOS->getosLinux()){
+            if (psetting->setEmplacementStore(appEmplacement+"/"+exeLinux) &&
+                psetting->setFileJson(appEmplacement+"/"+jsonFile)){
+                return true;
             }else{
-                // Dossier /home
-                appDirectory = QDir::homePath();
+                return false;
             }
-            appEmplacement = QFileDialog::getOpenFileName(
-                widget,                       // Parent widget
-                "Sélectionner l'application",  // Titre de la boîte de dialogue
-                appDirectory           // Répertoire initial
-                );
-            return psetting->setEmplacementStore(appEmplacement);
         }else{
-            if(dectOS->getosWin()==true){
-                rMessage = QMessageBox::question(widget,"Emplacement application",
-                                                 "Arrera Store se trouve dans le menu Démarrer global ?",
-                                                 QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-                if (rMessage == QMessageBox::Yes){
-                    // Dossier programme data
-                    appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
+            if (dectOS->getosWin()){
+                if (psetting->setEmplacementStore(appEmplacement+"/"+exeWin) &&
+                    psetting->setFileJson(appEmplacement+"/"+jsonFile)){
+                    return true;
                 }else{
-                    // Menu demarer dans le dossier utilisateur
-                    appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+                    return false;
                 }
-                appEmplacement = QFileDialog::getOpenFileName(
-                    widget,                       // Parent widget
-                    "Sélectionner l'application",  // Titre de la boîte de dialogue
-                    appDirectory           // Répertoire initial
-                    );
-                return psetting->setEmplacementStore(appEmplacement);
             }
         }
     }else{
