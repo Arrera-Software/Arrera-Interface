@@ -128,8 +128,19 @@ private slots:
 
     void on_IDC_TRAITEMENTTEXTE_clicked();
 
-    // Bar des taches
+    // Arrera APP
 
+    void on_IDC_APOSTITE_clicked();
+
+    void on_IDC_AVIDEODOWNLOAD_clicked();
+
+    void on_IDC_ARACCOURCI_clicked();
+
+    void on_IDC_ASIX_clicked();
+
+    void on_IDC_ARYLEY_clicked();
+
+    void on_IDC_ACOPILOTE_clicked();
 
 private:
     Ui::ArreraUI *ui;

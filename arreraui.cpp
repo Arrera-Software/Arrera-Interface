@@ -733,3 +733,57 @@ void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
 {
     appTraitementTexte.executeApplication();
 }
+// Arrera APP
+void ArreraUI::on_IDC_APOSTITE_clicked()
+{
+    if (!arreraApp->executeApp("arrera-postite")){
+        QMessageBox::critical(this,"Lancement Arrera Postite",
+                              "Impossible de lancer Arrera Postite");
+    }
+}
+
+
+void ArreraUI::on_IDC_AVIDEODOWNLOAD_clicked()
+{
+    if (!arreraApp->executeApp("arrera-video-download")){
+        QMessageBox::critical(this,"Lancement Arrera Video Download",
+                              "Impossible de lancer Arrera Video Download");
+    }
+}
+
+
+void ArreraUI::on_IDC_ARACCOURCI_clicked()
+{
+    if (!arreraApp->executeApp("arrera-raccourci")){
+        QMessageBox::critical(this,"Lancement Arrera Raccourci",
+                              "Impossible de lancer Arrera Raccourci");
+    }
+}
+
+
+void ArreraUI::on_IDC_ASIX_clicked()
+{
+    if (!arreraApp->executeApp("six")){
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
+                              "Impossible de lancer votre assistant Arrera SIX.");
+    }
+}
+
+
+void ArreraUI::on_IDC_ARYLEY_clicked()
+{
+    if (!arreraApp->executeApp("ryley")){
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
+                              "Impossible de lancer votre assistant Arrera RYLEY.");
+    }
+}
+
+
+void ArreraUI::on_IDC_ACOPILOTE_clicked()
+{
+    if (!arreraApp->executeApp("arrera-copilote")){
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
+                              "Impossible de lancer votre assistant Arrera COPILOTE.");
+    }
+}
+
