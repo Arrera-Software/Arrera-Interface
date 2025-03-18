@@ -42,21 +42,21 @@ bool  CArreraApp::exectute(QString app,bool appSetted){
     }
 }
 
-bool CArreraApp::setBatWindows(QString emplacement){
+QString CArreraApp::setBatWindows(QString emplacement){
     QString workingDir = QFileInfo(emplacement).absolutePath();
     QString exeWin = emplacement.remove(workingDir);
     QString batFile = workingDir+"/"+"lauch.bat";
 
     QFile file(batFile);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        return false;
+        return "error";
     }
     QTextStream out(&file);
     out << "@echo off" << Qt::endl;
     out << "cd "+workingDir << Qt::endl;
     out << ".\\"+exeWin << Qt::endl;
     file.close();
-    return true;
+    return batFile;
 }
 
 bool CArreraApp::openStore(){
@@ -144,7 +144,8 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
                 psetting->setEmplacementArreraApp(nameApp,emplacement);
             }else{
                 if (dectOS->osWin()){
-
+                    QString batfile = setBatWindows(emplacement);
+                    psetting->setEmplacementArreraApp(nameApp,batfile);
                 }
             }
 

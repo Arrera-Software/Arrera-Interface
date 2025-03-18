@@ -18,7 +18,7 @@ private :
     bool tigerFileSetted;
     QString tigerFile;
     bool exectute(QString app,bool appSetted);
-    bool setBatWindows(QString emplacement);
+    QString setBatWindows(QString emplacement);
 public:
     CArreraApp();
     CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw);
