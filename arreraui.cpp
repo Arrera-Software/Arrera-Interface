@@ -339,6 +339,10 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_APPBUREAU->setVisible(true);
     }
+
+    // Laode de application
+    arreraApp->loadJson();
+    arreraApp->loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
 }
 
 void ArreraUI::launchSearch(int mode){

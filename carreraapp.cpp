@@ -1,9 +1,6 @@
 #include "carreraapp.h"
 #include "QFile"
 
-#include "iostream"
-using namespace std ;
-
 CArreraApp::CArreraApp() {}
 
 CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
@@ -18,9 +15,11 @@ bool CArreraApp::loadJson(){
     if (tigerFile=="nothing"){
         jsonFile = nullptr;
         tigerFileSetted = false;
+        return false;
     }else{
         jsonFile = new CJSONWORD(tigerFile);
         tigerFileSetted = true;
+        return true;
     }
 }
 
@@ -124,41 +123,44 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
 
     // Verification si l'app a etais setted
 
-    QString exeApp = psetting->getExeArreraApp(nameApp);
+    if (tigerFileSetted){
 
-    if (exeApp=="nothing"){
-        bool clesExisted = jsonFile->isExist(nameApp);
-        if (!clesExisted){
-            button->setVisible(false);
-            return false;
-        }
+        QString exeApp = psetting->getExeArreraApp(nameApp);
 
-        QString emplacement = jsonFile->read(nameApp);
-
-        if (emplacement == "nothing"){
-            button->setVisible(false);
-            return false;
-        }else{
-
-            if (dectOS->osLinux()){
-                psetting->setEmplacementArreraApp(nameApp,emplacement);
-            }else{
-                if (dectOS->osWin()){
-                    QString batfile = setBatWindows(emplacement);
-                    psetting->setEmplacementArreraApp(nameApp,batfile);
-                }
+        if (exeApp=="nothing"){
+            bool clesExisted = jsonFile->isExist(nameApp);
+            if (!clesExisted){
+                button->setVisible(false);
+                return false;
             }
 
+            QString emplacement = jsonFile->read(nameApp);
+
+            if (emplacement == "nothing"){
+                button->setVisible(false);
+                return false;
+            }else{
+
+                if (dectOS->getosLinux()){
+                    psetting->setEmplacementArreraApp(nameApp,emplacement);
+                }else{
+                    if (dectOS->getosWin()){
+                        QString batfile = setBatWindows(emplacement);
+                        psetting->setEmplacementArreraApp(nameApp,batfile);
+                    }
+                }
+
+                button->setVisible(true);
+                return true;
+            }
+        }else{
             button->setVisible(true);
             return true;
         }
     }else{
-        button->setVisible(true);
-        return true;
+        button->setVisible(false);
+        return false;
     }
-
-
-
 }
 
 bool CArreraApp::executeApp(QString nameApp){
