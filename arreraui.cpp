@@ -134,7 +134,8 @@ void ArreraUI::on_IDC_TIGER_clicked()
 void ArreraUI::on_IDC_RYLEY_clicked()
 {
     if (!arreraApp->executeApp("ryley")){
-        QMessageBox::critical(this,"","");
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
+                              "Impossible de lancer votre assistant Arrera RYLEY.");
     }
 }
 
@@ -142,7 +143,8 @@ void ArreraUI::on_IDC_RYLEY_clicked()
 void ArreraUI::on_IDC_COPILOTE_clicked()
 {
     if (!arreraApp->executeApp("arrera-copilote")){
-        QMessageBox::critical(this,"","");
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
+                              "Impossible de lancer votre assistant Arrera COPILOTE.");
     }
 }
 
@@ -150,7 +152,8 @@ void ArreraUI::on_IDC_COPILOTE_clicked()
 void ArreraUI::on_IDC_SIX_clicked()
 {
     if (!arreraApp->executeApp("six")){
-        QMessageBox::critical(this,"","");
+        QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
+                              "Impossible de lancer votre assistant Arrera SIX.");
     }
 }
 
@@ -158,7 +161,8 @@ void ArreraUI::on_IDC_SIX_clicked()
 void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
 {
     if (!arreraApp->executeApp("arrera-postite")){
-        QMessageBox::critical(this,"","");
+        QMessageBox::critical(this,"Lancement Arrera Postite",
+                              "Impossible de lancer Arrera Postite");
     }
 }
 
