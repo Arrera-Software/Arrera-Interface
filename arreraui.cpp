@@ -133,25 +133,33 @@ void ArreraUI::on_IDC_TIGER_clicked()
 
 void ArreraUI::on_IDC_RYLEY_clicked()
 {
-
+    if (!arreraApp->executeApp("ryley")){
+        QMessageBox::critical(this,"","");
+    }
 }
 
 
 void ArreraUI::on_IDC_COPILOTE_clicked()
 {
-
+    if (!arreraApp->executeApp("arrera-copilote")){
+        QMessageBox::critical(this,"","");
+    }
 }
 
 
 void ArreraUI::on_IDC_SIX_clicked()
 {
-
+    if (!arreraApp->executeApp("six")){
+        QMessageBox::critical(this,"","");
+    }
 }
 
 
 void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
 {
-
+    if (!arreraApp->executeApp("arrera-postite")){
+        QMessageBox::critical(this,"","");
+    }
 }
 
 // Partie Apropos

@@ -1,6 +1,10 @@
 #include "carreraapp.h"
 #include "QFile"
 
+#include <iostream>
+
+using namespace std;
+
 CArreraApp::CArreraApp() {}
 
 CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
@@ -24,14 +28,17 @@ bool CArreraApp::loadJson(){
 }
 
 bool  CArreraApp::exectute(QString app,bool appSetted){
-    if (!appSetted){
-        QProcess process;
+    cout << appSetted << endl;
+    if (appSetted == false){
+        cout << "on if" << endl;
         if (dectOS->getosWin()){
+            cout << "win" << endl;
+            QProcess process;
             return process.startDetached(app);
         }else{
             if(dectOS->getosLinux()){
-
-                return process.startDetached(app, QStringList());
+                cout << "linux" <<endl;
+                return QProcess::startDetached("/bin/bash",QStringList() << app);
             }else{
                 return false;
             }
@@ -172,5 +179,14 @@ bool CArreraApp::executeApp(QString nameApp){
          * "arrera-postite"
          * "arrera-video-download"
          * "arrera-copilote"
-     */
+    */
+    QString exeApp = psetting->getExeArreraApp(nameApp);
+    cout << exeApp.toStdString() << endl;
+    if (exeApp.isEmpty()){
+        cout << "1" << endl;
+        return false;
+    }else{
+        cout << "2" << endl;
+        return exectute(exeApp,exeApp.isEmpty());
+    }
 }
