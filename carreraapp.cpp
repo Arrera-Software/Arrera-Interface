@@ -120,7 +120,7 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
          * "arrera-video-download"
          * "arrera-copilote"
      */
-
+    button->setVisible(false);
     // Verification si l'app a etais setted
 
     if (tigerFileSetted){
