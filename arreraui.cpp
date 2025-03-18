@@ -30,6 +30,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Id Acceuil Stacked
     idNonMode = ui->acceuilStacked->indexOf(ui->nomode);
     idYesMode = ui->acceuilStacked->indexOf(ui->yesmode);
+    // id arreraAppStacked
+    idNoArreraApp = ui->arreraAppStacked->indexOf(ui->noArreraApp);
+    idViewArreraApp = ui->arreraAppStacked->indexOf(ui->viewArreraApp);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -115,6 +118,7 @@ void ArreraUI::on_IDC_ARRERAAPP_clicked()
 {
     ui->I2025->setCurrentIndex(idPageI2025ArreraApp);
     ui->LINDICATIONARRERA->setText("Page module Arrera");
+    loadArreraApp();
 }
 
 void ArreraUI::on_IDC_TIGER_clicked()
@@ -339,10 +343,28 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_APPBUREAU->setVisible(true);
     }
+}
 
-    // Laode de application
-    arreraApp->loadJson();
-    arreraApp->loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+void ArreraUI::loadArreraApp(){
+    if (arreraApp->loadJson()){
+        bool videoSetted,postiteSetted,sixSetted,ryleySetted,raccourciSetted,copiloteSetted;
+        videoSetted = arreraApp->loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+        postiteSetted = arreraApp->loadApp("arrera-postite",ui->IDC_APOSTITE);
+        sixSetted = arreraApp->loadApp("six",ui->IDC_ASIX);
+        ryleySetted =  arreraApp->loadApp("ryley",ui->IDC_ARYLEY);
+        raccourciSetted = arreraApp->loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
+        copiloteSetted = arreraApp->loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
+
+        if (videoSetted||postiteSetted||sixSetted||
+            ryleySetted||raccourciSetted||copiloteSetted){
+            ui->arreraAppStacked->setCurrentIndex(idViewArreraApp);
+        }else{
+            ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
+        }
+
+    }else{
+        ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
+    }
 }
 
 void ArreraUI::launchSearch(int mode){
