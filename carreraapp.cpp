@@ -42,7 +42,7 @@ bool  CArreraApp::exectute(QString app,bool appSetted){
 
 QString CArreraApp::setBatWindows(QString emplacement){
     QString workingDir = QFileInfo(emplacement).absolutePath();
-    QString exeWin = emplacement.remove(workingDir);
+    QString exeWin = emplacement.remove(workingDir).remove("/").remove("\\");
     QString batFile = workingDir+"/"+"lauch.bat";
 
     QFile file(batFile);
