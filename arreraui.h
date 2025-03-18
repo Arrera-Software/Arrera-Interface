@@ -144,6 +144,7 @@ private:
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     // Methode private
     void loadSetting();
+    void loadArreraApp();
     // Methode de recherche
     void launchSearch(int mode);
     // Id du staked widget I2025
@@ -154,6 +155,8 @@ private:
     int idNonMode, idYesMode;
     // id de appstacked
     int idAppView,idNoApp;
+    // id arreraAppStacked
+    int idNoArreraApp, idViewArreraApp;
 };
 
 #endif // ARRERAUI_H
