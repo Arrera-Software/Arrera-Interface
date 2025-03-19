@@ -44,6 +44,11 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     idMainLieu= ui->lieustacked->indexOf(ui->mainlieu);
     idAddLieu = ui->lieustacked->indexOf(ui->addlieu);
     idManageLieu = ui->lieustacked->indexOf(ui->managelieu);
+    // Id stakedGeneraux
+    idMainGeneraux = ui->stakedGeneraux->indexOf(ui->mainGeneraux);
+    idNameUser = ui->stakedGeneraux->indexOf(ui->nameUser);
+    idResetInterface = ui->stakedGeneraux->indexOf(ui->resetInterface);
+    idTaskbarSetting = ui->stakedGeneraux->indexOf(ui->taskbarSetting);
     // Mise en place des item sur le IDC_LISTASSISTANTMODE
     ui->IDC_LISTASSISTANTMODE->addItems(listAssistant);
     // Mise en place des item sur le IDC_LISTASSISTANTMANAGELIEU
@@ -200,6 +205,7 @@ void ArreraSettingUI::on_IDC_GENERAUX_clicked()
 {
     ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->mainstacked->setCurrentIndex(idGenerauxPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -677,8 +683,9 @@ void ArreraSettingUI::on_IDC_CHANGEICONMODEGEST_clicked()
 // Partie Parametre generaux
 void ArreraSettingUI::on_IDC_RETOURGENERAUXUSER_clicked()
 {
-    ui->mainstacked->setCurrentIndex(idMainPage);
-    ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->mainstacked->setCurrentIndex(idGenerauxPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -693,6 +700,79 @@ void ArreraSettingUI::on_IDC_VALIDERNAMEUSER_clicked()
     {
         objPara->setNameUser(nameUser);
     }
+}
+
+// Acceuil Parametre generaux
+
+void ArreraSettingUI::on_IDC_NAMEUSERPARAGENERAUX_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Modification de l'utilisateur");
+    ui->stakedGeneraux->setCurrentIndex(idNameUser);
+}
+
+
+void ArreraSettingUI::on_IDC_GENERAUXTASKBAR_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Gestion de la barre des tâches");
+    ui->stakedGeneraux->setCurrentIndex(idTaskbarSetting);
+}
+
+
+void ArreraSettingUI::on_IDC_RESETARRERAGENERAUX_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Remise à zéro d'Arrera");
+    ui->stakedGeneraux->setCurrentIndex(idResetInterface);
+}
+
+// Partie Reset
+
+void ArreraSettingUI::on_IDC_RESETARRERAAPP_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RESETAPPPC_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RETOURRESETINTERFACE_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->mainstacked->setCurrentIndex(idGenerauxPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
+}
+
+
+void ArreraSettingUI::on_IDC_RESETALLINTERFACE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RESETMODEINTERFACE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RESETLIEU_clicked()
+{
+
+}
+
+// Partie bar des taches
+void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
+{
+
 }
 
 // Partie application
@@ -1480,3 +1560,26 @@ void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des lieu");
     lieuSelected = 0 ;
 }
+
+
+
+
+void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_RETOURTASJBAR_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->mainstacked->setCurrentIndex(idGenerauxPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
+}
+

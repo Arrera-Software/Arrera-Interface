@@ -42,6 +42,8 @@ private:
     int idMainAppStaked, idAddAppStacked,idSupprAppStacked,idIconChangeApp,idEmplacementAppStacked,idManageAppSpeciaux;
     // id lieustacked
     int idMainLieu,idAddLieu,idManageLieu;
+    // Id stakedGeneraux
+    int idMainGeneraux,idNameUser,idResetInterface,idTaskbarSetting;
     // varriable qui permet de savoir quelle mode qui est selectionner
     int modeSelected;
     // Variable qui permet de savoir quelle lieu est selectionner
@@ -92,6 +94,24 @@ private slots:
     // Partie Parametre generaux
     void on_IDC_RETOURGENERAUXUSER_clicked();
     void on_IDC_VALIDERNAMEUSER_clicked();
+    // Parametre generaux
+    // Acceuil Parametre generaux
+    void on_IDC_NAMEUSERPARAGENERAUX_clicked();
+    void on_IDC_GENERAUXTASKBAR_clicked();
+    void on_IDC_RESETARRERAGENERAUX_clicked();
+    // Partie Reset
+    void on_IDC_RESETARRERAAPP_clicked();
+    void on_IDC_RESETAPPPC_clicked();
+    void on_IDC_RETOURRESETINTERFACE_clicked();
+    void on_IDC_RESETALLINTERFACE_clicked();
+    void on_IDC_RESETMODEINTERFACE_clicked();
+    void on_IDC_RESETLIEU_clicked();
+    // Partie bar des taches
+    void on_IDC_ACTIVEARRERAAPP_clicked();
+    void on_IDC_ACTIVESIX_clicked();
+    void on_IDC_ACTIVERYLEY_clicked();
+    void on_IDC_ACTIVECOPILOTE_clicked();
+    void on_IDC_RETOURTASJBAR_clicked();
 
     // Partie application
     //Partie ajout de l'app
