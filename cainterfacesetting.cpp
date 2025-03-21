@@ -261,11 +261,43 @@ QString CAInterfaceSetting::getExeArreraApp(QString nameApp){
     }
 }
 
-bool CAInterfaceSetting::getTaskbarBTNSix(){}
-bool CAInterfaceSetting::getTaskbarBTNArreraApp(){}
-bool CAInterfaceSetting::getTaskbarBTNRyley(){}
-bool CAInterfaceSetting::getTaskbarCopilote(){}
-bool CAInterfaceSetting::getTaskbarPostite(){}
+bool CAInterfaceSetting::getTaskbarBTNSix(){
+    if (fileINI->getValeur("taskbar","btnSix")=="1"){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool CAInterfaceSetting::getTaskbarBTNArreraApp(){
+    if (fileINI->getValeur("taskbar","btnArreraApp")=="1"){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool CAInterfaceSetting::getTaskbarBTNRyley(){
+    if (fileINI->getValeur("taskbar","btnRyley")=="1"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::getTaskbarCopilote(){
+    if (fileINI->getValeur("taskbar","btnCopilote")=="1"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::getTaskbarPostite(){
+    if (fileINI->getValeur("taskbar","btnPostite")=="1"){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 // Setteurs
 bool CAInterfaceSetting::setNameUser(QString& user){
@@ -671,11 +703,47 @@ bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplace
 }
 
 
-bool CAInterfaceSetting::setTaskbarBTNSix(){}
-bool CAInterfaceSetting::setTaskbarBTNArreraApp(){}
-bool CAInterfaceSetting::setTaskbarBTNRyley(){}
-bool CAInterfaceSetting::setTaskbarCopilote(){}
-bool CAInterfaceSetting::setTaskbarPostite(){}
+bool CAInterfaceSetting::setTaskbarBTNSix(){
+    return fileINI->setValeur("taskbar","btnSix","1");
+}
+
+bool CAInterfaceSetting::setTaskbarBTNArreraApp(){
+    return fileINI->setValeur("taskbar","btnArreraApp","1");
+}
+
+bool CAInterfaceSetting::setTaskbarBTNRyley(){
+    return fileINI->setValeur("taskbar","btnRyley","1");
+}
+
+bool CAInterfaceSetting::setTaskbarCopilote(){
+    return fileINI->setValeur("taskbar","btnCopilote","1");
+}
+
+bool CAInterfaceSetting::setTaskbarPostite(){
+    return fileINI->setValeur("taskbar","btnArreraApp","1");
+}
+
+// Unset
+
+bool CAInterfaceSetting::unsetTaskbarBTNSix(){
+    return fileINI->setValeur("taskbar","btnSix","0");
+}
+
+bool CAInterfaceSetting::unsetTaskbarBTNArreraApp(){
+    return fileINI->setValeur("taskbar","btnArreraApp","0");
+}
+
+bool CAInterfaceSetting::unsetTaskbarBTNRyley(){
+    return fileINI->setValeur("taskbar","btnRyley","0");
+}
+
+bool CAInterfaceSetting::unsetTaskbarCopilote(){
+    return fileINI->setValeur("taskbar","btnCopilote","1");
+}
+
+bool CAInterfaceSetting::unsetTaskbarPostite(){
+    return fileINI->setValeur("taskbar","btnArreraApp","0");
+}
 
 // Partie reset
 bool CAInterfaceSetting::resetArreraApp(){
@@ -759,4 +827,10 @@ void CAInterfaceSetting::resetAll(){
     fileINI->setValeur("tableur","exe","nothing");
     fileINI->setValeur("presentation","exe","nothing");
     fileINI->setValeur("traitement","exe","nothing");
+
+    fileINI->setValeur("taskbar","btnArreraApp","0");
+    fileINI->setValeur("taskbar","btnSix","0");
+    fileINI->setValeur("taskbar","btnRyley","0");
+    fileINI->setValeur("taskbar","btnCopilote","0");
+    fileINI->setValeur("taskbar","btnPostite","0");
 }

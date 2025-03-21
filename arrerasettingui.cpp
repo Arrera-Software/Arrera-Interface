@@ -716,6 +716,46 @@ void ArreraSettingUI::on_IDC_GENERAUXTASKBAR_clicked()
     ui->LINDICATIONSETTING->setText("Gestion de la barre des tâches");
     ui->stakedGeneraux->setCurrentIndex(idTaskbarSetting);
 
+    if (objPara->getTaskbarBTNSix()){
+        ui->IDC_ACTIVESIX->setText("Désactiver le bouton d'Arrera SIX.");
+        ui->IDC_ACTIVESIX->setStyleSheet("background-color: red; color: white;");
+    }else{
+        ui->IDC_ACTIVESIX->setText("Activer le bouton d'Arrera SIX.");
+        ui->IDC_ACTIVESIX->setStyleSheet("background-color: green; color: white;");
+    }
+
+    if (objPara->getTaskbarBTNArreraApp()){
+        ui->IDC_ACTIVEARRERAAPP->setText("Désactiver le bouton des Application Arrera.");
+        ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: red; color: white;");
+    }else{
+        ui->IDC_ACTIVEARRERAAPP->setText("Activer le bouton des Application Arrera.");
+        ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: green; color: white;");
+    }
+
+    if (objPara->getTaskbarBTNRyley()){
+        ui->IDC_ACTIVERYLEY->setText("Désactiver le bouton d'Arrera RYLEY.");
+        ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: red; color: white;");
+    }else{
+        ui->IDC_ACTIVERYLEY->setText("Activer le bouton d'Arrera RYLEY.");
+        ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: green; color: white;");
+    }
+
+    if (objPara->getTaskbarCopilote()){
+        ui->IDC_ACTIVECOPILOTE->setText("Désactiver le bouton d'Arrera COPILOTE.");
+        ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: red; color: white;");
+    }else{
+        ui->IDC_ACTIVECOPILOTE->setText("Activer le bouton d'Arrera COPILOTE.");
+        ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: green; color: white;");
+    }
+
+    if (objPara->getTaskbarPostite()){
+        ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera POSTITE.");
+        ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: red; color: white;");
+    }else{
+        ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera POSTITE.");
+        ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: green; color: white;");
+    }
+
 
 }
 
@@ -812,13 +852,53 @@ void ArreraSettingUI::on_IDC_RESETLIEU_clicked()
 // Partie bar des taches
 void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
 {
-
+    bool sortie;
+    if (objPara->getTaskbarBTNArreraApp()){
+        sortie = objPara->unsetTaskbarBTNArreraApp();
+        if (sortie){
+            ui->IDC_ACTIVESIX->setText("Activer le bouton d'Arrera SIX.");
+            ui->IDC_ACTIVESIX->setStyleSheet("background-color: green; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }else{
+        sortie = objPara->setTaskbarBTNArreraApp();
+        if (sortie){
+            ui->IDC_ACTIVESIX->setText("Désactiver le bouton d'Arrera SIX.");
+            ui->IDC_ACTIVESIX->setStyleSheet("background-color: red; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 
 void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
 {
-
+    bool sortie;
+    if (objPara->getTaskbarBTNSix()){
+        sortie = objPara->unsetTaskbarBTNSix();
+        if (sortie){
+            ui->IDC_ACTIVESIX->setText("Activer le bouton d'Arrera SIX.");
+            ui->IDC_ACTIVESIX->setStyleSheet("background-color: green; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }else{
+        sortie = objPara->setTaskbarBTNSix();
+        if (sortie){
+            ui->IDC_ACTIVESIX->setText("Désactiver le bouton d'Arrera SIX.");
+            ui->IDC_ACTIVESIX->setStyleSheet("background-color: red; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 

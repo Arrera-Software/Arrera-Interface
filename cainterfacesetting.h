@@ -200,6 +200,12 @@ public:
     bool setTaskbarCopilote();
     bool setTaskbarPostite();
 
+    bool unsetTaskbarBTNSix();
+    bool unsetTaskbarBTNArreraApp();
+    bool unsetTaskbarBTNRyley();
+    bool unsetTaskbarCopilote();
+    bool unsetTaskbarPostite();
+
     // Partie reset
     bool resetArreraApp();
     bool resetAppPC();
