@@ -858,18 +858,26 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
         if (sortie){
             ui->IDC_ACTIVEARRERAAPP->setText("Activer le bouton des Application Arrera.");
             ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: green; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton des applications Arrera ne sera plus affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }else{
         sortie = objPara->setTaskbarBTNArreraApp();
         if (sortie){
             ui->IDC_ACTIVEARRERAAPP->setText("Désactiver le bouton des Application Arrera.");
             ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: red; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton des applications Arrera est affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }
     ui->mainstacked->setCurrentIndex(idMainPage);
@@ -884,18 +892,26 @@ void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
         if (sortie){
             ui->IDC_ACTIVESIX->setText("Activer le bouton d'Arrera SIX.");
             ui->IDC_ACTIVESIX->setStyleSheet("background-color: green; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera SIX ne sera plus affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }else{
         sortie = objPara->setTaskbarBTNSix();
         if (sortie){
             ui->IDC_ACTIVESIX->setText("Désactiver le bouton d'Arrera SIX.");
             ui->IDC_ACTIVESIX->setStyleSheet("background-color: red; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera SIX est affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }
     ui->mainstacked->setCurrentIndex(idMainPage);
@@ -910,18 +926,26 @@ void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
         if (sortie){
             ui->IDC_ACTIVERYLEY->setText("Activer le bouton d'Arrera RYLEY.");
             ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: green; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera RYLEY ne sera plus affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }else{
         sortie = objPara->setTaskbarBTNRyley();
         if (sortie){
             ui->IDC_ACTIVERYLEY->setText("Désactiver le bouton d'Arrera RYLEY.");
             ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: red; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera RYLEY est affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }
     ui->mainstacked->setCurrentIndex(idMainPage);
@@ -936,18 +960,26 @@ void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
         if (sortie){
             ui->IDC_ACTIVECOPILOTE->setText("AActiver le bouton d'Arrera COPILOTE.");
             ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: green; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera COPILOTE ne sera plus affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }else{
         sortie = objPara->setTaskbarBTNCopilote();
         if (sortie){
             ui->IDC_ACTIVECOPILOTE->setText("Désactiver le bouton d'Arrera COPILOTE.");
             ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: red; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera COPILOTE est affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }
     ui->mainstacked->setCurrentIndex(idMainPage);
@@ -961,18 +993,24 @@ void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
         if (sortie){
             ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera POSTITE.");
             ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: green; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,"Paramètre de barre des tâches","Le bouton d'Arrera Postite ne sera plus affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }else{
         sortie = objPara->setTaskbarBBTNPostite();
         if (sortie){
             ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera POSTITE.");
             ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: red; color: white;");
-            QMessageBox::information(this,"","");
+            QMessageBox::information(this,
+                                     "Paramètre de barre des tâches",
+                                     "Le bouton d'Arrera POSTITE est affiché.");
         }else{
-            QMessageBox::critical(this,"","");
+            QMessageBox::critical(this,
+                                  "Paramètre de barre des tâches",
+                                  "Une erreur s'est produite.");
         }
     }
     ui->mainstacked->setCurrentIndex(idMainPage);
