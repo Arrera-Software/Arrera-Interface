@@ -715,6 +715,8 @@ void ArreraSettingUI::on_IDC_GENERAUXTASKBAR_clicked()
 {
     ui->LINDICATIONSETTING->setText("Gestion de la barre des tâches");
     ui->stakedGeneraux->setCurrentIndex(idTaskbarSetting);
+
+
 }
 
 
@@ -773,6 +775,30 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
 void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
 {
 
+}
+
+
+void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
+{
+
+}
+
+
+void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
+{
+
+}
+
+void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
+{
+
+}
+
+void ArreraSettingUI::on_IDC_RETOURTASJBAR_clicked()
+{
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->mainstacked->setCurrentIndex(idGenerauxPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 // Partie application
@@ -1560,26 +1586,3 @@ void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des lieu");
     lieuSelected = 0 ;
 }
-
-
-
-
-void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
-{
-
-}
-
-
-void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
-{
-
-}
-
-
-void ArreraSettingUI::on_IDC_RETOURTASJBAR_clicked()
-{
-    ui->LINDICATIONSETTING->setText("Parametre generaux");
-    ui->mainstacked->setCurrentIndex(idGenerauxPage);
-    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
-}
-

@@ -111,6 +111,7 @@ private slots:
     void on_IDC_ACTIVESIX_clicked();
     void on_IDC_ACTIVERYLEY_clicked();
     void on_IDC_ACTIVECOPILOTE_clicked();
+    void on_IDC_ACTIVEPOSTITE_clicked();
     void on_IDC_RETOURTASJBAR_clicked();
 
     // Partie application

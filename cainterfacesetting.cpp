@@ -280,6 +280,12 @@ QString CAInterfaceSetting::getExeArreraApp(QString nameApp){
     }
 }
 
+bool CAInterfaceSetting::getTaskbarBTNSix(){}
+bool CAInterfaceSetting::getTaskbarBTNArreraApp(){}
+bool CAInterfaceSetting::getTaskbarBTNRyley(){}
+bool CAInterfaceSetting::getTaskbarCopilote(){}
+bool CAInterfaceSetting::getTaskbarPostite(){}
+
 // Setteurs
 bool CAInterfaceSetting::setNameUser(QString& user){
     return fileINI->setValeur("interface","user",user);
@@ -682,3 +688,10 @@ bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplace
         return false;
     }
 }
+
+
+bool CAInterfaceSetting::setTaskbarBTNSix(){}
+bool CAInterfaceSetting::setTaskbarBTNArreraApp(){}
+bool CAInterfaceSetting::setTaskbarBTNRyley(){}
+bool CAInterfaceSetting::setTaskbarCopilote(){}
+bool CAInterfaceSetting::setTaskbarPostite(){}

@@ -89,6 +89,12 @@ public:
     QString getEmplacementStore();
     QString getExeArreraApp(QString nameApp);
 
+    bool getTaskbarBTNSix();
+    bool getTaskbarBTNArreraApp();
+    bool getTaskbarBTNRyley();
+    bool getTaskbarCopilote();
+    bool getTaskbarPostite();
+
     // Setteurs
     bool setNameUser(QString& user);
 
@@ -185,6 +191,12 @@ public:
 
     bool setEmplacementStore(QString emplacement);
     bool setEmplacementArreraApp(QString nameApp,QString emplacement);
+
+    bool setTaskbarBTNSix();
+    bool setTaskbarBTNArreraApp();
+    bool setTaskbarBTNRyley();
+    bool setTaskbarCopilote();
+    bool setTaskbarPostite();
 };
 
 #endif // CAINTERFACESETTING_H
