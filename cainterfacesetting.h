@@ -9,7 +9,8 @@
 #include "cdetectionos.h"
 #include "cjsonword.h"
 
-using namespace std;
+#include <iostream>
+using namespace std ;
 
 class CAInterfaceSetting {
 
@@ -187,6 +188,7 @@ public:
     bool resetLieu1();
     bool resetLieu2();
 
+    // Partie gestion Arrera APP
     bool setFileJson(QString file);
 
     bool setEmplacementStore(QString emplacement);
@@ -197,6 +199,11 @@ public:
     bool setTaskbarBTNRyley();
     bool setTaskbarCopilote();
     bool setTaskbarPostite();
+
+    // Partie reset
+    bool resetArreraApp();
+    bool resetAppPC();
+    void resetAll();
 };
 
 #endif // CAINTERFACESETTING_H

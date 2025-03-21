@@ -4,7 +4,6 @@ CAInterfaceSetting::CAInterfaceSetting() {}
 
 CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
     // Var
-    int i ;
     fileINI = new CSetting(inifile);
     // Instentation des mode
     mode1 = CAMode("mode1",fileINI);
@@ -17,25 +16,7 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
     lieu1 = CALieu("lieu1",fileINI);
     lieu2 = CALieu("lieu2",fileINI);
     if(fileINI->getFileCreated()){
-        fileINI->setValeur("arrera-recherche","moteur","nothing");
-        fileINI->setValeur("interface","user","nothing");
-        fileINI->setValeur("arrera-app","fileJson","nothing");
-        fileINI->setValeur("arrera-app","store","nothing");
-        fileINI->setValeur("arrera-app","ryley","nothing");
-        fileINI->setValeur("arrera-app","six","nothing");
-        fileINI->setValeur("arrera-app","arrera-raccourci","nothing");
-        fileINI->setValeur("arrera-app","arrera-postite","nothing");
-        fileINI->setValeur("arrera-app","arrera-video-download","nothing");
-        fileINI->setValeur("arrera-app","arrera-copilote","nothing");
-        for (i = 1 ; i <= 20 ; i++){
-            fileINI->setValeur("app"+QString::number(i),"name","nothing");
-            fileINI->setValeur("app"+QString::number(i),"exe","nothing");
-            fileINI->setValeur("app"+QString::number(i),"icon","nothing");
-        }
-        fileINI->setValeur("navigateur","exe","nothing");
-        fileINI->setValeur("tableur","exe","nothing");
-        fileINI->setValeur("presentation","exe","nothing");
-        fileINI->setValeur("traitement","exe","nothing");
+        resetAll();
     }
 }
 
@@ -695,3 +676,87 @@ bool CAInterfaceSetting::setTaskbarBTNArreraApp(){}
 bool CAInterfaceSetting::setTaskbarBTNRyley(){}
 bool CAInterfaceSetting::setTaskbarCopilote(){}
 bool CAInterfaceSetting::setTaskbarPostite(){}
+
+// Partie reset
+bool CAInterfaceSetting::resetArreraApp(){
+
+    if (fileINI->setValeur("arrera-app","fileJson","nothing")){
+        if (fileINI->setValeur("arrera-app","store","nothing")){
+            if (fileINI->setValeur("arrera-app","ryley","nothing")){
+                if (fileINI->setValeur("arrera-app","six","nothing")){
+                    if (fileINI->setValeur("arrera-app","arrera-raccourci","nothing")){
+                        if (fileINI->setValeur("arrera-app","arrera-postite","nothing")){
+                            if (fileINI->setValeur("arrera-app","arrera-video-download","nothing")){
+                                if (fileINI->setValeur("arrera-app","arrera-copilote","nothing")){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            }else{
+                                return false;
+                            }
+                        }else{
+                            return false;
+                        }
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+bool CAInterfaceSetting::resetAppPC(){
+    bool name,exe,icon,ok;
+    for (int i = 1 ; i <= 20 ; i++){
+        name = fileINI->setValeur("app"+QString::number(i),"name","nothing");
+        exe = fileINI->setValeur("app"+QString::number(i),"exe","nothing");
+        icon = fileINI->setValeur("app"+QString::number(i),"icon","nothing");
+
+        if (name){
+            if (exe){
+                if (!icon){
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+        ok = true;
+    }
+    return ok;
+}
+
+void CAInterfaceSetting::resetAll(){
+
+    fileINI->setValeur("arrera-recherche","moteur","nothing");
+    fileINI->setValeur("interface","user","nothing");
+    fileINI->setValeur("arrera-app","fileJson","nothing");
+    fileINI->setValeur("arrera-app","store","nothing");
+    fileINI->setValeur("arrera-app","ryley","nothing");
+    fileINI->setValeur("arrera-app","six","nothing");
+    fileINI->setValeur("arrera-app","arrera-raccourci","nothing");
+    fileINI->setValeur("arrera-app","arrera-postite","nothing");
+    fileINI->setValeur("arrera-app","arrera-video-download","nothing");
+    fileINI->setValeur("arrera-app","arrera-copilote","nothing");
+    for (int i = 1 ; i <= 20 ; i++){
+        fileINI->setValeur("app"+QString::number(i),"name","nothing");
+        fileINI->setValeur("app"+QString::number(i),"exe","nothing");
+        fileINI->setValeur("app"+QString::number(i),"icon","nothing");
+    }
+    fileINI->setValeur("navigateur","exe","nothing");
+    fileINI->setValeur("tableur","exe","nothing");
+    fileINI->setValeur("presentation","exe","nothing");
+    fileINI->setValeur("traitement","exe","nothing");
+}

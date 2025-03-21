@@ -730,13 +730,25 @@ void ArreraSettingUI::on_IDC_RESETARRERAGENERAUX_clicked()
 
 void ArreraSettingUI::on_IDC_RESETARRERAAPP_clicked()
 {
-
+    if (objPara->resetArreraApp()){
+        QMessageBox::information(this,"Reset Arrera Application",
+                                 "Les applications Arrera dans l'interface ont bien été remises à zéro.");
+    }else{
+        QMessageBox::critical(this,"Reset Arrera Application",
+                              "Impossible de remettre à zéro la configuration des applications Arrera dans l'interface.");
+    }
 }
 
 
 void ArreraSettingUI::on_IDC_RESETAPPPC_clicked()
 {
-
+    if (objPara->resetAppPC()){
+         QMessageBox::information(this,"Application enregistrée",
+                                 "Les applications enregistrées dans l'interface ont été remises à zéro.");
+    }else{
+        QMessageBox::critical(this,"Application enregistrée",
+                              "Impossible de remettre à zéro les applications enregistrées.");
+    }
 }
 
 
@@ -750,19 +762,51 @@ void ArreraSettingUI::on_IDC_RETOURRESETINTERFACE_clicked()
 
 void ArreraSettingUI::on_IDC_RESETALLINTERFACE_clicked()
 {
-
+    objPara->resetAll();
+    QMessageBox::information(this,"Remise a Zero d'Arrera",
+                             "Les applications enregistrées dans l'interface ont été remises à zéro.");
 }
 
 
 void ArreraSettingUI::on_IDC_RESETMODEINTERFACE_clicked()
 {
+    bool sortMode1,sortMode2,sortMode3,sortMode4,sortMode5,sortMode6;
 
+    sortMode1 = objPara->resetMode1();
+    sortMode2 = objPara->resetMode2();
+    sortMode3 = objPara->resetMode3();
+    sortMode4 = objPara->resetMode4();
+    sortMode5 = objPara->resetMode5();
+    sortMode6 = objPara->resetMode6();
+
+    if (sortMode1 && sortMode2 && sortMode3 && sortMode4&& sortMode5&& sortMode6){
+        QMessageBox::information(this,"Mode Arrera",
+                                 "Les modes d'Arrera ont été remis à zéro.");
+    }else{
+        QMessageBox::critical(this,"Mode Arrera",
+                              "Impossible de remettre à zéro les modes Arrera.");
+    }
+
+    ui->mainstacked->setCurrentIndex(idMainAppStaked);
 }
 
 
 void ArreraSettingUI::on_IDC_RESETLIEU_clicked()
 {
+    bool sortLieu1,sortLieu2 ;
 
+    sortLieu1 = objPara->resetLieu1();
+    sortLieu2 = objPara->resetLieu2();
+
+    if (sortLieu1 && sortLieu2){
+        QMessageBox::information(this,"Lieu Arrera",
+                                 "Les lieux d'Arrera ont été remis à zéro");
+    }else{
+        QMessageBox::critical(this,"LIeu Arrera",
+                              "Impossible de remettre à zéro les lieu Arrera.");
+    }
+
+    ui->mainstacked->setCurrentIndex(idMainAppStaked);
 }
 
 // Partie bar des taches
