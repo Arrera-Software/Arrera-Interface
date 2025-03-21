@@ -856,8 +856,8 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
     if (objPara->getTaskbarBTNArreraApp()){
         sortie = objPara->unsetTaskbarBTNArreraApp();
         if (sortie){
-            ui->IDC_ACTIVESIX->setText("Activer le bouton d'Arrera SIX.");
-            ui->IDC_ACTIVESIX->setStyleSheet("background-color: green; color: white;");
+            ui->IDC_ACTIVEARRERAAPP->setText("Activer le bouton des Application Arrera.");
+            ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: green; color: white;");
             QMessageBox::information(this,"","");
         }else{
             QMessageBox::critical(this,"","");
@@ -865,8 +865,8 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
     }else{
         sortie = objPara->setTaskbarBTNArreraApp();
         if (sortie){
-            ui->IDC_ACTIVESIX->setText("Désactiver le bouton d'Arrera SIX.");
-            ui->IDC_ACTIVESIX->setStyleSheet("background-color: red; color: white;");
+            ui->IDC_ACTIVEARRERAAPP->setText("Désactiver le bouton des Application Arrera.");
+            ui->IDC_ACTIVEARRERAAPP->setStyleSheet("background-color: red; color: white;");
             QMessageBox::information(this,"","");
         }else{
             QMessageBox::critical(this,"","");
@@ -904,18 +904,78 @@ void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
 
 void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
 {
-
+    bool sortie;
+    if (objPara->getTaskbarBTNRyley()){
+        sortie = objPara->unsetTaskbarBTNRyley();
+        if (sortie){
+            ui->IDC_ACTIVERYLEY->setText("Activer le bouton d'Arrera RYLEY.");
+            ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: green; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }else{
+        sortie = objPara->setTaskbarBTNRyley();
+        if (sortie){
+            ui->IDC_ACTIVERYLEY->setText("Désactiver le bouton d'Arrera RYLEY.");
+            ui->IDC_ACTIVERYLEY->setStyleSheet("background-color: red; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 
 void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
 {
-
+    bool sortie;
+    if (objPara->getTaskbarCopilote()){
+        sortie = objPara->unsetTaskbarBTNCopilote();
+        if (sortie){
+            ui->IDC_ACTIVECOPILOTE->setText("AActiver le bouton d'Arrera COPILOTE.");
+            ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: green; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }else{
+        sortie = objPara->setTaskbarBTNCopilote();
+        if (sortie){
+            ui->IDC_ACTIVECOPILOTE->setText("Désactiver le bouton d'Arrera COPILOTE.");
+            ui->IDC_ACTIVECOPILOTE->setStyleSheet("background-color: red; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
 {
-
+    bool sortie;
+    if (objPara->getTaskbarPostite()){
+        sortie = objPara->unsetTaskbarBTNPostite();
+        if (sortie){
+            ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera POSTITE.");
+            ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: green; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }else{
+        sortie = objPara->setTaskbarBBTNPostite();
+        if (sortie){
+            ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera POSTITE.");
+            ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: red; color: white;");
+            QMessageBox::information(this,"","");
+        }else{
+            QMessageBox::critical(this,"","");
+        }
+    }
+    ui->mainstacked->setCurrentIndex(idMainPage);
 }
 
 void ArreraSettingUI::on_IDC_RETOURTASJBAR_clicked()

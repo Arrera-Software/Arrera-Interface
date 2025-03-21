@@ -197,14 +197,14 @@ public:
     bool setTaskbarBTNSix();
     bool setTaskbarBTNArreraApp();
     bool setTaskbarBTNRyley();
-    bool setTaskbarCopilote();
-    bool setTaskbarPostite();
+    bool setTaskbarBTNCopilote();
+    bool setTaskbarBBTNPostite();
 
     bool unsetTaskbarBTNSix();
     bool unsetTaskbarBTNArreraApp();
     bool unsetTaskbarBTNRyley();
-    bool unsetTaskbarCopilote();
-    bool unsetTaskbarPostite();
+    bool unsetTaskbarBTNCopilote();
+    bool unsetTaskbarBTNPostite();
 
     // Partie reset
     bool resetArreraApp();
