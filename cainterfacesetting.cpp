@@ -715,11 +715,11 @@ bool CAInterfaceSetting::setTaskbarBTNRyley(){
     return fileINI->setValeur("taskbar","btnRyley","1");
 }
 
-bool CAInterfaceSetting::setTaskbarCopilote(){
+bool CAInterfaceSetting::setTaskbarBTNCopilote(){
     return fileINI->setValeur("taskbar","btnCopilote","1");
 }
 
-bool CAInterfaceSetting::setTaskbarPostite(){
+bool CAInterfaceSetting::setTaskbarBBTNPostite(){
     return fileINI->setValeur("taskbar","btnPostite","1");
 }
 
@@ -737,11 +737,11 @@ bool CAInterfaceSetting::unsetTaskbarBTNRyley(){
     return fileINI->setValeur("taskbar","btnRyley","0");
 }
 
-bool CAInterfaceSetting::unsetTaskbarCopilote(){
+bool CAInterfaceSetting::unsetTaskbarBTNCopilote(){
     return fileINI->setValeur("taskbar","btnCopilote","0");
 }
 
-bool CAInterfaceSetting::unsetTaskbarPostite(){
+bool CAInterfaceSetting::unsetTaskbarBTNPostite(){
     return fileINI->setValeur("taskbar","btnPostite","0");
 }
 
