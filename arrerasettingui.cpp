@@ -880,7 +880,7 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
                                   "Une erreur s'est produite.");
         }
     }
-    ui->mainstacked->setCurrentIndex(idMainPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -914,7 +914,7 @@ void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
                                   "Une erreur s'est produite.");
         }
     }
-    ui->mainstacked->setCurrentIndex(idMainPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -948,7 +948,7 @@ void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
                                   "Une erreur s'est produite.");
         }
     }
-    ui->mainstacked->setCurrentIndex(idMainPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -982,7 +982,7 @@ void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
                                   "Une erreur s'est produite.");
         }
     }
-    ui->mainstacked->setCurrentIndex(idMainPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
@@ -1013,7 +1013,7 @@ void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
                                   "Une erreur s'est produite.");
         }
     }
-    ui->mainstacked->setCurrentIndex(idMainPage);
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 void ArreraSettingUI::on_IDC_RETOURTASJBAR_clicked()
