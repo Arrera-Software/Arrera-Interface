@@ -355,6 +355,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_APPBUREAU->setVisible(true);
     }
+
+    ui->IDC_ARRERAAPP->setVisible(objSetting->getTaskbarBTNArreraApp());
+    ui->IDC_ARRERAPOSTITE->setVisible(objSetting->getTaskbarPostite());
+    ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
+    ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
+    ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
 }
 
 void ArreraUI::loadArreraApp(){
