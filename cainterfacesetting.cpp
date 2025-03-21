@@ -720,7 +720,7 @@ bool CAInterfaceSetting::setTaskbarCopilote(){
 }
 
 bool CAInterfaceSetting::setTaskbarPostite(){
-    return fileINI->setValeur("taskbar","btnArreraApp","1");
+    return fileINI->setValeur("taskbar","btnPostite","1");
 }
 
 // Unset
@@ -738,11 +738,11 @@ bool CAInterfaceSetting::unsetTaskbarBTNRyley(){
 }
 
 bool CAInterfaceSetting::unsetTaskbarCopilote(){
-    return fileINI->setValeur("taskbar","btnCopilote","1");
+    return fileINI->setValeur("taskbar","btnCopilote","0");
 }
 
 bool CAInterfaceSetting::unsetTaskbarPostite(){
-    return fileINI->setValeur("taskbar","btnArreraApp","0");
+    return fileINI->setValeur("taskbar","btnPostite","0");
 }
 
 // Partie reset
