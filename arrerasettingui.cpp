@@ -700,6 +700,8 @@ void ArreraSettingUI::on_IDC_VALIDERNAMEUSER_clicked()
     {
         objPara->setNameUser(nameUser);
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 // Acceuil Parametre generaux
