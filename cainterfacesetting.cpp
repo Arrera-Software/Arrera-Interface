@@ -67,24 +67,6 @@ QString CAInterfaceSetting::getNameLieu2(){
     return lieu2.getNameView();
 }
 
-// Getteurs App mode
-
-bool CAInterfaceSetting::getAppMode1(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-bool CAInterfaceSetting::getAppMode2(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-bool CAInterfaceSetting::getAppMode3(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-bool CAInterfaceSetting::getAppMode4(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-bool CAInterfaceSetting::getAppMode5(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-bool CAInterfaceSetting::getAppMode6(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4){}
-
-// getteur Assistant App
-
-QString CAInterfaceSetting::getAssistantMode1(){}
-QString CAInterfaceSetting::getAssistantMode2(){}
-QString CAInterfaceSetting::getAssistantMode3(){}
-QString CAInterfaceSetting::getAssistantMode4(){}
-QString CAInterfaceSetting::getAssistantMode5(){}
-QString CAInterfaceSetting::getAssistantMode6(){}
-
 // getteur Icon Mode
 
 QString CAInterfaceSetting::getIconMode1(){

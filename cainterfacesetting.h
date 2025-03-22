@@ -51,20 +51,6 @@ public:
     QString getNameLieu1();
     QString getNameLieu2();
 
-    bool getAppMode1(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-    bool getAppMode2(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-    bool getAppMode3(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-    bool getAppMode4(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-    bool getAppMode5(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-    bool getAppMode6(QString* nameApp1, QString* nameApp2, QString* nameApp3, QString* nameApp4);
-
-    QString getAssistantMode1();
-    QString getAssistantMode2();
-    QString getAssistantMode3();
-    QString getAssistantMode4();
-    QString getAssistantMode5();
-    QString getAssistantMode6();
-
     QString getIconMode1();
     QString getIconMode2();
     QString getIconMode3();
