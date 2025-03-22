@@ -1877,7 +1877,7 @@ l'icon</string>
        <item>
         <widget class="QStackedWidget" name="stakedGeneraux">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="mainGeneraux">
           <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1927,9 +1927,17 @@ l'icon</string>
                 </size>
                </property>
                <property name="text">
-                <string>Nom
-de
-l'utilisateur</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/userPara.png</normaloff>:/icon/img/userPara.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1948,10 +1956,17 @@ l'utilisateur</string>
                 </size>
                </property>
                <property name="text">
-                <string>Gestion
-de la
-bar
-des taches</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/gestTaskbar.png</normaloff>:/icon/img/gestTaskbar.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1970,9 +1985,17 @@ des taches</string>
                 </size>
                </property>
                <property name="text">
-                <string>Reset
-Arrera
-I2025</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/resetArrera.png</normaloff>:/icon/img/resetArrera.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>95</width>
+                 <height>95</height>
+                </size>
                </property>
               </widget>
              </item>

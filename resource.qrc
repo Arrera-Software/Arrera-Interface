@@ -29,6 +29,9 @@
         <file>img/presentation-para.png</file>
         <file>img/tableur-para.png</file>
         <file>img/traitementTexte-para.png</file>
+        <file>img/gestTaskbar.png</file>
+        <file>img/resetArrera.png</file>
+        <file>img/userPara.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>
