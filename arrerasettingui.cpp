@@ -91,15 +91,17 @@ void ArreraSettingUI::setAppComboBox(){
     ui->LISTAPPCHANGEICON->clear();
     ui->LISTOPTIONAPPSUPPR->clear();
     ui->LISTAPPCHANGEEMPLACEMENT->clear();
+
+    ui->IDC_APP1MODE->addItem("AUCUN");
+    ui->IDC_APP2MODE->addItem("AUCUN");
+    ui->IDC_APP3MODE->addItem("AUCUN");
+    ui->IDC_APP4MODE->addItem("AUCUN");
+    ui->IDC_APP1GESTMODE->addItem("AUCUN");
+    ui->IDC_APP2GESTMODE->addItem("AUCUN");
+    ui->IDC_APP3GESTMODE->addItem("AUCUN");
+    ui->IDC_APP4GESTMODE->addItem("AUCUN");
+
     if (listApp.isEmpty()){
-        ui->IDC_APP1MODE->addItem("nothing");
-        ui->IDC_APP2MODE->addItem("nothing");
-        ui->IDC_APP3MODE->addItem("nothing");
-        ui->IDC_APP4MODE->addItem("nothing");
-        ui->IDC_APP1GESTMODE->addItem("nothing");
-        ui->IDC_APP2GESTMODE->addItem("nothing");
-        ui->IDC_APP3GESTMODE->addItem("nothing");
-        ui->IDC_APP4GESTMODE->addItem("nothing");
         ui->LISTAPPCHANGEICON->addItem("nothing");
         ui->LISTOPTIONAPPSUPPR->addItem("nothing");
         ui->LISTAPPCHANGEEMPLACEMENT->addItem("nothing");
@@ -367,14 +369,31 @@ void ArreraSettingUI::on_IDC_BTNMODE6_clicked()
 
 void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
 {
+    QString assistant;
+    QString app1,app2,app3,app4;
     // Recuperation valeur entrer par l'user
     QString name = ui->IDC_LINENAMEMODE->text();
-    QString assistant = ui->IDC_LISTASSISTANTMODE->currentText();
+    if ((assistant = ui->IDC_LISTASSISTANTMODE->currentText())=="AUCUN"){
+        assistant = "nothing";
+    }
+
     // Recuperation de application
-    QString app1 = ui->IDC_APP1MODE->currentText();
-    QString app2 = ui->IDC_APP2MODE->currentText();
-    QString app3 = ui->IDC_APP3MODE->currentText();
-    QString app4 = ui->IDC_APP4MODE->currentText();
+    if ((app1 = ui->IDC_APP1MODE->currentText())=="AUCUN"){
+        app1 = "nothing";
+    }
+
+    if ((app2 = ui->IDC_APP2MODE->currentText())=="AUCUN"){
+        app2 = "nothing" ;
+    }
+
+    if ((app3 = ui->IDC_APP3MODE->currentText())=="AUCUN"){
+        app3 = "nothing";
+    }
+
+    if ((app4 = ui->IDC_APP4MODE->currentText())=="AUCUN"){
+        app4 = "nothing";
+    }
+
     // Clear des combox et QLine
     ui->IDC_APP1MODE->clear();
     ui->IDC_APP2MODE->clear();
@@ -622,10 +641,26 @@ void ArreraSettingUI::on_IDC_ASSISTANTMAJGESTMODE_clicked()
 void ArreraSettingUI::on_IDC_MAJAPPGESTMODE_clicked()
 {
     bool sortie;
-    QString app1 = ui->IDC_APP1GESTMODE->currentText();
-    QString app2 = ui->IDC_APP2GESTMODE->currentText();
-    QString app3 = ui->IDC_APP3GESTMODE->currentText();
-    QString app4 = ui->IDC_APP4GESTMODE->currentText();
+    QString app1;
+    QString app2;
+    QString app3;
+    QString app4;
+
+    if((app1 = ui->IDC_APP1GESTMODE->currentText())=="AUCUN"){
+        app1 = "nothing";
+    }
+
+    if((app2 = ui->IDC_APP2GESTMODE->currentText())=="AUCUN"){
+        app2 = "nothing";
+    }
+
+    if((app3 = ui->IDC_APP3GESTMODE->currentText())=="AUCUN"){
+        app3 = "nothing";
+    }
+
+    if((app4 = ui->IDC_APP4GESTMODE->currentText())=="AUCUN"){
+        app4 = "nothing";
+    }
 
     switch (modeSelected) {
     case 1:
