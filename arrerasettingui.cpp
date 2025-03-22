@@ -777,6 +777,8 @@ void ArreraSettingUI::on_IDC_RESETARRERAAPP_clicked()
         QMessageBox::critical(this,"Reset Arrera Application",
                               "Impossible de remettre à zéro la configuration des applications Arrera dans l'interface.");
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -789,6 +791,8 @@ void ArreraSettingUI::on_IDC_RESETAPPPC_clicked()
         QMessageBox::critical(this,"Application enregistrée",
                               "Impossible de remettre à zéro les applications enregistrées.");
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -805,6 +809,8 @@ void ArreraSettingUI::on_IDC_RESETALLINTERFACE_clicked()
     objPara->resetAll();
     QMessageBox::information(this,"Remise a Zero d'Arrera",
                              "Les applications enregistrées dans l'interface ont été remises à zéro.");
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -827,7 +833,8 @@ void ArreraSettingUI::on_IDC_RESETMODEINTERFACE_clicked()
                               "Impossible de remettre à zéro les modes Arrera.");
     }
 
-    ui->mainstacked->setCurrentIndex(idMainAppStaked);
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 
@@ -846,7 +853,8 @@ void ArreraSettingUI::on_IDC_RESETLIEU_clicked()
                               "Impossible de remettre à zéro les lieu Arrera.");
     }
 
-    ui->mainstacked->setCurrentIndex(idMainAppStaked);
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
+    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
 // Partie bar des taches
@@ -880,6 +888,7 @@ void ArreraSettingUI::on_IDC_ACTIVEARRERAAPP_clicked()
                                   "Une erreur s'est produite.");
         }
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
@@ -914,6 +923,7 @@ void ArreraSettingUI::on_IDC_ACTIVESIX_clicked()
                                   "Une erreur s'est produite.");
         }
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
@@ -948,6 +958,7 @@ void ArreraSettingUI::on_IDC_ACTIVERYLEY_clicked()
                                   "Une erreur s'est produite.");
         }
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
@@ -982,6 +993,7 @@ void ArreraSettingUI::on_IDC_ACTIVECOPILOTE_clicked()
                                   "Une erreur s'est produite.");
         }
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
@@ -1013,6 +1025,7 @@ void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
                                   "Une erreur s'est produite.");
         }
     }
+    ui->LINDICATIONSETTING->setText("Parametre generaux");
     ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
 }
 
