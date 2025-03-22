@@ -24,7 +24,7 @@ CAInterfaceSetting::~CAInterfaceSetting(){}
 
 // Getteurs
 QList <QString>  CAInterfaceSetting::getListAssistant(){
-    return QList<QString>({"SIX", "RYLEY", "AUCUN"});
+    return QList<QString>({"SIX", "RYLEY","COPILOTE", "AUCUN"});
 }
 
 QList <QString>  CAInterfaceSetting::getListMoteur(){
