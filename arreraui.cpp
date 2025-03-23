@@ -9,7 +9,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
-    QString tigerConf = "tiger.json";
     objSetting = new CAInterfaceSetting(confFile);
     // Ajout de l'objet de l'interface des parametre
     uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
@@ -72,7 +71,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     appPC.append(CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS));
     appPC.append(CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS));
     appPC.append(CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS));
-
     // Mise en place des app speciaux
     appNavigateur = CAppSpeciaux(1,objSetting,ui->IDC_NAVIGATEUR,&dectOS);
     appPresentation = CAppSpeciaux(2,objSetting,ui->IDC_PRESENTATION,&dectOS);
@@ -384,6 +382,10 @@ void ArreraUI::loadArreraApp(){
     }else{
         ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
     }
+}
+
+bool ArreraUI::launchAppMode(QString app){
+
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -796,5 +798,55 @@ void ArreraUI::on_IDC_ACOPILOTE_clicked()
         QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
                               "Impossible de lancer votre assistant Arrera COPILOTE.");
     }
+}
+
+// BTN Mode
+
+void ArreraUI::on_IDC_MODE1_clicked()
+{
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode1(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode1();
+}
+
+
+void ArreraUI::on_IDC_MODE2_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MODE3_clicked()
+{
+
+}
+
+void ArreraUI::on_IDC_MODE5_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MODE4_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_MODE6_clicked()
+{
+
+}
+
+// BTN lieu
+
+void ArreraUI::on_IDC_LIEU1_clicked()
+{
+
+}
+
+void ArreraUI::on_IDC_LIEU2_clicked()
+{
+
 }
 

@@ -12,6 +12,8 @@
 #include "carrerarecheche.h"
 #include "capppc.h"
 #include "cappspeciaux.h"
+#include "camode.h"
+#include "calieu.h"
 
 namespace Ui {
 class ArreraUI;
@@ -142,6 +144,25 @@ private slots:
 
     void on_IDC_ACOPILOTE_clicked();
 
+    // BTN Mode
+    void on_IDC_MODE1_clicked();
+
+    void on_IDC_MODE2_clicked();
+
+    void on_IDC_MODE3_clicked();
+
+    void on_IDC_MODE5_clicked();
+
+    void on_IDC_MODE4_clicked();
+
+    void on_IDC_MODE6_clicked();
+
+    // BTN lieu
+
+    void on_IDC_LIEU1_clicked();
+
+    void on_IDC_LIEU2_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
@@ -154,6 +175,7 @@ private:
     // Methode private
     void loadSetting();
     void loadArreraApp();
+    bool launchAppMode(QString app);
     // Methode de recherche
     void launchSearch(int mode);
     // Id du staked widget I2025

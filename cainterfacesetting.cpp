@@ -59,12 +59,109 @@ QString CAInterfaceSetting::getNameMode6(){
     return mode6.getNameView();
 }
 
+QString CAInterfaceSetting::getAssistantMode1(){
+    return mode1.getAssistant();
+}
+
+QString CAInterfaceSetting::getAssistantMode2(){
+    return mode2.getAssistant();
+}
+
+QString CAInterfaceSetting::getAssistantMode3(){
+    return mode3.getAssistant();
+}
+
+QString CAInterfaceSetting::getAssistantMode4(){
+    return mode4.getAssistant();
+}
+
+QString CAInterfaceSetting::getAssistantMode5(){
+    return mode5.getAssistant();
+}
+
+QString CAInterfaceSetting::getAssistantMode6(){
+    return mode6.getAssistant();
+}
+
+
 QString CAInterfaceSetting::getNameLieu1(){
     return lieu1.getNameView();
 }
 
 QString CAInterfaceSetting::getNameLieu2(){
     return lieu2.getNameView();
+}
+
+bool CAInterfaceSetting::getAppMode1(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode1.getApp1();
+    QString appTwo = mode1.getApp2();
+    QString appTheed = mode1.getApp3();
+    QString appFoor = mode1.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
+}
+
+bool CAInterfaceSetting::getAppMode2(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode2.getApp1();
+    QString appTwo = mode2.getApp2();
+    QString appTheed = mode2.getApp3();
+    QString appFoor = mode2.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
+}
+
+bool CAInterfaceSetting::getAppMode3(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode3.getApp1();
+    QString appTwo = mode3.getApp2();
+    QString appTheed = mode3.getApp3();
+    QString appFoor = mode3.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
+}
+
+bool CAInterfaceSetting::getAppMode4(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode4.getApp1();
+    QString appTwo = mode4.getApp2();
+    QString appTheed = mode4.getApp3();
+    QString appFoor = mode4.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
+}
+
+bool CAInterfaceSetting::getAppMode5(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode5.getApp1();
+    QString appTwo = mode5.getApp2();
+    QString appTheed = mode5.getApp3();
+    QString appFoor = mode5.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
+}
+
+bool CAInterfaceSetting::getAppMode6(QString* app1,QString* app2,QString* app3,QString* app4){
+    QString appOn = mode6.getApp1();
+    QString appTwo = mode6.getApp2();
+    QString appTheed = mode6.getApp3();
+    QString appFoor = mode6.getApp4();
+    app1 = &appOn;
+    app2 = &appTwo;
+    app3 = &appTheed;
+    app4 = &appFoor;
+    return true;
 }
 
 // getteur Icon Mode

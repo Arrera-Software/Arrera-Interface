@@ -41,6 +41,7 @@ public:
     QList <QString> getListMoteur();
 
     QString getNameUser();
+
     QString getNameMode1();
     QString getNameMode2();
     QString getNameMode3();
@@ -48,8 +49,22 @@ public:
     QString getNameMode5();
     QString getNameMode6();
 
+    QString getAssistantMode1();
+    QString getAssistantMode2();
+    QString getAssistantMode3();
+    QString getAssistantMode4();
+    QString getAssistantMode5();
+    QString getAssistantMode6();
+
     QString getNameLieu1();
     QString getNameLieu2();
+
+    bool getAppMode1(QString* app1,QString* app2,QString* app3,QString* app4);
+    bool getAppMode2(QString* app1,QString* app2,QString* app3,QString* app4);
+    bool getAppMode3(QString* app1,QString* app2,QString* app3,QString* app4);
+    bool getAppMode4(QString* app1,QString* app2,QString* app3,QString* app4);
+    bool getAppMode5(QString* app1,QString* app2,QString* app3,QString* app4);
+    bool getAppMode6(QString* app1,QString* app2,QString* app3,QString* app4);
 
     QString getIconMode1();
     QString getIconMode2();
