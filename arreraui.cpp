@@ -52,26 +52,27 @@ ArreraUI::ArreraUI(QWidget *parent)
     connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
     // Mise en place de bouton d'application
-    appPC1 = CAppPC(1,objSetting,ui->IDC_APP_001,&dectOS);
-    appPC2 = CAppPC(2,objSetting,ui->IDC_APP_002,&dectOS);
-    appPC3 = CAppPC(3,objSetting,ui->IDC_APP_003,&dectOS);
-    appPC4 = CAppPC(4,objSetting,ui->IDC_APP_004,&dectOS);
-    appPC5 = CAppPC(5,objSetting,ui->IDC_APP_005,&dectOS);
-    appPC6 = CAppPC(6,objSetting,ui->IDC_APP_006,&dectOS);
-    appPC7 = CAppPC(7,objSetting,ui->IDC_APP_007,&dectOS);
-    appPC8 = CAppPC(8,objSetting,ui->IDC_APP_008,&dectOS);
-    appPC9 = CAppPC(9,objSetting,ui->IDC_APP_009,&dectOS);
-    appPC10 = CAppPC(10,objSetting,ui->IDC_APP_010,&dectOS);
-    appPC11 = CAppPC(11,objSetting,ui->IDC_APP_011,&dectOS);
-    appPC12 = CAppPC(12,objSetting,ui->IDC_APP_012,&dectOS);
-    appPC13 = CAppPC(13,objSetting,ui->IDC_APP_013,&dectOS);
-    appPC14 = CAppPC(14,objSetting,ui->IDC_APP_014,&dectOS);
-    appPC15 = CAppPC(15,objSetting,ui->IDC_APP_015,&dectOS);
-    appPC16 = CAppPC(16,objSetting,ui->IDC_APP_016,&dectOS);
-    appPC17 = CAppPC(17,objSetting,ui->IDC_APP_017,&dectOS);
-    appPC18 = CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS);
-    appPC19 = CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS);
-    appPC20 = CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS);
+    appPC.append(CAppPC(1,objSetting,ui->IDC_APP_001,&dectOS));
+    appPC.append(CAppPC(2,objSetting,ui->IDC_APP_002,&dectOS));
+    appPC.append(CAppPC(3,objSetting,ui->IDC_APP_003,&dectOS));
+    appPC.append(CAppPC(4,objSetting,ui->IDC_APP_004,&dectOS));
+    appPC.append(CAppPC(5,objSetting,ui->IDC_APP_005,&dectOS));
+    appPC.append(CAppPC(6,objSetting,ui->IDC_APP_006,&dectOS));
+    appPC.append(CAppPC(7,objSetting,ui->IDC_APP_007,&dectOS));
+    appPC.append(CAppPC(8,objSetting,ui->IDC_APP_008,&dectOS));
+    appPC.append(CAppPC(9,objSetting,ui->IDC_APP_009,&dectOS));
+    appPC.append(CAppPC(10,objSetting,ui->IDC_APP_010,&dectOS));
+    appPC.append(CAppPC(11,objSetting,ui->IDC_APP_011,&dectOS));
+    appPC.append(CAppPC(12,objSetting,ui->IDC_APP_012,&dectOS));
+    appPC.append(CAppPC(13,objSetting,ui->IDC_APP_013,&dectOS));
+    appPC.append(CAppPC(14,objSetting,ui->IDC_APP_014,&dectOS));
+    appPC.append(CAppPC(15,objSetting,ui->IDC_APP_015,&dectOS));
+    appPC.append(CAppPC(16,objSetting,ui->IDC_APP_016,&dectOS));
+    appPC.append(CAppPC(17,objSetting,ui->IDC_APP_017,&dectOS));
+    appPC.append(CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS));
+    appPC.append(CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS));
+    appPC.append(CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS));
+
     // Mise en place des app speciaux
     appNavigateur = CAppSpeciaux(1,objSetting,ui->IDC_NAVIGATEUR,&dectOS);
     appPresentation = CAppSpeciaux(2,objSetting,ui->IDC_PRESENTATION,&dectOS);
@@ -302,37 +303,37 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_LIEU2->setVisible(false);
     }
-    appPC1.loadData();
-    appPC2.loadData();
-    appPC3.loadData();
-    appPC4.loadData();
-    appPC5.loadData();
-    appPC6.loadData();
-    appPC7.loadData();
-    appPC8.loadData();
-    appPC9.loadData();
-    appPC10.loadData();
-    appPC11.loadData();
-    appPC12.loadData();
-    appPC13.loadData();
-    appPC14.loadData();
-    appPC15.loadData();
-    appPC16.loadData();
-    appPC17.loadData();
-    appPC18.loadData();
-    appPC19.loadData();
-    appPC20.loadData();
+    appPC[0].loadData();
+    appPC[1].loadData();
+    appPC[2].loadData();
+    appPC[3].loadData();
+    appPC[4].loadData();
+    appPC[5].loadData();
+    appPC[6].loadData();
+    appPC[7].loadData();
+    appPC[8].loadData();
+    appPC[9].loadData();
+    appPC[10].loadData();
+    appPC[11].loadData();
+    appPC[12].loadData();
+    appPC[13].loadData();
+    appPC[14].loadData();
+    appPC[15].loadData();
+    appPC[16].loadData();
+    appPC[17].loadData();
+    appPC[18].loadData();
+    appPC[19].loadData();
 
-    if (!appPC1.getAppSetted()&&!appPC2.getAppSetted()&&
-        !appPC3.getAppSetted()&&!appPC4.getAppSetted()&&
-        !appPC5.getAppSetted()&&!appPC6.getAppSetted()&&
-        !appPC7.getAppSetted()&&!appPC8.getAppSetted()&&
-        !appPC9.getAppSetted()&&!appPC10.getAppSetted()&&
-        !appPC11.getAppSetted()&&!appPC12.getAppSetted()&&
-        !appPC13.getAppSetted()&&!appPC14.getAppSetted()&&
-        !appPC15.getAppSetted()&&!appPC16.getAppSetted()&&
-        !appPC17.getAppSetted()&&!appPC18.getAppSetted()&&
-        !appPC19.getAppSetted()&&!appPC20.getAppSetted()){
+    if (!appPC[0].getAppSetted()&&!appPC[1].getAppSetted()&&
+        !appPC[2].getAppSetted()&&!appPC[3].getAppSetted()&&
+        !appPC[4].getAppSetted()&&!appPC[5].getAppSetted()&&
+        !appPC[6].getAppSetted()&&!appPC[7].getAppSetted()&&
+        !appPC[8].getAppSetted()&&!appPC[9].getAppSetted()&&
+        !appPC[10].getAppSetted()&&!appPC[11].getAppSetted()&&
+        !appPC[12].getAppSetted()&&!appPC[13].getAppSetted()&&
+        !appPC[14].getAppSetted()&&!appPC[15].getAppSetted()&&
+        !appPC[16].getAppSetted()&&!appPC[17].getAppSetted()&&
+        !appPC[18].getAppSetted()&&!appPC[19].getAppSetted()){
         ui->appStaked->setCurrentIndex(idNoApp);
         appSetted=false;
     }else{
@@ -603,121 +604,121 @@ void ArreraUI::on_IDC_BTNSEACH_clicked()
 
 void ArreraUI::on_IDC_APP_001_clicked()
 {
-    appPC1.executeApplication();
+    appPC[0].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_002_clicked()
 {
-    appPC2.executeApplication();
+    appPC[1].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_003_clicked()
 {
-    appPC3.executeApplication();
+    appPC[2].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_004_clicked()
 {
-    appPC4.executeApplication();
+    appPC[3].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_005_clicked()
 {
-    appPC4.executeApplication();
+    appPC[4].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_006_clicked()
 {
-    appPC6.executeApplication();
+    appPC[5].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_007_clicked()
 {
-    appPC7.executeApplication();
+    appPC[6].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_008_clicked()
 {
-    appPC8.executeApplication();
+    appPC[7].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_009_clicked()
 {
-    appPC9.executeApplication();
+    appPC[8].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_010_clicked()
 {
-    appPC10.executeApplication();
+    appPC[9].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_011_clicked()
 {
-    appPC11.executeApplication();
+    appPC[10].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_012_clicked()
 {
-    appPC12.executeApplication();
+    appPC[11].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_013_clicked()
 {
-    appPC13.executeApplication();
+    appPC[12].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_014_clicked()
 {
-    appPC14.executeApplication();
+    appPC[13].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_015_clicked()
 {
-    appPC15.executeApplication();
+    appPC[14].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_016_clicked()
 {
-    appPC16.executeApplication();
+    appPC[15].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_017_clicked()
 {
-    appPC17.executeApplication();
+    appPC[16].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_018_clicked()
 {
-    appPC18.executeApplication();
+    appPC[17].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_019_clicked()
 {
-    appPC19.executeApplication();
+    appPC[18].executeApplication();
 }
 
 
 void ArreraUI::on_IDC_APP_020_clicked()
 {
-    appPC20.executeApplication();
+    appPC[19].executeApplication();
 }
 
 
