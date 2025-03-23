@@ -65,6 +65,7 @@ public:
     int getnbAppSetted();
     bool getAppSetted(int nbApp);
     QList <QString> getListNameAppSetted();
+    QString assosNameOfApp(QString app);
     bool checkNameAppIsAvailable(QString name);
     int getNbAppWithName(QString name);
     bool getApplication(int nb,QString *name,QString *exe,QString *icon);

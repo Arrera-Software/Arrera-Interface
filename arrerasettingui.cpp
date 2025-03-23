@@ -381,17 +381,26 @@ void ArreraSettingUI::on_IDC_VALIDERMODE_clicked()
     if ((app1 = ui->IDC_APP1MODE->currentText())=="AUCUN"){
         app1 = "nothing";
     }
+    else{
+        app1 = objPara->assosNameOfApp(app1);
+    }
 
     if ((app2 = ui->IDC_APP2MODE->currentText())=="AUCUN"){
         app2 = "nothing" ;
+    }else{
+        app2 = objPara->assosNameOfApp(app2);
     }
 
     if ((app3 = ui->IDC_APP3MODE->currentText())=="AUCUN"){
         app3 = "nothing";
+    }else{
+        app3 = objPara->assosNameOfApp(app3);
     }
 
     if ((app4 = ui->IDC_APP4MODE->currentText())=="AUCUN"){
         app4 = "nothing";
+    }else{
+        app4 = objPara->assosNameOfApp(app4);
     }
 
     // Clear des combox et QLine

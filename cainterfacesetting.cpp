@@ -143,6 +143,19 @@ QList <QString> CAInterfaceSetting::getListNameAppSetted(){
     return listOut;
 }
 
+QString CAInterfaceSetting::assosNameOfApp(QString app){
+    QString y ;
+    for (int i = 1;i<=20;i++){
+        if (getAppSetted(i)){
+            y = fileINI->getValeur("app"+QString::number(i),"name");
+            if (y==app){
+                return "app"+QString::number(i);
+            }
+        }
+    }
+    return "error";
+}
+
 bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
     for (int i = 1;i<=20;i++){
         if (fileINI->getValeur("app"+QString::number(i),"name")==name){
