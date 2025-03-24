@@ -97,10 +97,31 @@ bool CAInterfaceSetting::getAppMode1(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode1.getApp2();
     QString appTheed = mode1.getApp3();
     QString appFoor = mode1.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
@@ -109,10 +130,30 @@ bool CAInterfaceSetting::getAppMode2(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode2.getApp2();
     QString appTheed = mode2.getApp3();
     QString appFoor = mode2.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
@@ -121,10 +162,30 @@ bool CAInterfaceSetting::getAppMode3(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode3.getApp2();
     QString appTheed = mode3.getApp3();
     QString appFoor = mode3.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
@@ -133,10 +194,30 @@ bool CAInterfaceSetting::getAppMode4(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode4.getApp2();
     QString appTheed = mode4.getApp3();
     QString appFoor = mode4.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
@@ -145,10 +226,30 @@ bool CAInterfaceSetting::getAppMode5(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode5.getApp2();
     QString appTheed = mode5.getApp3();
     QString appFoor = mode5.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
@@ -157,10 +258,30 @@ bool CAInterfaceSetting::getAppMode6(QString* app1,QString* app2,QString* app3,Q
     QString appTwo = mode6.getApp2();
     QString appTheed = mode6.getApp3();
     QString appFoor = mode6.getApp4();
-    app1 = &appOn;
-    app2 = &appTwo;
-    app3 = &appTheed;
-    app4 = &appFoor;
+    if (app1 != nullptr) {
+        *app1 = appOn;  // Affecte la valeur à l'adresse pointée par app1
+    }else{
+        return false;
+    }
+
+    if (app2 != nullptr) {
+        *app2 = appTwo;
+    }else{
+        return false;
+    }
+
+    if (app3 != nullptr) {
+        *app3 = appTheed;
+    }else{
+        return false;
+    }
+
+    if (app4 != nullptr) {
+        *app4 = appFoor;
+    }else{
+        return false;
+    }
+
     return true;
 }
 
