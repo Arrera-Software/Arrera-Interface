@@ -433,6 +433,25 @@ bool ArreraUI::launchAppMode(QString app){
     }
 }
 
+bool ArreraUI::launchAssistantMode(QString assistant){
+    if (assistant.isEmpty()){
+        return arreraApp->executeApp(assistantMode);
+    }else{
+        if (assistant=="SIX"){
+            assistantMode = "six";
+            return arreraApp->executeApp("six");
+        }else if (assistant == "RYLEY"){
+            assistantMode = "ryley";
+            return arreraApp->executeApp("ryley");
+        }else if (assistant == "COPILOTE"){
+            assistantMode = "arrera-copilote";
+            return arreraApp->executeApp("arrera-copilote");
+        }else{
+            return false;
+        }
+    }
+}
+
 void ArreraUI::launchSearch(int mode){
     /*
      * 1. Duckduckgo
@@ -852,11 +871,11 @@ void ArreraUI::on_IDC_MODE1_clicked()
     QString app1,app2,app3,app4,assistant;
     objSetting->getAppMode1(&app1,&app2,&app3,&app4);
     assistant = objSetting->getAssistantMode1();
-    cout << app1.toStdString() << endl;
     launchAppMode(app1);
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 
@@ -869,6 +888,7 @@ void ArreraUI::on_IDC_MODE2_clicked()
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 
@@ -881,6 +901,7 @@ void ArreraUI::on_IDC_MODE3_clicked()
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 void ArreraUI::on_IDC_MODE4_clicked()
@@ -892,6 +913,7 @@ void ArreraUI::on_IDC_MODE4_clicked()
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 void ArreraUI::on_IDC_MODE5_clicked()
@@ -903,6 +925,7 @@ void ArreraUI::on_IDC_MODE5_clicked()
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 void ArreraUI::on_IDC_MODE6_clicked()
@@ -914,6 +937,7 @@ void ArreraUI::on_IDC_MODE6_clicked()
     launchAppMode(app2);
     launchAppMode(app3);
     launchAppMode(app4);
+    launchAssistantMode(assistant);
 }
 
 // BTN lieu

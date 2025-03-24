@@ -172,10 +172,12 @@ private:
     CArreraApp *arreraApp;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
+    QString assistantMode = nullptr;
     // Methode private
     void loadSetting();
     void loadArreraApp();
     bool launchAppMode(QString app);
+    bool launchAssistantMode(QString assistant = "");
     // Methode de recherche
     void launchSearch(int mode);
     // Id du staked widget I2025
