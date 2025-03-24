@@ -1,6 +1,9 @@
 #include "arreraui.h"
 #include "ui_arreraui.h"
 
+#include <iostream>
+using namespace std;
+
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ArreraUI)
@@ -385,7 +388,49 @@ void ArreraUI::loadArreraApp(){
 }
 
 bool ArreraUI::launchAppMode(QString app){
-
+    if (app=="app1"){
+        return appPC[0].executeApplication();
+    }else if(app=="app2") {
+        return appPC[1].executeApplication();
+    }else if(app=="app3"){
+        return appPC[2].executeApplication();
+    }else if(app=="app4"){
+        return appPC[3].executeApplication();
+    }else if(app =="app5"){
+        return appPC[4].executeApplication();
+    }else if(app =="app6"){
+        return appPC[5].executeApplication();
+    }else if(app =="app7"){
+        return appPC[6].executeApplication();
+    }else if(app =="app8"){
+        return appPC[7].executeApplication();
+    }else if(app =="app9"){
+        return appPC[8].executeApplication();
+    }else if(app =="app10"){
+        return appPC[9].executeApplication();
+    }else if(app =="app11"){
+        return appPC[10].executeApplication();
+    }else if(app =="app12"){
+        return appPC[11].executeApplication();
+    }else if(app =="app13"){
+        return appPC[12].executeApplication();
+    }else if(app =="app14"){
+        return appPC[13].executeApplication();
+    }else if(app =="app15"){
+        return appPC[14].executeApplication();
+    }else if(app =="app16"){
+        return appPC[15].executeApplication();
+    }else if(app =="app17"){
+        return appPC[16].executeApplication();
+    }else if(app =="app18"){
+        return appPC[17].executeApplication();
+    }else if(app =="app19"){
+        return appPC[18].executeApplication();
+    }else if(app =="app20"){
+        return appPC[19].executeApplication();
+    }else{
+        return false;
+    }
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -807,35 +852,68 @@ void ArreraUI::on_IDC_MODE1_clicked()
     QString app1,app2,app3,app4,assistant;
     objSetting->getAppMode1(&app1,&app2,&app3,&app4);
     assistant = objSetting->getAssistantMode1();
+    cout << app1.toStdString() << endl;
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
 }
 
 
 void ArreraUI::on_IDC_MODE2_clicked()
 {
-
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode2(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode2();
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
 }
 
 
 void ArreraUI::on_IDC_MODE3_clicked()
 {
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode3(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode3();
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
+}
 
+void ArreraUI::on_IDC_MODE4_clicked()
+{
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode4(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode4();
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
 }
 
 void ArreraUI::on_IDC_MODE5_clicked()
 {
-
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode5(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode5();
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
 }
-
-
-void ArreraUI::on_IDC_MODE4_clicked()
-{
-
-}
-
 
 void ArreraUI::on_IDC_MODE6_clicked()
 {
-
+    QString app1,app2,app3,app4,assistant;
+    objSetting->getAppMode6(&app1,&app2,&app3,&app4);
+    assistant = objSetting->getAssistantMode6();
+    launchAppMode(app1);
+    launchAppMode(app2);
+    launchAppMode(app3);
+    launchAppMode(app4);
 }
 
 // BTN lieu
