@@ -32,6 +32,7 @@
         <file>img/gestTaskbar.png</file>
         <file>img/resetArrera.png</file>
         <file>img/userPara.png</file>
+        <file>img/logo-Arrera.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>

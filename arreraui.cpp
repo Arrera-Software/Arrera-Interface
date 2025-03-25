@@ -81,7 +81,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     appTraitementTexte = CAppSpeciaux(4,objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
     // Chargement des parametre
     loadSetting();
-
+    // Mise en place de l'image sur le label des mode
+    QPixmap pixmap (":/icon/img/logo-Arrera.png");
+    ui->LICONARRERA->setPixmap(pixmap.scaled(ui->LICONARRERA->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 ArreraUI::~ArreraUI()
@@ -876,6 +878,7 @@ void ArreraUI::on_IDC_MODE1_clicked()
     launchAppMode(app3);
     launchAppMode(app4);
     launchAssistantMode(assistant);
+    ui->I2025->setCurrentIndex(idPageI2025Mode);
 }
 
 
