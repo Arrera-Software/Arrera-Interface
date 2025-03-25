@@ -81,6 +81,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     appTraitementTexte = CAppSpeciaux(4,objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
     // Chargement des parametre
     loadSetting();
+    // Initilisation de varriable
+    modeIsActive = false;
+    nameMode = "";
     // Mise en place de l'image sur le label des mode
     QPixmap pixmap (":/icon/img/logo-Arrera.png");
     ui->LICONARRERA->setPixmap(pixmap.scaled(ui->LICONARRERA->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
@@ -97,10 +100,17 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
 
     if (currentIndex != idPageI2025Main)
     {
-        ui->I2025->setCurrentIndex(idPageI2025Main);
-        ui->LINDICATIONARRERA->setText("Arrera I2025");
-        ui->IDC_SHOWHIST->setVisible(true);
-        ui->IDC_AUTREMOTEUR->setVisible(true);
+        if (modeIsActive){
+            ui->I2025->setCurrentIndex(idPageI2025Mode);
+            ui->LINDICATIONARRERA->setText(nameMode);
+            ui->IDC_SHOWHIST->setVisible(true);
+            ui->IDC_AUTREMOTEUR->setVisible(true);
+        }else{
+            ui->I2025->setCurrentIndex(idPageI2025Main);
+            ui->LINDICATIONARRERA->setText("Arrera I2025");
+            ui->IDC_SHOWHIST->setVisible(true);
+            ui->IDC_AUTREMOTEUR->setVisible(true);
+        }
     }
     else
     {
@@ -870,77 +880,118 @@ void ArreraUI::on_IDC_ACOPILOTE_clicked()
 
 void ArreraUI::on_IDC_MODE1_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode1(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode1();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
-    ui->I2025->setCurrentIndex(idPageI2025Mode);
+    if (objSetting->mode1IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode1(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode1();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode1();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 
 void ArreraUI::on_IDC_MODE2_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode2(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode2();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
+    if (objSetting->mode2IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode2(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode2();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode2();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 
 void ArreraUI::on_IDC_MODE3_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode3(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode3();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
+    if (objSetting->mode3IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode3(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode3();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode3();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 void ArreraUI::on_IDC_MODE4_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode4(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode4();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
+    if (objSetting->mode4IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode4(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode4();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode4();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 void ArreraUI::on_IDC_MODE5_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode5(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode5();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
+    if (objSetting->mode5IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode5(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode5();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode5();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 void ArreraUI::on_IDC_MODE6_clicked()
 {
-    QString app1,app2,app3,app4,assistant;
-    objSetting->getAppMode6(&app1,&app2,&app3,&app4);
-    assistant = objSetting->getAssistantMode6();
-    launchAppMode(app1);
-    launchAppMode(app2);
-    launchAppMode(app3);
-    launchAppMode(app4);
-    launchAssistantMode(assistant);
+    if (objSetting->mode1IsSeted()){
+        QString app1,app2,app3,app4,assistant;
+        objSetting->getAppMode6(&app1,&app2,&app3,&app4);
+        assistant = objSetting->getAssistantMode6();
+        launchAppMode(app1);
+        launchAppMode(app2);
+        launchAppMode(app3);
+        launchAppMode(app4);
+        launchAssistantMode(assistant);
+        nameMode = objSetting->getNameMode6();
+        ui->LINDICATIONARRERA->setText(nameMode);
+        ui->I2025->setCurrentIndex(idPageI2025Mode);
+        modeIsActive = true;
+        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+    }
 }
 
 // BTN lieu
@@ -953,5 +1004,13 @@ void ArreraUI::on_IDC_LIEU1_clicked()
 void ArreraUI::on_IDC_LIEU2_clicked()
 {
 
+}
+
+// btn QUIT
+
+void ArreraUI::on_IDC_QUIT_clicked()
+{
+    modeIsActive = false;
+    ui->I2025->setCurrentIndex(idPageI2025Main);
 }
 

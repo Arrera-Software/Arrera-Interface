@@ -163,6 +163,8 @@ private slots:
 
     void on_IDC_LIEU2_clicked();
 
+    void on_IDC_QUIT_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;
@@ -173,6 +175,8 @@ private:
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     QString assistantMode = nullptr;
+    bool modeIsActive;
+    QString nameMode;
     // Methode private
     void loadSetting();
     void loadArreraApp();
