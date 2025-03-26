@@ -21,6 +21,7 @@ bool CAppPC::loadData(){
                 if(!nameApp.isEmpty() && !exeApp.isEmpty()){
                     button->setVisible(true);
                     if (icon != "nothing"){
+                        button->setText("");
                         iconApp = new QIcon(icon);
                         button->setIcon(*iconApp);
                     }else{
