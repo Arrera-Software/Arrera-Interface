@@ -399,7 +399,24 @@ void ArreraUI::loadArreraApp(){
     }
 }
 
-bool ArreraUI::launchAppMode(QString app){
+bool ArreraUI::launchAppMode(int nbApp,QString app){
+    QPushButton *btn;
+    switch (nbApp) {
+    case 1:
+        btn = ui->IDC_APPMODE1;
+        break;
+    case 2:
+        btn = ui->IDC_APPMODE2;
+        break;
+    case 3:
+        btn = ui->IDC_APPMODE3;
+        break;
+    case 4:
+        btn = ui->IDC_APPMODE4;
+        break;
+    default:
+        break;
+    }
     if (app=="app1"){
         return appPC[0].executeApplication();
     }else if(app=="app2") {
@@ -884,10 +901,10 @@ void ArreraUI::on_IDC_MODE1_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode1(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode1();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode1();
         ui->LINDICATIONARRERA->setText(nameMode);
@@ -904,10 +921,10 @@ void ArreraUI::on_IDC_MODE2_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode2(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode2();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode2();
         ui->LINDICATIONARRERA->setText(nameMode);
@@ -924,10 +941,10 @@ void ArreraUI::on_IDC_MODE3_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode3(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode3();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode3();
         ui->LINDICATIONARRERA->setText(nameMode);
@@ -943,10 +960,10 @@ void ArreraUI::on_IDC_MODE4_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode4(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode4();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode4();
         ui->LINDICATIONARRERA->setText(nameMode);
@@ -962,10 +979,10 @@ void ArreraUI::on_IDC_MODE5_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode5(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode5();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode5();
         ui->LINDICATIONARRERA->setText(nameMode);
@@ -981,10 +998,10 @@ void ArreraUI::on_IDC_MODE6_clicked()
         QString app1,app2,app3,app4,assistant;
         objSetting->getAppMode6(&app1,&app2,&app3,&app4);
         assistant = objSetting->getAssistantMode6();
-        launchAppMode(app1);
-        launchAppMode(app2);
-        launchAppMode(app3);
-        launchAppMode(app4);
+        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
+        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
+        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
+        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         launchAssistantMode(assistant);
         nameMode = objSetting->getNameMode6();
         ui->LINDICATIONARRERA->setText(nameMode);

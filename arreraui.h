@@ -180,7 +180,7 @@ private:
     // Methode private
     void loadSetting();
     void loadArreraApp();
-    bool launchAppMode(QString app);
+    bool launchAppMode(int nbApp,QString app);
     bool launchAssistantMode(QString assistant = "");
     // Methode de recherche
     void launchSearch(int mode);
