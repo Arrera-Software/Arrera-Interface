@@ -173,6 +173,10 @@ private slots:
 
     void on_IDC_APPMODE4_clicked();
 
+    void on_IDC_APPLISTMODE_clicked();
+
+    void on_IDC_ARRERAAPPMODE_clicked();
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting *objSetting;

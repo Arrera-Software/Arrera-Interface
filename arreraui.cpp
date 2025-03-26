@@ -365,8 +365,10 @@ void ArreraUI::loadSetting()
         !appTraitementTexte.getAppSetted()&&
         !appSetted)
     {
+        ui->IDC_APPLISTMODE->setVisible(false);
         ui->IDC_APPBUREAU->setVisible(false);
     }else{
+        ui->IDC_APPLISTMODE->setVisible(true);
         ui->IDC_APPBUREAU->setVisible(true);
     }
 
@@ -1243,5 +1245,17 @@ void ArreraUI::on_IDC_APPMODE4_clicked()
     }else if(app4Mode =="app20"){
         appPC[19].executeApplication();
     }
+}
+
+
+void ArreraUI::on_IDC_APPLISTMODE_clicked()
+{
+    on_IDC_APPBUREAU_clicked();
+}
+
+
+void ArreraUI::on_IDC_ARRERAAPPMODE_clicked()
+{
+    on_IDC_ARRERAAPP_clicked();
 }
 

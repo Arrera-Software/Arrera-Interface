@@ -190,7 +190,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -273,6 +273,64 @@ color: rgb(0, 0, 0);</string>
             <property name="icon">
              <iconset resource="resource.qrc">
               <normaloff>:/icon/img/Assistant.png</normaloff>:/icon/img/Assistant.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>65</width>
+              <height>65</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="IDC_APPLISTMODE">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon/img/application.png</normaloff>:/icon/img/application.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>65</width>
+              <height>65</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="IDC_ARRERAAPPMODE">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/icon/img/arrera-application.png</normaloff>:/icon/img/arrera-application.png</iconset>
             </property>
             <property name="iconSize">
              <size>
