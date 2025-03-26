@@ -10,6 +10,8 @@ public:
     CAppPC(int nbApp,CAInterfaceSetting* pSetting,QPushButton* pButton,CDetectionOS* pOS);
     ~CAppPC();
     bool loadData() override;
+    QString getIcon();
+    QString getName();
 };
 
 #endif // CAPPPC_H

@@ -401,65 +401,86 @@ void ArreraUI::loadArreraApp(){
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){
     QPushButton *btn;
+    QString icon,name;
+    bool sortieExe;
+    int i;
     switch (nbApp) {
     case 1:
         btn = ui->IDC_APPMODE1;
+        app1Mode = app;
         break;
     case 2:
+        app2Mode = app;
         btn = ui->IDC_APPMODE2;
         break;
     case 3:
+        app3Mode = app;
         btn = ui->IDC_APPMODE3;
         break;
     case 4:
+        app4Mode = app;
         btn = ui->IDC_APPMODE4;
         break;
     default:
-        break;
+        return false;
     }
     if (app=="app1"){
-        return appPC[0].executeApplication();
+        i=0;
     }else if(app=="app2") {
-        return appPC[1].executeApplication();
+        i=1;
     }else if(app=="app3"){
-        return appPC[2].executeApplication();
+        i=2;
     }else if(app=="app4"){
-        return appPC[3].executeApplication();
+        i=3;
     }else if(app =="app5"){
-        return appPC[4].executeApplication();
+        i=4;
     }else if(app =="app6"){
-        return appPC[5].executeApplication();
+        i=5;
     }else if(app =="app7"){
-        return appPC[6].executeApplication();
+        i=6;
     }else if(app =="app8"){
-        return appPC[7].executeApplication();
+        i=7;
     }else if(app =="app9"){
-        return appPC[8].executeApplication();
+        i=8;
     }else if(app =="app10"){
-        return appPC[9].executeApplication();
+        i=9;
     }else if(app =="app11"){
-        return appPC[10].executeApplication();
+        i=10;
     }else if(app =="app12"){
-        return appPC[11].executeApplication();
+        i=11;
     }else if(app =="app13"){
-        return appPC[12].executeApplication();
+        i=12;
     }else if(app =="app14"){
-        return appPC[13].executeApplication();
+        i=13;
     }else if(app =="app15"){
-        return appPC[14].executeApplication();
+        i=14;
     }else if(app =="app16"){
-        return appPC[15].executeApplication();
+        i=15;
     }else if(app =="app17"){
-        return appPC[16].executeApplication();
+        i=16;
     }else if(app =="app18"){
-        return appPC[17].executeApplication();
+        i=17;
     }else if(app =="app19"){
-        return appPC[18].executeApplication();
+        i=18;
     }else if(app =="app20"){
-        return appPC[19].executeApplication();
+        i=19;
     }else{
         return false;
     }
+
+    name = appPC[i].getName();
+    icon = appPC[i].getIcon();
+    sortieExe = appPC[i].executeApplication();
+
+    btn->setIcon(QIcon());
+    if (icon!="nothing"){
+        btn->setIcon(QIcon(icon));
+        btn->setText("");
+    }else{
+        btn->setText(name);
+    }
+
+    return sortieExe;
 }
 
 bool ArreraUI::launchAssistantMode(QString assistant){
@@ -1029,5 +1050,189 @@ void ArreraUI::on_IDC_QUIT_clicked()
 {
     modeIsActive = false;
     ui->I2025->setCurrentIndex(idPageI2025Main);
+}
+
+
+void ArreraUI::on_IDC_APPMODE1_clicked()
+{
+    if (app1Mode=="app1"){
+         appPC[0].executeApplication();
+    }else if(app1Mode=="app2") {
+         appPC[1].executeApplication();
+    }else if(app1Mode=="app3"){
+         appPC[2].executeApplication();
+    }else if(app1Mode=="app4"){
+         appPC[3].executeApplication();
+    }else if(app1Mode =="app5"){
+         appPC[4].executeApplication();
+    }else if(app1Mode =="app6"){
+         appPC[5].executeApplication();
+    }else if(app1Mode =="app7"){
+         appPC[6].executeApplication();
+    }else if(app1Mode =="app8"){
+         appPC[7].executeApplication();
+    }else if(app1Mode =="app9"){
+         appPC[8].executeApplication();
+    }else if(app1Mode =="app10"){
+         appPC[9].executeApplication();
+    }else if(app1Mode =="app11"){
+         appPC[10].executeApplication();
+    }else if(app1Mode =="app12"){
+         appPC[11].executeApplication();
+    }else if(app1Mode =="app13"){
+         appPC[12].executeApplication();
+    }else if(app1Mode =="app14"){
+         appPC[13].executeApplication();
+    }else if(app1Mode =="app15"){
+         appPC[14].executeApplication();
+    }else if(app1Mode =="app16"){
+         appPC[15].executeApplication();
+    }else if(app1Mode =="app17"){
+         appPC[16].executeApplication();
+    }else if(app1Mode =="app18"){
+         appPC[17].executeApplication();
+    }else if(app1Mode =="app19"){
+         appPC[18].executeApplication();
+    }else if(app1Mode =="app20"){
+         appPC[19].executeApplication();
+    }
+}
+
+
+void ArreraUI::on_IDC_APPMODE2_clicked()
+{
+    if (app2Mode=="app1"){
+         appPC[0].executeApplication();
+    }else if(app2Mode=="app2") {
+         appPC[1].executeApplication();
+    }else if(app2Mode=="app3"){
+         appPC[2].executeApplication();
+    }else if(app2Mode=="app4"){
+         appPC[3].executeApplication();
+    }else if(app2Mode =="app5"){
+         appPC[4].executeApplication();
+    }else if(app2Mode =="app6"){
+         appPC[5].executeApplication();
+    }else if(app2Mode =="app7"){
+         appPC[6].executeApplication();
+    }else if(app2Mode =="app8"){
+         appPC[7].executeApplication();
+    }else if(app2Mode =="app9"){
+         appPC[8].executeApplication();
+    }else if(app2Mode =="app10"){
+         appPC[9].executeApplication();
+    }else if(app2Mode =="app11"){
+         appPC[10].executeApplication();
+    }else if(app2Mode =="app12"){
+         appPC[11].executeApplication();
+    }else if(app2Mode =="app13"){
+         appPC[12].executeApplication();
+    }else if(app2Mode =="app14"){
+         appPC[13].executeApplication();
+    }else if(app2Mode =="app15"){
+         appPC[14].executeApplication();
+    }else if(app2Mode =="app16"){
+         appPC[15].executeApplication();
+    }else if(app2Mode =="app17"){
+         appPC[16].executeApplication();
+    }else if(app2Mode =="app18"){
+         appPC[17].executeApplication();
+    }else if(app2Mode =="app19"){
+         appPC[18].executeApplication();
+    }else if(app2Mode =="app20"){
+         appPC[19].executeApplication();
+    }
+}
+
+
+void ArreraUI::on_IDC_APPMODE3_clicked()
+{
+    if (app3Mode=="app1"){
+         appPC[0].executeApplication();
+    }else if(app3Mode=="app2") {
+         appPC[1].executeApplication();
+    }else if(app3Mode=="app3"){
+         appPC[2].executeApplication();
+    }else if(app3Mode=="app4"){
+         appPC[3].executeApplication();
+    }else if(app3Mode =="app5"){
+         appPC[4].executeApplication();
+    }else if(app3Mode =="app6"){
+         appPC[5].executeApplication();
+    }else if(app3Mode =="app7"){
+         appPC[6].executeApplication();
+    }else if(app3Mode =="app8"){
+         appPC[7].executeApplication();
+    }else if(app3Mode =="app9"){
+         appPC[8].executeApplication();
+    }else if(app3Mode =="app10"){
+         appPC[9].executeApplication();
+    }else if(app3Mode =="app11"){
+         appPC[10].executeApplication();
+    }else if(app3Mode =="app12"){
+         appPC[11].executeApplication();
+    }else if(app3Mode =="app13"){
+         appPC[12].executeApplication();
+    }else if(app3Mode =="app14"){
+         appPC[13].executeApplication();
+    }else if(app3Mode =="app15"){
+         appPC[14].executeApplication();
+    }else if(app3Mode =="app16"){
+         appPC[15].executeApplication();
+    }else if(app3Mode =="app17"){
+         appPC[16].executeApplication();
+    }else if(app3Mode =="app18"){
+         appPC[17].executeApplication();
+    }else if(app3Mode =="app19"){
+         appPC[18].executeApplication();
+    }else if(app3Mode =="app20"){
+        appPC[19].executeApplication();
+    }
+}
+
+
+void ArreraUI::on_IDC_APPMODE4_clicked()
+{
+    if (app4Mode=="app1"){
+         appPC[0].executeApplication();
+    }else if(app4Mode=="app2") {
+         appPC[1].executeApplication();
+    }else if(app4Mode=="app3"){
+         appPC[2].executeApplication();
+    }else if(app4Mode=="app4"){
+         appPC[3].executeApplication();
+    }else if(app4Mode =="app5"){
+         appPC[4].executeApplication();
+    }else if(app4Mode =="app6"){
+         appPC[5].executeApplication();
+    }else if(app4Mode =="app7"){
+         appPC[6].executeApplication();
+    }else if(app4Mode =="app8"){
+         appPC[7].executeApplication();
+    }else if(app4Mode =="app9"){
+         appPC[8].executeApplication();
+    }else if(app4Mode =="app10"){
+         appPC[9].executeApplication();
+    }else if(app4Mode =="app11"){
+         appPC[10].executeApplication();
+    }else if(app4Mode =="app12"){
+         appPC[11].executeApplication();
+    }else if(app4Mode =="app13"){
+         appPC[12].executeApplication();
+    }else if(app4Mode =="app14"){
+         appPC[13].executeApplication();
+    }else if(app4Mode =="app15"){
+         appPC[14].executeApplication();
+    }else if(app4Mode =="app16"){
+         appPC[15].executeApplication();
+    }else if(app4Mode =="app17"){
+         appPC[16].executeApplication();
+    }else if(app4Mode =="app18"){
+         appPC[17].executeApplication();
+    }else if(app4Mode =="app19"){
+         appPC[18].executeApplication();
+    }else if(app4Mode =="app20"){
+        appPC[19].executeApplication();
+    }
 }
 

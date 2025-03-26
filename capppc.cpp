@@ -42,3 +42,14 @@ bool CAppPC::loadData(){
     }
     return false;  // Ajoutez cette ligne pour couvrir tous les cas
 }
+
+
+QString CAppPC::getIcon(){
+    QString icon;
+    objPara->getApplication(nbApp, &nameApp, &exeApp, &icon);
+    return icon;
+}
+
+QString CAppPC::getName(){
+    return nameApp;
+}
