@@ -370,6 +370,15 @@ void ArreraUI::loadSetting()
         ui->IDC_APPBUREAU->setVisible(true);
     }
 
+    if(!appNavigateur.getAppSetted()&&
+        !appPresentation.getAppSetted()&&
+        !appTableur.getAppSetted()&&
+        !appTraitementTexte.getAppSetted()){
+        ui->FBUREAUTIQUEAPP->setVisible(false);
+    }else{
+        ui->FBUREAUTIQUEAPP->setVisible(true);
+    }
+
     ui->IDC_ARRERAAPP->setVisible(objSetting->getTaskbarBTNArreraApp());
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting->getTaskbarPostite());
     ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
