@@ -101,13 +101,31 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
 
     if (currentIndex != idPageI2025Main)
     {
-        if (modeIsActive){
+        if (modeIsActive)
+        {
             ui->I2025->setCurrentIndex(idPageI2025Mode);
             ui->LINDICATIONARRERA->setText(nameMode);
             ui->IDC_SHOWHIST->setVisible(true);
             ui->IDC_AUTREMOTEUR->setVisible(true);
-        }else{
-            if (lieuEnabled == 0){
+        }
+        else
+        {
+            ui->I2025->setCurrentIndex(idPageI2025Main);
+            ui->LINDICATIONARRERA->setText("Arrera I2025");
+            ui->IDC_SHOWHIST->setVisible(true);
+            ui->IDC_AUTREMOTEUR->setVisible(true);
+        }
+    }
+    else
+    {
+        if (lieuEnabled != 0){
+            int ret = QMessageBox::question(nullptr,
+                                            "Quitter le lieu",
+                                            "Voulez-vous quitter le lieu en cours ?",
+                                            QMessageBox::Yes | QMessageBox::No);
+
+            if (ret == QMessageBox::Yes)
+            {
                 switch (lieuEnabled) {
                 case 1:
                     objSetting->disableLieu1();
@@ -120,19 +138,13 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
                 default:
                     break;
                 }
-            }else{
-                ui->I2025->setCurrentIndex(idPageI2025Main);
-                ui->LINDICATIONARRERA->setText("Arrera I2025");
-                ui->IDC_SHOWHIST->setVisible(true);
-                ui->IDC_AUTREMOTEUR->setVisible(true);
             }
-        }
-    }
-    else
-    {
-        ui->I2025->setCurrentIndex(idPageApropos);
-        ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
-    }
+            else
+            {
+            ui->I2025->setCurrentIndex(idPageApropos);
+                ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
+            }
+        }   }
 }
 
 // Bar des taches
