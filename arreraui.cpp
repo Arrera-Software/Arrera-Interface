@@ -500,14 +500,18 @@ bool ArreraUI::launchAssistantMode(QString assistant){
     }else{
         if (assistant=="SIX"){
             assistantMode = "six";
+            ui->IDC_ASSISTANT->setVisible(true);
             return arreraApp->executeApp("six");
         }else if (assistant == "RYLEY"){
             assistantMode = "ryley";
+            ui->IDC_ASSISTANT->setVisible(true);
             return arreraApp->executeApp("ryley");
         }else if (assistant == "COPILOTE"){
             assistantMode = "arrera-copilote";
+            ui->IDC_ASSISTANT->setVisible(true);
             return arreraApp->executeApp("arrera-copilote");
         }else{
+            ui->IDC_ASSISTANT->setVisible(false);
             return false;
         }
     }
