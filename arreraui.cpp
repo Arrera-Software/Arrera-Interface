@@ -9,6 +9,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI)
 {
     ui->setupUi(this);
+    lieuEnabled = 0;
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
@@ -106,10 +107,25 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
             ui->IDC_SHOWHIST->setVisible(true);
             ui->IDC_AUTREMOTEUR->setVisible(true);
         }else{
-            ui->I2025->setCurrentIndex(idPageI2025Main);
-            ui->LINDICATIONARRERA->setText("Arrera I2025");
-            ui->IDC_SHOWHIST->setVisible(true);
-            ui->IDC_AUTREMOTEUR->setVisible(true);
+            if (lieuEnabled == 0){
+                switch (lieuEnabled) {
+                case 1:
+                    objSetting->disableLieu1();
+                    lieuEnabled = 0;
+                    break;
+                case 2:
+                    objSetting->disableLieu2();
+                    lieuEnabled = 2;
+                    break;
+                default:
+                    break;
+                }
+            }else{
+                ui->I2025->setCurrentIndex(idPageI2025Main);
+                ui->LINDICATIONARRERA->setText("Arrera I2025");
+                ui->IDC_SHOWHIST->setVisible(true);
+                ui->IDC_AUTREMOTEUR->setVisible(true);
+            }
         }
     }
     else
@@ -1052,11 +1068,19 @@ void ArreraUI::on_IDC_MODE6_clicked()
 void ArreraUI::on_IDC_LIEU1_clicked()
 {
     objSetting->launchLieu1();
+    ui->IDC_LIEU1->setVisible(false);
+    ui->IDC_LIEU2->setVisible(false);
+    lieuEnabled = 1;
+    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting->getNameLieu1());
 }
 
 void ArreraUI::on_IDC_LIEU2_clicked()
 {
     objSetting->launchLieu2();
+    ui->IDC_LIEU1->setVisible(false);
+    ui->IDC_LIEU2->setVisible(false);
+    lieuEnabled=2;
+    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting->getNameLieu2());
 }
 
 // btn QUIT

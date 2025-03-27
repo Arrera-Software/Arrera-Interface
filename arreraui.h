@@ -188,6 +188,7 @@ private:
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     QString assistantMode = nullptr;
     bool modeIsActive;
+    int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
     // Methode private
     void loadSetting();
