@@ -33,7 +33,7 @@ private:
 public:
     // Constructeurs et destructeur
     CAInterfaceSetting();
-    CAInterfaceSetting(QString& inifile);
+    CAInterfaceSetting(QString& inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote);
     ~CAInterfaceSetting();
 
     // Getteur
@@ -212,6 +212,13 @@ public:
     bool resetArreraApp();
     bool resetAppPC();
     void resetAll();
+
+    // Partie launch lieu
+    bool launchLieu1();
+    bool launchLieu2();
+
+    bool disableLieu1();
+    bool disableLieu2();
 };
 
 #endif // CAINTERFACESETTING_H

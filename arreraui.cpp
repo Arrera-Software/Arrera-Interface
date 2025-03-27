@@ -12,7 +12,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
-    objSetting = new CAInterfaceSetting(confFile);
+    objSetting = new CAInterfaceSetting(confFile,ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     // Ajout de l'objet de l'interface des parametre
     uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
     // Ajout de l'objet pour gerer les application Arrera
@@ -1051,12 +1051,12 @@ void ArreraUI::on_IDC_MODE6_clicked()
 
 void ArreraUI::on_IDC_LIEU1_clicked()
 {
-
+    objSetting->launchLieu1();
 }
 
 void ArreraUI::on_IDC_LIEU2_clicked()
 {
-
+    objSetting->launchLieu2();
 }
 
 // btn QUIT

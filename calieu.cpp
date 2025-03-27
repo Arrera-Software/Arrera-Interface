@@ -2,10 +2,13 @@
 
 CALieu::CALieu() {}
 
-CALieu::CALieu(QString pname,CSetting *psetting) : CAModeLieu(pname,psetting){
+CALieu::CALieu(QString pname,CSetting *psetting,QPushButton *pbtnSix,QPushButton *pbtnRyley,QPushButton *pbtnCopilote) : CAModeLieu(pname,psetting){
     if (objSetting->getFileCreated()){
         objSetting->setValeur(name,"geo","nothing");
     }
+    btnCopilote = pbtnCopilote;
+    btnRyley = pbtnRyley;
+    btnSix = pbtnSix;
 }
 
 QString CALieu::getLieuGeographique()
@@ -28,4 +31,29 @@ bool CALieu::resetLieu(){
     }else{
         return false;
     }
+}
+
+bool CALieu::launchLieu(){
+    QString a = getAssistant();
+    btnSix->setVisible(false);
+    btnCopilote->setVisible(false);
+    btnRyley->setVisible(false);
+    if (a=="SIX"){
+        btnSix->setVisible(true);
+        return true;
+    }else if(a=="RYLEY"){
+        btnCopilote->setVisible(true);
+        return true;
+    }else if (a=="COPILOTE"){
+        btnRyley->setVisible(true);
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool CALieu::disableLieu(){
+    btnSix->setVisible(true);
+    btnCopilote->setVisible(true);
+    btnRyley->setVisible(true);
 }

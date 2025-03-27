@@ -2,7 +2,7 @@
 
 CAInterfaceSetting::CAInterfaceSetting() {}
 
-CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
+CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote){
     // Var
     fileINI = new CSetting(inifile);
     // Instentation des mode
@@ -13,8 +13,8 @@ CAInterfaceSetting::CAInterfaceSetting(QString& inifile){
     mode5 = CAMode("mode5",fileINI);
     mode6 = CAMode("mode6",fileINI);
     // Instentation des lieu
-    lieu1 = CALieu("lieu1",fileINI);
-    lieu2 = CALieu("lieu2",fileINI);
+    lieu1 = CALieu("lieu1",fileINI,bSix,bRyley,bCopilote);
+    lieu2 = CALieu("lieu2",fileINI,bSix,bRyley,bCopilote);
     if(fileINI->getFileCreated()){
         resetAll();
     }
@@ -1046,4 +1046,19 @@ void CAInterfaceSetting::resetAll(){
     fileINI->setValeur("taskbar","btnRyley","0");
     fileINI->setValeur("taskbar","btnCopilote","0");
     fileINI->setValeur("taskbar","btnPostite","0");
+}
+
+
+bool CAInterfaceSetting::launchLieu1(){
+    return lieu1.launchLieu();
+}
+bool CAInterfaceSetting::launchLieu2(){
+    return lieu2.launchLieu();
+}
+
+bool CAInterfaceSetting::disableLieu1(){
+    return lieu1.disableLieu();
+}
+bool CAInterfaceSetting::disableLieu2(){
+    return lieu2.disableLieu();
 }
