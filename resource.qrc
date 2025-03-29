@@ -33,6 +33,10 @@
         <file>img/resetArrera.png</file>
         <file>img/userPara.png</file>
         <file>img/logo-Arrera.png</file>
+        <file>img/changeDirectory.png</file>
+        <file>img/iconAddApp.png</file>
+        <file>img/iconChangeIcon.png</file>
+        <file>img/supprApp.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>

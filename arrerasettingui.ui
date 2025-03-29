@@ -90,7 +90,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>6</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QGridLayout" name="gridLayout">
@@ -1069,7 +1069,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>Ajouter</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/iconAddApp.png</normaloff>:/icon/img/iconAddApp.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>100</width>
+                 <height>100</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1101,10 +1111,17 @@ color: rgb(0, 0, 0);</string>
                 </size>
                </property>
                <property name="text">
-                <string>Modifier
-l'emplacement
-d'une
-application</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/changeDirectory.png</normaloff>:/icon/img/changeDirectory.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>100</width>
+                 <height>100</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1210,8 +1227,17 @@ application</string>
                 </size>
                </property>
                <property name="text">
-                <string>Changer
-l'icon</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/iconChangeIcon.png</normaloff>:/icon/img/iconChangeIcon.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>100</width>
+                 <height>100</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -1230,7 +1256,17 @@ l'icon</string>
                 </size>
                </property>
                <property name="text">
-                <string>Supprimer</string>
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/icon/img/supprApp.png</normaloff>:/icon/img/supprApp.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>100</width>
+                 <height>100</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -2423,7 +2459,7 @@ l'icon</string>
        <item>
         <widget class="QStackedWidget" name="modestacked">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainmode">
           <layout class="QVBoxLayout" name="verticalLayout_4">
