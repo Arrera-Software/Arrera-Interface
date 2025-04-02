@@ -14,6 +14,7 @@
 #include "cappspeciaux.h"
 #include "camode.h"
 #include "calieu.h"
+#include "carreraserveur.h"
 
 namespace Ui {
 class ArreraUI;
@@ -187,6 +188,7 @@ private:
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     QString assistantMode = nullptr;
+    CArreraServeur serveurWeb;
     bool modeIsActive;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;

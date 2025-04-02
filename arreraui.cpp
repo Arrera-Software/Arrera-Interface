@@ -6,7 +6,7 @@ using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI)
+    , ui(new Ui::ArreraUI),serveurWeb(this)
 {
     ui->setupUi(this);
     lieuEnabled = 0;
@@ -88,10 +88,13 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Mise en place de l'image sur le label des mode
     QPixmap pixmap (":/icon/img/logo-Arrera.png");
     ui->LICONARRERA->setPixmap(pixmap.scaled(ui->LICONARRERA->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    // Demarage du serveur websocket
+    serveurWeb.startServeur(123456);
 }
 
 ArreraUI::~ArreraUI()
 {
+    serveurWeb.stopServeur();
     delete ui;
 }
 

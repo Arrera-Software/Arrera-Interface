@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui websockets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,6 +19,7 @@ SOURCES += \
     cappspeciaux.cpp \
     carreraapp.cpp \
     carrerarecheche.cpp \
+    carreraserveur.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
     csetting.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     cappspeciaux.h \
     carreraapp.h \
     carrerarecheche.h \
+    carreraserveur.h \
     cdetectionos.h \
     cjsonword.h \
     csetting.h
