@@ -6,7 +6,7 @@ using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI),serveurWeb(this)
+    , ui(new Ui::ArreraUI),serveurWeb(this), comunictation(&serveurWeb)
 {
     ui->setupUi(this);
     lieuEnabled = 0;

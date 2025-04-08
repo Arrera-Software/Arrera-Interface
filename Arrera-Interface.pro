@@ -20,6 +20,7 @@ SOURCES += \
     carreraapp.cpp \
     carrerarecheche.cpp \
     carreraserveur.cpp \
+    ccommunication.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
     csetting.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     carreraapp.h \
     carrerarecheche.h \
     carreraserveur.h \
+    ccommunication.h \
     cdetectionos.h \
     cjsonword.h \
     csetting.h
