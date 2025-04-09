@@ -11,7 +11,7 @@ public:
     CCommunication();
     CCommunication(CArreraServeur* pserveur = nullptr);
     bool traitement();
-    bool sendData(QString soft,QString data);
+    bool sendData(QString &soft,QString &data);
     QList <QString> listSoft();
 };
 

@@ -9,7 +9,10 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI),serveurWeb(this), comunictation(&serveurWeb)
 {
     ui->setupUi(this);
-    lieuEnabled = 0;
+    // Demarage du serveur websocket
+    serveurWeb.startServeur(123456);
+    connect(&serveurWeb,&CArreraServeur::onMessageReceived,&comunictation,&CCommunication::traitement);
+    // Connection du serveur websocket
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
@@ -85,11 +88,12 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Initilisation de varriable
     modeIsActive = false;
     nameMode = "";
+    lieuEnabled = 0;
     // Mise en place de l'image sur le label des mode
     QPixmap pixmap (":/icon/img/logo-Arrera.png");
-    ui->LICONARRERA->setPixmap(pixmap.scaled(ui->LICONARRERA->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    // Demarage du serveur websocket
-    serveurWeb.startServeur(123456);
+    ui->LICONARRERA->setPixmap(pixmap.scaled(
+        ui->LICONARRERA->size(),
+        Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 ArreraUI::~ArreraUI()
