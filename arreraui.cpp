@@ -10,8 +10,10 @@ ArreraUI::ArreraUI(QWidget *parent)
 {
     ui->setupUi(this);
     // Demarage du serveur websocket
-    serveurWeb.startServeur(123456);
-    connect(&serveurWeb,&CArreraServeur::onMessageReceived,&comunictation,&CCommunication::traitement);
+    serveurWeb.startServeur(12345);
+    connect(&serveurWeb, &CArreraServeur::messageReceived,
+            [this](const QString &nameSoft, const QString &message)
+            {comunictation.traitement(nameSoft,message);});
     // Connection du serveur websocket
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
