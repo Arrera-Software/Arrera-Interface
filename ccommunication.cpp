@@ -9,10 +9,15 @@ CCommunication::CCommunication(CArreraServeur* pserveur){
 
 bool CCommunication::traitement(const QString &nameSoft,const QString message)
 {
-    std::cout << nameSoft.toStdString() << message.toStdString() << std::endl;
+    std::cout << nameSoft.toStdString()<< " " << message.toStdString() << std::endl;
     return true;
 }
 
-bool CCommunication::sendData(const QString &nameSoft, const QString &message){}
+bool CCommunication::sendData(const QString &nameSoft, const QString &message){
+    return serveur->sendMessage(nameSoft,message);
 
-QList <QString> CCommunication::listSoft(){}
+}
+
+QList <QString> CCommunication::listSoft(){
+
+}
