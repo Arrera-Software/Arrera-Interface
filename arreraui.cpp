@@ -736,37 +736,20 @@ void ArreraUI::on_IDC_BTNSEACH_clicked()
 {
     // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
     QString moteur = objSetting->getMoteurRecherche();
-
     if (moteur == "GOOGLE"){
         launchSearch(2);
-        return ;
+    }else if (moteur == "DUCKDUCKGO"){
+        launchSearch(1);
+    }else if (moteur == "ECOSIA"){
+        launchSearch(4);
+    }else if (moteur == "BING"){
+        launchSearch(6);
+    }else if (moteur == "BRAVE"){
+        launchSearch(5);
+    }else if (moteur == "QWANT"){
+        launchSearch(3);
     }else{
-        if (moteur == "DUCKDUCKGO"){
-            launchSearch(1);
-            return;
-        }else{
-            if (moteur == "ECOSIA"){
-                launchSearch(4);
-                return ;
-            }else{
-                if (moteur == "BING"){
-                    launchSearch(6);
-                    return ;
-                }else{
-                    if (moteur == "BRAVE"){
-                        launchSearch(5);
-                        return;
-                    }else{
-                        if (moteur == "QWANT"){
-                            launchSearch(3);
-                            return ;
-                        }else{
-                            launchSearch(2);
-                        }
-                    }
-                }
-            }
-        }
+        launchSearch(2);
     }
 }
 
