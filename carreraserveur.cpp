@@ -60,7 +60,6 @@ bool CArreraServeur::sendMessage(const QString nameClient,const QString &message
     else{
         return false;
     }
-    return true;
 }
 
 void CArreraServeur::onNewConnectionOfClient(){
