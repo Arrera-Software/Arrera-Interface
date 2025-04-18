@@ -2,20 +2,22 @@
 #define CCOMMUNICATION_H
 
 #include "carreraserveur.h"
+#include "ui_arreraui.h"
 
 class CCommunication
 {
 private:
-    CArreraServeur *serveur;
+    CArreraServeur *app,*assistant;
+    Ui_ArreraUI* gui;
 public:
     CCommunication();
-    CCommunication(CArreraServeur* pserveur = nullptr);
-    bool traitement(const QString &nameSoft,const QString message);
-    bool sendData(const QString &nameSoft, const QString &message);
-    bool setSoftConnected(QString &nameSoft);
-    bool setSoftDeconnected(QString &soft);
-    void clientConnected();
-    QList <QString> listSoft();
+    CCommunication(CArreraServeur* pserveur= nullptr,CArreraServeur* passistant = nullptr);
+    // Partie App
+    bool traitementApp(const QString &nameSoft,const QString message);
+    bool sendDataApp(const QString &nameSoft, const QString &message);
+    // Partie Assistant
+    bool traitementAssistant(const QString &nameSoft,const QString message);
+    bool sendDataAssistant(const QString &nameSoft, const QString &message);
 };
 
 #endif // CCOMMUNICATION_H

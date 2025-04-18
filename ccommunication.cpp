@@ -1,23 +1,30 @@
 #include "ccommunication.h"
 #include <iostream>
+using namespace std;
 
 CCommunication::CCommunication() {}
 
-CCommunication::CCommunication(CArreraServeur* pserveur){
-    serveur = pserveur;
+CCommunication::CCommunication(CArreraServeur* pserveur,CArreraServeur* passistant){
+    app = pserveur;
+    assistant = passistant;
 }
 
-bool CCommunication::traitement(const QString &nameSoft,const QString message)
+bool CCommunication::traitementApp(const QString &nameSoft,const QString message)
 {
     std::cout << nameSoft.toStdString()<< " " << message.toStdString() << std::endl;
     return true;
 }
 
-bool CCommunication::sendData(const QString &nameSoft, const QString &message){
-    return serveur->sendMessage(nameSoft,message);
+bool CCommunication::sendDataApp(const QString &nameSoft, const QString &message){
+    return app->sendMessage(nameSoft,message);
 
 }
 
-QList <QString> CCommunication::listSoft(){
+bool CCommunication::traitementAssistant(const QString &nameSoft,const QString message){
+    std::cout << nameSoft.toStdString()<< " " << message.toStdString() << std::endl;
+    return true;
+}
 
+bool CCommunication::sendDataAssistant(const QString &nameSoft, const QString &message){
+    return assistant->sendMessage(nameSoft,message);
 }
