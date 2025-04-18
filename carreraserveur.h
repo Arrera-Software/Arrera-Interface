@@ -27,6 +27,8 @@ private slots:
     void onClientDeconected();
 signals:
     void messageReceived(const QString &nameSoft,const QString &message);
+    void connectClient();
+    void clientDeconected();
 };
 
 #endif // CARRERASERVEUR_H

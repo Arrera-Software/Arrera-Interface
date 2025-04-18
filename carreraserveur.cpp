@@ -64,7 +64,7 @@ void CArreraServeur::onNewConnectionOfClient(){
     QWebSocket *client = serverWebSocket->nextPendingConnection();
     connect(client,&QWebSocket::textFrameReceived, this,&CArreraServeur::onMessageReceived);
     connect(client,&QWebSocket::disconnected, this,&CArreraServeur::onClientDeconected);
-
+    emit connectClient();
     webSocketClients[client] = QString();
 }
 
@@ -99,5 +99,6 @@ void CArreraServeur::onClientDeconected(){
     {
         webSocketClients.remove(client);
         client->deleteLater();
+        emit clientDeconected();
     }
 }
