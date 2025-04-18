@@ -15,6 +15,7 @@
 #include "camode.h"
 #include "calieu.h"
 #include "ccommunication.h"
+#include "ui_arreraui.h"
 
 namespace Ui {
 class ArreraUI;
@@ -191,7 +192,7 @@ private:
     CArreraServeur serveurApp;
     CArreraServeur serveurAssistant;
     CCommunication comunictation;
-    bool modeIsActive;
+    bool modeIsActive,assistantIsActived;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
     // Methode private
@@ -199,6 +200,7 @@ private:
     void loadArreraApp();
     bool launchAppMode(int nbApp,QString app);
     bool launchAssistantMode(QString assistant = "");
+    void launchGestServeur();
     // Methode de recherche
     void launchSearch(int mode);
     // Id du staked widget I2025

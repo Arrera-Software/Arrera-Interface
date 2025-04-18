@@ -8,36 +8,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI),serveurApp(this), serveurAssistant(this),comunictation(&serveurApp,&serveurApp)
 {
     ui->setupUi(this);
-
-    // Demarage des serveur websocket
-    serveurApp.startServeur(12345);
-    serveurAssistant.startServeur(6666);
-
-    // Partie serveur app
-    connect(&serveurApp, &CArreraServeur::messageReceived,
-            [this](const QString &nameSoft, const QString &message)
-            {comunictation.traitementApp(nameSoft,message);});
-    connect(&serveurApp,&CArreraServeur::connectClient,[this]()
-            {ui->LINDICATIONARRERA->setText("App connected");});
-
-    // Partie serveur assistant
-    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
-        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
-        ui->IDC_SIX->setVisible(false);
-        ui->IDC_COPILOTE->setVisible(false);
-        ui->IDC_RYLEY->setVisible(false);
-    });
-    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
-        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
-        ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
-    });
-    connect(&serveurAssistant, &CArreraServeur::messageReceived,
-            [this](const QString &nameSoft, const QString &message)
-            {comunictation.traitementAssistant(nameSoft,message);});
-
-    // Connection du serveur websocket
+    // Demarage du serveur
+    launchGestServeur();
+    // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
     QString confFile = "config.ini";
@@ -112,6 +85,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     loadSetting();
     // Initilisation de varriable
     modeIsActive = false;
+    assistantIsActived = false;
     nameMode = "";
     lieuEnabled = 0;
     // Mise en place de l'image sur le label des mode
@@ -577,6 +551,38 @@ bool ArreraUI::launchAssistantMode(QString assistant){
     }
 }
 
+void ArreraUI::launchGestServeur(){
+    // Demarage des serveur websocket
+    serveurApp.startServeur(12345);
+    serveurAssistant.startServeur(6666);
+
+    // Partie serveur app
+    connect(&serveurApp, &CArreraServeur::messageReceived,
+            [this](const QString &nameSoft, const QString &message)
+            {comunictation.traitementApp(nameSoft,message);});
+    connect(&serveurApp,&CArreraServeur::connectClient,[this]()
+            {ui->LINDICATIONARRERA->setText("App connected");});
+
+    // Partie serveur assistant
+    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
+        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
+        ui->IDC_SIX->setVisible(false);
+        ui->IDC_COPILOTE->setVisible(false);
+        ui->IDC_RYLEY->setVisible(false);
+        assistantIsActived = false;
+    });
+    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
+        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
+        ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
+        assistantIsActived = true;
+    });
+    connect(&serveurAssistant, &CArreraServeur::messageReceived,
+            [this](const QString &nameSoft, const QString &message)
+            {comunictation.traitementAssistant(nameSoft,message);});
+}
+
 void ArreraUI::launchSearch(int mode){
     /*
      * 1. Duckduckgo
@@ -984,7 +990,9 @@ void ArreraUI::on_IDC_MODE1_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode1();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -1004,7 +1012,9 @@ void ArreraUI::on_IDC_MODE2_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode2();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -1024,7 +1034,9 @@ void ArreraUI::on_IDC_MODE3_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode3();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -1043,7 +1055,9 @@ void ArreraUI::on_IDC_MODE4_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode4();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -1062,7 +1076,9 @@ void ArreraUI::on_IDC_MODE5_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode5();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -1081,7 +1097,9 @@ void ArreraUI::on_IDC_MODE6_clicked()
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        launchAssistantMode(assistant);
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }
         nameMode = objSetting->getNameMode6();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);

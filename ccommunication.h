@@ -2,7 +2,6 @@
 #define CCOMMUNICATION_H
 
 #include "carreraserveur.h"
-#include "ui_arreraui.h"
 
 class CCommunication
 {
