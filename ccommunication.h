@@ -2,15 +2,19 @@
 #define CCOMMUNICATION_H
 
 #include "carreraserveur.h"
+#include "carrerarecheche.h"
+#include "arrerasettingui.h"
 
 class CCommunication
 {
 private:
     CArreraServeur *app,*assistant;
-    Ui_ArreraUI* gui;
+    CArreraRecheche* precherche;
+    CAInterfaceSetting* pSetting;
 public:
     CCommunication();
-    CCommunication(CArreraServeur* pserveur= nullptr,CArreraServeur* passistant = nullptr);
+    CCommunication(CArreraServeur* pserveur = nullptr,CArreraServeur* passistant = nullptr,
+                   CArreraRecheche* objRecherche = nullptr,CAInterfaceSetting* objSetting = nullptr);
     // Partie App
     bool traitementApp(const QString &nameSoft,const QString message);
     bool sendDataApp(const QString &nameSoft, const QString &message);

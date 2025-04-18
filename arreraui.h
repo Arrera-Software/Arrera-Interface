@@ -8,8 +8,8 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include "carreraapp.h"
-#include "arrerasettingui.h"
-#include "carrerarecheche.h"
+
+
 #include "capppc.h"
 #include "cappspeciaux.h"
 #include "camode.h"

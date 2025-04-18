@@ -5,7 +5,7 @@ using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI),serveurApp(this), serveurAssistant(this),comunictation(&serveurApp,&serveurApp)
+    , ui(new Ui::ArreraUI),serveurApp(this), serveurAssistant(this),comunictation(&serveurApp,&serveurApp,&arecherche,objSetting)
 {
     ui->setupUi(this);
     // Demarage du serveur
