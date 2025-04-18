@@ -1,19 +1,34 @@
 #include "arreraui.h"
-#include "ui_arreraui.h"
 
 #include <iostream>
 using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI),serveurWeb(this), comunictation(&serveurWeb)
+    , ui(new Ui::ArreraUI),serveurApp(this), serveurAssistant(this),comunictation(&serveurApp,&serveurApp)
 {
     ui->setupUi(this);
-    // Demarage du serveur websocket
-    serveurWeb.startServeur(12345);
-    connect(&serveurWeb, &CArreraServeur::messageReceived,
+
+    // Demarage des serveur websocket
+    serveurApp.startServeur(12345);
+    serveurAssistant.startServeur(6666);
+
+    // Partie serveur app
+    connect(&serveurApp, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
-            {comunictation.traitement(nameSoft,message);});
+            {comunictation.traitementApp(nameSoft,message);});
+    connect(&serveurApp,&CArreraServeur::connectClient,[this]()
+            {ui->LINDICATIONARRERA->setText("App connected");});
+
+    // Partie serveur assistant
+    connect(&serveurAssistant,&CArreraServeur::connectClient,[this]()
+            {ui->LINDICATIONARRERA->setText("Un assistant est connectée");});
+    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this]()
+            {ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");});
+    connect(&serveurAssistant, &CArreraServeur::messageReceived,
+            [this](const QString &nameSoft, const QString &message)
+            {comunictation.traitementAssistant(nameSoft,message);});
+
     // Connection du serveur websocket
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Instatation de l'objet de dectation de l'os
@@ -100,7 +115,7 @@ ArreraUI::ArreraUI(QWidget *parent)
 
 ArreraUI::~ArreraUI()
 {
-    serveurWeb.stopServeur();
+    serveurApp.stopServeur();
     delete ui;
 }
 

@@ -188,7 +188,8 @@ private:
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     QString assistantMode = nullptr;
-    CArreraServeur serveurWeb;
+    CArreraServeur serveurApp;
+    CArreraServeur serveurAssistant;
     CCommunication comunictation;
     bool modeIsActive;
     int lieuEnabled;
