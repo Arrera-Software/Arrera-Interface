@@ -21,10 +21,18 @@ ArreraUI::ArreraUI(QWidget *parent)
             {ui->LINDICATIONARRERA->setText("App connected");});
 
     // Partie serveur assistant
-    connect(&serveurAssistant,&CArreraServeur::connectClient,[this]()
-            {ui->LINDICATIONARRERA->setText("Un assistant est connectée");});
-    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this]()
-            {ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");});
+    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
+        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
+        ui->IDC_SIX->setVisible(false);
+        ui->IDC_COPILOTE->setVisible(false);
+        ui->IDC_RYLEY->setVisible(false);
+    });
+    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
+        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
+        ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
+    });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
             {comunictation.traitementAssistant(nameSoft,message);});
