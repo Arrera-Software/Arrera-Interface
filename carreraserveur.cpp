@@ -19,8 +19,6 @@ bool CArreraServeur::startServeur(quint16 port)
     connect(serverWebSocket,&QWebSocketServer::newConnection,
             this,&CArreraServeur::onNewConnectionOfClient);
 
-    cout << "vire" << endl;
-
     if (serverWebSocket->listen(QHostAddress::Any,port)){
         return true;
     }else{
