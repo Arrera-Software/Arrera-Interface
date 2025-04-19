@@ -24,7 +24,6 @@ bool CCommunication::sendDataApp(const QString &nameSoft, const QString &message
 }
 
 bool CCommunication::traitementAssistant(const QString &nameSoft,const QString message){
-    std::cout << "bite" << nameSoft.toStdString() << std::endl;
     if (nameSoft == "opale" || nameSoft=="six" || nameSoft == "ryley" || nameSoft == "copilote"){
         if (message.contains("recherche")){
             std::cout << "bite2" << std::endl;
@@ -46,6 +45,9 @@ bool CCommunication::traitementAssistant(const QString &nameSoft,const QString m
             }else{
                 return precherche->searchGoogle(recherche);
             }
+        }
+        else{
+            return false;
         }
     }else{
         return false;
