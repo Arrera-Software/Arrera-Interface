@@ -2,7 +2,7 @@
 
 CAInterfaceSetting::CAInterfaceSetting() {}
 
-CAInterfaceSetting::CAInterfaceSetting(QString& inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote){
+CAInterfaceSetting::CAInterfaceSetting(QString inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote){
     // Var
     fileINI = new CSetting(inifile);
     // Instentation des mode
