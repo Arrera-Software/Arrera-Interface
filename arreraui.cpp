@@ -8,7 +8,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI),objSetting("config.ini",ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this), serveurAssistant(this),
-    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting)
+    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC)
 {
     ui->setupUi(this);
     // Demarage du serveur

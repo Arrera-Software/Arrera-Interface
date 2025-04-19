@@ -7,11 +7,7 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QUrl>
-#include "carreraapp.h"
 
-
-#include "capppc.h"
-#include "cappspeciaux.h"
 #include "camode.h"
 #include "calieu.h"
 #include "ccommunication.h"

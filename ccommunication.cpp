@@ -5,11 +5,13 @@ using namespace std;
 CCommunication::CCommunication() {}
 
 CCommunication::CCommunication(CArreraServeur* pserveur,CArreraServeur* passistant,
-                               CArreraRecheche* objRecherche,CAInterfaceSetting* objSetting){
+                               CArreraRecheche* objRecherche,CAInterfaceSetting* objSetting,
+                                QList <CAppPC>*pListApp){
     app = pserveur;
     assistant = passistant;
     precherche = objRecherche;
     pSetting = objSetting;
+    listApp = pListApp;
 }
 
 bool CCommunication::traitementApp(const QString &nameSoft,const QString message)
@@ -25,8 +27,8 @@ bool CCommunication::sendDataApp(const QString &nameSoft, const QString &message
 
 bool CCommunication::traitementAssistant(const QString &nameSoft,const QString message){
     if (nameSoft == "opale" || nameSoft=="six" || nameSoft == "ryley" || nameSoft == "copilote"){
+        int nbApp , i ;
         if (message.contains("recherche")){
-            std::cout << "bite2" << std::endl;
             QString moteur = pSetting->getMoteurRecherche();
             QString recherche = message;
             recherche.replace("recherche","");
@@ -46,6 +48,20 @@ bool CCommunication::traitementAssistant(const QString &nameSoft,const QString m
             }else{
                 return precherche->searchGoogle(recherche);
             }
+        }
+        else if (message.contains("ouvre")){
+            nbApp = listApp->size();
+            CAppPC app;
+            QString nameapp = message;
+            nameapp.replace("ouvre","");
+            nameapp = nameapp.trimmed();
+            for (i=0;i<nbApp;i++){
+                app = listApp->at(i);
+                if (app.getAppSetted() && nameapp.contains(app.getName())){
+                    return app.executeApplication();
+                }
+            }
+            return false;
         }
         else{
             return false;
