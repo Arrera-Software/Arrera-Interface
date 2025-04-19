@@ -29,7 +29,8 @@ bool CCommunication::traitementAssistant(const QString &nameSoft,const QString m
             std::cout << "bite2" << std::endl;
             QString moteur = pSetting->getMoteurRecherche();
             QString recherche = message;
-            recherche.replace("recherche","").trimmed();
+            recherche.replace("recherche","");
+            recherche = recherche.trimmed();
             if (moteur == "GOOGLE"){
                 return precherche->searchGoogle(recherche);
             }else if (moteur == "DUCKDUCKGO"){
