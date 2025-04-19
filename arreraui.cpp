@@ -5,20 +5,18 @@ using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI),serveurApp(this), serveurAssistant(this),comunictation(&serveurApp,&serveurApp,&arecherche,objSetting)
+    , ui(new Ui::ArreraUI),objSetting("config.ini",ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
+    arreraApp(&objSetting,&dectOS,this),
+    serveurApp(this), serveurAssistant(this),
+    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting)
 {
     ui->setupUi(this);
     // Demarage du serveur
     launchGestServeur();
     // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
-    // Instatation de l'objet de dectation de l'os
-    QString confFile = "config.ini";
-    objSetting = new CAInterfaceSetting(confFile,ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     // Ajout de l'objet de l'interface des parametre
-    uipara = new ArreraSettingUI(this,objSetting,&arecherche,&dectOS);
-    // Ajout de l'objet pour gerer les application Arrera
-    arreraApp = new CArreraApp(objSetting,&dectOS,this);
+    uipara = new ArreraSettingUI(this,&objSetting,&arecherche,&dectOS);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
@@ -56,31 +54,31 @@ ArreraUI::ArreraUI(QWidget *parent)
     connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
     // Mise en place de bouton d'application
-    appPC.append(CAppPC(1,objSetting,ui->IDC_APP_001,&dectOS));
-    appPC.append(CAppPC(2,objSetting,ui->IDC_APP_002,&dectOS));
-    appPC.append(CAppPC(3,objSetting,ui->IDC_APP_003,&dectOS));
-    appPC.append(CAppPC(4,objSetting,ui->IDC_APP_004,&dectOS));
-    appPC.append(CAppPC(5,objSetting,ui->IDC_APP_005,&dectOS));
-    appPC.append(CAppPC(6,objSetting,ui->IDC_APP_006,&dectOS));
-    appPC.append(CAppPC(7,objSetting,ui->IDC_APP_007,&dectOS));
-    appPC.append(CAppPC(8,objSetting,ui->IDC_APP_008,&dectOS));
-    appPC.append(CAppPC(9,objSetting,ui->IDC_APP_009,&dectOS));
-    appPC.append(CAppPC(10,objSetting,ui->IDC_APP_010,&dectOS));
-    appPC.append(CAppPC(11,objSetting,ui->IDC_APP_011,&dectOS));
-    appPC.append(CAppPC(12,objSetting,ui->IDC_APP_012,&dectOS));
-    appPC.append(CAppPC(13,objSetting,ui->IDC_APP_013,&dectOS));
-    appPC.append(CAppPC(14,objSetting,ui->IDC_APP_014,&dectOS));
-    appPC.append(CAppPC(15,objSetting,ui->IDC_APP_015,&dectOS));
-    appPC.append(CAppPC(16,objSetting,ui->IDC_APP_016,&dectOS));
-    appPC.append(CAppPC(17,objSetting,ui->IDC_APP_017,&dectOS));
-    appPC.append(CAppPC(18,objSetting,ui->IDC_APP_018,&dectOS));
-    appPC.append(CAppPC(19,objSetting,ui->IDC_APP_019,&dectOS));
-    appPC.append(CAppPC(20,objSetting,ui->IDC_APP_020,&dectOS));
+    appPC.append(CAppPC(1,&objSetting,ui->IDC_APP_001,&dectOS));
+    appPC.append(CAppPC(2,&objSetting,ui->IDC_APP_002,&dectOS));
+    appPC.append(CAppPC(3,&objSetting,ui->IDC_APP_003,&dectOS));
+    appPC.append(CAppPC(4,&objSetting,ui->IDC_APP_004,&dectOS));
+    appPC.append(CAppPC(5,&objSetting,ui->IDC_APP_005,&dectOS));
+    appPC.append(CAppPC(6,&objSetting,ui->IDC_APP_006,&dectOS));
+    appPC.append(CAppPC(7,&objSetting,ui->IDC_APP_007,&dectOS));
+    appPC.append(CAppPC(8,&objSetting,ui->IDC_APP_008,&dectOS));
+    appPC.append(CAppPC(9,&objSetting,ui->IDC_APP_009,&dectOS));
+    appPC.append(CAppPC(10,&objSetting,ui->IDC_APP_010,&dectOS));
+    appPC.append(CAppPC(11,&objSetting,ui->IDC_APP_011,&dectOS));
+    appPC.append(CAppPC(12,&objSetting,ui->IDC_APP_012,&dectOS));
+    appPC.append(CAppPC(13,&objSetting,ui->IDC_APP_013,&dectOS));
+    appPC.append(CAppPC(14,&objSetting,ui->IDC_APP_014,&dectOS));
+    appPC.append(CAppPC(15,&objSetting,ui->IDC_APP_015,&dectOS));
+    appPC.append(CAppPC(16,&objSetting,ui->IDC_APP_016,&dectOS));
+    appPC.append(CAppPC(17,&objSetting,ui->IDC_APP_017,&dectOS));
+    appPC.append(CAppPC(18,&objSetting,ui->IDC_APP_018,&dectOS));
+    appPC.append(CAppPC(19,&objSetting,ui->IDC_APP_019,&dectOS));
+    appPC.append(CAppPC(20,&objSetting,ui->IDC_APP_020,&dectOS));
     // Mise en place des app speciaux
-    appNavigateur = CAppSpeciaux(1,objSetting,ui->IDC_NAVIGATEUR,&dectOS);
-    appPresentation = CAppSpeciaux(2,objSetting,ui->IDC_PRESENTATION,&dectOS);
-    appTableur = CAppSpeciaux(3,objSetting,ui->IDC_TABLEUR,&dectOS);
-    appTraitementTexte = CAppSpeciaux(4,objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
+    appNavigateur = CAppSpeciaux(1,&objSetting,ui->IDC_NAVIGATEUR,&dectOS);
+    appPresentation = CAppSpeciaux(2,&objSetting,ui->IDC_PRESENTATION,&dectOS);
+    appTableur = CAppSpeciaux(3,&objSetting,ui->IDC_TABLEUR,&dectOS);
+    appTraitementTexte = CAppSpeciaux(4,&objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
     // Chargement des parametre
     loadSetting();
     // Initilisation de varriable
@@ -134,11 +132,11 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
             {
                 switch (lieuEnabled) {
                 case 1:
-                    objSetting->disableLieu1();
+                    objSetting.disableLieu1();
                     lieuEnabled = 0;
                     break;
                 case 2:
-                    objSetting->disableLieu2();
+                    objSetting.disableLieu2();
                     lieuEnabled = 2;
                     break;
                 default:
@@ -171,7 +169,7 @@ void ArreraUI::on_IDC_ARRERAAPP_clicked()
 
 void ArreraUI::on_IDC_TIGER_clicked()
 {
-    bool sortie = arreraApp->openStore();
+    bool sortie = arreraApp.openStore();
     if (!sortie){
         QMessageBox::critical(this,"Ouverture Arrera Store",
                               "Impossible de lancer Arrera Store.");
@@ -181,7 +179,7 @@ void ArreraUI::on_IDC_TIGER_clicked()
 
 void ArreraUI::on_IDC_RYLEY_clicked()
 {
-    if (!arreraApp->executeApp("ryley")){
+    if (!arreraApp.executeApp("ryley")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
                               "Impossible de lancer votre assistant Arrera RYLEY.");
     }
@@ -190,7 +188,7 @@ void ArreraUI::on_IDC_RYLEY_clicked()
 
 void ArreraUI::on_IDC_COPILOTE_clicked()
 {
-    if (!arreraApp->executeApp("arrera-copilote")){
+    if (!arreraApp.executeApp("arrera-copilote")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
                               "Impossible de lancer votre assistant Arrera COPILOTE.");
     }
@@ -199,7 +197,7 @@ void ArreraUI::on_IDC_COPILOTE_clicked()
 
 void ArreraUI::on_IDC_SIX_clicked()
 {
-    if (!arreraApp->executeApp("six")){
+    if (!arreraApp.executeApp("six")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
                               "Impossible de lancer votre assistant Arrera SIX.");
     }
@@ -208,7 +206,7 @@ void ArreraUI::on_IDC_SIX_clicked()
 
 void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
 {
-    if (!arreraApp->executeApp("arrera-postite")){
+    if (!arreraApp.executeApp("arrera-postite")){
         QMessageBox::critical(this,"Lancement Arrera Postite",
                               "Impossible de lancer Arrera Postite");
     }
@@ -238,12 +236,12 @@ void ArreraUI::loadSetting()
 {
     bool appSetted;
     ui->acceuilStacked->setCurrentIndex(idNonMode);
-    if (objSetting->mode1IsSeted()){
+    if (objSetting.mode1IsSeted()){
         ui->IDC_MODE1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode1IsSetted()){
-            QIcon icon(objSetting->getIconMode1());
+        if (objSetting.iconMode1IsSetted()){
+            QIcon icon(objSetting.getIconMode1());
             ui->IDC_MODE1->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode1.png");
@@ -252,12 +250,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE1->setVisible(false);}
 
-    if (objSetting->mode2IsSeted()){
+    if (objSetting.mode2IsSeted()){
         ui->IDC_MODE2->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode2IsSetted()){
-            QIcon icon(objSetting->getIconMode2());
+        if (objSetting.iconMode2IsSetted()){
+            QIcon icon(objSetting.getIconMode2());
             ui->IDC_MODE2->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode2.png");
@@ -266,12 +264,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE2->setVisible(false);}
 
-    if (objSetting->mode3IsSeted()){
+    if (objSetting.mode3IsSeted()){
         ui->IDC_MODE3->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode3IsSetted()){
-            QIcon icon(objSetting->getIconMode3());
+        if (objSetting.iconMode3IsSetted()){
+            QIcon icon(objSetting.getIconMode3());
             ui->IDC_MODE3->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode3.png");
@@ -280,12 +278,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE3->setVisible(false);}
 
-    if (objSetting->mode4IsSeted()){
+    if (objSetting.mode4IsSeted()){
         ui->IDC_MODE4->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode4IsSetted()){
-            QIcon icon(objSetting->getIconMode4());
+        if (objSetting.iconMode4IsSetted()){
+            QIcon icon(objSetting.getIconMode4());
             ui->IDC_MODE4->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode4.png");
@@ -294,12 +292,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE4->setVisible(false);}
 
-    if (objSetting->mode5IsSeted()){
+    if (objSetting.mode5IsSeted()){
         ui->IDC_MODE5->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode5IsSetted()){
-            QIcon icon(objSetting->getIconMode5());
+        if (objSetting.iconMode5IsSetted()){
+            QIcon icon(objSetting.getIconMode5());
             ui->IDC_MODE5->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode5.png");
@@ -308,12 +306,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE5->setVisible(false);}
 
-    if (objSetting->mode6IsSeted()){
+    if (objSetting.mode6IsSeted()){
         ui->IDC_MODE6->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconMode6IsSetted()){
-            QIcon icon(objSetting->getIconMode6());
+        if (objSetting.iconMode6IsSetted()){
+            QIcon icon(objSetting.getIconMode6());
             ui->IDC_MODE6->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/mode6.png");
@@ -322,12 +320,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE6->setVisible(false);}
 
-    if (objSetting->lieu1IsSeted()){
+    if (objSetting.lieu1IsSeted()){
         ui->IDC_LIEU1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconLieu1IsSetted()){
-            QIcon icon(objSetting->getIconLieu1());
+        if (objSetting.iconLieu1IsSetted()){
+            QIcon icon(objSetting.getIconLieu1());
             ui->IDC_LIEU1->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/lieu1.png");
@@ -336,12 +334,12 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_LIEU1->setVisible(false);}
 
-    if (objSetting->lieu2IsSeted()){
+    if (objSetting.lieu2IsSeted()){
         ui->IDC_LIEU2->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
         // Mise en place de l'icon
-        if (objSetting->iconLieu2IsSetted()){
-            QIcon icon(objSetting->getIconLieu2());
+        if (objSetting.iconLieu2IsSetted()){
+            QIcon icon(objSetting.getIconLieu2());
             ui->IDC_LIEU2->setIcon(icon);
         }else{
             QIcon icon(":mode-lieu/img/lieu2.png");
@@ -415,22 +413,22 @@ void ArreraUI::loadSetting()
         ui->FBUREAUTIQUEAPP->setVisible(true);
     }
 
-    ui->IDC_ARRERAAPP->setVisible(objSetting->getTaskbarBTNArreraApp());
-    ui->IDC_ARRERAPOSTITE->setVisible(objSetting->getTaskbarPostite());
-    ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
-    ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
-    ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
+    ui->IDC_ARRERAAPP->setVisible(objSetting.getTaskbarBTNArreraApp());
+    ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
+    ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+    ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+    ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
 }
 
 void ArreraUI::loadArreraApp(){
-    if (arreraApp->loadJson()){
+    if (arreraApp.loadJson()){
         bool videoSetted,postiteSetted,sixSetted,ryleySetted,raccourciSetted,copiloteSetted;
-        videoSetted = arreraApp->loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
-        postiteSetted = arreraApp->loadApp("arrera-postite",ui->IDC_APOSTITE);
-        sixSetted = arreraApp->loadApp("six",ui->IDC_ASIX);
-        ryleySetted =  arreraApp->loadApp("ryley",ui->IDC_ARYLEY);
-        raccourciSetted = arreraApp->loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
-        copiloteSetted = arreraApp->loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
+        videoSetted = arreraApp.loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+        postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
+        sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
+        ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
+        raccourciSetted = arreraApp.loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
+        copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
 
         if (videoSetted||postiteSetted||sixSetted||
             ryleySetted||raccourciSetted||copiloteSetted){
@@ -530,20 +528,20 @@ bool ArreraUI::launchAppMode(int nbApp,QString app){
 
 bool ArreraUI::launchAssistantMode(QString assistant){
     if (assistant.isEmpty()){
-        return arreraApp->executeApp(assistantMode);
+        return arreraApp.executeApp(assistantMode);
     }else{
         if (assistant=="SIX"){
             assistantMode = "six";
             ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp->executeApp("six");
+            return arreraApp.executeApp("six");
         }else if (assistant == "RYLEY"){
             assistantMode = "ryley";
             ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp->executeApp("ryley");
+            return arreraApp.executeApp("ryley");
         }else if (assistant == "COPILOTE"){
             assistantMode = "arrera-copilote";
             ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp->executeApp("arrera-copilote");
+            return arreraApp.executeApp("arrera-copilote");
         }else{
             ui->IDC_ASSISTANT->setVisible(false);
             return false;
@@ -573,9 +571,9 @@ void ArreraUI::launchGestServeur(){
     });
     connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
         ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
-        ui->IDC_SIX->setVisible(objSetting->getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting->getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting->getTaskbarBTNRyley());
+        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
         assistantIsActived = true;
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
@@ -764,7 +762,7 @@ void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
 void ArreraUI::on_IDC_BTNSEACH_clicked()
 {
     // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
-    QString moteur = objSetting->getMoteurRecherche();
+    QString moteur = objSetting.getMoteurRecherche();
     if (moteur == "GOOGLE"){
         launchSearch(2);
     }else if (moteur == "DUCKDUCKGO"){
@@ -927,7 +925,7 @@ void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
 // Arrera APP
 void ArreraUI::on_IDC_APOSTITE_clicked()
 {
-    if (!arreraApp->executeApp("arrera-postite")){
+    if (!arreraApp.executeApp("arrera-postite")){
         QMessageBox::critical(this,"Lancement Arrera Postite",
                               "Impossible de lancer Arrera Postite");
     }
@@ -936,7 +934,7 @@ void ArreraUI::on_IDC_APOSTITE_clicked()
 
 void ArreraUI::on_IDC_AVIDEODOWNLOAD_clicked()
 {
-    if (!arreraApp->executeApp("arrera-video-download")){
+    if (!arreraApp.executeApp("arrera-video-download")){
         QMessageBox::critical(this,"Lancement Arrera Video Download",
                               "Impossible de lancer Arrera Video Download");
     }
@@ -945,7 +943,7 @@ void ArreraUI::on_IDC_AVIDEODOWNLOAD_clicked()
 
 void ArreraUI::on_IDC_ARACCOURCI_clicked()
 {
-    if (!arreraApp->executeApp("arrera-raccourci")){
+    if (!arreraApp.executeApp("arrera-raccourci")){
         QMessageBox::critical(this,"Lancement Arrera Raccourci",
                               "Impossible de lancer Arrera Raccourci");
     }
@@ -954,7 +952,7 @@ void ArreraUI::on_IDC_ARACCOURCI_clicked()
 
 void ArreraUI::on_IDC_ASIX_clicked()
 {
-    if (!arreraApp->executeApp("six")){
+    if (!arreraApp.executeApp("six")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
                               "Impossible de lancer votre assistant Arrera SIX.");
     }
@@ -963,7 +961,7 @@ void ArreraUI::on_IDC_ASIX_clicked()
 
 void ArreraUI::on_IDC_ARYLEY_clicked()
 {
-    if (!arreraApp->executeApp("ryley")){
+    if (!arreraApp.executeApp("ryley")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
                               "Impossible de lancer votre assistant Arrera RYLEY.");
     }
@@ -972,7 +970,7 @@ void ArreraUI::on_IDC_ARYLEY_clicked()
 
 void ArreraUI::on_IDC_ACOPILOTE_clicked()
 {
-    if (!arreraApp->executeApp("arrera-copilote")){
+    if (!arreraApp.executeApp("arrera-copilote")){
         QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
                               "Impossible de lancer votre assistant Arrera COPILOTE.");
     }
@@ -982,10 +980,10 @@ void ArreraUI::on_IDC_ACOPILOTE_clicked()
 
 void ArreraUI::on_IDC_MODE1_clicked()
 {
-    if (objSetting->mode1IsSeted()){
+    if (objSetting.mode1IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode1(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode1();
+        objSetting.getAppMode1(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode1();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -993,7 +991,7 @@ void ArreraUI::on_IDC_MODE1_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode1();
+        nameMode = objSetting.getNameMode1();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1004,10 +1002,10 @@ void ArreraUI::on_IDC_MODE1_clicked()
 
 void ArreraUI::on_IDC_MODE2_clicked()
 {
-    if (objSetting->mode2IsSeted()){
+    if (objSetting.mode2IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode2(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode2();
+        objSetting.getAppMode2(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode2();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -1015,7 +1013,7 @@ void ArreraUI::on_IDC_MODE2_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode2();
+        nameMode = objSetting.getNameMode2();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1026,10 +1024,10 @@ void ArreraUI::on_IDC_MODE2_clicked()
 
 void ArreraUI::on_IDC_MODE3_clicked()
 {
-    if (objSetting->mode3IsSeted()){
+    if (objSetting.mode3IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode3(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode3();
+        objSetting.getAppMode3(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode3();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -1037,7 +1035,7 @@ void ArreraUI::on_IDC_MODE3_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode3();
+        nameMode = objSetting.getNameMode3();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1047,10 +1045,10 @@ void ArreraUI::on_IDC_MODE3_clicked()
 
 void ArreraUI::on_IDC_MODE4_clicked()
 {
-    if (objSetting->mode4IsSeted()){
+    if (objSetting.mode4IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode4(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode4();
+        objSetting.getAppMode4(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode4();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -1058,7 +1056,7 @@ void ArreraUI::on_IDC_MODE4_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode4();
+        nameMode = objSetting.getNameMode4();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1068,10 +1066,10 @@ void ArreraUI::on_IDC_MODE4_clicked()
 
 void ArreraUI::on_IDC_MODE5_clicked()
 {
-    if (objSetting->mode5IsSeted()){
+    if (objSetting.mode5IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode5(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode5();
+        objSetting.getAppMode5(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode5();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -1079,7 +1077,7 @@ void ArreraUI::on_IDC_MODE5_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode5();
+        nameMode = objSetting.getNameMode5();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1089,10 +1087,10 @@ void ArreraUI::on_IDC_MODE5_clicked()
 
 void ArreraUI::on_IDC_MODE6_clicked()
 {
-    if (objSetting->mode1IsSeted()){
+    if (objSetting.mode1IsSeted()){
         QString app1,app2,app3,app4,assistant;
-        objSetting->getAppMode6(&app1,&app2,&app3,&app4);
-        assistant = objSetting->getAssistantMode6();
+        objSetting.getAppMode6(&app1,&app2,&app3,&app4);
+        assistant = objSetting.getAssistantMode6();
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
@@ -1100,7 +1098,7 @@ void ArreraUI::on_IDC_MODE6_clicked()
         if (!assistantIsActived){
             launchAssistantMode(assistant);
         }
-        nameMode = objSetting->getNameMode6();
+        nameMode = objSetting.getNameMode6();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
@@ -1112,20 +1110,20 @@ void ArreraUI::on_IDC_MODE6_clicked()
 
 void ArreraUI::on_IDC_LIEU1_clicked()
 {
-    objSetting->launchLieu1();
+    objSetting.launchLieu1();
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
     lieuEnabled = 1;
-    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting->getNameLieu1());
+    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu1());
 }
 
 void ArreraUI::on_IDC_LIEU2_clicked()
 {
-    objSetting->launchLieu2();
+    objSetting.launchLieu2();
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
     lieuEnabled=2;
-    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting->getNameLieu2());
+    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu2());
 }
 
 // btn QUIT

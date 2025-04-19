@@ -181,11 +181,11 @@ private slots:
 
 private:
     Ui::ArreraUI *ui;
-    CAInterfaceSetting *objSetting;
+    CAInterfaceSetting objSetting;
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
     CDetectionOS dectOS;
-    CArreraApp *arreraApp;
+    CArreraApp arreraApp;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     QString assistantMode = nullptr;
