@@ -7,7 +7,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ArreraUI),objSetting("config.ini",ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     arreraApp(&objSetting,&dectOS,this),
-    serveurApp(this), serveurAssistant(this),
+    serveurApp(this), serveurAssistant(this),playerRadio(this),
     comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC)
 {
     ui->setupUi(this);

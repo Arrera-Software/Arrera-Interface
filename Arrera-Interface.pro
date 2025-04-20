@@ -1,4 +1,4 @@
-QT += core gui websockets
+QT += core gui websockets multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,6 +23,7 @@ SOURCES += \
     ccommunication.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
+    cradioplayer.cpp \
     csetting.cpp \
     main.cpp \
     arreraui.cpp
@@ -43,6 +44,7 @@ HEADERS += \
     ccommunication.h \
     cdetectionos.h \
     cjsonword.h \
+    cradioplayer.h \
     csetting.h
 
 FORMS += \

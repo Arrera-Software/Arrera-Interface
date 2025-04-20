@@ -7,7 +7,7 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QUrl>
-
+#include "cradioplayer.h"
 #include "camode.h"
 #include "calieu.h"
 #include "ccommunication.h"
@@ -188,6 +188,7 @@ private:
     CArreraServeur serveurApp;
     CArreraServeur serveurAssistant;
     CCommunication comunictation;
+    CRadioPlayer playerRadio;
     bool modeIsActive,assistantIsActived;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
