@@ -190,7 +190,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1521,6 +1521,7 @@ color: rgb(0, 0, 0);</string>
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="radioPlayer"/>
      <widget class="QWidget" name="app">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
