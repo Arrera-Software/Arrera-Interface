@@ -101,10 +101,14 @@ ArreraUI::~ArreraUI()
 
 void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
 {
-    int currentIndex = ui->I2025->currentIndex();
+    int index = ui->I2025->currentIndex();
 
-    if (currentIndex != idPageI2025Main)
+    if ((index == idPageI2025Main) || (index == idPageI2025Mode))
     {
+        ui->I2025->setCurrentIndex(idPageApropos);
+        ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
+
+    } else if (index != idPageI2025Main){
         if (modeIsActive)
         {
             ui->I2025->setCurrentIndex(idPageI2025Mode);
@@ -120,35 +124,34 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
             ui->IDC_AUTREMOTEUR->setVisible(true);
         }
     }
-    else
+    else if (lieuEnabled != 0)
     {
-        if (lieuEnabled != 0){
-            int ret = QMessageBox::question(nullptr,
-                                            "Quitter le lieu",
-                                            "Voulez-vous quitter le lieu en cours ?",
-                                            QMessageBox::Yes | QMessageBox::No);
+        int ret = QMessageBox::question(nullptr,
+                                        "Quitter le lieu",
+                                        "Voulez-vous quitter le lieu en cours ?",
+                                        QMessageBox::Yes | QMessageBox::No);
 
-            if (ret == QMessageBox::Yes)
-            {
-                switch (lieuEnabled) {
-                case 1:
-                    objSetting.disableLieu1();
-                    lieuEnabled = 0;
-                    break;
-                case 2:
-                    objSetting.disableLieu2();
-                    lieuEnabled = 2;
-                    break;
-                default:
-                    break;
-                }
+        if (ret == QMessageBox::Yes)
+        {
+            switch (lieuEnabled) {
+            case 1:
+                objSetting.disableLieu1();
+                lieuEnabled = 0;
+                break;
+            case 2:
+                objSetting.disableLieu2();
+                lieuEnabled = 2;
+                break;
+            default:
+                break;
             }
-            else
-            {
+        }
+        else
+        {
             ui->I2025->setCurrentIndex(idPageApropos);
-                ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
-            }
-        }   }
+            ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
+        }
+    }
 }
 
 // Bar des taches
