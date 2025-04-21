@@ -1,6 +1,7 @@
 #ifndef CCOMMUNICATION_H
 #define CCOMMUNICATION_H
 
+#include <QLabel>
 #include "carreraserveur.h"
 #include "carrerarecheche.h"
 #include "arrerasettingui.h"
@@ -15,11 +16,13 @@ private:
     CArreraRecheche* precherche;
     CAInterfaceSetting* pSetting;
     QList <CAppPC>* listApp;
+    CArreraApp* arreraApp;
+    QLabel* labelTop;
 public:
     CCommunication();
-    CCommunication(CArreraServeur* pserveur = nullptr,CArreraServeur* passistant = nullptr,
+    CCommunication(QLabel* plabelTop,CArreraServeur* pserveur = nullptr,CArreraServeur* passistant = nullptr,
                    CArreraRecheche* objRecherche = nullptr,CAInterfaceSetting* objSetting = nullptr,
-                    QList <CAppPC>*pListApp = nullptr);
+                    QList <CAppPC>*pListApp = nullptr,CArreraApp* pArreraApp = nullptr);
     // Partie App
     bool traitementApp(const QString &nameSoft,const QString message);
     bool sendDataApp(const QString &nameSoft, const QString &message);

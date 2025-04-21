@@ -4,14 +4,16 @@ using namespace std;
 
 CCommunication::CCommunication() {}
 
-CCommunication::CCommunication(CArreraServeur* pserveur,CArreraServeur* passistant,
+CCommunication::CCommunication(QLabel* plabelTop,CArreraServeur* pserveur,CArreraServeur* passistant,
                                CArreraRecheche* objRecherche,CAInterfaceSetting* objSetting,
-                                QList <CAppPC>*pListApp){
+                                QList <CAppPC>*pListApp,CArreraApp* pArreraApp){
     app = pserveur;
     assistant = passistant;
     precherche = objRecherche;
     pSetting = objSetting;
     listApp = pListApp;
+    arreraApp = pArreraApp;
+    labelTop = plabelTop;
 }
 
 bool CCommunication::traitementApp(const QString &nameSoft,const QString message)
@@ -28,6 +30,7 @@ bool CCommunication::sendDataApp(const QString &nameSoft, const QString &message
 bool CCommunication::traitementAssistant(const QString &nameSoft,const QString message){
     if (nameSoft == "opale" || nameSoft=="six" || nameSoft == "ryley" || nameSoft == "copilote"){
         int nbApp , i ;
+        bool outMethode;
         if (message.contains("recherche")){
             QString moteur = pSetting->getMoteurRecherche();
             QString recherche = message;
@@ -59,6 +62,43 @@ bool CCommunication::traitementAssistant(const QString &nameSoft,const QString m
                 app = listApp->at(i);
                 if (app.getAppSetted() && nameapp.contains(app.getName())){
                     return app.executeApplication();
+                }
+            }
+
+            if (message.contains("arrera")){
+                if (message.contains("postite")){
+                    outMethode = arreraApp->executeApp("arrera-postite");
+                    if (outMethode){
+                        QMetaObject::invokeMethod(labelTop, [labelTop](){
+                            labelTop->setText("Lancement du module Arrera Postite");
+                        }, Qt::QueuedConnection);
+                        return true;
+                    }else{
+                        labelTop->setText("Impossible de lancer le module Arrera Postite");
+                        return false;
+                    }
+                }else if(message.contains("video download")){
+                    outMethode = arreraApp->executeApp("arrera-video-download");
+                    if (outMethode){
+                        labelTop->setText("Lancement du module Arrera Video Download");
+                        return true;
+                    }
+                    else{
+                        labelTop->setText("Impossible de lancer le module Arrera Video Download");
+                        return false;
+                    }
+                }else if (message.contains("raccourci")){
+                    outMethode = arreraApp->executeApp("arrera-raccourci");
+                    if (outMethode){
+                        labelTop->setText("Lancement du module Arrera Raccourci");
+                        return true;
+                    }
+                    else{
+                        labelTop->setText("Impossible de lancer le module Arrera Raccourci");
+                        return false;
+                    }
+                }else {
+                    return false;
                 }
             }
             return false;
