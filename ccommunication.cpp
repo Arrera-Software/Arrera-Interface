@@ -69,32 +69,30 @@ bool CCommunication::traitementAssistant(const QString &nameSoft,const QString m
                 if (message.contains("postite")){
                     outMethode = arreraApp->executeApp("arrera-postite");
                     if (outMethode){
-                        QMetaObject::invokeMethod(labelTop, [labelTop](){
-                            labelTop->setText("Lancement du module Arrera Postite");
-                        }, Qt::QueuedConnection);
+                        // labelTop->setText("Lancement du module Arrera Postite");
                         return true;
                     }else{
-                        labelTop->setText("Impossible de lancer le module Arrera Postite");
+                        // labelTop->setText("Impossible de lancer le module Arrera Postite");
                         return false;
                     }
                 }else if(message.contains("video download")){
                     outMethode = arreraApp->executeApp("arrera-video-download");
                     if (outMethode){
-                        labelTop->setText("Lancement du module Arrera Video Download");
+                        // labelTop->setText("Lancement du module Arrera Video Download");
                         return true;
                     }
                     else{
-                        labelTop->setText("Impossible de lancer le module Arrera Video Download");
+                        // labelTop->setText("Impossible de lancer le module Arrera Video Download");
                         return false;
                     }
                 }else if (message.contains("raccourci")){
                     outMethode = arreraApp->executeApp("arrera-raccourci");
                     if (outMethode){
-                        labelTop->setText("Lancement du module Arrera Raccourci");
+                        // labelTop->setText("Lancement du module Arrera Raccourci");
                         return true;
                     }
                     else{
-                        labelTop->setText("Impossible de lancer le module Arrera Raccourci");
+                        // labelTop->setText("Impossible de lancer le module Arrera Raccourci");
                         return false;
                     }
                 }else {
