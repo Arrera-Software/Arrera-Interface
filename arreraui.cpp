@@ -582,6 +582,10 @@ void ArreraUI::launchGestServeur(){
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
             {comunictation.traitementAssistant(nameSoft,message);});
+
+    connect(&comunictation,&CCommunication::textLabel,
+            [this](const QString &message)
+            {ui->LINDICATIONARRERA->setText(message);});
 }
 
 void ArreraUI::launchSearch(int mode){
