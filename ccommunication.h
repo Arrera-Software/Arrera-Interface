@@ -19,11 +19,10 @@ private:
     CAInterfaceSetting* pSetting;
     QList<CAppPC>* listApp;
     CArreraApp* arreraApp;
-    QLabel* labelTop;
 
 public:
     explicit CCommunication(QObject* parent = nullptr); // Ajoute parent pour QObject
-    CCommunication(QLabel* plabelTop, CArreraServeur* pserveur = nullptr, CArreraServeur* passistant = nullptr,
+    CCommunication(CArreraServeur* pserveur = nullptr, CArreraServeur* passistant = nullptr,
                    CArreraRecheche* objRecherche = nullptr, CAInterfaceSetting* objSetting = nullptr,
                    QList<CAppPC>* pListApp = nullptr, CArreraApp* pArreraApp = nullptr, QObject* parent = nullptr);
 

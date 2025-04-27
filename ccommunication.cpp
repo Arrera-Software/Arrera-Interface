@@ -6,16 +6,16 @@ using namespace std;
 // Constructeur par défaut
 CCommunication::CCommunication(QObject* parent)
     : QObject(parent), app(nullptr), assistant(nullptr), precherche(nullptr),
-    pSetting(nullptr), listApp(nullptr), arreraApp(nullptr), labelTop(nullptr)
+    pSetting(nullptr), listApp(nullptr), arreraApp(nullptr)
 {
 }
 
 // Constructeur complet
-CCommunication::CCommunication(QLabel* plabelTop, CArreraServeur* pserveur, CArreraServeur* passistant,
+CCommunication::CCommunication(CArreraServeur* pserveur, CArreraServeur* passistant,
                                CArreraRecheche* objRecherche, CAInterfaceSetting* objSetting,
                                QList<CAppPC>* pListApp, CArreraApp* pArreraApp, QObject* parent)
     : QObject(parent), app(pserveur), assistant(passistant), precherche(objRecherche),
-    pSetting(objSetting), listApp(pListApp), arreraApp(pArreraApp), labelTop(plabelTop)
+    pSetting(objSetting), listApp(pListApp), arreraApp(pArreraApp)
 {
 }
 
@@ -171,8 +171,18 @@ bool CCommunication::traitementAssistant(const QString& nameSoft, const QString 
             }
             return false;
         }
-        else {
-            return false;
+        else if (message.contains("website")) {
+            QString url = message;
+            url.replace("website","");
+            url = url.trimmed();
+            outMethode = precherche->openWebPage(url);
+            if (outMethode){
+                emit textLabel("Ouverture de votre page internet");
+                return true;
+            }else{
+                emit textLabel("Imposible d'ouvrir votre page internet");
+                return false;
+            }
         }
     }
     else {

@@ -33,6 +33,8 @@ public:
     bool add(QString moteur,QString recherche);
     bool clear();
     QString read();
+    // Partie ouverture de page web
+    bool openWebPage(QString url);
 };
 
 #endif // CARRERARECHECHE_H

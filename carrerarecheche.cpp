@@ -195,3 +195,13 @@ QString CArreraRecheche::read(){
     QTextStream in(&file);
     return in.readAll();
 }
+
+// Partie ouverture de page web
+bool CArreraRecheche::openWebPage(QString url){
+    if (QDesktopServices::openUrl(QUrl(url))){
+        return add("open url",url);
+    }
+    else{
+        return false;
+    }
+}
