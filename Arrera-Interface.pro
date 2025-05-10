@@ -24,6 +24,7 @@ SOURCES += \
     cdetectionos.cpp \
     cjsonword.cpp \
     csetting.cpp \
+    ctigerdemon.cpp \
     main.cpp \
     arreraui.cpp \
     windowsmaj.cpp
@@ -45,6 +46,7 @@ HEADERS += \
     cdetectionos.h \
     cjsonword.h \
     csetting.h \
+    ctigerdemon.h \
     windowsmaj.h
 
 FORMS += \

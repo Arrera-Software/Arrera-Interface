@@ -8,7 +8,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI),objSetting("config.ini",ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this), serveurAssistant(this),
-    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp)
+    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp),winMaj(this),
+    tigerDemon("https://arrera-software.fr/depots.json","arrera-interface",this)
 {
     ui->setupUi(this);
     // Demarage du serveur
@@ -53,6 +54,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Connection de l'interface principale est le parametre
     connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
+    // Connection de la page de mise a jour
+    connect(this,&ArreraUI::destroyed,&winMaj,&ArreraUI::close);
     // Mise en place de bouton d'application
     appPC.append(CAppPC(1,&objSetting,ui->IDC_APP_001,&dectOS));
     appPC.append(CAppPC(2,&objSetting,ui->IDC_APP_002,&dectOS));
@@ -91,12 +94,26 @@ ArreraUI::ArreraUI(QWidget *parent)
     ui->LICONARRERA->setPixmap(pixmap.scaled(
         ui->LICONARRERA->size(),
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    // Ecriture du numero de version
+    ui->IDC_APROPOSVERSION->setText(tigerDemon.getVersionSoft());
+
 }
 
 ArreraUI::~ArreraUI()
 {
     serveurApp.stopServeur();
     delete ui;
+}
+
+void ArreraUI::show(){ // Ajout du show pour mieux gerer la verif des maj
+    QDialog::show();
+
+    // Teste de presence d'une mise a jour
+    if (tigerDemon.checkUpdate()){
+        winMaj.show();
+        winMaj.raise();
+        winMaj.activateWindow();
+    }
 }
 
 void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche

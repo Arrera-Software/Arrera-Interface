@@ -7,7 +7,8 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QUrl>
-
+#include "windowsmaj.h"
+#include "ctigerdemon.h"
 #include "camode.h"
 #include "calieu.h"
 #include "ccommunication.h"
@@ -24,6 +25,7 @@ class ArreraUI : public QDialog
 public:
     explicit ArreraUI(QWidget *parent = nullptr);
     ~ArreraUI();
+    void show();
 
 private slots:
     void on_IDC_ACCEUILARRERA_clicked();
@@ -178,6 +180,7 @@ private slots:
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting objSetting;
+    WindowsMaj winMaj;
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
     CDetectionOS dectOS;
@@ -188,6 +191,7 @@ private:
     CArreraServeur serveurApp;
     CArreraServeur serveurAssistant;
     CCommunication comunictation;
+    CTigerDemon tigerDemon;
     bool modeIsActive,assistantIsActived;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
