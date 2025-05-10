@@ -25,7 +25,8 @@ SOURCES += \
     cjsonword.cpp \
     csetting.cpp \
     main.cpp \
-    arreraui.cpp
+    arreraui.cpp \
+    windowsmaj.cpp
 
 HEADERS += \
     arrerasettingui.h \
@@ -43,11 +44,13 @@ HEADERS += \
     ccommunication.h \
     cdetectionos.h \
     cjsonword.h \
-    csetting.h
+    csetting.h \
+    windowsmaj.h
 
 FORMS += \
     arrerasettingui.ui \
-    arreraui.ui
+    arreraui.ui \
+    windowsmaj.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
