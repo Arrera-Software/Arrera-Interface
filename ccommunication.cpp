@@ -21,7 +21,17 @@ CCommunication::CCommunication(CArreraServeur* pserveur, CArreraServeur* passist
 
 bool CCommunication::traitementApp(const QString& nameSoft, const QString message)
 {
-    std::cout << nameSoft.toStdString() << " " << message.toStdString() << std::endl;
+    QString requette ;
+    if (nameSoft == "arrera-postite"){
+        if (message.contains("contenu : ")){
+            requette = message;
+            requette.replace("arrera-postite","");
+            requette.replace("contenu : ","");
+            requette = message.trimmed();
+            sendDataAssistant("Read postite : "+requette);
+        }
+        return false;
+    }
     return true;
 }
 
@@ -183,6 +193,13 @@ bool CCommunication::traitementAssistant(const QString& nameSoft, const QString 
                 emit textLabel("Imposible d'ouvrir votre page internet");
                 return false;
             }
+        }else if (message == "lis postiste"){
+            emit textLabel("Lecture par l'assistant Arrera Postite");
+            sendDataApp("arrera-postite","read");
+            return true;
+        }
+        else{
+            return false;
         }
     }
     else {
@@ -190,7 +207,23 @@ bool CCommunication::traitementAssistant(const QString& nameSoft, const QString 
     }
 }
 
-bool CCommunication::sendDataAssistant(const QString& nameSoft, const QString& message)
+bool CCommunication::sendDataAssistant(const QString& message)
 {
-    return assistant->sendMessage(nameSoft, message);
+    return assistant->sendMessage(nameAssistantConnected, message);
+}
+
+// Partie enregistrement Assistant
+bool CCommunication::setNameAssistant(QString name)
+{
+    if (name.isEmpty()){
+        return false;
+    }else{
+        nameAssistantConnected = name;
+        return true;
+    }
+}
+
+bool CCommunication::supprNameAssistant(){
+    nameAssistantConnected = "";
+    return true;
 }

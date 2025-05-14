@@ -598,7 +598,10 @@ void ArreraUI::launchGestServeur(){
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
-            {comunictation.traitementAssistant(nameSoft,message);});
+    {
+        comunictation.setNameAssistant(nameSoft);
+        comunictation.traitementAssistant(nameSoft,message);
+    });
 
     connect(&comunictation,&CCommunication::textLabel,
             [this](const QString &message)

@@ -19,7 +19,7 @@ private:
     CAInterfaceSetting* pSetting;
     QList<CAppPC>* listApp;
     CArreraApp* arreraApp;
-
+    QString nameAssistantConnected;
 public:
     explicit CCommunication(QObject* parent = nullptr); // Ajoute parent pour QObject
     CCommunication(CArreraServeur* pserveur = nullptr, CArreraServeur* passistant = nullptr,
@@ -32,7 +32,11 @@ public:
 
     // Partie Assistant
     bool traitementAssistant(const QString& nameSoft, const QString message);
-    bool sendDataAssistant(const QString& nameSoft, const QString& message);
+    bool sendDataAssistant(const QString& message);
+
+    // Partie enregistrement Assistant
+    bool setNameAssistant(QString name);
+    bool supprNameAssistant();
 
 signals:
     void textLabel(const QString& message);
