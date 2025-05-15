@@ -21,18 +21,7 @@ CCommunication::CCommunication(CArreraServeur* pserveur, CArreraServeur* passist
 
 bool CCommunication::traitementApp(const QString& nameSoft, const QString message)
 {
-    QString requette ;
-    if (nameSoft == "arrera-postite"){
-        if (message.contains("contenu : ")){
-            requette = message;
-            requette.replace("arrera-postite","");
-            requette.replace("contenu : ","");
-            requette = message.trimmed();
-            sendDataAssistant("Read postite : "+requette);
-        }
-        return false;
-    }
-    return true;
+    return false;
 }
 
 bool CCommunication::sendDataApp(const QString& nameSoft, const QString& message)
@@ -181,7 +170,8 @@ bool CCommunication::traitementAssistant(const QString& nameSoft, const QString 
             }
             return false;
         }
-        else if (message.contains("website")) {
+        else if (message.contains("website"))
+        {
             QString url = message;
             url.replace("website","");
             url = url.trimmed();
@@ -193,10 +183,6 @@ bool CCommunication::traitementAssistant(const QString& nameSoft, const QString 
                 emit textLabel("Imposible d'ouvrir votre page internet");
                 return false;
             }
-        }else if (message == "lis postiste"){
-            emit textLabel("Lecture par l'assistant Arrera Postite");
-            sendDataApp("arrera-postite","read");
-            return true;
         }
         else{
             return false;

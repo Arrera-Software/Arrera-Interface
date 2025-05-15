@@ -579,7 +579,7 @@ void ArreraUI::launchGestServeur(){
             [this](const QString &nameSoft, const QString &message)
             {comunictation.traitementApp(nameSoft,message);});
     connect(&serveurApp,&CArreraServeur::connectClient,[this]()
-            {ui->LINDICATIONARRERA->setText("App connected");});
+            {ui->LINDICATIONARRERA->setText("Une application Arrera est connecter");});
 
     // Partie serveur assistant
     connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
