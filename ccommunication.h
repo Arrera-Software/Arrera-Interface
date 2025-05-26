@@ -20,6 +20,10 @@ private:
     QList<CAppPC>* listApp;
     CArreraApp* arreraApp;
     QString nameAssistantConnected;
+    // Methode
+    bool searchInternet(const QString& message);
+    bool openApplication(const QString& message);
+    bool openWebsite(const QString& message);
 public:
     explicit CCommunication(QObject* parent = nullptr); // Ajoute parent pour QObject
     CCommunication(CArreraServeur* pserveur = nullptr, CArreraServeur* passistant = nullptr,
