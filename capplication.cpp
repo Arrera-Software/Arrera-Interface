@@ -35,15 +35,25 @@ bool CApplication::executeApplication(){
             else {
                 return false;
             }
-        }else{
-            if(objOs->getosLinux()){
+        }
+        else if(objOs->getosLinux())
+        {
                 QProcess process;
                 return process.startDetached(exeApp, QStringList());
-            }else{
-                return false;
-            }
         }
-    }else{
+        else if (objOs->getosApple())
+        {
+            QProcess process;
+            QStringList arguments;
+            arguments << exeApp;
+            return process.startDetached("open", arguments);
+        }
+        else
+        {
+                return false;
+        }
+        }else
+    {
         return false;
     }
 }

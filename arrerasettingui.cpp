@@ -1170,26 +1170,44 @@ void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
             "Sélectionner l'application",  // Titre de la boîte de dialogue
             appDirectory           // Répertoire initial
             );
-    }else{
-        if(dectOS->getosWin()==true){
-            rMessage = QMessageBox::question(this,"Emplacement application",
-                                                 "Le raccourci se trouve dans le menu Démarrer global ?",
-                                                 QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
+    }else if(dectOS->getosWin()==true){
+        rMessage = QMessageBox::question(this,"Emplacement application",
+                                             "Le raccourci se trouve dans le menu Démarrer global ?",
+                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
 
-            if (rMessage == QMessageBox::Yes){
-                // Dossier programme data
-                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
-            }else{
-                // Menu demarer dans le dossier utilisateur
-                appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
-            }
-            appEmplacement = QFileDialog::getOpenFileName(
-                this,                       // Parent widget
-                "Sélectionner l'application",  // Titre de la boîte de dialogue
-                appDirectory           // Répertoire initial
-                );
+        if (rMessage == QMessageBox::Yes){
+            // Dossier programme data
+            appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
+        }else{
+            // Menu demarer dans le dossier utilisateur
+            appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
         }
+        appEmplacement = QFileDialog::getOpenFileName(
+            this,                       // Parent widget
+            "Sélectionner l'application",  // Titre de la boîte de dialogue
+            appDirectory           // Répertoire initial
+            );
+    }else if (dectOS->getosApple()){
+        int rMessage = QMessageBox::question(
+            this,
+            "Emplacement application",
+            "Voulez-vous chercher dans le dossier Applications global (accessible à tous les utilisateurs) ?",
+            QMessageBox::Yes | QMessageBox::No,
+            QMessageBox::Yes
+            );
+        if (rMessage == QMessageBox::Yes) {
+            appDirectory = "/Applications";
+        } else {
+            appDirectory = QDir::homePath() + "/Applications";
+        }
+
+        appEmplacement = QFileDialog::getOpenFileName(
+            this,                       // Parent widget
+            "Sélectionner l'application",  // Titre de la boîte de dialogue
+            appDirectory           // Répertoire initial
+            );
     }
+
 
     // Teste si l'application a etais choisie
     if (appEmplacement != ""){
