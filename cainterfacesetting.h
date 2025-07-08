@@ -2,12 +2,10 @@
 #define CAINTERFACESETTING_H
 
 #include <QString>
-#include <iostream>
 #include "csetting.h"
 #include "camode.h"
 #include "calieu.h"
-#include "cdetectionos.h"
-#include "cjsonword.h"
+
 
 #include <iostream>
 using namespace std ;

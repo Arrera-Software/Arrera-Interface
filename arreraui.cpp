@@ -8,8 +8,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     , ui(new Ui::ArreraUI),objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this), serveurAssistant(this),
-    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp),winMaj(this),
-    tigerDemon("https://arrera-software.fr/depots.json","arrera-interface",this)
+    winMaj(this),
+    tigerDemon("https://arrera-software.fr/depots.json","arrera-interface",this),
+    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp)
 {
     ui->setupUi(this);
     // Demarage du serveur

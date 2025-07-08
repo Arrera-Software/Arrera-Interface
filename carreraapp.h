@@ -7,6 +7,8 @@
 #include <QDesktopServices>
 #include <QProcess>
 #include <QPushButton>
+#include "cjsonword.h"
+#include "cdetectionos.h"
 
 class CArreraApp
 {
