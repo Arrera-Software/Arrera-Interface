@@ -25,6 +25,7 @@ class ArreraUI : public QDialog
 public:
     explicit ArreraUI(QWidget *parent = nullptr);
     ~ArreraUI();
+    CDetectionOS dectOS;
     void show();
 
 private slots:
@@ -183,7 +184,6 @@ private:
     WindowsMaj winMaj;
     ArreraSettingUI *uipara;
     CArreraRecheche arecherche;
-    CDetectionOS dectOS;
     CArreraApp arreraApp;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;

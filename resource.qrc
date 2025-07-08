@@ -71,4 +71,7 @@
         <file>img/recherche/youtube.png</file>
         <file>img/recherche/bigsearch.png</file>
     </qresource>
+    <qresource prefix="/style">
+        <file>MacOS.qss</file>
+    </qresource>
 </RCC>

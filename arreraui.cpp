@@ -5,7 +5,7 @@ using namespace std;
 
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ArreraUI),objSetting("config.ini",ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
+    , ui(new Ui::ArreraUI),objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this), serveurAssistant(this),
     comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp),winMaj(this),
@@ -105,11 +105,18 @@ ArreraUI::~ArreraUI()
     delete ui;
 }
 
-void ArreraUI::show(){ // Ajout du show pour mieux gerer la verif des maj
+void ArreraUI::show(){
     QDialog::show();
 
     // Teste de presence d'une mise a jour
     if (tigerDemon.checkUpdate()){
+        if(dectOS.getosApple()){
+            QFile styleFile(":/style/MacOS.qss");
+            if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+                winMaj.setStyleSheet(QString::fromUtf8(styleFile.readAll()));
+                styleFile.close();
+            }
+        }
         winMaj.show();
         winMaj.raise();
         winMaj.activateWindow();
@@ -249,6 +256,13 @@ void ArreraUI::on_IDC_WEBSITE_clicked()
 
 void ArreraUI::on_IDC_PARA_clicked()
 {
+    if (dectOS.getosApple()){
+        QFile styleFile(":/style/MacOS.qss");
+        if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+            uipara->setStyleSheet(QString::fromUtf8(styleFile.readAll()));
+            styleFile.close();
+        }
+    }
     uipara->show();
 }
 
