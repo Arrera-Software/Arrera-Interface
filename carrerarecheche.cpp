@@ -2,7 +2,10 @@
 
 CArreraRecheche::CArreraRecheche()
 {
-    filePath = "hist.txt";
+    if (CDetectionOS().getosApple() || CDetectionOS().getosLinux()){
+        filePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+
+                   "/.config/arrera-interface/hist.txt";
+    }
 }
 
 CArreraRecheche::~CArreraRecheche()

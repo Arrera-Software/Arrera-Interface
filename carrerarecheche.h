@@ -5,6 +5,8 @@
 #include <QUrl>
 #include <QFile>
 #include <QTextStream>
+#include <QStandardPaths>
+#include <cdetectionos.h>
 
 using namespace std ;
 
