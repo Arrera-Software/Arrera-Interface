@@ -47,6 +47,7 @@ HEADERS += \
     cjsonword.h \
     csetting.h \
     ctigerdemon.h \
+    version.h \
     windowsmaj.h
 
 FORMS += \
