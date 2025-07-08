@@ -15,7 +15,7 @@ using namespace std ;
 class CAInterfaceSetting {
 
 private:
-    CSetting* fileINI;
+    CSetting fileINI;
     CALieu lieu1;
     CALieu lieu2;
     CAMode mode1;
@@ -33,7 +33,7 @@ private:
 public:
     // Constructeurs et destructeur
     CAInterfaceSetting();
-    CAInterfaceSetting(QString inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote);
+    CAInterfaceSetting(QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote);
     ~CAInterfaceSetting();
 
     // Getteur

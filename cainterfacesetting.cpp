@@ -2,20 +2,20 @@
 
 CAInterfaceSetting::CAInterfaceSetting() {}
 
-CAInterfaceSetting::CAInterfaceSetting(QString inifile,QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote){
-    // Var
-    fileINI = new CSetting(inifile);
+CAInterfaceSetting::CAInterfaceSetting(QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote):
+    fileINI("arrera-interface")
+{
     // Instentation des mode
-    mode1 = CAMode("mode1",fileINI);
-    mode2 = CAMode("mode2",fileINI);
-    mode3 = CAMode("mode3",fileINI);
-    mode4 = CAMode("mode4",fileINI);
-    mode5 = CAMode("mode5",fileINI);
-    mode6 = CAMode("mode6",fileINI);
+    mode1 = CAMode("mode1",&fileINI);
+    mode2 = CAMode("mode2",&fileINI);
+    mode3 = CAMode("mode3",&fileINI);
+    mode4 = CAMode("mode4",&fileINI);
+    mode5 = CAMode("mode5",&fileINI);
+    mode6 = CAMode("mode6",&fileINI);
     // Instentation des lieu
-    lieu1 = CALieu("lieu1",fileINI,bSix,bRyley,bCopilote);
-    lieu2 = CALieu("lieu2",fileINI,bSix,bRyley,bCopilote);
-    if(fileINI->getFileCreated()){
+    lieu1 = CALieu("lieu1",&fileINI,bSix,bRyley,bCopilote);
+    lieu2 = CALieu("lieu2",&fileINI,bSix,bRyley,bCopilote);
+    if(fileINI.getFileCreated()){
         resetAll();
     }
 }
@@ -32,7 +32,7 @@ QList <QString>  CAInterfaceSetting::getListMoteur(){
 }
 
 QString CAInterfaceSetting::getNameUser(){
-    return fileINI->getValeur("interface","user");
+    return fileINI.getValeur("interface","user");
 }
 
 QString CAInterfaceSetting::getNameMode1(){
@@ -324,7 +324,7 @@ QString CAInterfaceSetting::getIconLieu2(){
 
 int CAInterfaceSetting::getFirstUnsetNumber(){
     for (int i = 1 ; i <= 21 ; i++){
-        if(fileINI->getValeur("app"+QString::number(i),"name")=="nothing"){
+        if(fileINI.getValeur("app"+QString::number(i),"name")=="nothing"){
             return i;
         }
     }
@@ -334,7 +334,7 @@ int CAInterfaceSetting::getFirstUnsetNumber(){
 int CAInterfaceSetting::getnbAppSetted(){
     int nbApp=0;
     for(int i = 1;i<=20;i++){
-        if(fileINI->getValeur("app"+QString::number(i),"name")!="nothing"){
+        if(fileINI.getValeur("app"+QString::number(i),"name")!="nothing"){
             nbApp++;
         }
     }
@@ -342,7 +342,7 @@ int CAInterfaceSetting::getnbAppSetted(){
 }
 
 bool CAInterfaceSetting::getAppSetted(int nbApp){
-    QString nameApp = fileINI->getValeur("app"+QString::number(nbApp),"name");
+    QString nameApp = fileINI.getValeur("app"+QString::number(nbApp),"name");
     if (nameApp=="nothing"){
         return false;
     }else{
@@ -355,7 +355,7 @@ QList <QString> CAInterfaceSetting::getListNameAppSetted(){
     listOut = QList<QString>();
     for (int i = 1;i<=20;i++){
         if (getAppSetted(i)){
-            listOut.append(fileINI->getValeur("app"+QString::number(i),"name"));
+            listOut.append(fileINI.getValeur("app"+QString::number(i),"name"));
         }
     }
     return listOut;
@@ -365,7 +365,7 @@ QString CAInterfaceSetting::assosNameOfApp(QString app){
     QString y ;
     for (int i = 1;i<=20;i++){
         if (getAppSetted(i)){
-            y = fileINI->getValeur("app"+QString::number(i),"name");
+            y = fileINI.getValeur("app"+QString::number(i),"name");
             if (y==app){
                 return "app"+QString::number(i);
             }
@@ -376,7 +376,7 @@ QString CAInterfaceSetting::assosNameOfApp(QString app){
 
 bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
     for (int i = 1;i<=20;i++){
-        if (fileINI->getValeur("app"+QString::number(i),"name")==name){
+        if (fileINI.getValeur("app"+QString::number(i),"name")==name){
             return false;
         }
     }
@@ -385,7 +385,7 @@ bool CAInterfaceSetting::checkNameAppIsAvailable(QString name){
 
 int CAInterfaceSetting::getNbAppWithName(QString name){
     for (int i = 1;i<=20;i++){
-        if (fileINI->getValeur("app"+QString::number(i),"name")==name){
+        if (fileINI.getValeur("app"+QString::number(i),"name")==name){
             return i;
         }
     }
@@ -394,9 +394,9 @@ int CAInterfaceSetting::getNbAppWithName(QString name){
 
 bool CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe,QString *icon){
     if (nb >= 1 && nb <= 20) {
-        *name = fileINI->getValeur("app"+QString::number(nb),"name");
-        *exe = fileINI->getValeur("app"+QString::number(nb),"exe");
-        *icon = fileINI->getValeur("app"+QString::number(nb),"icon");
+        *name = fileINI.getValeur("app"+QString::number(nb),"name");
+        *exe = fileINI.getValeur("app"+QString::number(nb),"exe");
+        *icon = fileINI.getValeur("app"+QString::number(nb),"icon");
         return true;
     } else {
         return false;
@@ -406,16 +406,16 @@ bool CAInterfaceSetting::getApplication(int nb,QString *name,QString *exe,QStrin
 QString CAInterfaceSetting::getAppSpeciaux(int app){
     switch (app) {
     case 1: // 1.Navigateur
-        return fileINI->getValeur("navigateur","exe");
+        return fileINI.getValeur("navigateur","exe");
         break;
     case 2: // 2.Presentation
-        return fileINI->getValeur("presentation","exe");
+        return fileINI.getValeur("presentation","exe");
         break;
     case 3: // 3.tableur
-        return fileINI->getValeur("tableur","exe");
+        return fileINI.getValeur("tableur","exe");
         break;
     case 4: // 4.Traitement de texte
-        return fileINI->getValeur("traitement","exe");
+        return fileINI.getValeur("traitement","exe");
         break;
     default:
         return "error";
@@ -427,16 +427,16 @@ bool CAInterfaceSetting::getAppSpeciauxSetted(int app){
     QString emplacementapp;
     switch (app) {
     case 1: // 1.Navigateur
-        emplacementapp = fileINI->getValeur("navigateur","exe");
+        emplacementapp = fileINI.getValeur("navigateur","exe");
         break;
     case 2: // 2.Presentation
-        emplacementapp = fileINI->getValeur("presentation","exe");
+        emplacementapp = fileINI.getValeur("presentation","exe");
         break;
     case 3: // 3.tableur
-        emplacementapp = fileINI->getValeur("tableur","exe");
+        emplacementapp = fileINI.getValeur("tableur","exe");
         break;
     case 4: // 4.Traitement de texte
-        emplacementapp = fileINI->getValeur("traitement","exe");
+        emplacementapp = fileINI.getValeur("traitement","exe");
         break;
     default:
         return false;
@@ -454,20 +454,20 @@ bool CAInterfaceSetting::getAppSpeciauxSetted(int app){
 // Getteur application Arrera
 
 QString CAInterfaceSetting::getMoteurRecherche(){
-    return fileINI->getValeur("arrera-recherche","moteur");
+    return fileINI.getValeur("arrera-recherche","moteur");
 }
 
 QString CAInterfaceSetting::getFileJson(){
-    return fileINI->getValeur("arrera-app","fileJson");
+    return fileINI.getValeur("arrera-app","fileJson");
 }
 
 QString CAInterfaceSetting::getEmplacementStore(){
-    return fileINI->getValeur("arrera-app","store");
+    return fileINI.getValeur("arrera-app","store");
 }
 
 QString CAInterfaceSetting::getExeArreraApp(QString nameApp){
     if (listApp.contains(nameApp)){
-        return fileINI->getValeur("arrera-app",nameApp);
+        return fileINI.getValeur("arrera-app",nameApp);
     }
     else{
         return "";
@@ -475,21 +475,21 @@ QString CAInterfaceSetting::getExeArreraApp(QString nameApp){
 }
 
 bool CAInterfaceSetting::getTaskbarBTNSix(){
-    if (fileINI->getValeur("taskbar","btnSix")=="1"){
+    if (fileINI.getValeur("taskbar","btnSix")=="1"){
         return true;
     }else{
         return false;
     }
 }
 bool CAInterfaceSetting::getTaskbarBTNArreraApp(){
-    if (fileINI->getValeur("taskbar","btnArreraApp")=="1"){
+    if (fileINI.getValeur("taskbar","btnArreraApp")=="1"){
         return true;
     }else{
         return false;
     }
 }
 bool CAInterfaceSetting::getTaskbarBTNRyley(){
-    if (fileINI->getValeur("taskbar","btnRyley")=="1"){
+    if (fileINI.getValeur("taskbar","btnRyley")=="1"){
         return true;
     }else{
         return false;
@@ -497,7 +497,7 @@ bool CAInterfaceSetting::getTaskbarBTNRyley(){
 }
 
 bool CAInterfaceSetting::getTaskbarCopilote(){
-    if (fileINI->getValeur("taskbar","btnCopilote")=="1"){
+    if (fileINI.getValeur("taskbar","btnCopilote")=="1"){
         return true;
     }else{
         return false;
@@ -505,7 +505,7 @@ bool CAInterfaceSetting::getTaskbarCopilote(){
 }
 
 bool CAInterfaceSetting::getTaskbarPostite(){
-    if (fileINI->getValeur("taskbar","btnPostite")=="1"){
+    if (fileINI.getValeur("taskbar","btnPostite")=="1"){
         return true;
     }else{
         return false;
@@ -514,7 +514,7 @@ bool CAInterfaceSetting::getTaskbarPostite(){
 
 // Setteurs
 bool CAInterfaceSetting::setNameUser(QString& user){
-    return fileINI->setValeur("interface","user",user);
+    return fileINI.setValeur("interface","user",user);
 }
 
 bool CAInterfaceSetting::setNameMode1(QString& name){
@@ -701,11 +701,11 @@ bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplaceme
     }else{
         if(clamp(nb, 1, 20) == nb){
 
-            fileINI->setValeur("app"+QString::number(nb),"name",nameApp);
-            fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
+            fileINI.setValeur("app"+QString::number(nb),"name",nameApp);
+            fileINI.setValeur("app"+QString::number(nb),"exe",emplacement);
 
             if (!icon.isEmpty()){
-                fileINI->setValeur("app"+QString::number(nb),"icon",icon);
+                fileINI.setValeur("app"+QString::number(nb),"icon",icon);
             }
             return true;
         }else{
@@ -715,17 +715,17 @@ bool CAInterfaceSetting::setApplication(int nb,QString nameApp,QString emplaceme
 }
 
 bool CAInterfaceSetting::setNewExeApplication(int nb,QString emplacement){
-    return fileINI->setValeur("app"+QString::number(nb),"exe",emplacement);
+    return fileINI.setValeur("app"+QString::number(nb),"exe",emplacement);
 }
 
 bool CAInterfaceSetting::setNewIconApplication(int nb,QString icon){
-    return fileINI->setValeur("app"+QString::number(nb),"icon",icon);
+    return fileINI.setValeur("app"+QString::number(nb),"icon",icon);
 }
 
 bool CAInterfaceSetting::setSupprApplication(int nb){
-    if (fileINI->setValeur("app"+QString::number(nb),"name","nothing")){
-        if (fileINI->setValeur("app"+QString::number(nb),"exe","nothing")){
-            return fileINI->setValeur("app"+QString::number(nb),"icon","nothing");
+    if (fileINI.setValeur("app"+QString::number(nb),"name","nothing")){
+        if (fileINI.setValeur("app"+QString::number(nb),"exe","nothing")){
+            return fileINI.setValeur("app"+QString::number(nb),"icon","nothing");
         }
         else{
             return false;
@@ -736,34 +736,34 @@ bool CAInterfaceSetting::setSupprApplication(int nb){
 }
 
 bool CAInterfaceSetting::setAppTableur(QString emplacement){
-    return fileINI->setValeur("tableur","exe",emplacement);
+    return fileINI.setValeur("tableur","exe",emplacement);
 }
 bool CAInterfaceSetting::setAppTraitementTexte(QString emplacement){
-    return fileINI->setValeur("traitement","exe",emplacement);
+    return fileINI.setValeur("traitement","exe",emplacement);
 }
 bool CAInterfaceSetting::setAppPresentation(QString emplacement){
-    return fileINI->setValeur("presentation","exe",emplacement);
+    return fileINI.setValeur("presentation","exe",emplacement);
 }
 bool CAInterfaceSetting::setAppNavigateur(QString emplacement){
-    return fileINI->setValeur("navigateur","exe",emplacement);
+    return fileINI.setValeur("navigateur","exe",emplacement);
 }
 
 
 bool CAInterfaceSetting::setSupprAppTableur(){
-    return fileINI->setValeur("tableur","exe","nothing");
+    return fileINI.setValeur("tableur","exe","nothing");
 }
 bool CAInterfaceSetting::setSupprAppTraitementTexte(){
-    return fileINI->setValeur("traitement","exe","nothing");
+    return fileINI.setValeur("traitement","exe","nothing");
 }
 bool CAInterfaceSetting::setSupprAppPresentation(){
-    return fileINI->setValeur("presentation","exe","nothing");
+    return fileINI.setValeur("presentation","exe","nothing");
 }
 bool CAInterfaceSetting::setSupprAppNavigateur(){
-    return fileINI->setValeur("navigateur","exe","nothing");
+    return fileINI.setValeur("navigateur","exe","nothing");
 }
 
 bool CAInterfaceSetting::setMoteurRecherche(QString moteur){
-    return fileINI->setValeur("arrera-recherche","moteur",moteur);
+    return fileINI.setValeur("arrera-recherche","moteur",moteur);
 }
 // Methode pour savoir si les lieu ou mode son paramétrer
 
@@ -891,11 +891,11 @@ bool CAInterfaceSetting::resetLieu2(){
 }
 
 bool CAInterfaceSetting::setFileJson(QString file){
-    return fileINI->setValeur("arrera-app","fileJson",file);
+    return fileINI.setValeur("arrera-app","fileJson",file);
 }
 
 bool CAInterfaceSetting::setEmplacementStore(QString emplacement){
-    return fileINI->setValeur("arrera-app","store",emplacement);
+    return fileINI.setValeur("arrera-app","store",emplacement);
 }
 
 bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplacement){
@@ -909,7 +909,7 @@ bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplace
          * "arrera-copilote"
     */
     if (listApp.contains(nameApp)){
-        return fileINI->setValeur("arrera-app",nameApp,emplacement);
+        return fileINI.setValeur("arrera-app",nameApp,emplacement);
     }else{
         return false;
     }
@@ -917,58 +917,58 @@ bool CAInterfaceSetting::setEmplacementArreraApp(QString nameApp,QString emplace
 
 
 bool CAInterfaceSetting::setTaskbarBTNSix(){
-    return fileINI->setValeur("taskbar","btnSix","1");
+    return fileINI.setValeur("taskbar","btnSix","1");
 }
 
 bool CAInterfaceSetting::setTaskbarBTNArreraApp(){
-    return fileINI->setValeur("taskbar","btnArreraApp","1");
+    return fileINI.setValeur("taskbar","btnArreraApp","1");
 }
 
 bool CAInterfaceSetting::setTaskbarBTNRyley(){
-    return fileINI->setValeur("taskbar","btnRyley","1");
+    return fileINI.setValeur("taskbar","btnRyley","1");
 }
 
 bool CAInterfaceSetting::setTaskbarBTNCopilote(){
-    return fileINI->setValeur("taskbar","btnCopilote","1");
+    return fileINI.setValeur("taskbar","btnCopilote","1");
 }
 
 bool CAInterfaceSetting::setTaskbarBBTNPostite(){
-    return fileINI->setValeur("taskbar","btnPostite","1");
+    return fileINI.setValeur("taskbar","btnPostite","1");
 }
 
 // Unset
 
 bool CAInterfaceSetting::unsetTaskbarBTNSix(){
-    return fileINI->setValeur("taskbar","btnSix","0");
+    return fileINI.setValeur("taskbar","btnSix","0");
 }
 
 bool CAInterfaceSetting::unsetTaskbarBTNArreraApp(){
-    return fileINI->setValeur("taskbar","btnArreraApp","0");
+    return fileINI.setValeur("taskbar","btnArreraApp","0");
 }
 
 bool CAInterfaceSetting::unsetTaskbarBTNRyley(){
-    return fileINI->setValeur("taskbar","btnRyley","0");
+    return fileINI.setValeur("taskbar","btnRyley","0");
 }
 
 bool CAInterfaceSetting::unsetTaskbarBTNCopilote(){
-    return fileINI->setValeur("taskbar","btnCopilote","0");
+    return fileINI.setValeur("taskbar","btnCopilote","0");
 }
 
 bool CAInterfaceSetting::unsetTaskbarBTNPostite(){
-    return fileINI->setValeur("taskbar","btnPostite","0");
+    return fileINI.setValeur("taskbar","btnPostite","0");
 }
 
 // Partie reset
 bool CAInterfaceSetting::resetArreraApp(){
 
-    if (fileINI->setValeur("arrera-app","fileJson","nothing")){
-        if (fileINI->setValeur("arrera-app","store","nothing")){
-            if (fileINI->setValeur("arrera-app","ryley","nothing")){
-                if (fileINI->setValeur("arrera-app","six","nothing")){
-                    if (fileINI->setValeur("arrera-app","arrera-raccourci","nothing")){
-                        if (fileINI->setValeur("arrera-app","arrera-postite","nothing")){
-                            if (fileINI->setValeur("arrera-app","arrera-video-download","nothing")){
-                                if (fileINI->setValeur("arrera-app","arrera-copilote","nothing")){
+    if (fileINI.setValeur("arrera-app","fileJson","nothing")){
+        if (fileINI.setValeur("arrera-app","store","nothing")){
+            if (fileINI.setValeur("arrera-app","ryley","nothing")){
+                if (fileINI.setValeur("arrera-app","six","nothing")){
+                    if (fileINI.setValeur("arrera-app","arrera-raccourci","nothing")){
+                        if (fileINI.setValeur("arrera-app","arrera-postite","nothing")){
+                            if (fileINI.setValeur("arrera-app","arrera-video-download","nothing")){
+                                if (fileINI.setValeur("arrera-app","arrera-copilote","nothing")){
                                     return true;
                                 }else{
                                     return false;
@@ -999,9 +999,9 @@ bool CAInterfaceSetting::resetArreraApp(){
 bool CAInterfaceSetting::resetAppPC(){
     bool name,exe,icon,ok;
     for (int i = 1 ; i <= 20 ; i++){
-        name = fileINI->setValeur("app"+QString::number(i),"name","nothing");
-        exe = fileINI->setValeur("app"+QString::number(i),"exe","nothing");
-        icon = fileINI->setValeur("app"+QString::number(i),"icon","nothing");
+        name = fileINI.setValeur("app"+QString::number(i),"name","nothing");
+        exe = fileINI.setValeur("app"+QString::number(i),"exe","nothing");
+        icon = fileINI.setValeur("app"+QString::number(i),"icon","nothing");
 
         if (name){
             if (exe){
@@ -1021,31 +1021,31 @@ bool CAInterfaceSetting::resetAppPC(){
 
 void CAInterfaceSetting::resetAll(){
 
-    fileINI->setValeur("arrera-recherche","moteur","nothing");
-    fileINI->setValeur("interface","user","nothing");
-    fileINI->setValeur("arrera-app","fileJson","nothing");
-    fileINI->setValeur("arrera-app","store","nothing");
-    fileINI->setValeur("arrera-app","ryley","nothing");
-    fileINI->setValeur("arrera-app","six","nothing");
-    fileINI->setValeur("arrera-app","arrera-raccourci","nothing");
-    fileINI->setValeur("arrera-app","arrera-postite","nothing");
-    fileINI->setValeur("arrera-app","arrera-video-download","nothing");
-    fileINI->setValeur("arrera-app","arrera-copilote","nothing");
+    fileINI.setValeur("arrera-recherche","moteur","nothing");
+    fileINI.setValeur("interface","user","nothing");
+    fileINI.setValeur("arrera-app","fileJson","nothing");
+    fileINI.setValeur("arrera-app","store","nothing");
+    fileINI.setValeur("arrera-app","ryley","nothing");
+    fileINI.setValeur("arrera-app","six","nothing");
+    fileINI.setValeur("arrera-app","arrera-raccourci","nothing");
+    fileINI.setValeur("arrera-app","arrera-postite","nothing");
+    fileINI.setValeur("arrera-app","arrera-video-download","nothing");
+    fileINI.setValeur("arrera-app","arrera-copilote","nothing");
     for (int i = 1 ; i <= 20 ; i++){
-        fileINI->setValeur("app"+QString::number(i),"name","nothing");
-        fileINI->setValeur("app"+QString::number(i),"exe","nothing");
-        fileINI->setValeur("app"+QString::number(i),"icon","nothing");
+        fileINI.setValeur("app"+QString::number(i),"name","nothing");
+        fileINI.setValeur("app"+QString::number(i),"exe","nothing");
+        fileINI.setValeur("app"+QString::number(i),"icon","nothing");
     }
-    fileINI->setValeur("navigateur","exe","nothing");
-    fileINI->setValeur("tableur","exe","nothing");
-    fileINI->setValeur("presentation","exe","nothing");
-    fileINI->setValeur("traitement","exe","nothing");
+    fileINI.setValeur("navigateur","exe","nothing");
+    fileINI.setValeur("tableur","exe","nothing");
+    fileINI.setValeur("presentation","exe","nothing");
+    fileINI.setValeur("traitement","exe","nothing");
 
-    fileINI->setValeur("taskbar","btnArreraApp","0");
-    fileINI->setValeur("taskbar","btnSix","0");
-    fileINI->setValeur("taskbar","btnRyley","0");
-    fileINI->setValeur("taskbar","btnCopilote","0");
-    fileINI->setValeur("taskbar","btnPostite","0");
+    fileINI.setValeur("taskbar","btnArreraApp","0");
+    fileINI.setValeur("taskbar","btnSix","0");
+    fileINI.setValeur("taskbar","btnRyley","0");
+    fileINI.setValeur("taskbar","btnCopilote","0");
+    fileINI.setValeur("taskbar","btnPostite","0");
 }
 
 
