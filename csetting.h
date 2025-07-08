@@ -7,6 +7,11 @@
 #include <QStandardPaths>
 #include <QDir>
 
+// debut
+/**/
+#include <iostream>
+using namespace std;
+
 class CSetting {
 private:
     bool fileOpen;

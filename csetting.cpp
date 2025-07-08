@@ -7,7 +7,7 @@ CSetting::CSetting(const QString &namesoft) {
     int os = checkOS();
     QString file;
 
-    if (os == 3){
+    if (os == 3 || os == 2){
         QString standartFolder = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
         if (QDir().mkdir(standartFolder+
                          "/.config/"+namesoft))
