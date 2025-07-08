@@ -6,19 +6,29 @@ CSetting::CSetting(const QString &namesoft) {
 
     int os = checkOS();
     QString file;
+    QString standartFolder ;
 
     if (os == 3 || os == 2){
         QString standartFolder = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
         if (QDir().mkdir(standartFolder+
                          "/.config/"+namesoft))
         {
-            file = standartFolder+
-                   "/.config/"+namesoft+"/config.ini";
+            return ;
         }
+        file = standartFolder+
+               "/.config/"+namesoft+"/config.ini";
 
-    }else{
+    }else if (os == 1){
+        standartFolder =  QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        if (QDir().mkdir(standartFolder)){
+            return ;
+        }
+        file = standartFolder+"\\config.ini";
+    }else {
         file = namesoft+".ini";
     }
+
+    //cout << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).toStdString() << endl;
 
     QFileInfo checkFile(file);
 

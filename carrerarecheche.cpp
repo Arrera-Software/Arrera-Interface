@@ -5,6 +5,8 @@ CArreraRecheche::CArreraRecheche()
     if (CDetectionOS().getosApple() || CDetectionOS().getosLinux()){
         filePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+
                    "/.config/arrera-interface/hist.txt";
+    }else{
+        filePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)+"\\hist.txt";
     }
 }
 
