@@ -8,8 +8,14 @@ CSetting::CSetting(const QString &namesoft) {
     QString file;
 
     if (os == 3){
-        file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+
-               "/.config/"+namesoft+".ini";
+        QString standartFolder = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+        if (QDir().mkdir(standartFolder+
+                         "/.config/"+namesoft))
+        {
+            file = standartFolder+
+                   "/.config/"+namesoft+"/config.ini";
+        }
+
     }else{
         file = namesoft+".ini";
     }

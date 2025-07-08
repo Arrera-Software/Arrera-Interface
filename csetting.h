@@ -5,6 +5,7 @@
 #include <QString>
 #include <QFileInfo>
 #include <QStandardPaths>
+#include <QDir>
 
 class CSetting {
 private:
