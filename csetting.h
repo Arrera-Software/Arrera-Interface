@@ -8,9 +8,11 @@
 #include <QDir>
 
 // debut
-/**/
+/*
 #include <iostream>
 using namespace std;
+*/
+
 
 class CSetting {
 private:
