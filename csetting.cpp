@@ -2,13 +2,23 @@
 
 CSetting::CSetting() : fileOpen(false), fileCreated(false), settings(nullptr) {}
 
-CSetting::CSetting(const QString &file) {
+CSetting::CSetting(const QString &namesoft) {
+
+    int os = checkOS();
+    QString file;
+
+    if (os == 3){
+        file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+
+               "/.config/"+namesoft+".ini";
+    }else{
+        file = namesoft+".ini";
+    }
+
     QFileInfo checkFile(file);
 
     if (!checkFile.exists()) {
-        // Si le fichier n'existe pas, on le crée
         QFile newFile(file);
-        if (newFile.open(QIODevice::WriteOnly)) {  // Crée et vide le fichier
+        if (newFile.open(QIODevice::WriteOnly)) {
             newFile.close();
         }
         fileCreated = true;
@@ -19,6 +29,16 @@ CSetting::CSetting(const QString &file) {
 
     settings = new QSettings(file, QSettings::IniFormat);
     fileOpen = true;
+}
+
+int CSetting::checkOS(){
+    #if defined(Q_OS_WIN)
+        return 1;
+    #elif defined(Q_OS_LINUX)
+        return 2;
+    #elif defined(Q_OS_MAC)
+        return 3;
+    #endif
 }
 
 bool CSetting::getFileCreated() const {

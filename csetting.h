@@ -4,19 +4,23 @@
 #include <QSettings>
 #include <QString>
 #include <QFileInfo>
+#include <QStandardPaths>
 
 class CSetting {
 private:
     bool fileOpen;
     bool fileCreated;
+    QString emplacementFile;
     QSettings *settings;
+    // Methode private
+    int checkOS();
 
 public:
     // Constructeur de base
     CSetting();
 
     // Constructeur avec le fichier
-    CSetting(const QString &file);
+    CSetting(const QString &namesoft);
 
     // Méthode pour obtenir l'état de création du fichier
     bool getFileCreated() const;
