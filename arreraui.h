@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QShortcut>
 #include "windowsmaj.h"
 #include "ctigerdemon.h"
 #include "camode.h"
@@ -178,6 +179,8 @@ private slots:
 
     void on_IDC_ARRERAAPPMODE_clicked();
 
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting objSetting;
@@ -192,6 +195,7 @@ private:
     CArreraServeur serveurAssistant;
     CCommunication comunictation;
     CTigerDemon tigerDemon;
+    QShortcut shortcutReturn,shortcutEnter;
     bool modeIsActive,assistantIsActived;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
@@ -213,6 +217,9 @@ private:
     int idAppView,idNoApp;
     // id arreraAppStacked
     int idNoArreraApp, idViewArreraApp;
+    // _______________
+    // Methode private
+    void searchEnter();
 };
 
 #endif // ARRERAUI_H

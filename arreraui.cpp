@@ -9,6 +9,8 @@ ArreraUI::ArreraUI(QWidget *parent)
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this), serveurAssistant(this),
     winMaj(this),
+    shortcutReturn(QKeySequence(Qt::Key_Return), this),
+    shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
     tigerDemon("https://arrera-software.fr/depots.json","arrera-interface",this),
     comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp)
 {
@@ -97,7 +99,9 @@ ArreraUI::ArreraUI(QWidget *parent)
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
     // Ecriture du numero de version
     ui->IDC_APROPOSVERSION->setText(tigerDemon.getVersionSoft());
-
+    // Mise en place de la touche entre pour la recherche
+    connect(&shortcutEnter,&QShortcut::activated,this,&ArreraUI::searchEnter);
+    connect(&shortcutReturn,&QShortcut::activated,this,&ArreraUI::searchEnter);
 }
 
 ArreraUI::~ArreraUI()
@@ -1372,3 +1376,17 @@ void ArreraUI::on_IDC_ARRERAAPPMODE_clicked()
     on_IDC_ARRERAAPP_clicked();
 }
 
+void ArreraUI::searchEnter()
+{
+    if (!ui->IDC_SEARCHBAR->text().isEmpty()){
+        on_IDC_BTNSEACH_clicked();
+    }
+}
+
+void ArreraUI::closeEvent(QCloseEvent *event)
+{
+    cout << "bite" << endl;
+    serveurApp.stopServeur();
+    serveurAssistant.stopServeur();
+    QDialog::close();
+}
