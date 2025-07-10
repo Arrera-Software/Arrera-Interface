@@ -65,3 +65,7 @@ RESOURCES += \
 
 DISTFILES += \
     img/arrera-postite.png
+
+macx{
+    ICON = img/arrera-interface.icns
+}
