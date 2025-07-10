@@ -1561,6 +1561,7 @@ void ArreraSettingUI::on_IDC_CHOOSEAPPSPE_clicked()
             sortie = objPara->setAppTraitementTexte(speAppEmplacement);
             break;
         default:
+            sortie = false;
             break;
         }
     }

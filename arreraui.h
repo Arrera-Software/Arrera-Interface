@@ -12,7 +12,10 @@
 #include "ctigerdemon.h"
 #include "ccommunication.h"
 #include "ui_arreraui.h"
-
+/*
+#include "iostream"
+using namespace std;
+*/
 
 
 namespace Ui {
@@ -185,7 +188,7 @@ private:
     Ui::ArreraUI *ui;
     CAInterfaceSetting objSetting;
     WindowsMaj winMaj;
-    ArreraSettingUI *uipara;
+    ArreraSettingUI uipara;
     CArreraRecheche arecherche;
     CArreraApp arreraApp;
     QList <CAppPC> appPC;

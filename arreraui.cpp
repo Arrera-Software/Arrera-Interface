@@ -1,15 +1,21 @@
 #include "arreraui.h"
 
 ArreraUI::ArreraUI(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::ArreraUI),objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
-    arreraApp(&objSetting,&dectOS,this),
-    serveurApp(this), serveurAssistant(this),
+    : QDialog(parent),
+    dectOS(),
+    ui(new Ui::ArreraUI),
+    objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
     winMaj(this),
+    uipara(this,&objSetting,&arecherche,&dectOS),
+    arreraApp(&objSetting,&dectOS,this),
+    serveurApp(this),
+    serveurAssistant(this),
+    comunictation(&serveurApp,&serveurApp,&arecherche,
+                  &objSetting,&appPC,&arreraApp),
+    tigerDemon("https://arrera-software.fr/depots.json",
+               "arrera-interface",this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
-    shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
-    tigerDemon("https://arrera-software.fr/depots.json","arrera-interface",this),
-    comunictation(&serveurApp,&serveurApp,&arecherche,&objSetting,&appPC,&arreraApp)
+    shortcutEnter(QKeySequence(Qt::Key_Enter),  this)
 {
     ui->setupUi(this);
     // Demarage du serveur
@@ -17,7 +23,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Ajout de l'objet de l'interface des parametre
-    uipara = new ArreraSettingUI(this,&objSetting,&arecherche,&dectOS);
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
@@ -53,7 +58,7 @@ ArreraUI::ArreraUI(QWidget *parent)
                                        "}");
 
     // Connection de l'interface principale est le parametre
-    connect(uipara,&ArreraSettingUI::parametresFerme,this,
+    connect(&uipara,&ArreraSettingUI::parametresFerme,this,
             &ArreraUI::loadSetting);
 
     // Mise en place de bouton d'application
@@ -261,11 +266,11 @@ void ArreraUI::on_IDC_PARA_clicked()
     if (dectOS.getosApple()){
         QFile styleFile(":/style/MacOS.qss");
         if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)){
-            uipara->setStyleSheet(QString::fromUtf8(styleFile.readAll()));
+            uipara.setStyleSheet(QString::fromUtf8(styleFile.readAll()));
             styleFile.close();
         }
     }
-    uipara->show();
+    uipara.show();
 }
 
 void ArreraUI::loadSetting()
@@ -1387,8 +1392,8 @@ void ArreraUI::closeEvent(QCloseEvent *event)
     winMaj.close();
 
     // On s’assure que uipara n'est pas nullptr ni déjà détruite
-    if (uipara && uipara->isVisible())
-        uipara->close();
+    if (uipara.isVisible())
+        uipara.close();
 
     QDialog::closeEvent(event);
 }
