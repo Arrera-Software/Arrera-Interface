@@ -9,26 +9,23 @@ CSetting::CSetting(const QString &namesoft) {
     QString standartFolder ;
 
     if (os == 3 || os == 2){
-        QString standartFolder = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-        if (QDir().mkdir(standartFolder+
-                         "/.config/"+namesoft))
-        {
-            return ;
-        }
-        file = standartFolder+
-               "/.config/"+namesoft+"/config.ini";
+        standartFolder = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+        QString configFolder = standartFolder + "/.config/" + namesoft;
 
-    }else if (os == 1){
-        standartFolder =  QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        if (QDir().mkdir(standartFolder)){
-            return ;
-        }
-        file = standartFolder+"\\config.ini";
-    }else {
-        file = namesoft+".ini";
+        // Crée TOUT le chemin des dossiers (si besoin)
+        QDir().mkpath(configFolder);
+
+        file = configFolder + "/config.ini";
     }
+    else if (os == 1){
+        standartFolder = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 
-    //cout << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).toStdString() << endl;
+        QDir().mkpath(standartFolder); // Pas de sous-dossier à créer ici
+
+        file = standartFolder + "\\config.ini";
+    } else {
+        file = namesoft + ".ini";
+    }
 
     QFileInfo checkFile(file);
 
@@ -39,7 +36,7 @@ CSetting::CSetting(const QString &namesoft) {
         }
         fileCreated = true;
     }
-    else{
+    else {
         fileCreated = false;
     }
 
