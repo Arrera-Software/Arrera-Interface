@@ -2,6 +2,12 @@
 #define CAMODE_H
 
 #include "camodelieu.h"
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
 
 class CAMode : public CAModeLieu
 {

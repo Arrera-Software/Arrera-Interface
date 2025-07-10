@@ -3,6 +3,12 @@
 
 #include "camodelieu.h"
 #include <QPushButton>
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
 
 class CALieu : public CAModeLieu
 {

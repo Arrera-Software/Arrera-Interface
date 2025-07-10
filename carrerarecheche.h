@@ -8,6 +8,13 @@
 #include <QStandardPaths>
 #include <cdetectionos.h>
 
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
+
 using namespace std ;
 
 class CArreraRecheche

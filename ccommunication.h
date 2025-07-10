@@ -10,6 +10,13 @@
 #include "capppc.h"
 #include "cappspeciaux.h"
 
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
+
 class CCommunication : public QObject
 {
     Q_OBJECT

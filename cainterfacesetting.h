@@ -5,10 +5,12 @@
 #include "csetting.h"
 #include "camode.h"
 #include "calieu.h"
-
-
+// Debug
+/*
 #include <iostream>
-using namespace std ;
+using namespace std;
+*/
+
 
 class CAInterfaceSetting {
 

@@ -2,6 +2,12 @@
 #define CAMODELIEU_H
 #include <QString>
 #include <csetting.h>
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
 
 class CAModeLieu
 {

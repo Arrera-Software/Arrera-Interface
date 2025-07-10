@@ -1,8 +1,5 @@
 #include "arreraui.h"
 
-#include <iostream>
-using namespace std;
-
 ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ArreraUI),objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
@@ -54,11 +51,11 @@ ArreraUI::ArreraUI(QWidget *parent)
                                         "border: 2px solid black;"
                                         "border-radius: 15px;"
                                        "}");
+
     // Connection de l'interface principale est le parametre
-    //connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
-    connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
-    // Connection de la page de mise a jour
-    //connect(this,&ArreraUI::destroyed,&winMaj,&ArreraUI::close);
+    connect(uipara,&ArreraSettingUI::parametresFerme,this,
+            &ArreraUI::loadSetting);
+
     // Mise en place de bouton d'application
     appPC.append(CAppPC(1,&objSetting,ui->IDC_APP_001,&dectOS));
     appPC.append(CAppPC(2,&objSetting,ui->IDC_APP_002,&dectOS));

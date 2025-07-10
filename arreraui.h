@@ -10,10 +10,10 @@
 #include <QShortcut>
 #include "windowsmaj.h"
 #include "ctigerdemon.h"
-#include "camode.h"
-#include "calieu.h"
 #include "ccommunication.h"
 #include "ui_arreraui.h"
+
+
 
 namespace Ui {
 class ArreraUI;

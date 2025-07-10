@@ -2,6 +2,12 @@
 #define CAPPPC_H
 
 #include "capplication.h"
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
 
 class CAppPC : public CApplication
 {

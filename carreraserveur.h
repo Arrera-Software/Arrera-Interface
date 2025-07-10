@@ -8,6 +8,13 @@
 #include <QJsonObject>
 #include <QHash>
 
+// Debug
+/*
+#include <iostream>
+using namespace std;
+*/
+
+
 class CArreraServeur : public QObject
 {
     Q_OBJECT

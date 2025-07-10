@@ -1,7 +1,4 @@
 #include "ccommunication.h"
-#include <iostream>
-
-using namespace std;
 
 // Methode private
 bool CCommunication::searchInternet(const QString& message)

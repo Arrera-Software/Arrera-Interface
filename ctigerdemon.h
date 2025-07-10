@@ -14,8 +14,11 @@
 #include "version.h"
 
 // Debug
+/*
 #include <iostream>
 using namespace std;
+*/
+
 
 class CTigerDemon : public QObject
 {
