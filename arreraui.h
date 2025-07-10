@@ -179,7 +179,7 @@ private slots:
 
     void on_IDC_ARRERAAPPMODE_clicked();
 
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     Ui::ArreraUI *ui;

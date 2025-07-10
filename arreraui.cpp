@@ -55,10 +55,10 @@ ArreraUI::ArreraUI(QWidget *parent)
                                         "border-radius: 15px;"
                                        "}");
     // Connection de l'interface principale est le parametre
-    connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
+    //connect(this,&ArreraUI::destroyed,uipara,&ArreraUI::close);
     connect(uipara,&ArreraSettingUI::parametresFerme,this,&ArreraUI::loadSetting);
     // Connection de la page de mise a jour
-    connect(this,&ArreraUI::destroyed,&winMaj,&ArreraUI::close);
+    //connect(this,&ArreraUI::destroyed,&winMaj,&ArreraUI::close);
     // Mise en place de bouton d'application
     appPC.append(CAppPC(1,&objSetting,ui->IDC_APP_001,&dectOS));
     appPC.append(CAppPC(2,&objSetting,ui->IDC_APP_002,&dectOS));
@@ -1385,8 +1385,13 @@ void ArreraUI::searchEnter()
 
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
-    cout << "bite" << endl;
     serveurApp.stopServeur();
     serveurAssistant.stopServeur();
-    QDialog::close();
+    winMaj.close();
+
+    // On s’assure que uipara n'est pas nullptr ni déjà détruite
+    if (uipara && uipara->isVisible())
+        uipara->close();
+
+    QDialog::closeEvent(event);
 }
