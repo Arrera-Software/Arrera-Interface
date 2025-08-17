@@ -82,6 +82,12 @@ ArreraUI::ArreraUI(QWidget *parent)
     appPC.append(CAppPC(18,&objSetting,ui->IDC_APP_018,&dectOS));
     appPC.append(CAppPC(19,&objSetting,ui->IDC_APP_019,&dectOS));
     appPC.append(CAppPC(20,&objSetting,ui->IDC_APP_020,&dectOS));
+    // Desactivation de bouton de store sur mac os
+    if (dectOS.getosApple()){
+        ui->IDC_TIGER->setVisible(false);
+    }else{
+        ui->IDC_TIGER->setVisible(true);
+    }
     // Mise en place des app speciaux
     appNavigateur = CAppSpeciaux(1,&objSetting,ui->IDC_NAVIGATEUR,&dectOS);
     appPresentation = CAppSpeciaux(2,&objSetting,ui->IDC_PRESENTATION,&dectOS);
