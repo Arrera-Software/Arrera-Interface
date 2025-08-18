@@ -28,12 +28,16 @@ bool  CArreraApp::exectute(QString app,bool appSetted){
         if (dectOS->getosWin()){
             QProcess process;
             return process.startDetached(app);
-        }else{
-            if(dectOS->getosLinux()){
-                return QProcess::startDetached("/bin/bash",QStringList() << app);
-            }else{
-                return false;
-            }
+        }else if(dectOS->getosLinux()){
+            return QProcess::startDetached("/bin/bash",QStringList() << app);
+        }else if (dectOS->getosApple()){
+            QStringList openArgs;
+            openArgs << "-a" << app;
+            openArgs << "--args";
+            return QProcess::startDetached("open", openArgs);
+        }
+        else{
+            return false;
         }
     }else{
         return false;
@@ -158,6 +162,90 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
         }
     }else{
         button->setVisible(false);
+        return false;
+    }
+}
+
+bool CArreraApp::loadAppMacOS(){
+    if (dectOS->getosApple()){
+
+        const QString home = QDir::homePath();
+        const QStringList roots = {
+            "/Applications",
+            "/Applications/Utilities",
+            home + "/Applications",
+            "/System/Applications",
+            "/System/Applications/Utilities",
+            "/System/Library/CoreServices",
+            "/System/Library/CoreServices/Applications"
+        };
+
+        QSet<QString> found;
+        for (const QString &root : roots) {
+            QDirIterator it(root,
+                            QStringList{"*.app"},
+                            QDir::Dirs | QDir::NoDotAndDotDot | QDir::Readable,
+                            QDirIterator::Subdirectories);
+            while (it.hasNext())
+                found.insert(canonical(it.next()));
+        }
+
+        QStringList result = found.values();
+        result.sort(Qt::CaseInsensitive);
+
+        // Filtrer pour ne conserver que certains bundles .app (comparaison insensible à la casse)
+        const QStringList targetsOrig = {
+            "arrera-copilote.app",
+            "Arrera-Postite.app",
+            "six.app",
+            "ryley.app"
+        };
+
+        // Map (lowercased) -> libellé d’origine demandé
+        QHash<QString, QString> wanted;
+        for (const auto &t : targetsOrig)
+            wanted.insert(t.toLower(), t);
+
+        // Résultat: nom demandé -> chemin .app trouvé
+        QHash<QString, QString> selected;
+
+        for (const QString &path : qAsConst(result)) {
+            const QString fnameLower = QFileInfo(path).fileName().toLower();
+            if (wanted.contains(fnameLower) && !selected.contains(wanted[fnameLower])) {
+                selected.insert(wanted[fnameLower], path);
+                if (selected.size() == wanted.size())
+                    break;
+            }
+        }
+
+        // 'selected' contient les emplacements des apps demandées (clé = nom demandé, valeur = chemin)
+
+        /*
+            ryley.app -> /Applications/ryley.app
+            Arrera-Postite.app -> /Applications/Arrera-Postite.app
+            six.app -> /Applications/six.app
+            arrera-copilote.app -> /Applications/arrera-copilote.app
+        */
+
+        if (selected.contains("ryley.app")){
+            psetting->setEmplacementArreraApp("ryley",selected.value("ryley.app"));
+        }
+
+        if (selected.contains("Arrera-Postite.app")){
+            psetting->setEmplacementArreraApp("arrera-postite",selected.value("Arrera-Postite.app"));
+        }
+        if (selected.contains("six.app")){
+            psetting->setEmplacementArreraApp("six",selected.value("six.app"));
+        }
+
+        if (selected.contains("arrera-copilote.app")){
+            psetting->setEmplacementArreraApp("arrera-copilote",selected.value("arrera-copilote.app"));
+        }
+
+
+        return true;
+
+    }else{
         return false;
     }
 }

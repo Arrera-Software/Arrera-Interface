@@ -85,6 +85,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Desactivation de bouton de store sur mac os
     if (dectOS.getosApple()){
         ui->IDC_TIGER->setVisible(false);
+        arreraApp.loadAppMacOS();
     }else{
         ui->IDC_TIGER->setVisible(true);
     }

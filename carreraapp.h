@@ -7,14 +7,20 @@
 #include <QDesktopServices>
 #include <QProcess>
 #include <QPushButton>
+#include <QtCore>
 #include "cjsonword.h"
 #include "cdetectionos.h"
 
 // Debug
-/*
+
 #include <iostream>
 using namespace std;
-*/
+
+static inline QString canonical(const QString &p) {
+    QFileInfo fi(p);
+    const QString c = fi.canonicalFilePath();
+    return c.isEmpty() ? fi.absoluteFilePath() : c;
+}
 
 
 class CArreraApp
@@ -35,6 +41,7 @@ public:
     bool setEmplacementTiger();
     bool openStore();
     bool loadApp(QString nameApp ,QPushButton* button);
+    bool loadAppMacOS();
     bool executeApp(QString nameApp);
 };
 
