@@ -1183,7 +1183,7 @@ void ArreraUI::on_IDC_MODE6_clicked()
 
 void ArreraUI::on_IDC_LIEU1_clicked()
 {
-    objSetting.launchLieu1();
+    objSetting.launchLieu1(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
     lieuEnabled = 1;
@@ -1192,7 +1192,7 @@ void ArreraUI::on_IDC_LIEU1_clicked()
 
 void ArreraUI::on_IDC_LIEU2_clicked()
 {
-    objSetting.launchLieu2();
+    objSetting.launchLieu2(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
     lieuEnabled=2;

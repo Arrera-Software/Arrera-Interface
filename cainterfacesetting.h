@@ -211,8 +211,8 @@ public:
     void resetAll();
 
     // Partie launch lieu
-    bool launchLieu1();
-    bool launchLieu2();
+    bool launchLieu1(QPushButton* six,QPushButton* ryley,QPushButton* copilote);
+    bool launchLieu2(QPushButton* six,QPushButton* ryley,QPushButton* copilote);
 
     bool disableLieu1();
     bool disableLieu2();

@@ -13,8 +13,8 @@ CAInterfaceSetting::CAInterfaceSetting(QPushButton *bSix,QPushButton *bRyley,QPu
     mode5 = CAMode("mode5",&fileINI);
     mode6 = CAMode("mode6",&fileINI);
     // Instentation des lieu
-    lieu1 = CALieu("lieu1",&fileINI,bSix,bRyley,bCopilote);
-    lieu2 = CALieu("lieu2",&fileINI,bSix,bRyley,bCopilote);
+    lieu1 = CALieu("lieu1",&fileINI);
+    lieu2 = CALieu("lieu2",&fileINI);
     if(fileINI.getFileCreated()){
         resetAll();
     }
@@ -1049,11 +1049,11 @@ void CAInterfaceSetting::resetAll(){
 }
 
 
-bool CAInterfaceSetting::launchLieu1(){
-    return lieu1.launchLieu();
+bool CAInterfaceSetting::launchLieu1(QPushButton* six,QPushButton* ryley,QPushButton* copilote){
+    return lieu1.launchLieu(six,ryley,copilote);
 }
-bool CAInterfaceSetting::launchLieu2(){
-    return lieu2.launchLieu();
+bool CAInterfaceSetting::launchLieu2(QPushButton* six,QPushButton* ryley,QPushButton* copilote){
+    return lieu2.launchLieu(six,ryley,copilote);
 }
 
 bool CAInterfaceSetting::disableLieu1(){

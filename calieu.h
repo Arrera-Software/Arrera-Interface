@@ -12,15 +12,13 @@ using namespace std;
 
 class CALieu : public CAModeLieu
 {
-private :
-    QPushButton *btnSix, *btnRyley, *btnCopilote;
 public:
     CALieu();
-    CALieu(QString pname,CSetting *psetting,QPushButton *pbtnSix,QPushButton *pbtnRyley,QPushButton *pbtnCopilote);
+    CALieu(QString pname,CSetting *psetting);
     QString getLieuGeographique();
     bool setLieuGeographique(QString lieu);
     bool resetLieu();
-    bool launchLieu();
+    bool launchLieu(QPushButton* btnSix ,QPushButton* btnCopilote,QPushButton* btnRyley);
     bool disableLieu();
 };
 
