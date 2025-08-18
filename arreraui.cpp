@@ -469,8 +469,29 @@ void ArreraUI::loadSetting()
 }
 
 void ArreraUI::loadArreraApp(){
-    if (arreraApp.loadJson()){
-        bool videoSetted,postiteSetted,sixSetted,ryleySetted,raccourciSetted,copiloteSetted;
+    bool videoSetted = false,postiteSetted= false,
+        sixSetted= false,ryleySetted= false,
+        raccourciSetted= false,copiloteSetted= false;
+
+    if (dectOS.getosLinux() || dectOS.getosWin()){
+        if (arreraApp.loadJson()){
+            videoSetted = arreraApp.loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+            postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
+            sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
+            ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
+            raccourciSetted = arreraApp.loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
+            copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
+            if (videoSetted||postiteSetted||sixSetted||
+                ryleySetted||raccourciSetted||copiloteSetted){
+                ui->arreraAppStacked->setCurrentIndex(idViewArreraApp);
+            }else{
+                ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
+            }
+
+        }else{
+            ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
+        }
+    }else if (dectOS.getosApple()){
         videoSetted = arreraApp.loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
         postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
         sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
@@ -484,9 +505,6 @@ void ArreraUI::loadArreraApp(){
         }else{
             ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
         }
-
-    }else{
-        ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
     }
 }
 

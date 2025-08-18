@@ -126,18 +126,28 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
     button->setVisible(false);
     // Verification si l'app a etais setted
 
-    if (tigerFileSetted){
+    bool appOS = dectOS->getosApple();
+    QString emplacement;
+    QString exeApp;
 
-        QString exeApp = psetting->getExeArreraApp(nameApp);
+    if (tigerFileSetted || appOS ){
+
+        exeApp = psetting->getExeArreraApp(nameApp);
 
         if (exeApp=="nothing"){
-            bool clesExisted = jsonFile->isExist(nameApp);
-            if (!clesExisted){
-                button->setVisible(false);
-                return false;
+            if (!appOS){
+
+                bool clesExisted = jsonFile->isExist(nameApp);
+                if (!clesExisted){
+                    button->setVisible(false);
+                    return false;
+                }
+
+                emplacement = jsonFile->read(nameApp);
+            }else{
+                emplacement = exeApp;
             }
 
-            QString emplacement = jsonFile->read(nameApp);
 
             if (emplacement == "nothing"){
                 button->setVisible(false);
