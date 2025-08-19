@@ -496,176 +496,6 @@ color: rgb(0, 0, 0);</string>
          </property>
          <widget class="QWidget" name="yesmode">
           <layout class="QGridLayout" name="gridLayout">
-           <item row="1" column="6">
-            <widget class="QPushButton" name="IDC_LIEU2">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/lieu2.png</normaloff>:/mode-lieu/img/lieu2.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>90</width>
-               <height>90</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="6">
-            <widget class="QPushButton" name="IDC_LIEU1">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/lieu1.png</normaloff>:/mode-lieu/img/lieu1.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>90</width>
-               <height>90</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="IDC_MODE1">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/mode1.png</normaloff>:/mode-lieu/img/mode1.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>90</width>
-               <height>90</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QPushButton" name="IDC_MODE6">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/mode6.png</normaloff>:/mode-lieu/img/mode6.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>90</width>
-               <height>90</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QPushButton" name="IDC_MODE3">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/mode3.png</normaloff>:/mode-lieu/img/mode3.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>90</width>
-               <height>90</height>
-              </size>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="2">
             <widget class="QPushButton" name="IDC_MODE2">
              <property name="minimumSize">
@@ -691,6 +521,40 @@ color: rgb(0, 0, 0);</string>
              <property name="icon">
               <iconset resource="resource.qrc">
                <normaloff>:/mode-lieu/img/mode2.png</normaloff>:/mode-lieu/img/mode2.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>90</width>
+               <height>90</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="IDC_MODE4">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/mode-lieu/img/mode4.png</normaloff>:/mode-lieu/img/mode4.png</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -734,8 +598,8 @@ color: rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="IDC_MODE4">
+           <item row="1" column="6">
+            <widget class="QPushButton" name="IDC_LIEU2">
              <property name="minimumSize">
               <size>
                <width>100</width>
@@ -758,7 +622,143 @@ color: rgb(0, 0, 0);</string>
              </property>
              <property name="icon">
               <iconset resource="resource.qrc">
-               <normaloff>:/mode-lieu/img/mode4.png</normaloff>:/mode-lieu/img/mode4.png</iconset>
+               <normaloff>:/mode-lieu/img/lieu2.png</normaloff>:/mode-lieu/img/lieu2.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>90</width>
+               <height>90</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="IDC_MODE3">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/mode-lieu/img/mode3.png</normaloff>:/mode-lieu/img/mode3.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>90</width>
+               <height>90</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="IDC_MODE6">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/mode-lieu/img/mode6.png</normaloff>:/mode-lieu/img/mode6.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>90</width>
+               <height>90</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="IDC_MODE1">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/mode-lieu/img/mode1.png</normaloff>:/mode-lieu/img/mode1.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>90</width>
+               <height>90</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6">
+            <widget class="QPushButton" name="IDC_LIEU1">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/mode-lieu/img/lieu1.png</normaloff>:/mode-lieu/img/lieu1.png</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -1042,6 +1042,25 @@ color: rgb(0, 0, 0);</string>
               <width>70</width>
               <height>70</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="IDC_QUITLIEU">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>PushButton</string>
             </property>
            </widget>
           </item>

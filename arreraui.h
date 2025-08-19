@@ -168,6 +168,10 @@ private slots:
 
     void on_IDC_LIEU2_clicked();
 
+    void on_IDC_QUITLIEU_clicked();
+
+    // Partie Mode
+
     void on_IDC_QUIT_clicked();
 
     void on_IDC_APPMODE1_clicked();

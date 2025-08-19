@@ -56,7 +56,7 @@ ArreraUI::ArreraUI(QWidget *parent)
                                         "border: 2px solid black;"
                                         "border-radius: 15px;"
                                        "}");
-
+    ui->IDC_QUITLIEU->setVisible(false);
     // Connection de l'interface principale est le parametre
     connect(&uipara,&ArreraSettingUI::parametresFerme,this,
             &ArreraUI::loadSetting);
@@ -1186,6 +1186,7 @@ void ArreraUI::on_IDC_LIEU1_clicked()
     objSetting.launchLieu1(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
+    ui->IDC_QUITLIEU->setVisible(true);
     lieuEnabled = 1;
     ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu1());
 }
@@ -1195,8 +1196,31 @@ void ArreraUI::on_IDC_LIEU2_clicked()
     objSetting.launchLieu2(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
     ui->IDC_LIEU1->setVisible(false);
     ui->IDC_LIEU2->setVisible(false);
+    ui->IDC_QUITLIEU->setVisible(true);
     lieuEnabled=2;
     ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu2());
+}
+
+void ArreraUI::on_IDC_QUITLIEU_clicked()
+{
+    lieuEnabled=0;
+    ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+    ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+    ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+    ui->LINDICATIONARRERA->setText("Sortie du lieu");
+    ui->IDC_QUITLIEU->setVisible(false);
+
+    if (objSetting.lieu1IsSeted()){
+        ui->IDC_LIEU1->setVisible(true);
+    }else{
+        ui->IDC_LIEU1->setVisible(false);
+    }
+
+    if (objSetting.lieu2IsSeted()){
+        ui->IDC_LIEU2->setVisible(true);
+    }else{
+        ui->IDC_LIEU2->setVisible(false);
+    }
 }
 
 // btn QUIT
