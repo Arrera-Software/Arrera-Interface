@@ -4,7 +4,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent),
     dectOS(),
     ui(new Ui::ArreraUI),
-    objSetting(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE),
+    objSetting(),
     winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
     arreraApp(&objSetting,&dectOS,this),

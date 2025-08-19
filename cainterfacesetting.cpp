@@ -1,8 +1,6 @@
 #include "cainterfacesetting.h"
 
-CAInterfaceSetting::CAInterfaceSetting() {}
-
-CAInterfaceSetting::CAInterfaceSetting(QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote):
+CAInterfaceSetting::CAInterfaceSetting():
     fileINI("arrera-interface")
 {
     // Instentation des mode

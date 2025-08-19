@@ -30,7 +30,6 @@ private:
 public:
     // Constructeurs et destructeur
     CAInterfaceSetting();
-    CAInterfaceSetting(QPushButton *bSix,QPushButton *bRyley,QPushButton *bCopilote);
     ~CAInterfaceSetting();
 
     // Getteur
