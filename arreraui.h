@@ -220,6 +220,10 @@ private:
     int idPageRechercheMoteur, idPageRechercheHist;
     // id du acceuilStacked
     int idNonMode, idYesMode;
+    // id lieuview
+    int idNoLieuSave,idLieuSave;
+    // id modeview
+    int idNoModeSave,idModeSave;
     // id de appstacked
     int idAppView,idNoApp;
     // id arreraAppStacked

@@ -41,6 +41,12 @@ ArreraUI::ArreraUI(QWidget *parent)
     // id arreraAppStacked
     idNoArreraApp = ui->arreraAppStacked->indexOf(ui->noArreraApp);
     idViewArreraApp = ui->arreraAppStacked->indexOf(ui->viewArreraApp);
+    // id lieuview
+    idNoLieuSave = ui->lieuview->indexOf(ui->nolieu);
+    idLieuSave = ui->lieuview->indexOf(ui->yeslieu);
+    // id modeview
+    idNoModeSave = ui->modeview->indexOf(ui->no);
+    idModeSave = ui->modeview->indexOf(ui->yes);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -284,9 +290,12 @@ void ArreraUI::loadSetting()
 {
     bool appSetted;
     ui->acceuilStacked->setCurrentIndex(idNonMode);
+    ui->modeview->setCurrentIndex(idNoModeSave);
+    ui->lieuview->setCurrentIndex(idNoLieuSave);
     if (objSetting.mode1IsSeted()){
         ui->IDC_MODE1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode1IsSetted()){
             QIcon icon(objSetting.getIconMode1());
@@ -301,6 +310,7 @@ void ArreraUI::loadSetting()
     if (objSetting.mode2IsSeted()){
         ui->IDC_MODE2->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode2IsSetted()){
             QIcon icon(objSetting.getIconMode2());
@@ -315,6 +325,7 @@ void ArreraUI::loadSetting()
     if (objSetting.mode3IsSeted()){
         ui->IDC_MODE3->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode3IsSetted()){
             QIcon icon(objSetting.getIconMode3());
@@ -329,6 +340,7 @@ void ArreraUI::loadSetting()
     if (objSetting.mode4IsSeted()){
         ui->IDC_MODE4->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode4IsSetted()){
             QIcon icon(objSetting.getIconMode4());
@@ -343,6 +355,7 @@ void ArreraUI::loadSetting()
     if (objSetting.mode5IsSeted()){
         ui->IDC_MODE5->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode5IsSetted()){
             QIcon icon(objSetting.getIconMode5());
@@ -357,6 +370,7 @@ void ArreraUI::loadSetting()
     if (objSetting.mode6IsSeted()){
         ui->IDC_MODE6->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
         // Mise en place de l'icon
         if (objSetting.iconMode6IsSetted()){
             QIcon icon(objSetting.getIconMode6());
@@ -371,6 +385,7 @@ void ArreraUI::loadSetting()
     if (objSetting.lieu1IsSeted()){
         ui->IDC_LIEU1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->lieuview->setCurrentIndex(idLieuSave);
         // Mise en place de l'icon
         if (objSetting.iconLieu1IsSetted()){
             QIcon icon(objSetting.getIconLieu1());
@@ -385,6 +400,7 @@ void ArreraUI::loadSetting()
     if (objSetting.lieu2IsSeted()){
         ui->IDC_LIEU2->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->lieuview->setCurrentIndex(idLieuSave);
         // Mise en place de l'icon
         if (objSetting.iconLieu2IsSetted()){
             QIcon icon(objSetting.getIconLieu2());
