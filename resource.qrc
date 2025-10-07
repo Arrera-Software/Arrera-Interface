@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/arrera">
-        <file>img/i2025-icon.png</file>
+        <file>img/icon-linux-win.png</file>
     </qresource>
     <qresource prefix="/assistant">
         <file>img/copilote.png</file>
