@@ -112,6 +112,20 @@ ArreraUI::ArreraUI(QWidget *parent)
     ui->LICONARRERA->setPixmap(pixmap.scaled(
         ui->LICONARRERA->size(),
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    // Mise en place icon A Propos
+
+    if (dectOS.getosApple()){
+        QPixmap icon(":/arrera/img/icon-mac.png");
+        ui->IDC_LAPOPROSICON->setPixmap(icon.scaled(
+            ui->IDC_LAPOPROSICON->size(),
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }else{
+        QPixmap icon(":/arrera/img/icon-linux-win.png");
+        ui->IDC_LAPOPROSICON->setPixmap(icon.scaled(
+            ui->IDC_LAPOPROSICON->size(),
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
+
     // Ecriture du numero de version
     ui->IDC_APROPOSVERSION->setText(tigerDemon.getVersionSoft());
     // Mise en place de la touche entre pour la recherche
