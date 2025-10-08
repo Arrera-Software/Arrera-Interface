@@ -28,10 +28,12 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageI2025App = ui->I2025->indexOf(ui->app);
     idPageI2025Mode = ui->I2025->indexOf(ui->mode);
     idPageApropos = ui->I2025->indexOf(ui->apropos);
-    idPageI2025ArreraApp = ui->I2025->indexOf(ui->arreraApp);
     idPageRecherche = ui->I2025->indexOf(ui->recherchePage);
     idAppView=ui->appStaked->indexOf(ui->AppView);
     idNoApp=ui->appStaked->indexOf(ui->NoApp);
+
+    idPageDesktopApp = ui->interfaceapp->indexOf(ui->desktopapp);
+    idPageArreraApp = ui->interfaceapp->indexOf(ui->arreraapp);
     // Id Page recherche
     idPageRechercheMoteur = ui->arreraRecherche->indexOf(ui->moteur);
     idPageRechercheHist = ui->arreraRecherche->indexOf(ui->historique);
@@ -50,7 +52,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
-    ui->LINDICATIONARRERA->setText("Bienvenue sur Arrera I2025");
+    ui->LINDICATIONARRERA->setText("Bienvenue sur Arrera I2026");
     // Mise en place d'une image de fond pour l'affichage main
     ui->TASKBARMAIN->setObjectName("MainWidget");
     ui->TASKBARMAIN->setStyleSheet("#MainWidget {"
@@ -164,7 +166,7 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
     if ((index == idPageI2025Main) || (index == idPageI2025Mode))
     {
         ui->I2025->setCurrentIndex(idPageApropos);
-        ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
+        ui->LINDICATIONARRERA->setText("Arrera I2026 A propos");
 
     } else if (index != idPageI2025Main){
         if (modeIsActive)
@@ -177,7 +179,7 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
         else
         {
             ui->I2025->setCurrentIndex(idPageI2025Main);
-            ui->LINDICATIONARRERA->setText("Arrera I2025");
+            ui->LINDICATIONARRERA->setText("Arrera I2026");
             ui->IDC_SHOWHIST->setVisible(true);
             ui->IDC_AUTREMOTEUR->setVisible(true);
         }
@@ -207,7 +209,7 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
         else
         {
             ui->I2025->setCurrentIndex(idPageApropos);
-            ui->LINDICATIONARRERA->setText("Arrera I2025 A propos");
+            ui->LINDICATIONARRERA->setText("Arrera I2026 A propos");
         }
     }
 }
@@ -215,17 +217,27 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
 // Bar des taches
 void ArreraUI::on_IDC_APPBUREAU_clicked()
 {
-    // Boutton pour afficher les Application enregistrer par l'utilisateur
     ui->I2025->setCurrentIndex(idPageI2025App);
     ui->LINDICATIONARRERA->setText("Page application de l'ordinateur");
+    ui->IDC_CHANGEVIEWAPP->setText("Application Arrera");
+    ui->interfaceapp->setCurrentIndex(idPageDesktopApp);
+    desktopApp = false;
 }
 
-
-void ArreraUI::on_IDC_ARRERAAPP_clicked()
+void ArreraUI::on_IDC_CHANGEVIEWAPP_clicked()
 {
-    ui->I2025->setCurrentIndex(idPageI2025ArreraApp);
-    ui->LINDICATIONARRERA->setText("Page module Arrera");
-    loadArreraApp();
+    if (!desktopApp){
+        ui->interfaceapp->setCurrentIndex(idPageArreraApp);
+        ui->LINDICATIONARRERA->setText("Page module Arrera");
+        loadArreraApp();
+        ui->IDC_CHANGEVIEWAPP->setText("Application Bureau");
+        desktopApp = true;
+    }else{
+        ui->LINDICATIONARRERA->setText("Page application de l'ordinateur");
+        ui->IDC_CHANGEVIEWAPP->setText("Application Arrera");
+        ui->interfaceapp->setCurrentIndex(idPageDesktopApp);
+        desktopApp = false;
+    }
 }
 
 void ArreraUI::on_IDC_TIGER_clicked()
@@ -306,6 +318,7 @@ void ArreraUI::loadSetting()
     ui->acceuilStacked->setCurrentIndex(idNonMode);
     ui->modeview->setCurrentIndex(idNoModeSave);
     ui->lieuview->setCurrentIndex(idNoLieuSave);
+    // Partie Mode
     if (objSetting.mode1IsSeted()){
         ui->IDC_MODE1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
@@ -396,6 +409,7 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_MODE6->setVisible(false);}
 
+    // Partie lieu
     if (objSetting.lieu1IsSeted()){
         ui->IDC_LIEU1->setVisible(true);
         ui->acceuilStacked->setCurrentIndex(idYesMode);
@@ -426,6 +440,8 @@ void ArreraUI::loadSetting()
     }else{
         ui->IDC_LIEU2->setVisible(false);
     }
+    // Partie APP
+
     appPC[0].loadData();
     appPC[1].loadData();
     appPC[2].loadData();
@@ -476,10 +492,8 @@ void ArreraUI::loadSetting()
         !appSetted)
     {
         ui->IDC_APPLISTMODE->setVisible(false);
-        ui->IDC_APPBUREAU->setVisible(false);
     }else{
         ui->IDC_APPLISTMODE->setVisible(true);
-        ui->IDC_APPBUREAU->setVisible(true);
     }
 
     if(!appNavigateur.getAppSetted()&&
@@ -491,7 +505,6 @@ void ArreraUI::loadSetting()
         ui->FBUREAUTIQUEAPP->setVisible(true);
     }
 
-    ui->IDC_ARRERAAPP->setVisible(objSetting.getTaskbarBTNArreraApp());
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
     ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
     ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
@@ -1449,12 +1462,6 @@ void ArreraUI::on_IDC_APPMODE4_clicked()
 void ArreraUI::on_IDC_APPLISTMODE_clicked()
 {
     on_IDC_APPBUREAU_clicked();
-}
-
-
-void ArreraUI::on_IDC_ARRERAAPPMODE_clicked()
-{
-    on_IDC_ARRERAAPP_clicked();
 }
 
 void ArreraUI::searchEnter()

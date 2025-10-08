@@ -38,7 +38,9 @@ private slots:
 
     void on_IDC_APPBUREAU_clicked();
 
-    void on_IDC_ARRERAAPP_clicked();
+    void on_IDC_CHANGEVIEWAPP_clicked();
+
+    // void on_IDC_ARRERAAPP_clicked();
 
     void on_IDC_TIGER_clicked();
 
@@ -184,9 +186,8 @@ private slots:
 
     void on_IDC_APPLISTMODE_clicked();
 
-    void on_IDC_ARRERAAPPMODE_clicked();
-
     void closeEvent(QCloseEvent *event) override;
+
 
 private:
     Ui::ArreraUI *ui;
@@ -215,7 +216,9 @@ private:
     // Methode de recherche
     void launchSearch(int mode);
     // Id du staked widget I2025
-    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageI2025ArreraApp,idPageApropos,idPageRecherche;
+    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageApropos,idPageRecherche;
+    // Id du staked widget interfaceapp
+    int idPageDesktopApp,idPageArreraApp;
     // Ide du staked widget arreraRecherche
     int idPageRechercheMoteur, idPageRechercheHist;
     // id du acceuilStacked
@@ -228,6 +231,7 @@ private:
     int idAppView,idNoApp;
     // id arreraAppStacked
     int idNoArreraApp, idViewArreraApp;
+    bool desktopApp = false;
     // _______________
     // Methode private
     void searchEnter();
