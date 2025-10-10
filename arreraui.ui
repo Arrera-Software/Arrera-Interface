@@ -58,7 +58,7 @@ color: rgb(0, 0, 0);</string>
         </property>
         <property name="icon">
          <iconset resource="resource.qrc">
-          <normaloff>:/arrera/img/icon-linux-win.png</normaloff>:/arrera/img/icon-linux-win.png</iconset>
+          <normaloff>:/arrera/img/arrera-bot.png</normaloff>:/arrera/img/arrera-bot.png</iconset>
         </property>
         <property name="iconSize">
          <size>
