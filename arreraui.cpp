@@ -659,6 +659,7 @@ bool ArreraUI::launchAssistantMode(QString assistant){
 }
 
 void ArreraUI::launchGestServeur(){
+    /*
     // Demarage des serveur websocket
     serveurApp.startServeur(12345);
     serveurAssistant.startServeur(6666);
@@ -695,6 +696,7 @@ void ArreraUI::launchGestServeur(){
     connect(&comunictation,&CCommunication::textLabel,
             [this](const QString &message)
             {ui->LINDICATIONARRERA->setText(message);});
+    */
 }
 
 void ArreraUI::launchSearch(int mode){
