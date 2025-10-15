@@ -876,28 +876,6 @@ void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
     launchSearch(9);
 }
 
-
-void ArreraUI::on_IDC_BTNSEACH_clicked()
-{
-    // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
-    QString moteur = objSetting.getMoteurRecherche();
-    if (moteur == "GOOGLE"){
-        launchSearch(2);
-    }else if (moteur == "DUCKDUCKGO"){
-        launchSearch(1);
-    }else if (moteur == "ECOSIA"){
-        launchSearch(4);
-    }else if (moteur == "BING"){
-        launchSearch(6);
-    }else if (moteur == "BRAVE"){
-        launchSearch(5);
-    }else if (moteur == "QWANT"){
-        launchSearch(3);
-    }else{
-        launchSearch(2);
-    }
-}
-
 void ArreraUI::on_IDC_APP_001_clicked()
 {
     appPC[0].executeApplication();
@@ -1469,7 +1447,23 @@ void ArreraUI::on_IDC_APPLISTMODE_clicked()
 void ArreraUI::searchEnter()
 {
     if (!ui->IDC_SEARCHBAR->text().isEmpty()){
-        on_IDC_BTNSEACH_clicked();
+        // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
+        QString moteur = objSetting.getMoteurRecherche();
+        if (moteur == "GOOGLE"){
+            launchSearch(2);
+        }else if (moteur == "DUCKDUCKGO"){
+            launchSearch(1);
+        }else if (moteur == "ECOSIA"){
+            launchSearch(4);
+        }else if (moteur == "BING"){
+            launchSearch(6);
+        }else if (moteur == "BRAVE"){
+            launchSearch(5);
+        }else if (moteur == "QWANT"){
+            launchSearch(3);
+        }else{
+            launchSearch(2);
+        }
     }
 }
 

@@ -87,8 +87,6 @@ private slots:
 
     void on_IDC_MOTEURREVERSO_clicked();
 
-    void on_IDC_BTNSEACH_clicked();
-
     void on_IDC_APP_001_clicked();
 
     void on_IDC_APP_002_clicked();
