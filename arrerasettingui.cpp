@@ -127,7 +127,7 @@ void ArreraSettingUI::show()
     ui->modestacked->setCurrentIndex(idMainModePage);
     ui->appstacked->setCurrentIndex(idMainAppStaked);
     ui->lieustacked->setCurrentIndex(idMainLieu);
-    ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
+    ui->LINDICATIONSETTING->setText("Arrera I2026 Parametre");
 }
 
 QString ArreraSettingUI::chooseIcon(){
@@ -245,7 +245,7 @@ void ArreraSettingUI::on_IDC_ACCEUILPARAMETRE_clicked()
     if (currentIndex != idMainPage)
     {
         ui->mainstacked->setCurrentIndex(idMainPage);
-        ui->LINDICATIONSETTING->setText("Arrera I2025 Parametre");
+        ui->LINDICATIONSETTING->setText("Arrera I2026 Parametre");
     }
     else{
         this->close();
