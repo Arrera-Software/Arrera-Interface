@@ -96,7 +96,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>3</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QGridLayout" name="gridLayout">
@@ -1919,7 +1919,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QStackedWidget" name="stakedGeneraux">
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainGeneraux">
           <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1932,7 +1932,7 @@ color: rgb(0, 0, 0);</string>
               </font>
              </property>
              <property name="text">
-              <string>Paramètres Généraux Arrera I2025</string>
+              <string>Paramètres Généraux Arrera</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignCenter</set>
