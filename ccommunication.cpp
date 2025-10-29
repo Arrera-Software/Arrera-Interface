@@ -42,59 +42,66 @@ bool CCommunication::openApplication(const QString& message)
         QString nameapp = message;
         nameapp.replace("ouvre", "");
         nameapp = nameapp.trimmed();
-        for (i = 0; i < nbApp; i++) {
-            app = listApp->at(i);
-            if (app.getAppSetted() && nameapp.contains(app.getName())) {
-                outMethode = app.executeApplication();
-                if (outMethode){
-                    emit textLabel("Lancement de "+nameapp);
-                    return true;
-                }else{
-                    emit textLabel("Imposible de lancer "+nameapp);
-                    return false;
+        try {
+            for (i = 0; i < nbApp; i++) {
+                app = listApp->at(i);
+                if (app.getAppSetted() && nameapp.contains(app.getName())) {
+                    outMethode = app.executeApplication();
+                    if (outMethode){
+                        emit textLabel("Lancement de "+nameapp);
+                        return true;
+                    }else{
+                        emit textLabel("Imposible de lancer "+nameapp);
+                        return false;
+                    }
                 }
             }
-        }
 
-        if (message.contains("arrera")) {
-            if (message.contains("postite")) {
-                outMethode = arreraApp->executeApp("arrera-postite");
-                if (outMethode) {
-                    emit textLabel("Lancement du module Arrera Postite");
-                    return true;
+            if (message.contains("arrera")) {
+                if (message.contains("postite")) {
+                    outMethode = arreraApp->executeApp("arrera-postite");
+                    if (outMethode) {
+                        emit textLabel("Lancement du module Arrera Postite");
+                        return true;
+                    }
+                    else {
+                        emit textLabel("Impossible de lancer le module Arrera Postite");
+                        return false;
+                    }
+                }
+                else if (message.contains("video download")) {
+                    outMethode = arreraApp->executeApp("arrera-video-download");
+                    if (outMethode) {
+                        emit textLabel("Lancement du module Arrera Video Download");
+                        return true;
+                    }
+                    else {
+                        emit textLabel("Impossible de lancer le module Arrera Video Download");
+                        return false;
+                    }
+                }
+                else if (message.contains("raccourci")) {
+                    outMethode = arreraApp->executeApp("arrera-raccourci");
+                    if (outMethode) {
+                        emit textLabel("Lancement du module Arrera Raccourci");
+                        return true;
+                    }
+                    else {
+                        emit textLabel("Impossible de lancer le module Arrera Raccourci");
+                        return false;
+                    }
                 }
                 else {
-                    emit textLabel("Impossible de lancer le module Arrera Postite");
                     return false;
                 }
             }
-            else if (message.contains("video download")) {
-                outMethode = arreraApp->executeApp("arrera-video-download");
-                if (outMethode) {
-                    emit textLabel("Lancement du module Arrera Video Download");
-                    return true;
-                }
-                else {
-                    emit textLabel("Impossible de lancer le module Arrera Video Download");
-                    return false;
-                }
-            }
-            else if (message.contains("raccourci")) {
-                outMethode = arreraApp->executeApp("arrera-raccourci");
-                if (outMethode) {
-                    emit textLabel("Lancement du module Arrera Raccourci");
-                    return true;
-                }
-                else {
-                    emit textLabel("Impossible de lancer le module Arrera Raccourci");
-                    return false;
-                }
-            }
-            else {
-                return false;
-            }
+        else{return false;}
+        } catch (const std::exception& e){
+            cout << e.what() << endl;
+        }catch(...){
+            cout << "Erreur" << endl;
         }
-    }else{return false;}
+    }
 }
 
 bool CCommunication::openWebsite(const QString& message)

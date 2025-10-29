@@ -11,10 +11,10 @@
 #include "cappspeciaux.h"
 
 // Debug
-/*
+
 #include <iostream>
 using namespace std;
-*/
+
 
 
 class CCommunication : public QObject
