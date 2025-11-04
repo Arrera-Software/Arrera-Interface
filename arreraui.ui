@@ -39,7 +39,7 @@
    <item>
     <widget class="QFrame" name="TOPFRAME">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 0, 0);</string>
+      <string notr="true">QFrame { border: 2px solid black; border-radius: 15px; } QLabel { border: none; border-radius: 0; }</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::NoFrame</enum>
@@ -107,7 +107,7 @@ color: rgb(0, 0, 0);</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -179,7 +179,7 @@ color: rgb(0, 0, 0);</string>
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -318,7 +318,7 @@ color: rgb(0, 0, 0);</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset>
               <normaloff>:/icon/img/arrera-application.png</normaloff>:/icon/img/arrera-application.png</iconset>
             </property>
             <property name="iconSize">
@@ -846,7 +846,7 @@ color: rgb(0, 0, 0);</string>
        <item>
         <widget class="QFrame" name="TASKBARMAIN">
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">QFrame { border: 2px solid black; border-radius: 15px; } QFrame* { border: none; border-radius: 0; }</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::Shape::Box</enum>
@@ -2175,6 +2175,9 @@ color: rgb(0, 0, 0);</string>
              </item>
              <item>
               <widget class="QFrame" name="FBUREAUTIQUEAPP">
+               <property name="styleSheet">
+                <string notr="true">QFrame { border: 2px solid black; border-radius: 15px; } QFrame* { border: none; border-radius: 0; }</string>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::Shape::StyledPanel</enum>
                </property>
