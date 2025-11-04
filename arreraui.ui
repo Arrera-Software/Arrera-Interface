@@ -68,8 +68,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -129,6 +128,40 @@ color: rgb(0, 0, 0);</string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
+         <widget class="QPushButton" name="IDC_AUTREMOTEUR">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/recherche/img/recherche/searchengine.png</normaloff>:/recherche/img/recherche/searchengine.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLineEdit" name="IDC_SEARCHBAR">
           <property name="minimumSize">
            <size>
@@ -143,31 +176,37 @@ color: rgb(0, 0, 0);</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <widget class="QPushButton" name="IDC_SHOWHIST">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <pointsize>13</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Voir l'historique</string>
+           <string/>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="IDC_AUTREMOTEUR">
-          <property name="font">
-           <font>
-            <pointsize>13</pointsize>
-           </font>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/recherche/img/recherche/historique.png</normaloff>:/recherche/img/recherche/historique.png</iconset>
           </property>
-          <property name="text">
-           <string>Autre moteur</string>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
           </property>
          </widget>
         </item>
