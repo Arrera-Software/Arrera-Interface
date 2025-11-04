@@ -53,17 +53,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
     ui->LINDICATIONARRERA->setText("Bienvenue sur Arrera I2026");
-    // Mise en place d'une image de fond pour l'affichage main
-    ui->TASKBARMAIN->setObjectName("MainWidget");
-    ui->TASKBARMAIN->setStyleSheet("#MainWidget {"
-                            "border: 2px solid black;"
-                            "border-radius: 15px;"
-                            "}");
-    ui->FBUREAUTIQUEAPP->setObjectName("MainWidget");
-    ui->FBUREAUTIQUEAPP->setStyleSheet("#MainWidget {"
-                                        "border: 2px solid black;"
-                                        "border-radius: 15px;"
-                                       "}");
     ui->IDC_QUITLIEU->setVisible(false);
     // Connection de l'interface principale est le parametre
     connect(&uipara,&ArreraSettingUI::parametresFerme,this,
@@ -146,13 +135,6 @@ void ArreraUI::show(){
 
     // Teste de presence d'une mise a jour
     if (tigerDemon.checkUpdate()){
-        if(dectOS.getosApple()){
-            QFile styleFile(":/style/MacOS.qss");
-            if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)){
-                winMaj.setStyleSheet(QString::fromUtf8(styleFile.readAll()));
-                styleFile.close();
-            }
-        }
         winMaj.show();
         winMaj.raise();
         winMaj.activateWindow();
@@ -302,13 +284,6 @@ void ArreraUI::on_IDC_WEBSITE_clicked()
 
 void ArreraUI::on_IDC_PARA_clicked()
 {
-    if (dectOS.getosApple()){
-        QFile styleFile(":/style/MacOS.qss");
-        if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)){
-            uipara.setStyleSheet(QString::fromUtf8(styleFile.readAll()));
-            styleFile.close();
-        }
-    }
     uipara.show();
 }
 
