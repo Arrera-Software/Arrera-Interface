@@ -1583,7 +1583,7 @@ color: rgb(0, 0, 0);</string>
              <item>
               <widget class="QStackedWidget" name="appStaked">
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="AppView">
                 <layout class="QGridLayout" name="gridLayout_4">
@@ -2165,7 +2165,10 @@ color: rgb(0, 0, 0);</string>
                     </font>
                    </property>
                    <property name="text">
-                    <string>Il n'y a aucune application enregistrée dans Arrera I2025.</string>
+                    <string>Il n'y a aucune application enregistrée dans Arrera</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
                  </item>
@@ -2326,7 +2329,7 @@ color: rgb(0, 0, 0);</string>
            <item>
             <widget class="QStackedWidget" name="arreraAppStacked">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="viewArreraApp">
               <layout class="QGridLayout" name="gridLayout_2">
@@ -2505,7 +2508,7 @@ color: rgb(0, 0, 0);</string>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Aucune application Arrera n'est enregistrée dans Arrera I2025. Pour enregistrer une application, rendez-vous sur Arrera Store.</string>
+                  <string>Aucune application Arrera n'est enregistrée dans Arrera. Pour enregistrer une application, rendez-vous sur Arrera Store.</string>
                  </property>
                  <property name="scaledContents">
                   <bool>false</bool>
