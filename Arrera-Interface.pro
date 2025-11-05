@@ -9,9 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    arrerasettingui.cpp \
     cainterfacesetting.cpp \
     fnc/carrerarecheche.cpp \
+    gui/setting/arrerasettingui.cpp \
     librairy/cdetectionos.cpp \
     librairy/cjsonword.cpp \
     librairy/csetting.cpp \
@@ -29,10 +29,10 @@ SOURCES += \
     socket/carreraserveur.cpp
 
 HEADERS += \
-    arrerasettingui.h \
     arreraui.h \
     cainterfacesetting.h \
     fnc/carrerarecheche.h \
+    gui/setting/arrerasettingui.h \
     librairy/cdetectionos.h \
     librairy/cjsonword.h \
     librairy/csetting.h \
@@ -49,8 +49,8 @@ HEADERS += \
     socket/carreraserveur.h
 
 FORMS += \
-    arrerasettingui.ui \
     arreraui.ui \
+    gui/setting/arrerasettingui.ui \
     manager/update/windowsmaj.ui
 
 # Default rules for deployment.

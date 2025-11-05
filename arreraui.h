@@ -14,7 +14,7 @@
 #include "librairy/cdetectionos.h"
 #include "socket/carreraserveur.h"
 #include "manager/application/carreraapp.h"
-#include "arrerasettingui.h"
+#include "gui/setting/arrerasettingui.h"
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
 
