@@ -3,11 +3,13 @@
 
 #include <QString>
 #include "librairy/csetting.h"
-#include "camode.h"
-#include "calieu.h"
-#include <iostream>
+#include "manager/mode_lieu/camode.h"
+#include "manager/mode_lieu/calieu.h"
 
+/*
+#include <iostream>
 using namespace std;
+*/
 
 class CAInterfaceSetting {
 

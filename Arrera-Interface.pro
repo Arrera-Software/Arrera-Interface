@@ -11,9 +11,6 @@ CONFIG += c++17
 SOURCES += \
     arrerasettingui.cpp \
     cainterfacesetting.cpp \
-    calieu.cpp \
-    camode.cpp \
-    camodelieu.cpp \
     capplication.cpp \
     capppc.cpp \
     cappspeciaux.cpp \
@@ -24,6 +21,9 @@ SOURCES += \
     librairy/csetting.cpp \
     main.cpp \
     arreraui.cpp \
+    manager/mode_lieu/calieu.cpp \
+    manager/mode_lieu/camode.cpp \
+    manager/mode_lieu/camodelieu.cpp \
     manager/update/ctigerdemon.cpp \
     manager/update/windowsmaj.cpp \
     socket/carreraserveur.cpp
@@ -32,9 +32,6 @@ HEADERS += \
     arrerasettingui.h \
     arreraui.h \
     cainterfacesetting.h \
-    calieu.h \
-    camode.h \
-    camodelieu.h \
     capplication.h \
     capppc.h \
     cappspeciaux.h \
@@ -43,6 +40,9 @@ HEADERS += \
     librairy/cdetectionos.h \
     librairy/cjsonword.h \
     librairy/csetting.h \
+    manager/mode_lieu/calieu.h \
+    manager/mode_lieu/camode.h \
+    manager/mode_lieu/camodelieu.h \
     manager/update/ctigerdemon.h \
     manager/update/version.h \
     manager/update/windowsmaj.h \
