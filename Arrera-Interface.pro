@@ -19,9 +19,9 @@ SOURCES += \
     cappspeciaux.cpp \
     carreraapp.cpp \
     carrerarecheche.cpp \
-    cdetectionos.cpp \
-    cjsonword.cpp \
-    csetting.cpp \
+    librairy/cdetectionos.cpp \
+    librairy/cjsonword.cpp \
+    librairy/csetting.cpp \
     main.cpp \
     arreraui.cpp \
     manager/update/ctigerdemon.cpp \
@@ -40,9 +40,9 @@ HEADERS += \
     cappspeciaux.h \
     carreraapp.h \
     carrerarecheche.h \
-    cdetectionos.h \
-    cjsonword.h \
-    csetting.h \
+    librairy/cdetectionos.h \
+    librairy/cjsonword.h \
+    librairy/csetting.h \
     manager/update/ctigerdemon.h \
     manager/update/version.h \
     manager/update/windowsmaj.h \

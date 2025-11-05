@@ -6,7 +6,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QStandardPaths>
-#include <cdetectionos.h>
+#include "librairy/cdetectionos.h"
 
 // Debug
 /*

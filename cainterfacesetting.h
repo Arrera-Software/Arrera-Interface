@@ -2,7 +2,7 @@
 #define CAINTERFACESETTING_H
 
 #include <QString>
-#include "csetting.h"
+#include "librairy/csetting.h"
 #include "camode.h"
 #include "calieu.h"
 #include <iostream>

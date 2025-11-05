@@ -1,7 +1,7 @@
 #ifndef CAMODELIEU_H
 #define CAMODELIEU_H
 #include <QString>
-#include <csetting.h>
+#include <librairy/csetting.h>
 // Debug
 /*
 #include <iostream>

@@ -8,8 +8,8 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QtCore>
-#include "cjsonword.h"
-#include "cdetectionos.h"
+#include "librairy/cjsonword.h"
+#include "librairy/cdetectionos.h"
 
 // Debug
 
