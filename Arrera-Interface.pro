@@ -11,16 +11,16 @@ CONFIG += c++17
 SOURCES += \
     arrerasettingui.cpp \
     cainterfacesetting.cpp \
-    capplication.cpp \
-    capppc.cpp \
-    cappspeciaux.cpp \
-    carreraapp.cpp \
     fnc/carrerarecheche.cpp \
     librairy/cdetectionos.cpp \
     librairy/cjsonword.cpp \
     librairy/csetting.cpp \
     main.cpp \
     arreraui.cpp \
+    manager/application/capplication.cpp \
+    manager/application/capppc.cpp \
+    manager/application/cappspeciaux.cpp \
+    manager/application/carreraapp.cpp \
     manager/mode_lieu/calieu.cpp \
     manager/mode_lieu/camode.cpp \
     manager/mode_lieu/camodelieu.cpp \
@@ -32,14 +32,14 @@ HEADERS += \
     arrerasettingui.h \
     arreraui.h \
     cainterfacesetting.h \
-    capplication.h \
-    capppc.h \
-    cappspeciaux.h \
-    carreraapp.h \
     fnc/carrerarecheche.h \
     librairy/cdetectionos.h \
     librairy/cjsonword.h \
     librairy/csetting.h \
+    manager/application/capplication.h \
+    manager/application/capppc.h \
+    manager/application/cappspeciaux.h \
+    manager/application/carreraapp.h \
     manager/mode_lieu/calieu.h \
     manager/mode_lieu/camode.h \
     manager/mode_lieu/camodelieu.h \

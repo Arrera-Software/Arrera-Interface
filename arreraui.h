@@ -13,10 +13,10 @@
 #include "ui_arreraui.h"
 #include "librairy/cdetectionos.h"
 #include "socket/carreraserveur.h"
-#include "carreraapp.h"
+#include "manager/application/carreraapp.h"
 #include "arrerasettingui.h"
-#include "capppc.h"
-#include "cappspeciaux.h"
+#include "manager/application/capppc.h"
+#include "manager/application/cappspeciaux.h"
 
 
 /*
