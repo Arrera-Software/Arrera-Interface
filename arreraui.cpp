@@ -10,8 +10,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this),
     serveurAssistant(this),
-    comunictation(&serveurApp,&serveurApp,&arecherche,
-                  &objSetting,&appPC,&arreraApp),
     tigerDemon("https://arrera-software.fr/depots.json",
                "arrera-interface",this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),

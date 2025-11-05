@@ -10,8 +10,15 @@
 #include <QShortcut>
 #include "windowsmaj.h"
 #include "ctigerdemon.h"
-#include "ccommunication.h"
 #include "ui_arreraui.h"
+#include "cdetectionos.h"
+#include "carreraserveur.h"
+#include "carreraapp.h"
+#include "arrerasettingui.h"
+#include "capppc.h"
+#include "cappspeciaux.h"
+
+
 /*
 #include "iostream"
 using namespace std;
@@ -199,7 +206,6 @@ private:
     QString assistantMode = nullptr;
     CArreraServeur serveurApp;
     CArreraServeur serveurAssistant;
-    CCommunication comunictation;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     bool modeIsActive,assistantIsActived;
