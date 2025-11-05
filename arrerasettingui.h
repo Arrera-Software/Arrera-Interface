@@ -6,7 +6,7 @@
 #include <QMessageBox>
 #include <QListWidget>
 #include <QDir>
-#include "carrerarecheche.h"
+#include "fnc/carrerarecheche.h"
 #include <QFileDialog>
 #include <QStandardPaths>
 

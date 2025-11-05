@@ -15,7 +15,7 @@ SOURCES += \
     capppc.cpp \
     cappspeciaux.cpp \
     carreraapp.cpp \
-    carrerarecheche.cpp \
+    fnc/carrerarecheche.cpp \
     librairy/cdetectionos.cpp \
     librairy/cjsonword.cpp \
     librairy/csetting.cpp \
@@ -36,7 +36,7 @@ HEADERS += \
     capppc.h \
     cappspeciaux.h \
     carreraapp.h \
-    carrerarecheche.h \
+    fnc/carrerarecheche.h \
     librairy/cdetectionos.h \
     librairy/cjsonword.h \
     librairy/csetting.h \
