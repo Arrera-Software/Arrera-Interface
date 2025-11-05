@@ -19,13 +19,13 @@ SOURCES += \
     cappspeciaux.cpp \
     carreraapp.cpp \
     carrerarecheche.cpp \
-    carreraserveur.cpp \
     cdetectionos.cpp \
     cjsonword.cpp \
     csetting.cpp \
     ctigerdemon.cpp \
     main.cpp \
     arreraui.cpp \
+    socket/carreraserveur.cpp \
     windowsmaj.cpp
 
 HEADERS += \
@@ -40,11 +40,11 @@ HEADERS += \
     cappspeciaux.h \
     carreraapp.h \
     carrerarecheche.h \
-    carreraserveur.h \
     cdetectionos.h \
     cjsonword.h \
     csetting.h \
     ctigerdemon.h \
+    socket/carreraserveur.h \
     version.h \
     windowsmaj.h
 
