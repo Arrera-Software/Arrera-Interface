@@ -8,8 +8,8 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QShortcut>
-#include "windowsmaj.h"
-#include "ctigerdemon.h"
+#include "manager/update/windowsmaj.h"
+#include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
 #include "cdetectionos.h"
 #include "socket/carreraserveur.h"

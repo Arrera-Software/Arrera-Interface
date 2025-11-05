@@ -22,11 +22,11 @@ SOURCES += \
     cdetectionos.cpp \
     cjsonword.cpp \
     csetting.cpp \
-    ctigerdemon.cpp \
     main.cpp \
     arreraui.cpp \
-    socket/carreraserveur.cpp \
-    windowsmaj.cpp
+    manager/update/ctigerdemon.cpp \
+    manager/update/windowsmaj.cpp \
+    socket/carreraserveur.cpp
 
 HEADERS += \
     arrerasettingui.h \
@@ -43,15 +43,15 @@ HEADERS += \
     cdetectionos.h \
     cjsonword.h \
     csetting.h \
-    ctigerdemon.h \
-    socket/carreraserveur.h \
-    version.h \
-    windowsmaj.h
+    manager/update/ctigerdemon.h \
+    manager/update/version.h \
+    manager/update/windowsmaj.h \
+    socket/carreraserveur.h
 
 FORMS += \
     arrerasettingui.ui \
     arreraui.ui \
-    windowsmaj.ui
+    manager/update/windowsmaj.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
