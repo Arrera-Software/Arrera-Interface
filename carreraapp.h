@@ -12,9 +12,10 @@
 #include "librairy/cdetectionos.h"
 
 // Debug
-
+/*
 #include <iostream>
 using namespace std;
+*/
 
 static inline QString canonical(const QString &p) {
     QFileInfo fi(p);
