@@ -10,12 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     fnc/carrerarecheche.cpp \
+    gui/arrera/arreraui.cpp \
     gui/setting/arrerasettingui.cpp \
     librairy/cdetectionos.cpp \
     librairy/cjsonword.cpp \
     librairy/csetting.cpp \
     main.cpp \
-    arreraui.cpp \
     manager/application/capplication.cpp \
     manager/application/capppc.cpp \
     manager/application/cappspeciaux.cpp \
@@ -29,8 +29,8 @@ SOURCES += \
     socket/carreraserveur.cpp
 
 HEADERS += \
-    arreraui.h \
     fnc/carrerarecheche.h \
+    gui/arrera/arreraui.h \
     gui/setting/arrerasettingui.h \
     librairy/cdetectionos.h \
     librairy/cjsonword.h \
@@ -49,7 +49,7 @@ HEADERS += \
     socket/carreraserveur.h
 
 FORMS += \
-    arreraui.ui \
+    gui/arrera/arreraui.ui \
     gui/setting/arrerasettingui.ui \
     manager/update/windowsmaj.ui
 

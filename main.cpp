@@ -1,4 +1,4 @@
-#include "arreraui.h"
+#include "gui/arrera/arreraui.h"
 
 #include <QApplication>
 #include <QStyleHints>
