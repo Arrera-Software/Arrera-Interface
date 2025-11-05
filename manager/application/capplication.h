@@ -1,6 +1,6 @@
 #ifndef CAPPLICATION_H
 #define CAPPLICATION_H
-#include "cainterfacesetting.h"
+#include "manager/setting/cainterfacesetting.h"
 #include "librairy/cdetectionos.h"  // Ajoutez cette ligne pour inclure la classe CDetectionOS
 #include <QPushButton>
 #include <QDesktopServices>

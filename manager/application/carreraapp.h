@@ -1,6 +1,6 @@
 #ifndef CARRERAAPP_H
 #define CARRERAAPP_H
-#include "cainterfacesetting.h"
+#include "manager/setting/cainterfacesetting.h"
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QStandardPaths>

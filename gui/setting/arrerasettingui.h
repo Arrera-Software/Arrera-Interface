@@ -2,7 +2,7 @@
 #define ARRERASETTINGUI_H
 
 #include <QDialog>
-#include "cainterfacesetting.h"
+#include "manager/setting/cainterfacesetting.h"
 #include <QMessageBox>
 #include <QListWidget>
 #include <QDir>

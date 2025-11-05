@@ -9,7 +9,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    cainterfacesetting.cpp \
     fnc/carrerarecheche.cpp \
     gui/setting/arrerasettingui.cpp \
     librairy/cdetectionos.cpp \
@@ -24,13 +23,13 @@ SOURCES += \
     manager/mode_lieu/calieu.cpp \
     manager/mode_lieu/camode.cpp \
     manager/mode_lieu/camodelieu.cpp \
+    manager/setting/cainterfacesetting.cpp \
     manager/update/ctigerdemon.cpp \
     manager/update/windowsmaj.cpp \
     socket/carreraserveur.cpp
 
 HEADERS += \
     arreraui.h \
-    cainterfacesetting.h \
     fnc/carrerarecheche.h \
     gui/setting/arrerasettingui.h \
     librairy/cdetectionos.h \
@@ -43,6 +42,7 @@ HEADERS += \
     manager/mode_lieu/calieu.h \
     manager/mode_lieu/camode.h \
     manager/mode_lieu/camodelieu.h \
+    manager/setting/cainterfacesetting.h \
     manager/update/ctigerdemon.h \
     manager/update/version.h \
     manager/update/windowsmaj.h \
