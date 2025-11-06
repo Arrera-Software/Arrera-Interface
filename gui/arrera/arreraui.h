@@ -17,6 +17,7 @@
 #include "gui/setting/arrerasettingui.h"
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
+#include "manager/communication/assistant.h"
 
 
 /*
@@ -208,6 +209,7 @@ private:
     CArreraServeur serveurAssistant;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
+    assistant assistantCommunication;
     bool modeIsActive,assistantIsActived;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;

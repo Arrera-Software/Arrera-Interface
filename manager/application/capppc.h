@@ -17,7 +17,7 @@ public:
     ~CAppPC();
     bool loadData() override;
     QString getIcon();
-    QString getName();
+    QString getName() const;
 };
 
 #endif // CAPPPC_H

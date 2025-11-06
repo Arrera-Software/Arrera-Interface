@@ -20,6 +20,7 @@ SOURCES += \
     manager/application/capppc.cpp \
     manager/application/cappspeciaux.cpp \
     manager/application/carreraapp.cpp \
+    manager/communication/assistant.cpp \
     manager/mode_lieu/calieu.cpp \
     manager/mode_lieu/camode.cpp \
     manager/mode_lieu/camodelieu.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     manager/application/capppc.h \
     manager/application/cappspeciaux.h \
     manager/application/carreraapp.h \
+    manager/communication/assistant.h \
     manager/mode_lieu/calieu.h \
     manager/mode_lieu/camode.h \
     manager/mode_lieu/camodelieu.h \

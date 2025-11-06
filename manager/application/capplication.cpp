@@ -50,7 +50,7 @@ bool CApplication::executeApplication(){
         }
         else
         {
-                return false;
+            return false;
         }
         }else
     {

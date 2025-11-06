@@ -12,6 +12,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     serveurAssistant(this),
     tigerDemon("https://arrera-software.fr/depots.json",
                "arrera-interface",this),
+    assistantCommunication(&serveurAssistant,&arecherche,&objSetting,&appPC,&arreraApp),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
     shortcutEnter(QKeySequence(Qt::Key_Enter),  this)
 {
@@ -623,10 +624,35 @@ bool ArreraUI::launchAssistantMode(QString assistant){
 }
 
 void ArreraUI::launchGestServeur(){
+    serveurAssistant.startServeur(6666);
+
+    // Partie serveur assistant
+    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
+        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
+        ui->IDC_SIX->setVisible(false);
+        ui->IDC_COPILOTE->setVisible(false);
+        ui->IDC_RYLEY->setVisible(false);
+        assistantIsActived = true;
+    });
+    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
+        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
+        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+        assistantIsActived = false;
+    });
+    connect(&serveurAssistant, &CArreraServeur::messageReceived,
+            [this](const QString &nameSoft, const QString &message)
+            {
+                assistantCommunication.treatment(nameSoft,message);
+            });
+
+    //connect(&comunictation,&CCommunication::textLabel,[this](const QString &message){ui->LINDICATIONARRERA->setText(message);});
+
     /*
     // Demarage des serveur websocket
     serveurApp.startServeur(12345);
-    serveurAssistant.startServeur(6666);
+
 
     // Partie serveur app
     connect(&serveurApp, &CArreraServeur::messageReceived,

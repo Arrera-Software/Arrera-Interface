@@ -51,6 +51,6 @@ QString CAppPC::getIcon(){
     return icon;
 }
 
-QString CAppPC::getName(){
+QString CAppPC::getName() const{
     return nameApp;
 }
