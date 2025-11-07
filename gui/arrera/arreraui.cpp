@@ -12,9 +12,13 @@ ArreraUI::ArreraUI(QWidget *parent)
     serveurAssistant(this),
     tigerDemon("https://arrera-software.fr/depots.json",
                "arrera-interface",this),
-    assistantCommunication(&serveurAssistant,&arecherche,&objSetting,&appPC,&arreraApp),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
-    shortcutEnter(QKeySequence(Qt::Key_Enter),  this)
+    shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
+    assistantCommunication(&serveurAssistant,
+                             &arecherche,
+                             &objSetting,
+                             &appPC,
+                             &arreraApp)
 {
     ui->setupUi(this);
     // Demarage du serveur
@@ -125,7 +129,6 @@ ArreraUI::ArreraUI(QWidget *parent)
 
 ArreraUI::~ArreraUI()
 {
-    serveurApp.stopServeur();
     delete ui;
 }
 
@@ -1459,8 +1462,8 @@ void ArreraUI::searchEnter()
 
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
-    serveurApp.stopServeur();
-    serveurAssistant.stopServeur();
+    //serveurApp.stopServeur();
+    //serveurAssistant.stopServeur();
     winMaj.close();
 
     // On s’assure que uipara n'est pas nullptr ni déjà détruite
