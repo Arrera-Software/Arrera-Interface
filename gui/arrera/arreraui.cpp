@@ -1476,3 +1476,9 @@ void ArreraUI::closeEvent(QCloseEvent *event)
 
     QDialog::closeEvent(event);
 }
+
+void ArreraUI::on_IDC_BREEF_clicked()
+{
+
+}
+

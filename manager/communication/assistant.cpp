@@ -28,7 +28,8 @@ bool assistant::treatment(const QString name,const QString message)
                     interface->sendMessage(name,"noopensoft");
                     return true;
                 }
-            } else
+            }
+            else
             {
                 return false;
             }

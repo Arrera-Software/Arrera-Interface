@@ -194,6 +194,15 @@ private slots:
 
     void closeEvent(QCloseEvent *event) override;
 
+    // Bouton pour envoyer des ordes a l'assistant
+
+    void on_IDC_BREEF_clicked();
+
+    void on_IDC_METEO_clicked();
+
+    void on_IDC_TASK_clicked();
+
+    void on_IDC_AGENDA_clicked();
 
 private:
     Ui::ArreraUI *ui;

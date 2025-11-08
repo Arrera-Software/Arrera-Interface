@@ -2760,6 +2760,46 @@
      </widget>
     </widget>
    </item>
+   <item>
+    <widget class="QFrame" name="ACTIONASSISTANT">
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="IDC_BREEF">
+        <property name="text">
+         <string>BREEF</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_METEO">
+        <property name="text">
+         <string>METEO</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_TASK">
+        <property name="text">
+         <string>TACHE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="IDC_AGENDA">
+        <property name="text">
+         <string>AGENDA</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>
