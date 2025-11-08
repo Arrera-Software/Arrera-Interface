@@ -74,7 +74,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="resource.qrc">
+         <iconset resource="../../resource.qrc">
           <normaloff>:/arrera/img/arrera-bot.png</normaloff>:/arrera/img/arrera-bot.png</iconset>
         </property>
         <property name="iconSize">
@@ -150,7 +150,7 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../../resource.qrc">
             <normaloff>:/recherche/img/recherche/searchengine.png</normaloff>:/recherche/img/recherche/searchengine.png</iconset>
           </property>
           <property name="iconSize">
@@ -199,7 +199,7 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../../resource.qrc">
             <normaloff>:/recherche/img/recherche/historique.png</normaloff>:/recherche/img/recherche/historique.png</iconset>
           </property>
           <property name="iconSize">
@@ -218,7 +218,7 @@
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -299,7 +299,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/Assistant.png</normaloff>:/icon/img/Assistant.png</iconset>
             </property>
             <property name="iconSize">
@@ -328,7 +328,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/application.png</normaloff>:/icon/img/application.png</iconset>
             </property>
             <property name="iconSize">
@@ -486,7 +486,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/ExitArrera.png</normaloff>:/icon/img/ExitArrera.png</iconset>
             </property>
             <property name="iconSize">
@@ -554,7 +554,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode1.png</normaloff>:/mode-lieu/img/mode1.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -588,7 +588,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode5.png</normaloff>:/mode-lieu/img/mode5.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -622,7 +622,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode2.png</normaloff>:/mode-lieu/img/mode2.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -656,7 +656,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode3.png</normaloff>:/mode-lieu/img/mode3.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -690,7 +690,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode6.png</normaloff>:/mode-lieu/img/mode6.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -724,7 +724,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/mode4.png</normaloff>:/mode-lieu/img/mode4.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -789,7 +789,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/lieu2.png</normaloff>:/mode-lieu/img/lieu2.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -823,7 +823,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/mode-lieu/img/lieu1.png</normaloff>:/mode-lieu/img/lieu1.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -912,7 +912,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/ExitArrera.png</normaloff>:/icon/img/ExitArrera.png</iconset>
             </property>
             <property name="iconSize">
@@ -941,7 +941,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/application.png</normaloff>:/icon/img/application.png</iconset>
             </property>
             <property name="iconSize">
@@ -970,7 +970,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/arrera-postite.png</normaloff>:/icon/img/arrera-postite.png</iconset>
             </property>
             <property name="iconSize">
@@ -999,7 +999,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/assistant/img/logo-six.png</normaloff>:/assistant/img/logo-six.png</iconset>
             </property>
             <property name="iconSize">
@@ -1034,7 +1034,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/assistant/img/copilote.png</normaloff>:/assistant/img/copilote.png</iconset>
             </property>
             <property name="iconSize">
@@ -1063,7 +1063,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/assistant/img/Ryley.png</normaloff>:/assistant/img/Ryley.png</iconset>
             </property>
             <property name="iconSize">
@@ -1092,7 +1092,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/arrera-tiger.png</normaloff>:/icon/img/arrera-tiger.png</iconset>
             </property>
             <property name="iconSize">
@@ -1121,7 +1121,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../../resource.qrc">
               <normaloff>:/icon/img/setting.png</normaloff>:/icon/img/setting.png</iconset>
             </property>
             <property name="iconSize">
@@ -1221,7 +1221,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/wordreference.png</normaloff>:/recherche/img/recherche/wordreference.png</iconset>
                </property>
                <property name="iconSize">
@@ -1263,7 +1263,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/bing.png</normaloff>:/recherche/img/recherche/bing.png</iconset>
                </property>
                <property name="iconSize">
@@ -1292,7 +1292,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/youtube.png</normaloff>:/recherche/img/recherche/youtube.png</iconset>
                </property>
                <property name="iconSize">
@@ -1321,7 +1321,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/amazon.png</normaloff>:/recherche/img/recherche/amazon.png</iconset>
                </property>
                <property name="iconSize">
@@ -1350,7 +1350,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/google.png</normaloff>:/recherche/img/recherche/google.png</iconset>
                </property>
                <property name="iconSize">
@@ -1379,7 +1379,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/reverso.png</normaloff>:/recherche/img/recherche/reverso.png</iconset>
                </property>
                <property name="iconSize">
@@ -1408,7 +1408,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/bigsearch.png</normaloff>:/recherche/img/recherche/bigsearch.png</iconset>
                </property>
                <property name="iconSize">
@@ -1437,7 +1437,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/qwant.png</normaloff>:/recherche/img/recherche/qwant.png</iconset>
                </property>
                <property name="iconSize">
@@ -1466,7 +1466,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/duckduckgo.png</normaloff>:/recherche/img/recherche/duckduckgo.png</iconset>
                </property>
                <property name="iconSize">
@@ -1495,7 +1495,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/ecosia.png</normaloff>:/recherche/img/recherche/ecosia.png</iconset>
                </property>
                <property name="iconSize">
@@ -1524,7 +1524,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/brave.png</normaloff>:/recherche/img/recherche/brave.png</iconset>
                </property>
                <property name="iconSize">
@@ -1553,7 +1553,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../../resource.qrc">
                  <normaloff>:/recherche/img/recherche/wikipedia.png</normaloff>:/recherche/img/recherche/wikipedia.png</iconset>
                </property>
                <property name="iconSize">
@@ -1622,7 +1622,7 @@
              <item>
               <widget class="QStackedWidget" name="appStaked">
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="AppView">
                 <layout class="QGridLayout" name="gridLayout_4">
@@ -2245,7 +2245,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resource.qrc">
+                   <iconset resource="../../resource.qrc">
                     <normaloff>:/icon/img/navigateur.png</normaloff>:/icon/img/navigateur.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -2274,7 +2274,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resource.qrc">
+                   <iconset resource="../../resource.qrc">
                     <normaloff>:/icon/img/presentation.png</normaloff>:/icon/img/presentation.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -2303,7 +2303,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resource.qrc">
+                   <iconset resource="../../resource.qrc">
                     <normaloff>:/icon/img/tableur.png</normaloff>:/icon/img/tableur.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -2332,7 +2332,7 @@
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="resource.qrc">
+                   <iconset resource="../../resource.qrc">
                     <normaloff>:/icon/img/traitementTexte.png</normaloff>:/icon/img/traitementTexte.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -2390,7 +2390,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/icon/img/arrera-raccourci.png</normaloff>:/icon/img/arrera-raccourci.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2419,7 +2419,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/icon/img/arrera-video-download.png</normaloff>:/icon/img/arrera-video-download.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2448,7 +2448,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/icon/img/arrera-postite.png</normaloff>:/icon/img/arrera-postite.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2471,7 +2471,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/assistant/img/logo-six.png</normaloff>:/assistant/img/logo-six.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2494,7 +2494,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/assistant/img/Ryley.png</normaloff>:/assistant/img/Ryley.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2523,7 +2523,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resource.qrc">
+                  <iconset resource="../../resource.qrc">
                    <normaloff>:/assistant/img/copilote.png</normaloff>:/assistant/img/copilote.png</iconset>
                  </property>
                  <property name="iconSize">
@@ -2618,7 +2618,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/arrera/img/icon-linux-win.png</pixmap>
+            <pixmap resource="../../resource.qrc">:/arrera/img/icon-linux-win.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -2763,7 +2763,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../../resource.qrc"/>
  </resources>
  <connections/>
 </ui>
