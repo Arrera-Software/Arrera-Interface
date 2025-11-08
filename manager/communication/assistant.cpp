@@ -19,10 +19,10 @@ bool assistant::treatment(const QString name,const QString message)
             if (listApp) {
                 int outApp = appExecute(message);
                 if ( outApp == 1) {
-                    interface->sendMessage(name,"noopensoft");
+                    interface->sendMessage(name,"opensoft");
                     return true;
                 } else if ( outApp == 2)  {
-                    interface->sendMessage(name,"noopensoft");
+                    interface->sendMessage(name,"erreuropensoft");
                     return true;
                 }else{
                     interface->sendMessage(name,"noopensoft");
