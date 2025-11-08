@@ -650,7 +650,11 @@ void ArreraUI::launchGestServeur(){
                 assistantCommunication.treatment(nameSoft,message);
             });
 
-    //connect(&comunictation,&CCommunication::textLabel,[this](const QString &message){ui->LINDICATIONARRERA->setText(message);});
+    connect(&assistantCommunication, &assistant::textTopLabel,
+            this, [this](const QString message) {
+                ui->LINDICATIONARRERA->setText(message);
+            });
+
 
     /*
     // Demarage des serveur websocket

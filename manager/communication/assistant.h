@@ -11,6 +11,7 @@
 
 class assistant : public QObject
 {
+    Q_OBJECT
 private:
     CArreraServeur *interface;
     CArreraRecheche *fncRecherche;
@@ -25,8 +26,11 @@ public:
               CAInterfaceSetting* objSetting = nullptr,QList<CAppPC>* pListApp = nullptr,
               CArreraApp* pArreraApp = nullptr, QObject* parent = nullptr);
     bool treatment(const QString name,const QString message);
+
 private :
     int appExecute(const QString& message);
+signals :
+    void textTopLabel(const QString message);
 };
 
 #endif // ASSISTANT_H

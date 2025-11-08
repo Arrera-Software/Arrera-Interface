@@ -52,11 +52,14 @@ int assistant::appExecute(const QString& message)
         QString name = app.getName().simplified();
         if (name.compare(query, Qt::CaseInsensitive) == 0)
             if (app.executeApplication()){
+                emit textTopLabel("Ouverture de "+name);
                 return 1;
             }
             else{
+                emit textTopLabel("Erreur sur l'ouverture de "+name);
                 return 2;
             }
     }
+    emit textTopLabel("L'application n'est pas enregistrer");
     return 0;
 }
