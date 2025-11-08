@@ -1477,7 +1477,27 @@ void ArreraUI::closeEvent(QCloseEvent *event)
     QDialog::closeEvent(event);
 }
 
+// Bouton pour envoyer des ordes a l'assistant
+
 void ArreraUI::on_IDC_BREEF_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_METEO_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_TASK_clicked()
+{
+
+}
+
+
+void ArreraUI::on_IDC_AGENDA_clicked()
 {
 
 }
