@@ -125,6 +125,10 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Mise en place de la touche entre pour la recherche
     connect(&shortcutEnter,&QShortcut::activated,this,&ArreraUI::searchEnter);
     connect(&shortcutReturn,&QShortcut::activated,this,&ArreraUI::searchEnter);
+
+    nameAssistantConnected = "";
+
+    ui->ACTIONASSISTANT->setVisible(false);
 }
 
 ArreraUI::~ArreraUI()
@@ -636,6 +640,7 @@ void ArreraUI::launchGestServeur(){
         ui->IDC_COPILOTE->setVisible(false);
         ui->IDC_RYLEY->setVisible(false);
         assistantIsActived = true;
+        ui->ACTIONASSISTANT->setVisible(true);
     });
     connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
         ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
@@ -643,11 +648,14 @@ void ArreraUI::launchGestServeur(){
         ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
         ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
         assistantIsActived = false;
+        nameAssistantConnected = "";
+        ui->ACTIONASSISTANT->setVisible(false);
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
             {
                 assistantCommunication.treatment(nameSoft,message);
+                nameAssistantConnected = nameSoft;
             });
 
     connect(&assistantCommunication, &assistant::textTopLabel,
@@ -1467,7 +1475,10 @@ void ArreraUI::searchEnter()
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
     //serveurApp.stopServeur();
-    //serveurAssistant.stopServeur();
+    if (assistantIsActived){
+        serveurAssistant.sendMessage(nameAssistantConnected,"stop");
+    }
+
     winMaj.close();
 
     // On s’assure que uipara n'est pas nullptr ni déjà détruite
@@ -1481,24 +1492,23 @@ void ArreraUI::closeEvent(QCloseEvent *event)
 
 void ArreraUI::on_IDC_BREEF_clicked()
 {
-
+    serveurAssistant.sendMessage(nameAssistantConnected,"breef");
 }
 
 
 void ArreraUI::on_IDC_METEO_clicked()
 {
-
+    serveurAssistant.sendMessage(nameAssistantConnected,"weather");
 }
 
 
 void ArreraUI::on_IDC_TASK_clicked()
 {
-
+    serveurAssistant.sendMessage(nameAssistantConnected,"task");
 }
 
 
 void ArreraUI::on_IDC_AGENDA_clicked()
 {
-
+    serveurAssistant.sendMessage(nameAssistantConnected,"agenda");
 }
-

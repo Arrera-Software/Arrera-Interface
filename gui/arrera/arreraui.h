@@ -221,7 +221,7 @@ private:
     assistant assistantCommunication;
     bool modeIsActive,assistantIsActived;
     int lieuEnabled;
-    QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode;
+    QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
     // Methode private
     void loadSetting();
     void loadArreraApp();
