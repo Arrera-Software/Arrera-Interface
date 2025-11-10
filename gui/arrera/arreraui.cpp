@@ -132,6 +132,15 @@ ArreraUI::ArreraUI(QWidget *parent)
 
     ui->ACTIONASSISTANT->setVisible(false);
     ui->IDC_MODESEARCHBAR->setVisible(false);
+
+    QIcon icon;
+    icon.addFile(":/icon/img/search.png",   QSize(), QIcon::Normal, QIcon::Off);
+    icon.addFile(":/icon/img/Assistant.png",QSize(), QIcon::Normal, QIcon::On);
+
+    ui->IDC_MODESEARCHBAR->setCheckable(true);
+    ui->IDC_MODESEARCHBAR->setIcon(icon);
+
+    ui->IDC_MODESEARCHBAR->setChecked(searchBarAssistantMode);
 }
 
 ArreraUI::~ArreraUI()

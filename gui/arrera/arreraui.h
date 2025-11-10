@@ -222,6 +222,7 @@ private:
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;
     bool modeIsActive,assistantIsActived,searchBarAssistantMode;
+    QIcon iconSearchMode,iconAssistantMode;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
     // Methode private
