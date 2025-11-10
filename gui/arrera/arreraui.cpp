@@ -120,6 +120,8 @@ ArreraUI::ArreraUI(QWidget *parent)
             Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
+    searchBarAssistantMode = false;
+
     // Ecriture du numero de version
     ui->IDC_APROPOSVERSION->setText(tigerDemon.getVersionSoft());
     // Mise en place de la touche entre pour la recherche
@@ -129,6 +131,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     nameAssistantConnected = "";
 
     ui->ACTIONASSISTANT->setVisible(false);
+    ui->IDC_MODESEARCHBAR->setVisible(false);
 }
 
 ArreraUI::~ArreraUI()
@@ -641,6 +644,7 @@ void ArreraUI::launchGestServeur(){
         ui->IDC_RYLEY->setVisible(false);
         assistantIsActived = true;
         ui->ACTIONASSISTANT->setVisible(true);
+        ui->IDC_MODESEARCHBAR->setVisible(true);
     });
     connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
         ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
@@ -650,6 +654,8 @@ void ArreraUI::launchGestServeur(){
         assistantIsActived = false;
         nameAssistantConnected = "";
         ui->ACTIONASSISTANT->setVisible(false);
+        ui->IDC_MODESEARCHBAR->setVisible(false);
+        searchBarAssistantMode = false;
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
@@ -726,39 +732,52 @@ void ArreraUI::launchSearch(int mode){
         switch (mode) {
         case 1: // duck
             sortie = arecherche.searchDuckduckgo(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur duckduckgo");
             break;
         case 2: // google
             sortie = arecherche.searchGoogle(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur google");
             break;
         case 3: // qwant
             sortie = arecherche.searchQwant(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur QWANT");
             break;
         case 4: // ecosia
             sortie = arecherche.searchEcosia(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Ecosia");
             break;
         case 5: // brave
             sortie = arecherche.searchBrave(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Brave");
             break;
         case 6: // bing
             sortie = arecherche.searchBing(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Bing");
             break;
         case 7: // amazon
             sortie = arecherche.searchAmazon(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Amazon");
             break;
         case 8: // wikipedia
             sortie = arecherche.searchWikipedia(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Wikipedia");
             break;
         case 9: // reverso
             sortie = arecherche.searchReverso(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur Reverso");
             break;
         case 10: // wordreference
             sortie = arecherche.searchWordreference(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur WordReference");
             break;
         case 11: // YT
             sortie = arecherche.searchYTmusic(recherche);
+            ui->LINDICATIONARRERA->setText("Recheche sur YT Music");
             break;
         case 12: // all
             sortie = arecherche.searchAll(recherche);
+            ui->LINDICATIONARRERA->setText("BigSearch");
+
             break;
         default:
             sortie = false;
@@ -807,6 +826,17 @@ void ArreraUI::on_IDC_AUTREMOTEUR_clicked()
     ui->arreraRecherche->setCurrentIndex(idPageRechercheMoteur);
     ui->IDC_AUTREMOTEUR->setVisible(false);
     ui->IDC_SHOWHIST->setVisible(true);
+}
+
+void ArreraUI::on_IDC_MODESEARCHBAR_clicked()
+{
+    if (searchBarAssistantMode){
+        searchBarAssistantMode = false;
+        ui->LINDICATIONARRERA->setText("Bar de recherche en mode recherche");
+    }else {
+        searchBarAssistantMode = true;
+        ui->LINDICATIONARRERA->setText("Bar de recherche en mode requette assistant");
+    }
 }
 
 
@@ -1452,23 +1482,31 @@ void ArreraUI::on_IDC_APPLISTMODE_clicked()
 void ArreraUI::searchEnter()
 {
     if (!ui->IDC_SEARCHBAR->text().isEmpty()){
-        // "GOOGLE", "DUCKDUCKGO", "ECOSIA" , "BING", "BRAVE","QWANT"
-        QString moteur = objSetting.getMoteurRecherche();
-        if (moteur == "GOOGLE"){
-            launchSearch(2);
-        }else if (moteur == "DUCKDUCKGO"){
-            launchSearch(1);
-        }else if (moteur == "ECOSIA"){
-            launchSearch(4);
-        }else if (moteur == "BING"){
-            launchSearch(6);
-        }else if (moteur == "BRAVE"){
-            launchSearch(5);
-        }else if (moteur == "QWANT"){
-            launchSearch(3);
+        if(!searchBarAssistantMode){
+            QString moteur = objSetting.getMoteurRecherche();
+            if (moteur == "GOOGLE"){
+                launchSearch(2);
+            }else if (moteur == "DUCKDUCKGO"){
+                launchSearch(1);
+            }else if (moteur == "ECOSIA"){
+                launchSearch(4);
+            }else if (moteur == "BING"){
+                launchSearch(6);
+            }else if (moteur == "BRAVE"){
+                launchSearch(5);
+            }else if (moteur == "QWANT"){
+                launchSearch(3);
+            }else{
+                launchSearch(2);
+            }
         }else{
-            launchSearch(2);
+            serveurAssistant.sendMessage(nameAssistantConnected,
+                                         "requette : "+ui->IDC_SEARCHBAR->text());
+            ui->LINDICATIONARRERA->setText("L'assistant vas vous repondre");
+            ui->IDC_SEARCHBAR->clear();
         }
+    }else{
+        ui->LINDICATIONARRERA->setText("La bar de recherche est vide");
     }
 }
 

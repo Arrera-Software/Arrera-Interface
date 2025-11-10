@@ -71,6 +71,8 @@ private slots:
 
     void on_IDC_AUTREMOTEUR_clicked();
 
+    void on_IDC_MODESEARCHBAR_clicked();
+
     void on_IDC_MOTEURDUCK_clicked();
 
     void on_IDC_MOTEURGOOGLE_clicked();
@@ -219,7 +221,7 @@ private:
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;
-    bool modeIsActive,assistantIsActived;
+    bool modeIsActive,assistantIsActived,searchBarAssistantMode;
     int lieuEnabled;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
     // Methode private
