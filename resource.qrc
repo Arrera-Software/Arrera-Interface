@@ -37,6 +37,10 @@
         <file>img/iconAddApp.png</file>
         <file>img/iconChangeIcon.png</file>
         <file>img/supprApp.png</file>
+        <file>img/agenda.png</file>
+        <file>img/breef.png</file>
+        <file>img/meteo.png</file>
+        <file>img/task.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>
