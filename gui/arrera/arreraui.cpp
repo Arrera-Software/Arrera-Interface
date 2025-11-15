@@ -1136,6 +1136,7 @@ void ArreraUI::on_IDC_MODE1_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-one-launch name:"+nameMode);
     }
 }
 
@@ -1158,6 +1159,7 @@ void ArreraUI::on_IDC_MODE2_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-two-launch name:"+nameMode);
     }
 }
 
@@ -1180,6 +1182,7 @@ void ArreraUI::on_IDC_MODE3_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-theer-launch name:"+nameMode);
     }
 }
 
@@ -1201,6 +1204,7 @@ void ArreraUI::on_IDC_MODE4_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-four-launch name:"+nameMode);
     }
 }
 
@@ -1222,6 +1226,7 @@ void ArreraUI::on_IDC_MODE5_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-five-launch name:"+nameMode);
     }
 }
 
@@ -1243,6 +1248,7 @@ void ArreraUI::on_IDC_MODE6_clicked()
         ui->I2025->setCurrentIndex(idPageI2025Mode);
         modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
+        serveurAssistant.sendMessage(nameAssistantConnected,"mode-six-launch name:"+nameMode);
     }
 }
 
