@@ -21,10 +21,10 @@
 
 
 /*
+
+*/
 #include "iostream"
 using namespace std;
-*/
-
 
 namespace Ui {
 class ArreraUI;
@@ -205,8 +205,17 @@ private slots:
     void on_IDC_TASK_clicked();
 
     void on_IDC_AGENDA_clicked();
+private : // methode
+    void loadSetting();
+    void loadArreraApp();
+    bool launchAppMode(int nbApp,QString app);
+    bool launchAssistantMode(QString assistant = "");
+    void launchGestServeur();
+    void launchSearch(int mode);
+    void searchEnter();
 
-private:
+private: // Attribut
+    // Objet
     Ui::ArreraUI *ui;
     CAInterfaceSetting objSetting;
     WindowsMaj winMaj;
@@ -215,44 +224,21 @@ private:
     CArreraApp arreraApp;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
-    QString assistantMode = nullptr;
-    CArreraServeur serveurApp;
-    CArreraServeur serveurAssistant;
+    CArreraServeur serveurApp,serveurAssistant;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;
-    bool modeIsActive,assistantIsActived,searchBarAssistantMode;
+
+    // Variable
     QIcon iconSearchMode,iconAssistantMode;
-    int lieuEnabled;
+    bool modeIsActive,assistantIsActived,searchBarAssistantMode;
+    QString assistantMode = nullptr;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
-    // Methode private
-    void loadSetting();
-    void loadArreraApp();
-    bool launchAppMode(int nbApp,QString app);
-    bool launchAssistantMode(QString assistant = "");
-    void launchGestServeur();
-    // Methode de recherche
-    void launchSearch(int mode);
-    // Id du staked widget I2025
-    int idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageApropos,idPageRecherche;
-    // Id du staked widget interfaceapp
-    int idPageDesktopApp,idPageArreraApp;
-    // Ide du staked widget arreraRecherche
-    int idPageRechercheMoteur, idPageRechercheHist;
-    // id du acceuilStacked
-    int idNonMode, idYesMode;
-    // id lieuview
-    int idNoLieuSave,idLieuSave;
-    // id modeview
-    int idNoModeSave,idModeSave;
-    // id de appstacked
-    int idAppView,idNoApp;
-    // id arreraAppStacked
-    int idNoArreraApp, idViewArreraApp;
+    int lieuEnabled,idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageApropos,idPageRecherche;
+    int idPageDesktopApp,idPageArreraApp,idPageRechercheMoteur, idPageRechercheHist;
+    int idNonMode, idYesMode,idNoLieuSave,idLieuSave;
+    int idNoModeSave,idModeSave,idAppView,idNoApp,idNoArreraApp, idViewArreraApp;
     bool desktopApp = false;
-    // _______________
-    // Methode private
-    void searchEnter();
 };
 
 #endif // ARRERAUI_H
