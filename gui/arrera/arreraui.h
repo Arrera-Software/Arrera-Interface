@@ -8,6 +8,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QShortcut>
+#include "config.h"
 #include "manager/update/windowsmaj.h"
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
@@ -42,13 +43,12 @@ public:
 
 private slots:
     void on_IDC_ACCEUILARRERA_clicked();
+
     // Bar des taches
 
     void on_IDC_APPBUREAU_clicked();
 
     void on_IDC_CHANGEVIEWAPP_clicked();
-
-    // void on_IDC_ARRERAAPP_clicked();
 
     void on_IDC_TIGER_clicked();
 
@@ -207,7 +207,10 @@ private slots:
     void on_IDC_AGENDA_clicked();
 private : // methode
     void loadSetting();
+    bool loadMode();
+    bool loadLieu();
     void loadArreraApp();
+    bool loadApp();
     bool launchAppMode(int nbApp,QString app);
     bool launchAssistantMode(QString assistant = "");
     void launchGestServeur();
@@ -239,6 +242,7 @@ private: // Attribut
     int idNonMode, idYesMode,idNoLieuSave,idLieuSave;
     int idNoModeSave,idModeSave,idAppView,idNoApp,idNoArreraApp, idViewArreraApp;
     bool desktopApp = false;
+
 };
 
 #endif // ARRERAUI_H

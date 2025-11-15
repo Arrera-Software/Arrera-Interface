@@ -307,192 +307,194 @@ void ArreraUI::on_IDC_PARA_clicked()
 
 void ArreraUI::loadSetting()
 {
-    bool appSetted;
     ui->acceuilStacked->setCurrentIndex(idNonMode);
-    ui->modeview->setCurrentIndex(idNoModeSave);
-    ui->lieuview->setCurrentIndex(idNoLieuSave);
+
     // Partie Mode
-    if (objSetting.mode1IsSeted()){
-        ui->IDC_MODE1->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode1IsSetted()){
-            QIcon icon(objSetting.getIconMode1());
-            ui->IDC_MODE1->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode1.png");
-            ui->IDC_MODE1->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE1->setVisible(false);}
-
-    if (objSetting.mode2IsSeted()){
-        ui->IDC_MODE2->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode2IsSetted()){
-            QIcon icon(objSetting.getIconMode2());
-            ui->IDC_MODE2->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode2.png");
-            ui->IDC_MODE2->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE2->setVisible(false);}
-
-    if (objSetting.mode3IsSeted()){
-        ui->IDC_MODE3->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode3IsSetted()){
-            QIcon icon(objSetting.getIconMode3());
-            ui->IDC_MODE3->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode3.png");
-            ui->IDC_MODE3->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE3->setVisible(false);}
-
-    if (objSetting.mode4IsSeted()){
-        ui->IDC_MODE4->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode4IsSetted()){
-            QIcon icon(objSetting.getIconMode4());
-            ui->IDC_MODE4->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode4.png");
-            ui->IDC_MODE4->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE4->setVisible(false);}
-
-    if (objSetting.mode5IsSeted()){
-        ui->IDC_MODE5->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode5IsSetted()){
-            QIcon icon(objSetting.getIconMode5());
-            ui->IDC_MODE5->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode5.png");
-            ui->IDC_MODE5->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE5->setVisible(false);}
-
-    if (objSetting.mode6IsSeted()){
-        ui->IDC_MODE6->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-        // Mise en place de l'icon
-        if (objSetting.iconMode6IsSetted()){
-            QIcon icon(objSetting.getIconMode6());
-            ui->IDC_MODE6->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/mode6.png");
-            ui->IDC_MODE6->setIcon(icon);
-        }
-    }else{
-        ui->IDC_MODE6->setVisible(false);}
+    if (!loadMode()){
+        QMessageBox::information(this,
+                                 "Information",
+                                 "Les modes ne sont pas charger correctement");
+    }
 
     // Partie lieu
-    if (objSetting.lieu1IsSeted()){
-        ui->IDC_LIEU1->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->lieuview->setCurrentIndex(idLieuSave);
-        // Mise en place de l'icon
-        if (objSetting.iconLieu1IsSetted()){
-            QIcon icon(objSetting.getIconLieu1());
-            ui->IDC_LIEU1->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/lieu1.png");
-            ui->IDC_LIEU1->setIcon(icon);
-        }
-    }else{
-        ui->IDC_LIEU1->setVisible(false);}
 
-    if (objSetting.lieu2IsSeted()){
-        ui->IDC_LIEU2->setVisible(true);
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->lieuview->setCurrentIndex(idLieuSave);
-        // Mise en place de l'icon
-        if (objSetting.iconLieu2IsSetted()){
-            QIcon icon(objSetting.getIconLieu2());
-            ui->IDC_LIEU2->setIcon(icon);
-        }else{
-            QIcon icon(":mode-lieu/img/lieu2.png");
-            ui->IDC_LIEU2->setIcon(icon);
-        }
-    }else{
-        ui->IDC_LIEU2->setVisible(false);
+    if (!loadLieu()){
+        QMessageBox::information(this,
+                                 "Information",
+                                 "Les lieu ne sont pas charger correctement");
     }
+
     // Partie APP
 
-    appPC[0].loadData();
-    appPC[1].loadData();
-    appPC[2].loadData();
-    appPC[3].loadData();
-    appPC[4].loadData();
-    appPC[5].loadData();
-    appPC[6].loadData();
-    appPC[7].loadData();
-    appPC[8].loadData();
-    appPC[9].loadData();
-    appPC[10].loadData();
-    appPC[11].loadData();
-    appPC[12].loadData();
-    appPC[13].loadData();
-    appPC[14].loadData();
-    appPC[15].loadData();
-    appPC[16].loadData();
-    appPC[17].loadData();
-    appPC[18].loadData();
-    appPC[19].loadData();
-
-    if (!appPC[0].getAppSetted()&&!appPC[1].getAppSetted()&&
-        !appPC[2].getAppSetted()&&!appPC[3].getAppSetted()&&
-        !appPC[4].getAppSetted()&&!appPC[5].getAppSetted()&&
-        !appPC[6].getAppSetted()&&!appPC[7].getAppSetted()&&
-        !appPC[8].getAppSetted()&&!appPC[9].getAppSetted()&&
-        !appPC[10].getAppSetted()&&!appPC[11].getAppSetted()&&
-        !appPC[12].getAppSetted()&&!appPC[13].getAppSetted()&&
-        !appPC[14].getAppSetted()&&!appPC[15].getAppSetted()&&
-        !appPC[16].getAppSetted()&&!appPC[17].getAppSetted()&&
-        !appPC[18].getAppSetted()&&!appPC[19].getAppSetted()){
-        ui->appStaked->setCurrentIndex(idNoApp);
-        appSetted=false;
-    }else{
-        ui->appStaked->setCurrentIndex(idAppView);
-        appSetted=true;
-    }
-
-    appNavigateur.loadData();
-    appPresentation.loadData();
-    appTableur.loadData();
-    appTraitementTexte.loadData();
-
-    if (!appNavigateur.getAppSetted()&&
-        !appPresentation.getAppSetted()&&
-        !appTableur.getAppSetted()&&
-        !appTraitementTexte.getAppSetted()&&
-        !appSetted)
-    {
-        ui->IDC_APPLISTMODE->setVisible(false);
-    }else{
-        ui->IDC_APPLISTMODE->setVisible(true);
+    if (!loadApp()){
+        QMessageBox::information(this,
+                                 "Information",
+                                 "Un probleme est survenu lors du chargement des application enregistrer");
     }
 
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
     ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
     ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
     ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+}
+
+bool ArreraUI::loadApp()
+{
+    if (!ui) {
+        qWarning() << "ArreraUI::loadArreraApp() called but UI is null.";
+        return false;
+    }
+
+    bool anyAppSetted = false,appSetted;
+
+    try {
+        // Vérification de la taille du tableau (sécurité)
+        const int count = std::size(appPC);
+
+        for (int i = 0; i < count; ++i) {
+
+            appPC[i].loadData();
+
+            if (appPC[i].getAppSetted()) {
+                anyAppSetted = true;
+            }
+        }
+
+        if (!anyAppSetted) {
+            ui->appStaked->setCurrentIndex(idNoApp);
+            appSetted = false;
+        } else {
+            ui->appStaked->setCurrentIndex(idAppView);
+            appSetted = true;
+        }
+
+        // Chargement des autres applications
+        appNavigateur.loadData();
+        appPresentation.loadData();
+        appTableur.loadData();
+        appTraitementTexte.loadData();
+
+        bool anyExtraAppSetted =
+            appNavigateur.getAppSetted() ||
+            appPresentation.getAppSetted() ||
+            appTableur.getAppSetted() ||
+            appTraitementTexte.getAppSetted();
+
+        ui->IDC_APPLISTMODE->setVisible(anyExtraAppSetted || appSetted);
+    }
+    catch (const std::exception &e) {
+        qWarning() << "Exception in loadArreraApp() :" << e.what();
+        return false;
+    }
+    catch (...) {
+        qWarning() << "Unknown exception in loadArreraApp()";
+        return false;
+    }
+
+    return true;
+}
+
+
+bool ArreraUI::loadLieu(){
+    LieuConfig lieu[] = {
+        {ui->IDC_LIEU1, [&]{return objSetting.lieu1IsSeted();},[&]{return objSetting.iconLieu1IsSetted();},
+         [&]{return objSetting.getIconLieu1();},[&]{return objSetting.getNameLieu1();},
+         ":/mode-lieu/img/lieu1.png",1},
+        ui->IDC_LIEU2, [&]{return objSetting.lieu2IsSeted();},[&]{return objSetting.iconLieu2IsSetted();},
+        [&]{return objSetting.getIconLieu2();},[&]{return objSetting.getNameLieu2();},
+        ":/mode-lieu/img/lieu2.png",2};
+
+    bool atLeastOne = false;
+
+    ui->lieuview->setCurrentIndex(idNoLieuSave);
+
+    for (auto &l : lieu){
+        if (!l.isSet()) {
+            l.button->setVisible(false);
+            continue;
+        }
+
+        atLeastOne = true;
+        l.button->setVisible(true);
+
+        QString iconPath = l.iconIsSet() ? l.getIcon() : l.defaultIcon;
+
+        if (QFile::exists(iconPath)) {
+            l.button->setIcon(QIcon(iconPath));
+        } else {
+            qWarning() << "Icon missing for mode" << l.index << ":" << iconPath;
+            l.button->setIcon(QIcon(l.defaultIcon));
+        }
+    }
+
+    if (atLeastOne) {
+        ui->lieuview->setCurrentIndex(idLieuSave);
+    }
+
+    return atLeastOne;
+}
+
+
+bool ArreraUI::loadMode(){
+
+    ModeConfig modes[] = {
+      { ui->IDC_MODE1, [&]{return objSetting.mode1IsSeted();}, [&]{return objSetting.iconMode1IsSetted();},
+       [&]{return objSetting.getIconMode1();}, [&]{return objSetting.getNameMode1();}, ":mode-lieu/img/mode1.png", 1 },
+
+      { ui->IDC_MODE2, [&]{return objSetting.mode2IsSeted();}, [&]{return objSetting.iconMode2IsSetted();},
+       [&]{return objSetting.getIconMode2();}, [&]{return objSetting.getNameMode2();}, ":mode-lieu/img/mode2.png", 2 },
+
+      { ui->IDC_MODE3, [&]{return objSetting.mode3IsSeted();}, [&]{return objSetting.iconMode3IsSetted();},
+       [&]{return objSetting.getIconMode3();}, [&]{return objSetting.getNameMode3();}, ":mode-lieu/img/mode3.png", 3 },
+
+      { ui->IDC_MODE4, [&]{return objSetting.mode4IsSeted();}, [&]{return objSetting.iconMode4IsSetted();},
+       [&]{return objSetting.getIconMode4();}, [&]{return objSetting.getNameMode4();}, ":mode-lieu/img/mode4.png", 4 },
+
+      { ui->IDC_MODE5, [&]{return objSetting.mode5IsSeted();}, [&]{return objSetting.iconMode5IsSetted();},
+       [&]{return objSetting.getIconMode5();}, [&]{return objSetting.getNameMode5();}, ":mode-lieu/img/mode5.png", 5 },
+
+      { ui->IDC_MODE6, [&]{return objSetting.mode6IsSeted();}, [&]{return objSetting.iconMode6IsSetted();},
+       [&]{return objSetting.getIconMode6();}, [&]{return objSetting.getNameMode6();}, ":mode-lieu/img/mode6.png", 6 },
+      };
+
+
+    QString modeSendAssistant;
+    bool atLeastOne = false;
+
+    ui->modeview->setCurrentIndex(idNoModeSave);
+
+    for (auto &m : modes)
+    {
+        if (!m.isSet()) {
+            m.button->setVisible(false);
+            continue;
+        }
+
+        atLeastOne = true;
+        m.button->setVisible(true);
+
+        QString iconPath = m.iconIsSet() ? m.getIcon() : m.defaultIcon;
+
+        if (QFile::exists(iconPath)) {
+            m.button->setIcon(QIcon(iconPath));
+        } else {
+            qWarning() << "Icon missing for mode" << m.index << ":" << iconPath;
+            m.button->setIcon(QIcon(m.defaultIcon));
+        }
+
+        modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
+    }
+
+    if (atLeastOne) {
+        ui->acceuilStacked->setCurrentIndex(idYesMode);
+        ui->modeview->setCurrentIndex(idModeSave);
+    }
+
+    if (!modeSendAssistant.isEmpty()) {
+        serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
+    }
+
+    return atLeastOne;
 }
 
 void ArreraUI::loadArreraApp(){

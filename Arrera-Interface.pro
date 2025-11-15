@@ -30,6 +30,7 @@ SOURCES += \
     socket/carreraserveur.cpp
 
 HEADERS += \
+    config.h \
     fnc/carrerarecheche.h \
     gui/arrera/arreraui.h \
     gui/setting/arrerasettingui.h \
