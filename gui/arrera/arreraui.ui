@@ -552,7 +552,7 @@
            <item>
             <widget class="QStackedWidget" name="modeview">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="yes">
               <layout class="QGridLayout" name="gridLayout">

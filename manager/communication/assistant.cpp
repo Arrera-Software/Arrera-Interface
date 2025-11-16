@@ -34,9 +34,11 @@ bool assistant::treatment(const QString name,const QString message)
                 return false;
             }
     }else{
+            return false;
+        }
+    }else{
         return false;
     }
-    }else{return false;}
 }
 
 

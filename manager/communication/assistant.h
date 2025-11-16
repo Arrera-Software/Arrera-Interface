@@ -9,6 +9,11 @@
 #include "manager/application/capppc.h"
 #include "manager/application/carreraapp.h"
 
+/*Debug
+#include "iostream"
+using namespace std;
+*/
+
 class assistant : public QObject
 {
     Q_OBJECT

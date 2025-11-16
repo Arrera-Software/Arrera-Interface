@@ -461,40 +461,52 @@ bool ArreraUI::loadMode(){
     QString modeSendAssistant;
     bool atLeastOne = false;
 
+    ui->acceuilStacked->setCurrentIndex(idYesMode);
     ui->modeview->setCurrentIndex(idNoModeSave);
 
-    for (auto &m : modes)
+    try {
+        for (auto &m : modes)
+        {
+            if (!m.isSet()) {
+                m.button->setVisible(false);
+                continue;
+            }
+
+            atLeastOne = true;
+
+            m.button->setVisible(true);
+
+            QString iconPath = m.iconIsSet() ? m.getIcon() : m.defaultIcon;
+
+            if (QFile::exists(iconPath)) {
+                m.button->setIcon(QIcon(iconPath));
+            } else {
+                qWarning() << "Icon missing for mode" << m.index << ":" << iconPath;
+                m.button->setIcon(QIcon(m.defaultIcon));
+            }
+
+            modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
+        }
+
+        if (atLeastOne) {
+            ui->acceuilStacked->setCurrentIndex(idYesMode);
+            ui->modeview->setCurrentIndex(idModeSave);
+        }
+
+        if (!modeSendAssistant.isEmpty()) {
+            serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
+        }
+
+        return true;
+    }catch (const std::exception& e)
     {
-        if (!m.isSet()) {
-            m.button->setVisible(false);
-            continue;
-        }
-
-        atLeastOne = true;
-        m.button->setVisible(true);
-
-        QString iconPath = m.iconIsSet() ? m.getIcon() : m.defaultIcon;
-
-        if (QFile::exists(iconPath)) {
-            m.button->setIcon(QIcon(iconPath));
-        } else {
-            qWarning() << "Icon missing for mode" << m.index << ":" << iconPath;
-            m.button->setIcon(QIcon(m.defaultIcon));
-        }
-
-        modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
+        return false;
+    }
+    catch (...)
+    {
+        return false;
     }
 
-    if (atLeastOne) {
-        ui->acceuilStacked->setCurrentIndex(idYesMode);
-        ui->modeview->setCurrentIndex(idModeSave);
-    }
-
-    if (!modeSendAssistant.isEmpty()) {
-        serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
-    }
-
-    return atLeastOne;
 }
 
 void ArreraUI::loadArreraApp(){
@@ -672,14 +684,16 @@ void ArreraUI::launchGestServeur(){
             [this](const QString &nameSoft, const QString &message)
             {
                 assistantCommunication.treatment(nameSoft,message);
-                nameAssistantConnected = nameSoft;
+                if (nameAssistantConnected.isEmpty()){
+                    nameAssistantConnected = nameSoft;
+                    loadMode();
+                }
             });
 
     connect(&assistantCommunication, &assistant::textTopLabel,
             this, [this](const QString message) {
                 ui->LINDICATIONARRERA->setText(message);
             });
-
 
     /*
     // Demarage des serveur websocket
