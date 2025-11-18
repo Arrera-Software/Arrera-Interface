@@ -408,30 +408,39 @@ bool ArreraUI::loadLieu(){
 
     ui->lieuview->setCurrentIndex(idNoLieuSave);
 
-    for (auto &l : lieu){
-        if (!l.isSet()) {
-            l.button->setVisible(false);
-            continue;
+    try{
+        for (auto &l : lieu){
+            if (!l.isSet()) {
+                l.button->setVisible(false);
+                continue;
+            }
+
+            atLeastOne = true;
+            l.button->setVisible(true);
+
+            QString iconPath = l.iconIsSet() ? l.getIcon() : l.defaultIcon;
+
+            if (QFile::exists(iconPath)) {
+                l.button->setIcon(QIcon(iconPath));
+            } else {
+                qWarning() << "Icon missing for mode" << l.index << ":" << iconPath;
+                l.button->setIcon(QIcon(l.defaultIcon));
+            }
         }
 
-        atLeastOne = true;
-        l.button->setVisible(true);
-
-        QString iconPath = l.iconIsSet() ? l.getIcon() : l.defaultIcon;
-
-        if (QFile::exists(iconPath)) {
-            l.button->setIcon(QIcon(iconPath));
-        } else {
-            qWarning() << "Icon missing for mode" << l.index << ":" << iconPath;
-            l.button->setIcon(QIcon(l.defaultIcon));
+        if (atLeastOne) {
+            ui->lieuview->setCurrentIndex(idLieuSave);
         }
-    }
 
-    if (atLeastOne) {
-        ui->lieuview->setCurrentIndex(idLieuSave);
+        return true;
     }
-
-    return atLeastOne;
+    catch(std::exception &e){
+        qWarning() << "Exception in loadArreraApp() :" << e.what();
+        return false;
+    }catch(...){
+        qWarning() << "Unknown exception in loadArreraApp()";
+        return false;
+    }
 }
 
 
@@ -492,6 +501,8 @@ bool ArreraUI::loadMode(){
             ui->acceuilStacked->setCurrentIndex(idYesMode);
             ui->modeview->setCurrentIndex(idModeSave);
         }
+
+        //cout << modeSendAssistant.toStdString() << endl;
 
         if (!modeSendAssistant.isEmpty()) {
             serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
@@ -694,6 +705,27 @@ void ArreraUI::launchGestServeur(){
             this, [this](const QString message) {
                 ui->LINDICATIONARRERA->setText(message);
             });
+
+    connect(&assistantCommunication, &assistant::launchMode,
+            this, [this](const int nb) {
+                QMetaObject::invokeMethod(this, [this, nb]() {
+                    // ton switch ici
+                    switch (nb) {
+                    case 1: on_IDC_MODE1_clicked(); break;
+                    case 2: on_IDC_MODE2_clicked(); break;
+                    case 3: on_IDC_MODE3_clicked(); break;
+                    case 4: on_IDC_MODE3_clicked(); break;
+                    case 5: on_IDC_MODE4_clicked(); break;
+                    case 6: on_IDC_MODE5_clicked(); break;
+                    default:break;
+                    }
+                }, Qt::QueuedConnection);   // <---- IMPORTANT !!!
+            });
+
+    connect(&assistantCommunication, &assistant::closeMode,
+            this,[this]() {QMetaObject::invokeMethod(this,[this]() {
+                                on_IDC_QUIT_clicked();},Qt::QueuedConnection);
+    });
 
     /*
     // Demarage des serveur websocket
@@ -1248,7 +1280,7 @@ void ArreraUI::on_IDC_MODE5_clicked()
 
 void ArreraUI::on_IDC_MODE6_clicked()
 {
-    if (objSetting.mode1IsSeted()){
+    if (objSetting.mode6IsSeted()){
         QString app1,app2,app3,app4,assistant;
         objSetting.getAppMode6(&app1,&app2,&app3,&app4);
         assistant = objSetting.getAssistantMode6();
@@ -1316,8 +1348,11 @@ void ArreraUI::on_IDC_QUITLIEU_clicked()
 
 void ArreraUI::on_IDC_QUIT_clicked()
 {
-    modeIsActive = false;
-    ui->I2025->setCurrentIndex(idPageI2025Main);
+    if (modeIsActive){
+        modeIsActive = false;
+        ui->I2025->setCurrentIndex(idPageI2025Main);
+        serveurAssistant.sendMessage(nameAssistantConnected,"close mode");
+    }
 }
 
 

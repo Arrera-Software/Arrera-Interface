@@ -10,9 +10,10 @@
 #include "manager/application/carreraapp.h"
 
 /*Debug
+
+*/
 #include "iostream"
 using namespace std;
-*/
 
 class assistant : public QObject
 {
@@ -36,6 +37,8 @@ private :
     int appExecute(const QString& message);
 signals :
     void textTopLabel(const QString message);
+    void launchMode(const int nb);
+    void closeMode();
 };
 
 #endif // ASSISTANT_H

@@ -243,7 +243,7 @@
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -552,7 +552,7 @@
            <item>
             <widget class="QStackedWidget" name="modeview">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="yes">
               <layout class="QGridLayout" name="gridLayout">
