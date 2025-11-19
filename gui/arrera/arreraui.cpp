@@ -1166,137 +1166,139 @@ void ArreraUI::on_IDC_ACOPILOTE_clicked()
 
 // BTN Mode
 
-void ArreraUI::on_IDC_MODE1_clicked()
+
+bool ArreraUI::launchMode(int index)
 {
-    if (objSetting.mode1IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode1(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode1();
+    QString app1,app2,app3,app4,assistant,textAssistant;
+    bool ok = false;
+
+    switch (index) {
+    case 1:
+        if (objSetting.mode1IsSeted()){
+            ok = true;
+            objSetting.getAppMode1(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode1();
+            nameMode = objSetting.getNameMode1();
+            textAssistant = "mode-one-launch name:"+nameMode;
+        }else {ok=false;}
+        break;
+    case 2:
+        if (objSetting.mode2IsSeted()){
+            ok = true;
+            objSetting.getAppMode2(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode2();
+            nameMode = objSetting.getNameMode2();
+            textAssistant = "mode-two-launch name:"+nameMode;
+        }else{ok = false;}
+        break;
+    case 3:
+        if (objSetting.mode3IsSeted()){
+            ok = true;
+            objSetting.getAppMode3(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode3();
+            nameMode = objSetting.getNameMode3();
+            textAssistant = "mode-theer-launch name:"+nameMode;
+        }else{ok = false;}
+        break;
+    case 4:
+        if (objSetting.mode4IsSeted()){
+            ok = true;
+            objSetting.getAppMode4(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode4();
+            nameMode = objSetting.getNameMode4();
+            textAssistant = "mode-four-launch name:"+nameMode;
+        }else{ok = false;}
+        break;
+    case 5:
+        if (objSetting.mode5IsSeted()){
+            ok = true;
+            objSetting.getAppMode5(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode5();
+            nameMode = objSetting.getNameMode5();
+            textAssistant = "mode-five-launch name:"+nameMode;
+        }else{ok = false;}
+        break;
+    case 6 :
+        if (objSetting.mode6IsSeted()){
+            ok = true;
+            objSetting.getAppMode6(&app1,&app2,&app3,&app4);
+            assistant = objSetting.getAssistantMode6();
+            nameMode = objSetting.getNameMode6();
+            textAssistant = "mode-six-launch name:"+nameMode;
+        }else{ok=false;}
+        break;
+    default:
+        break;
+    }
+
+
+    if (ok){
         ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
         ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
         ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode1();
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-one-launch name:"+nameMode);
+        modeIsActive = true;
+        if (!assistantIsActived){
+            launchAssistantMode(assistant);
+        }else{
+            serveurAssistant.sendMessage(nameAssistantConnected,textAssistant);
+        }
+        return true;
+    }else{
+        return false;
+    }
+}
+
+void ArreraUI::on_IDC_MODE1_clicked()
+{
+    if (!launchMode(1)){
+        QMessageBox::critical(this, "Erreur",
+            "Une erreur c'est produite lors du lancement du mode");
     }
 }
 
 
 void ArreraUI::on_IDC_MODE2_clicked()
 {
-    if (objSetting.mode2IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode2(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode2();
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode2();
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-two-launch name:"+nameMode);
+    if (!launchMode(2)){
+        QMessageBox::critical(this, "Erreur",
+                              "Une erreur c'est produite lors du lancement du mode");
     }
 }
 
 
 void ArreraUI::on_IDC_MODE3_clicked()
 {
-    if (objSetting.mode3IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode3(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode3();
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode3();
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-theer-launch name:"+nameMode);
+    if (!launchMode(3)){
+        QMessageBox::critical(this, "Erreur",
+                              "Une erreur c'est produite lors du lancement du mode");
     }
 }
 
 void ArreraUI::on_IDC_MODE4_clicked()
 {
-    if (objSetting.mode4IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode4(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode4();
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode4();
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-four-launch name:"+nameMode);
+    if (!launchMode(4)){
+        QMessageBox::critical(this, "Erreur",
+                              "Une erreur c'est produite lors du lancement du mode");
     }
 }
 
 void ArreraUI::on_IDC_MODE5_clicked()
 {
-    if (objSetting.mode5IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode5(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode5();
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode5();
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-five-launch name:"+nameMode);
+    if (!launchMode(5)){
+        QMessageBox::critical(this, "Erreur",
+                              "Une erreur c'est produite lors du lancement du mode");
     }
 }
 
 void ArreraUI::on_IDC_MODE6_clicked()
 {
-    if (objSetting.mode6IsSeted()){
-        QString app1,app2,app3,app4,assistant;
-        objSetting.getAppMode6(&app1,&app2,&app3,&app4);
-        assistant = objSetting.getAssistantMode6();
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        nameMode = objSetting.getNameMode6();
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        modeIsActive = true;
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        serveurAssistant.sendMessage(nameAssistantConnected,"mode-six-launch name:"+nameMode);
+    if (!launchMode(6)){
+        QMessageBox::critical(this, "Erreur",
+                              "Une erreur c'est produite lors du lancement du mode");
     }
 }
 

@@ -216,6 +216,7 @@ private : // methode
     void launchGestServeur();
     void launchSearch(int mode);
     void searchEnter();
+    bool launchMode(int index);
 
 private: // Attribut
     // Objet
