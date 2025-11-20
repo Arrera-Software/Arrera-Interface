@@ -62,26 +62,19 @@ ArreraUI::ArreraUI(QWidget *parent)
             &ArreraUI::loadSetting);
 
     // Mise en place de bouton d'application
-    appPC.append(CAppPC(1,&objSetting,ui->IDC_APP_001,&dectOS));
-    appPC.append(CAppPC(2,&objSetting,ui->IDC_APP_002,&dectOS));
-    appPC.append(CAppPC(3,&objSetting,ui->IDC_APP_003,&dectOS));
-    appPC.append(CAppPC(4,&objSetting,ui->IDC_APP_004,&dectOS));
-    appPC.append(CAppPC(5,&objSetting,ui->IDC_APP_005,&dectOS));
-    appPC.append(CAppPC(6,&objSetting,ui->IDC_APP_006,&dectOS));
-    appPC.append(CAppPC(7,&objSetting,ui->IDC_APP_007,&dectOS));
-    appPC.append(CAppPC(8,&objSetting,ui->IDC_APP_008,&dectOS));
-    appPC.append(CAppPC(9,&objSetting,ui->IDC_APP_009,&dectOS));
-    appPC.append(CAppPC(10,&objSetting,ui->IDC_APP_010,&dectOS));
-    appPC.append(CAppPC(11,&objSetting,ui->IDC_APP_011,&dectOS));
-    appPC.append(CAppPC(12,&objSetting,ui->IDC_APP_012,&dectOS));
-    appPC.append(CAppPC(13,&objSetting,ui->IDC_APP_013,&dectOS));
-    appPC.append(CAppPC(14,&objSetting,ui->IDC_APP_014,&dectOS));
-    appPC.append(CAppPC(15,&objSetting,ui->IDC_APP_015,&dectOS));
-    appPC.append(CAppPC(16,&objSetting,ui->IDC_APP_016,&dectOS));
-    appPC.append(CAppPC(17,&objSetting,ui->IDC_APP_017,&dectOS));
-    appPC.append(CAppPC(18,&objSetting,ui->IDC_APP_018,&dectOS));
-    appPC.append(CAppPC(19,&objSetting,ui->IDC_APP_019,&dectOS));
-    appPC.append(CAppPC(20,&objSetting,ui->IDC_APP_020,&dectOS));
+
+    QVector<QPushButton*> widgets = {
+        ui->IDC_APP_001, ui->IDC_APP_002, ui->IDC_APP_003, ui->IDC_APP_004,
+        ui->IDC_APP_005, ui->IDC_APP_006, ui->IDC_APP_007, ui->IDC_APP_008,
+        ui->IDC_APP_009, ui->IDC_APP_010, ui->IDC_APP_011, ui->IDC_APP_012,
+        ui->IDC_APP_013, ui->IDC_APP_014, ui->IDC_APP_015, ui->IDC_APP_016,
+        ui->IDC_APP_017, ui->IDC_APP_018, ui->IDC_APP_019, ui->IDC_APP_020
+    };
+
+    for (int i = 0; i < widgets.size(); ++i) {
+        appPC.append(CAppPC(i + 1, &objSetting, widgets[i], &dectOS));
+    }
+
     // Desactivation de bouton de store sur mac os
     if (dectOS.getosApple()){
         ui->IDC_TIGER->setVisible(false);
