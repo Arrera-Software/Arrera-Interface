@@ -554,83 +554,51 @@ void ArreraUI::loadArreraApp(){
 }
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){
-    QPushButton *btn;
-    QString icon,name;
-    bool sortieExe;
-    int i;
+
+    static QPushButton* modeButtons[4] = {
+            ui->IDC_APPMODE1,
+            ui->IDC_APPMODE2,
+            ui->IDC_APPMODE3,
+            ui->IDC_APPMODE4
+    };
+
+    // Vérification nbApp
+    if ((nbApp < 1 )|| (nbApp > 4)){
+        return false;
+    }
+
+    if (!app.startsWith("app")){
+        return false;
+    }
+
+    bool ok = false;
+    int index = app.mid(3).toInt(&ok) - 1; // "7" → 7 → index=6 (0-based)
+    if (!ok || index < 0 || index >= appPC.size()){
+        return false;
+    }
+
+
     switch (nbApp) {
-    case 1:
-        btn = ui->IDC_APPMODE1;
-        app1Mode = app;
-        break;
-    case 2:
-        app2Mode = app;
-        btn = ui->IDC_APPMODE2;
-        break;
-    case 3:
-        app3Mode = app;
-        btn = ui->IDC_APPMODE3;
-        break;
-    case 4:
-        app4Mode = app;
-        btn = ui->IDC_APPMODE4;
-        break;
-    default:
-        return false;
-    }
-    if (app=="app1"){
-        i=0;
-    }else if(app=="app2") {
-        i=1;
-    }else if(app=="app3"){
-        i=2;
-    }else if(app=="app4"){
-        i=3;
-    }else if(app =="app5"){
-        i=4;
-    }else if(app =="app6"){
-        i=5;
-    }else if(app =="app7"){
-        i=6;
-    }else if(app =="app8"){
-        i=7;
-    }else if(app =="app9"){
-        i=8;
-    }else if(app =="app10"){
-        i=9;
-    }else if(app =="app11"){
-        i=10;
-    }else if(app =="app12"){
-        i=11;
-    }else if(app =="app13"){
-        i=12;
-    }else if(app =="app14"){
-        i=13;
-    }else if(app =="app15"){
-        i=14;
-    }else if(app =="app16"){
-        i=15;
-    }else if(app =="app17"){
-        i=16;
-    }else if(app =="app18"){
-        i=17;
-    }else if(app =="app19"){
-        i=18;
-    }else if(app =="app20"){
-        i=19;
-    }else{
-        return false;
+    case 1: app1Mode = app; break;
+    case 2: app2Mode = app; break;
+    case 3: app3Mode = app; break;
+    case 4: app4Mode = app; break;
     }
 
-    name = appPC[i].getName();
-    icon = appPC[i].getIcon();
-    sortieExe = appPC[i].executeApplication();
 
-    btn->setIcon(QIcon());
-    if (icon!="nothing"){
+    QPushButton *btn = modeButtons[nbApp - 1];
+
+    QString name = appPC[index].getName();
+    QString icon = appPC[index].getIcon();
+    bool sortieExe = appPC[index].executeApplication();
+
+
+    // Mise à jour UI
+    if (icon != "nothing") {
         btn->setIcon(QIcon(icon));
         btn->setText("");
-    }else{
+    } else {
+        btn->setIcon(QIcon());
         btn->setText(name);
     }
 
