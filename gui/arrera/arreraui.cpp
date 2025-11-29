@@ -326,9 +326,11 @@ void ArreraUI::loadSetting()
     }
 
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
-    ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-    ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-    ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+    if (!assistantIsActived){
+        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+    }
 }
 
 bool ArreraUI::loadApp()
@@ -640,6 +642,7 @@ void ArreraUI::launchGestServeur(){
         assistantIsActived = true;
         ui->ACTIONASSISTANT->setVisible(true);
         ui->IDC_MODESEARCHBAR->setVisible(true);
+        ui->lieuview->setVisible(false);
     });
     connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
         ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
@@ -651,6 +654,7 @@ void ArreraUI::launchGestServeur(){
         ui->ACTIONASSISTANT->setVisible(false);
         ui->IDC_MODESEARCHBAR->setVisible(false);
         searchBarAssistantMode = false;
+        ui->lieuview->setVisible(true);
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
