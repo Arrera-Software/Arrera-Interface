@@ -236,7 +236,7 @@ private: // Attribut
     // Variable
     QIcon iconSearchMode,iconAssistantMode;
     bool modeIsActive,assistantIsActived,searchBarAssistantMode;
-    QString assistantMode = nullptr;
+    QString assistantMode = nullptr,modelaunched= nullptr;
     QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
     int lieuEnabled,idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageApropos,idPageRecherche;
     int idPageDesktopApp,idPageArreraApp,idPageRechercheMoteur, idPageRechercheHist;

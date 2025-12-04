@@ -1222,7 +1222,7 @@ void ArreraUI::on_IDC_MODE1_clicked()
     if (!launchMode(1)){
         QMessageBox::critical(this, "Erreur",
             "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode1";}
 }
 
 
@@ -1231,7 +1231,7 @@ void ArreraUI::on_IDC_MODE2_clicked()
     if (!launchMode(2)){
         QMessageBox::critical(this, "Erreur",
                               "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode2";}
 }
 
 
@@ -1240,7 +1240,7 @@ void ArreraUI::on_IDC_MODE3_clicked()
     if (!launchMode(3)){
         QMessageBox::critical(this, "Erreur",
                               "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode3";}
 }
 
 void ArreraUI::on_IDC_MODE4_clicked()
@@ -1248,7 +1248,7 @@ void ArreraUI::on_IDC_MODE4_clicked()
     if (!launchMode(4)){
         QMessageBox::critical(this, "Erreur",
                               "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode4";}
 }
 
 void ArreraUI::on_IDC_MODE5_clicked()
@@ -1256,7 +1256,7 @@ void ArreraUI::on_IDC_MODE5_clicked()
     if (!launchMode(5)){
         QMessageBox::critical(this, "Erreur",
                               "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode5";}
 }
 
 void ArreraUI::on_IDC_MODE6_clicked()
@@ -1264,7 +1264,7 @@ void ArreraUI::on_IDC_MODE6_clicked()
     if (!launchMode(6)){
         QMessageBox::critical(this, "Erreur",
                               "Une erreur c'est produite lors du lancement du mode");
-    }
+    }else{modelaunched = "mode6";}
 }
 
 // BTN lieu
@@ -1316,9 +1316,11 @@ void ArreraUI::on_IDC_QUITLIEU_clicked()
 void ArreraUI::on_IDC_QUIT_clicked()
 {
     if (modeIsActive){
+        QString message = "close mode "+modelaunched;
         modeIsActive = false;
         ui->I2025->setCurrentIndex(idPageI2025Main);
-        serveurAssistant.sendMessage(nameAssistantConnected,"close mode");
+        serveurAssistant.sendMessage(nameAssistantConnected,message);
+        modelaunched = nullptr;
     }
 }
 
