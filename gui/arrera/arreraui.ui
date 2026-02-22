@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <customwidgets>
+  <customwidget>
+   <class>RoundedFrame</class>
+   <extends>QFrame</extends>
+   <header>fnc/roundedframe.h</header>
+  </customwidget>
+ </customwidgets>
  <class>ArreraUI</class>
  <widget class="QDialog" name="ArreraUI">
   <property name="windowModality">
@@ -37,10 +44,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QFrame" name="TOPFRAME">
-     <property name="styleSheet">
-      <string notr="true">QFrame { border: 2px solid black; border-radius: 15px; } QLabel { border: none; border-radius: 0; }</string>
-     </property>
+    <widget class="RoundedFrame" name="TOPFRAME">
      <property name="frameShape">
       <enum>QFrame::Shape::NoFrame</enum>
      </property>
@@ -243,7 +247,7 @@
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -879,10 +883,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="TASKBARMAIN">
-         <property name="styleSheet">
-          <string notr="true">QFrame { border: 2px solid black; border-radius: 15px; } QFrame* { border: none; border-radius: 0; }</string>
-         </property>
+        <widget class="RoundedFrame" name="TASKBARMAIN">
          <property name="frameShape">
           <enum>QFrame::Shape::Box</enum>
          </property>

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     fnc/carrerarecheche.cpp \
+    fnc/roundedframe.cpp \
     gui/arrera/arreraui.cpp \
     gui/setting/arrerasettingui.cpp \
     librairy/cdetectionos.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 HEADERS += \
     config.h \
     fnc/carrerarecheche.h \
+    fnc/roundedframe.h \
     gui/arrera/arreraui.h \
     gui/setting/arrerasettingui.h \
     librairy/cdetectionos.h \
