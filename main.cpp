@@ -8,7 +8,7 @@ static QPalette darkPalette(){
     QPalette pal;
     pal.setColor(QPalette::Window, QColor("#0E1116"));
     pal.setColor(QPalette::WindowText, QColor("#E8EDF2"));
-    pal.setColor(QPalette::Base, QColor("#0F1318"));
+    pal.setColor(QPalette::Base, QColor("#1E1E1E"));
     pal.setColor(QPalette::AlternateBase, QColor("#12161F"));
     pal.setColor(QPalette::ToolTipBase, QColor("#11151C"));
     pal.setColor(QPalette::ToolTipText, QColor("#E8EDF2"));
