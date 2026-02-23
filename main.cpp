@@ -41,14 +41,23 @@ static QPalette lightPalette(){
 }
 
 static void applyPaletteForScheme(Qt::ColorScheme scheme) {
-    if (scheme == Qt::ColorScheme::Dark)
-        qApp->setPalette(darkPalette());
-    else
-        qApp->setPalette(lightPalette());
+    QPalette targetPalette = (scheme == Qt::ColorScheme::Dark) ? darkPalette() : lightPalette();
+
+    qApp->setPalette(targetPalette);
+
+    // Astuce : On notifie tous les widgets que la palette a changé
+    for (QWidget *widget : QApplication::allWidgets()) {
+        widget->setPalette(targetPalette);
+        widget->update();
+    }
 }
 
 int main(int argc, char *argv[])
 {
+    qunsetenv("QT_QPA_PLATFORMTHEME");
+
+    qputenv("QT_QPA_PLATFORMTHEME", "xdgdesktopportal");
+
     QApplication a(argc, argv);
     QApplication::setStyle("fusion");
 
