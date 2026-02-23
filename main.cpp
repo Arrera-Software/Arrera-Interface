@@ -54,9 +54,11 @@ static void applyPaletteForScheme(Qt::ColorScheme scheme) {
 
 int main(int argc, char *argv[])
 {
-    qunsetenv("QT_QPA_PLATFORMTHEME");
+    #ifdef Q_OS_LINUX
+        qunsetenv("QT_QPA_PLATFORMTHEME");
 
-    qputenv("QT_QPA_PLATFORMTHEME", "xdgdesktopportal");
+        qputenv("QT_QPA_PLATFORMTHEME", "xdgdesktopportal");
+    #endif
 
     QApplication a(argc, argv);
     QApplication::setStyle("fusion");
