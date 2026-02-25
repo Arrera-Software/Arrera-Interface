@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QStyleHints>
 #include <QObject>
+#include <QIcon>
 
 static QPalette darkPalette(){
     QPalette pal;
@@ -64,6 +65,10 @@ int main(int argc, char *argv[])
     QApplication::setStyle("fusion");
 
     ArreraUI w;
+
+    #ifdef Q_OS_LINUX
+        w.setWindowIcon(QIcon(":/arrera/img/icon-linux-win.png"));
+    #endif
 
     // 1) Appliquer en fonction du schéma courant
     applyPaletteForScheme(qApp->styleHints()->colorScheme());
