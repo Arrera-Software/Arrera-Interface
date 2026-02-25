@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Arera Interface
-Comment=Arera Interface
-Exec=Arera_Interface
-Icon=icon-linux-win
-Terminal=false
-Categories=Utility;

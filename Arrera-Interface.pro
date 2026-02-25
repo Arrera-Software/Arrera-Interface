@@ -68,21 +68,10 @@ RESOURCES += \
     resource.qrc
 
 DISTFILES += \
-    img/icon-linux-win.png \
-    linux/arrera-interface.desktop
+    img/arrera-postite.png
 
 macx{
     ICON = img/arrera-interface.icns
-}
-
-unix:!macx {
-    desktop.files = linux/arrera-interface.desktop
-    desktop.path = /usr/share/applications
-
-    icons.files = img/icon-linux-win.png
-    icons.path = /usr/share/icons/hicolor/256x256/apps
-
-    INSTALLS += desktop icons
 }
 
 TARGET = Arera_Interface
