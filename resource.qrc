@@ -3,6 +3,7 @@
         <file>img/icon-linux-win.png</file>
         <file>img/icon-mac.png</file>
         <file>img/arrera-bot.png</file>
+        <file>img/icon-linux-win.ico</file>
     </qresource>
     <qresource prefix="/assistant">
         <file>img/copilote.png</file>

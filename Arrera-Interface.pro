@@ -74,4 +74,8 @@ macx{
     ICON = img/arrera-interface.icns
 }
 
+win32 {
+    RC_ICONS = img/icon-linux-win.ico
+}
+
 TARGET = Arera_Interface

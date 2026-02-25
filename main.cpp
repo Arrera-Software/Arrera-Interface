@@ -70,6 +70,10 @@ int main(int argc, char *argv[])
         w.setWindowIcon(QIcon(":/arrera/img/icon-linux-win.png"));
     #endif
 
+    #ifdef Q_OS_WIN
+        w.setWindowIcon(QIcon(":/arrera/img/icon-linux-win.png"));
+    #endif
+
     // 1) Appliquer en fonction du schéma courant
     applyPaletteForScheme(qApp->styleHints()->colorScheme());
 
