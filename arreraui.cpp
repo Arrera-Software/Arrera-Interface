@@ -256,7 +256,7 @@ void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
 // Partie Apropos
 void ArreraUI::on_IDC_SOURCECODE_clicked()
 {
-    QUrl url("https://github.com/Arrera-Software/Arrera-Interface");
+    QUrl url("https://github.com/Arrera-Software/Arrera-Interface/tree/lts");
     QDesktopServices::openUrl(url);
 }
 
