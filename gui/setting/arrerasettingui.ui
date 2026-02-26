@@ -3177,7 +3177,7 @@ les application</string>
   <customwidget>
    <class>RoundedFrame</class>
    <extends>QFrame</extends>
-   <header>fnc/roundedframe.h</header>
+  <header>widget/roundedframe.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
