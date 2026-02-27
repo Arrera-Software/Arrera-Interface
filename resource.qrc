@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/arrera">
-        <file>img/i2025-icon.png</file>
+        <file>img/icon-linux-win.png</file>
+        <file>img/icon-mac.png</file>
+        <file>img/arrera-bot.png</file>
+        <file>img/icon-linux-win.ico</file>
     </qresource>
     <qresource prefix="/assistant">
         <file>img/copilote.png</file>
@@ -8,10 +11,8 @@
         <file>img/Ryley.png</file>
     </qresource>
     <qresource prefix="/icon">
-        <file>img/historique-Arrera-Recherche-interface I2025.png</file>
         <file>img/ExitArrera.png</file>
         <file>img/Assistant.png</file>
-        <file>img/arrera-application.png</file>
         <file>img/application.png</file>
         <file>img/setting.png</file>
         <file>img/search.png</file>
@@ -37,6 +38,10 @@
         <file>img/iconAddApp.png</file>
         <file>img/iconChangeIcon.png</file>
         <file>img/supprApp.png</file>
+        <file>img/agenda.png</file>
+        <file>img/breef.png</file>
+        <file>img/meteo.png</file>
+        <file>img/task.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>
@@ -70,8 +75,8 @@
         <file>img/recherche/wordreference.png</file>
         <file>img/recherche/youtube.png</file>
         <file>img/recherche/bigsearch.png</file>
+        <file>img/recherche/historique.png</file>
+        <file>img/recherche/searchengine.png</file>
     </qresource>
-    <qresource prefix="/style">
-        <file>MacOS.qss</file>
-    </qresource>
+    <qresource prefix="/style"/>
 </RCC>
