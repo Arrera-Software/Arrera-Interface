@@ -5,7 +5,7 @@
 
 class version{
 private :
-    const QString version = "I2026-0.00" ;
+    const QString version = "I2026-1.00" ;
     const QString name = "ARRERA-INTERFACE" ;
 public :
     QString getVersion(){
