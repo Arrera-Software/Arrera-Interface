@@ -2751,7 +2751,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QFrame" name="ACTIONASSISTANT">
+    <widget class="RoundedFrame" name="ACTIONASSISTANT">
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
      </property>
@@ -2884,7 +2884,7 @@
   <customwidget>
    <class>RoundedFrame</class>
    <extends>QFrame</extends>
-   <header>widget/roundedframe.h</header>
+   <header location="global">widget/roundedframe.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
