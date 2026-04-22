@@ -1137,7 +1137,8 @@ void ArreraUI::on_IDC_ACOPILOTE_clicked()
 
 bool ArreraUI::launchMode(int index)
 {
-    QString app1,app2,app3,app4,assistant,textAssistant;
+    QString app1,app2,app3,app4,assistant,textAssistant,img;
+    QPixmap *icon;
     bool ok = false;
 
     switch (index) {
@@ -1147,6 +1148,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode1(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode1();
             nameMode = objSetting.getNameMode1();
+            img = objSetting.getIconMode1();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode1.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-one-launch name:"+nameMode;
         }else {ok=false;}
         break;
@@ -1156,6 +1163,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode2(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode2();
             nameMode = objSetting.getNameMode2();
+            img = objSetting.getIconMode2();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode2.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-two-launch name:"+nameMode;
         }else{ok = false;}
         break;
@@ -1165,6 +1178,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode3(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode3();
             nameMode = objSetting.getNameMode3();
+            img = objSetting.getIconMode3();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode3.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-theer-launch name:"+nameMode;
         }else{ok = false;}
         break;
@@ -1174,6 +1193,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode4(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode4();
             nameMode = objSetting.getNameMode4();
+            img = objSetting.getIconMode4();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode4.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-four-launch name:"+nameMode;
         }else{ok = false;}
         break;
@@ -1183,6 +1208,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode5(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode5();
             nameMode = objSetting.getNameMode5();
+            img = objSetting.getIconMode5();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode5.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-five-launch name:"+nameMode;
         }else{ok = false;}
         break;
@@ -1192,6 +1223,12 @@ bool ArreraUI::launchMode(int index)
             objSetting.getAppMode6(&app1,&app2,&app3,&app4);
             assistant = objSetting.getAssistantMode6();
             nameMode = objSetting.getNameMode6();
+            img = objSetting.getIconMode6();
+            if (img == "error"){
+                icon = new QPixmap("qrc:/mode-lieu/img/mode6.png");
+            }else {
+                icon = new QPixmap(img);
+            }
             textAssistant = "mode-six-launch name:"+nameMode;
         }else{ok=false;}
         break;
@@ -1207,6 +1244,9 @@ bool ArreraUI::launchMode(int index)
         ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
         ui->LINDICATIONARRERA->setText(nameMode);
         ui->I2025->setCurrentIndex(idPageI2025Mode);
+        ui->LICONARRERA->setPixmap(icon->scaled(
+            ui->LICONARRERA->size(),
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
         ui->LINCNAMEMODE->setText("Mode : "+nameMode);
         modeIsActive = true;
         if (!assistantIsActived){
