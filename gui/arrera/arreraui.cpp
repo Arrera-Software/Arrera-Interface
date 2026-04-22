@@ -1150,7 +1150,7 @@ bool ArreraUI::launchMode(int index)
             nameMode = objSetting.getNameMode1();
             img = objSetting.getIconMode1();
             if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap("qrc:/mode-lieu/img/mode1.png");
+                icon = new QPixmap(":/mode-lieu/img/mode1.png");
             }else {
                 icon = new QPixmap(img);
             }
@@ -1180,7 +1180,7 @@ bool ArreraUI::launchMode(int index)
             nameMode = objSetting.getNameMode3();
             img = objSetting.getIconMode3();
             if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap("qrc:/mode-lieu/img/mode3.png");
+                icon = new QPixmap(":/mode-lieu/img/mode3.png");
             }else {
                 icon = new QPixmap(img);
             }
@@ -1195,7 +1195,7 @@ bool ArreraUI::launchMode(int index)
             nameMode = objSetting.getNameMode4();
             img = objSetting.getIconMode4();
             if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap("qrc:/mode-lieu/img/mode4.png");
+                icon = new QPixmap(":/mode-lieu/img/mode4.png");
             }else {
                 icon = new QPixmap(img);
             }
@@ -1210,7 +1210,7 @@ bool ArreraUI::launchMode(int index)
             nameMode = objSetting.getNameMode5();
             img = objSetting.getIconMode5();
             if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap("qrc:/mode-lieu/img/mode5.png");
+                icon = new QPixmap(":/mode-lieu/img/mode5.png");
             }else {
                 icon = new QPixmap(img);
             }
@@ -1225,7 +1225,7 @@ bool ArreraUI::launchMode(int index)
             nameMode = objSetting.getNameMode6();
             img = objSetting.getIconMode6();
             if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap("qrc:/mode-lieu/img/mode6.png");
+                icon = new QPixmap(":/mode-lieu/img/mode6.png");
             }else {
                 icon = new QPixmap(img);
             }
