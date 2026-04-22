@@ -46,17 +46,17 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="IDC_ACCEUILARRERA">
+       <widget class="APushButton" name="IDC_ACCEUILARRERA">
         <property name="minimumSize">
          <size>
-          <width>50</width>
-          <height>50</height>
+          <width>70</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>50</width>
-          <height>50</height>
+          <width>70</width>
+          <height>60</height>
          </size>
         </property>
         <property name="font">
@@ -140,7 +140,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="IDC_MODESEARCHBAR">
+         <widget class="APushButton" name="IDC_MODESEARCHBAR">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -165,7 +165,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="IDC_AUTREMOTEUR">
+         <widget class="APushButton" name="IDC_AUTREMOTEUR">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -199,7 +199,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="IDC_SHOWHIST">
+         <widget class="APushButton" name="IDC_SHOWHIST">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -525,7 +525,7 @@
              <widget class="QWidget" name="yes">
               <layout class="QGridLayout" name="gridLayout">
                <item row="0" column="0">
-                <widget class="QPushButton" name="IDC_MODE1">
+                <widget class="APushButton" name="IDC_MODE1">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -559,7 +559,7 @@
                 </widget>
                </item>
                <item row="3" column="1">
-                <widget class="QPushButton" name="IDC_MODE5">
+                <widget class="APushButton" name="IDC_MODE5">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -593,7 +593,7 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QPushButton" name="IDC_MODE2">
+                <widget class="APushButton" name="IDC_MODE2">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -627,7 +627,7 @@
                 </widget>
                </item>
                <item row="0" column="2">
-                <widget class="QPushButton" name="IDC_MODE3">
+                <widget class="APushButton" name="IDC_MODE3">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -661,7 +661,7 @@
                 </widget>
                </item>
                <item row="3" column="2">
-                <widget class="QPushButton" name="IDC_MODE6">
+                <widget class="APushButton" name="IDC_MODE6">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -695,7 +695,7 @@
                 </widget>
                </item>
                <item row="3" column="0">
-                <widget class="QPushButton" name="IDC_MODE4">
+                <widget class="APushButton" name="IDC_MODE4">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -760,7 +760,7 @@
              <widget class="QWidget" name="yeslieu">
               <layout class="QHBoxLayout" name="horizontalLayout_11">
                <item>
-                <widget class="QPushButton" name="IDC_LIEU2">
+                <widget class="APushButton" name="IDC_LIEU2">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -794,7 +794,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="IDC_LIEU1">
+                <widget class="APushButton" name="IDC_LIEU1">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -885,7 +885,7 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QPushButton" name="IDC_QUITLIEU">
+           <widget class="APushButton" name="IDC_QUITLIEU">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -907,14 +907,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_APPBUREAU">
+           <widget class="APushButton" name="IDC_APPBUREAU">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -923,8 +923,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -936,14 +936,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>65</width>
-              <height>65</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_ARRERAPOSTITE">
+           <widget class="APushButton" name="IDC_ARRERAPOSTITE">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -952,8 +952,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -965,14 +965,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_SIX">
+           <widget class="APushButton" name="IDC_SIX">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -981,8 +981,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -994,8 +994,8 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
             <property name="default">
@@ -1007,7 +1007,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_COPILOTE">
+           <widget class="APushButton" name="IDC_COPILOTE">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -1016,8 +1016,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -1029,14 +1029,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_RYLEY">
+           <widget class="APushButton" name="IDC_RYLEY">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -1045,8 +1045,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -1058,14 +1058,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_TIGER">
+           <widget class="APushButton" name="IDC_TIGER">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -1074,8 +1074,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -1087,14 +1087,14 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="IDC_PARA">
+           <widget class="APushButton" name="IDC_PARA">
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -1103,8 +1103,8 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>70</width>
+              <height>70</height>
              </size>
             </property>
             <property name="text">
@@ -1116,8 +1116,8 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>70</height>
+              <width>55</width>
+              <height>55</height>
              </size>
             </property>
            </widget>
@@ -2760,7 +2760,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="IDC_BREEF">
+       <widget class="APushButton" name="IDC_BREEF">
         <property name="minimumSize">
          <size>
           <width>60</width>
@@ -2782,14 +2782,14 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="IDC_METEO">
+       <widget class="APushButton" name="IDC_METEO">
         <property name="minimumSize">
          <size>
           <width>60</width>
@@ -2811,14 +2811,14 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="IDC_TASK">
+       <widget class="APushButton" name="IDC_TASK">
         <property name="minimumSize">
          <size>
           <width>60</width>
@@ -2840,14 +2840,14 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="IDC_AGENDA">
+       <widget class="APushButton" name="IDC_AGENDA">
         <property name="minimumSize">
          <size>
           <width>60</width>
@@ -2869,8 +2869,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>50</width>
+          <height>50</height>
          </size>
         </property>
        </widget>
@@ -2886,6 +2886,11 @@
    <extends>QFrame</extends>
    <header location="global">widget/roundedframe.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>APushButton</class>
+   <extends>QPushButton</extends>
+   <header location="global">widget/apushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

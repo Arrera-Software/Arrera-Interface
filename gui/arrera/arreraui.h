@@ -19,6 +19,7 @@
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
 #include "manager/communication/assistant.h"
+#include "widget/arrera_theme.h"
 
 
 /*
@@ -232,6 +233,7 @@ private: // Attribut
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;
+    Arrera_Theme theme;
 
     // Variable
     QIcon iconSearchMode,iconAssistantMode;

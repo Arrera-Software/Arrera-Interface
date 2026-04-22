@@ -18,13 +18,16 @@ ArreraUI::ArreraUI(QWidget *parent)
                              &arecherche,
                              &objSetting,
                              &appPC,
-                             &arreraApp)
+                             &arreraApp),
+    theme(this)
 {
     ui->setupUi(this);
     // Demarage du serveur
     launchGestServeur();
     // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
+    // Mise en place du theme
+    theme.loadThemeFromJson(":/theme/widget/theme.json");
     // Ajout de l'objet de l'interface des parametre
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);

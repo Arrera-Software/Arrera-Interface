@@ -78,5 +78,7 @@
         <file>img/recherche/historique.png</file>
         <file>img/recherche/searchengine.png</file>
     </qresource>
-    <qresource prefix="/style"/>
+    <qresource prefix="/theme">
+        <file>widget/theme.json</file>
+    </qresource>
 </RCC>
