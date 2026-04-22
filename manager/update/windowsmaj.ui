@@ -140,7 +140,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="IDC_MAJ">
+      <widget class="APushButton" name="IDC_MAJ">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -165,7 +165,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="IDC_CONTINUE">
+      <widget class="APushButton" name="IDC_CONTINUE">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -184,8 +184,13 @@
   <customwidget>
    <class>RoundedFrame</class>
    <extends>QFrame</extends>
-   <header>widget/roundedframe.h</header>
+   <header location="global">widget/roundedframe.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>APushButton</class>
+   <extends>QPushButton</extends>
+   <header location="global">widget/apushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>
