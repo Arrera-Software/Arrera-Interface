@@ -119,7 +119,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     searchBarAssistantMode = false;
 
     // Ecriture du numero de version
-    ui->IDC_APROPOSVERSION->setText(tigerDemon.getVersionSoft());
+    ui->IDC_APROPOSVERSION->setText(tigerDemon.get_version());
     // Mise en place de la touche entre pour la recherche
     connect(&shortcutEnter,&QShortcut::activated,this,&ArreraUI::searchEnter);
     connect(&shortcutReturn,&QShortcut::activated,this,&ArreraUI::searchEnter);

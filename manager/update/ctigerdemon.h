@@ -24,13 +24,23 @@ class CTigerDemon : public QObject
 {
     Q_OBJECT
 public:
-    explicit CTigerDemon(const QString& url, const QString& nameSoft, QObject* parent = nullptr);
-    bool checkUpdate();
-    QString getVersionSoft();
+    explicit CTigerDemon(QString name, QObject* parent = nullptr);
+    void checkUpdate();
+    QString get_version();
 private:
     QNetworkAccessManager* manager;
     QJsonObject contenuJSON;
-    version fileversion;
+    version offline_version;
+    QString online_version,name_soft;
+    QString url = "https://github.com/Arrera-Software/distribution/blob/main/index.json";
+private: // Methode
+    bool sate_connection();
+    int set_online_version();
+
+signals:
+    void updateResult(bool hasUpdate, const QString& newVersion);
+    void updateError(int errorCode);
+
 };
 
 #endif // CTIGERDEMON_H
