@@ -127,10 +127,26 @@ ArreraUI::ArreraUI(QWidget *parent)
 
     connect(&tigerDemon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
         if (hasUpdate) {
+            ui->IDC_VIEW_MAJ->setVisible(true);
+            ui->IDC_VIEW_MAJ->setText("La version " +newVersion+ " est disponible");
             winMaj.set_new_version(newVersion);
             winMaj.show();
             winMaj.raise();
             winMaj.activateWindow();
+        }else {
+            ui->IDC_VIEW_MAJ->setVisible(false);
+        }
+    });
+
+    connect(&tigerDemon, &CTigerDemon::updateError, this, [=](int errorCode){
+        if (errorCode == -1){
+            ui->IDC_VIEW_MAJ->setVisible(true);
+            ui->IDC_VIEW_MAJ->setText("Impossible de vérifier les mises à jour, une erreur réseau s'est produite");
+        }else if (errorCode == -2){
+            ui->IDC_VIEW_MAJ->setVisible(true);
+            ui->IDC_VIEW_MAJ->setText("Impossible de vérifier les mises à jour");
+        }else{
+            ui->IDC_VIEW_MAJ->setVisible(false);
         }
     });
 
@@ -299,6 +315,11 @@ void ArreraUI::on_IDC_WEBSITE_clicked()
 {
     QUrl url("https://www.arrera-software.fr/");
     QDesktopServices::openUrl(url);
+}
+
+void ArreraUI::on_IDC_CHECK_UPDATE_clicked()
+{
+    tigerDemon.checkUpdate();
 }
 
 

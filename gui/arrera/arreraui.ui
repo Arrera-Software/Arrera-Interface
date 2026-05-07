@@ -240,7 +240,7 @@
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -2675,6 +2675,21 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="IDC_VIEW_MAJ">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>UPDATE</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="IDC_APROPOSCOPYRIGHT">
          <property name="font">
           <font>
@@ -2717,7 +2732,32 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_18">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="APushButton" name="IDC_CHECK_UPDATE">
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Vérifier les mises à jour</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
            </property>

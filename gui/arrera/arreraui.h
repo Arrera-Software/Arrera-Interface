@@ -68,6 +68,8 @@ private slots:
 
     void on_IDC_WEBSITE_clicked();
 
+    void on_IDC_CHECK_UPDATE_clicked();
+
     void on_IDC_PARA_clicked();
 
     void on_IDC_SHOWHIST_clicked();
@@ -208,6 +210,7 @@ private slots:
     void on_IDC_TASK_clicked();
 
     void on_IDC_AGENDA_clicked();
+
 private : // methode
     void loadSetting();
     bool loadMode();
