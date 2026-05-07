@@ -240,7 +240,7 @@
    <item>
     <widget class="QStackedWidget" name="I2025">
      <property name="currentIndex">
-      <number>4</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="mode">
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -1083,7 +1083,7 @@
             </property>
             <property name="icon">
              <iconset resource="../../resource.qrc">
-              <normaloff>:/icon/img/arrera-tiger.png</normaloff>:/icon/img/arrera-tiger.png</iconset>
+              <normaloff>:/icon/img/arrera_hub.png</normaloff>:/icon/img/arrera_hub.png</iconset>
             </property>
             <property name="iconSize">
              <size>
