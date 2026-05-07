@@ -16,8 +16,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     assistantCommunication(&serveurAssistant,
                              &arecherche,
                              &objSetting,
-                             &appPC,
-                             &arreraApp),
+                             &appPC),
     theme(this)
 {
     ui->setupUi(this);

@@ -2,13 +2,12 @@
 
 assistant::assistant(QObject* parent) :
     QObject(parent),interface(nullptr),fncRecherche(nullptr),
-    setting(nullptr),listApp(nullptr),arreraApp(nullptr) {}
+    setting(nullptr),listApp(nullptr) {}
 
 assistant::assistant(CArreraServeur*pinterface,CArreraRecheche* objRecherche,
-          CAInterfaceSetting* objSetting,QList<CAppPC>* pListApp,
-                     CArreraApp* pArreraApp, QObject* parent):
+          CAInterfaceSetting* objSetting,QList<CAppPC>* pListApp,QObject* parent):
     QObject(parent),interface(pinterface),fncRecherche(objRecherche),
-    setting(objSetting),listApp(pListApp),arreraApp(pArreraApp) {}
+    setting(objSetting),listApp(pListApp) {}
 
 bool assistant::treatment(const QString name,const QString message)
 {
