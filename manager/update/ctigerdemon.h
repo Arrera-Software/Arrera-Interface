@@ -12,7 +12,6 @@
 #include <QEventLoop>
 #include <QTimer>
 #include <QUrl>
-
 // Debug
 /*
 #include <iostream>
@@ -32,7 +31,7 @@ private:
     QJsonObject contenuJSON;
     QString offline_version;
     QString online_version,name_soft;
-    QString url = "https://raw.githubusercontent.com/Arrera-Software/distribution/refs/heads/main/index.jsonw";
+    QString url = "https://raw.githubusercontent.com/Arrera-Software/distribution/refs/heads/main/index.json";
 private: // Methode
     bool sate_connection();
     int set_online_version();

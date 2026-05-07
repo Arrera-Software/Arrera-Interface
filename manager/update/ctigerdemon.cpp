@@ -14,6 +14,9 @@ QString CTigerDemon::get_version(){
 void CTigerDemon::checkUpdate() {
     int status = set_online_version();
 
+    //cout << status << endl;
+    //cout << "Version local : " << offline_version.toStdString() << "\nVersion en ligne : " << online_version.toStdString() << endl;
+
     if (status != 1) emit updateError(status);
 
     if (offline_version == "dev") emit updateResult(false,online_version);
