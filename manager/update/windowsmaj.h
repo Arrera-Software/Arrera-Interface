@@ -15,10 +15,9 @@ class WindowsMaj : public QDialog
 public:
     explicit WindowsMaj(QWidget *parent = nullptr);
     ~WindowsMaj();
+    void set_new_version(QString new_version);
 
 private slots:
-    void on_IDC_MAJ_clicked();
-
     void on_IDC_CONTINUE_clicked();
 
 private:

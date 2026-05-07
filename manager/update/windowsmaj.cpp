@@ -8,17 +8,14 @@ WindowsMaj::WindowsMaj(QWidget *parent)
     ui->setupUi(this);
 }
 
+void WindowsMaj::set_new_version(QString new_version){
+    ui->IDC_TITLE->setText("La version " +new_version+ " d'Arrera est disponible");
+}
+
 WindowsMaj::~WindowsMaj()
 {
     delete ui;
 }
-
-void WindowsMaj::on_IDC_MAJ_clicked()
-{
-    QDesktopServices::openUrl(
-        QUrl("https://github.com/Arrera-Software/Arrera-Interface/releases"));
-}
-
 
 void WindowsMaj::on_IDC_CONTINUE_clicked()
 {

@@ -127,16 +127,11 @@ ArreraUI::ArreraUI(QWidget *parent)
 
     connect(&tigerDemon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
         if (hasUpdate) {
+            winMaj.set_new_version(newVersion);
             winMaj.show();
             winMaj.raise();
             winMaj.activateWindow();
-        } else {
-            cout << "ok" << newVersion.toStdString() << endl;
         }
-    });
-
-    connect(&tigerDemon, &CTigerDemon::updateError, this, [=](int errorCode){
-        cout << "error : "+errorCode << endl;
     });
 
     nameAssistantConnected = "";
