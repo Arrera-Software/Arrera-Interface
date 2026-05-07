@@ -53,7 +53,6 @@ HEADERS += \
     manager/mode_lieu/camodelieu.h \
     manager/setting/cainterfacesetting.h \
     manager/update/ctigerdemon.h \
-    manager/update/version.h \
     manager/update/windowsmaj.h \
     socket/carreraserveur.h
 

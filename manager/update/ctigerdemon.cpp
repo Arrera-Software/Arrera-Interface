@@ -1,36 +1,30 @@
 #include "ctigerdemon.h"
 
-
-
-CTigerDemon::CTigerDemon(QString name, QObject* parent = nullptr)
+CTigerDemon::CTigerDemon(QString name,QString version, QObject* parent)
     : QObject(parent)
 {
     name_soft = name;
+    offline_version = version;
 }
 
 QString CTigerDemon::get_version(){
-    return offline_version.getVersion();
+    return offline_version;
 }
 
 void CTigerDemon::checkUpdate() {
     int status = set_online_version();
 
-    if (status != 1) {
-        emit updateError(status);
-    }
+    if (status != 1) emit updateError(status);
 
-    QString localVersion = get_version();
-
-    if (online_version != localVersion && !online_version.isEmpty()) {
+    if (offline_version == "dev") emit updateResult(false,online_version);
+    else if (online_version != offline_version && !online_version.isEmpty()){
         emit updateResult(true, online_version);
-    } else {
-        emit updateResult(false, online_version);
-    }
+    } else emit updateResult(false, online_version);
 }
 
 bool CTigerDemon::sate_connection(){
     QNetworkAccessManager manager;
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request{QUrl(url)};
     QNetworkReply *reply = manager.head(request);
     QEventLoop loop;
     QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
@@ -88,7 +82,7 @@ int CTigerDemon::set_online_version(){
             for (int i = 0; i < array.size(); ++i) {
                 QJsonObject item = array[i].toObject();
 
-                if (item["name"].toString() == nameSoft) {
+                if (item["name"].toString() == name_soft) {
                     online_version = item["version"].toString();
                     softwareFound = true;
                     break;

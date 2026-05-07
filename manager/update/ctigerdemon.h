@@ -1,17 +1,17 @@
 #ifndef CTIGERDEMON_H
 #define CTIGERDEMON_H
 
-#include <QCoreApplication>
 #include <QObject>
+#include <QString>
 #include <QNetworkAccessManager>
+#include <QJsonObject>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QJsonDocument>
-#include <QJsonObject>
+#include <QJsonArray>
 #include <QEventLoop>
-#include <QFile>
-#include <QTextStream>
-#include "version.h"
+#include <QTimer>
+#include <QUrl>
 
 // Debug
 /*
@@ -24,15 +24,15 @@ class CTigerDemon : public QObject
 {
     Q_OBJECT
 public:
-    explicit CTigerDemon(QString name, QObject* parent = nullptr);
+    explicit CTigerDemon(const QString name,QString version, QObject* parent = nullptr);
     void checkUpdate();
     QString get_version();
 private:
     QNetworkAccessManager* manager;
     QJsonObject contenuJSON;
-    version offline_version;
+    QString offline_version;
     QString online_version,name_soft;
-    QString url = "https://github.com/Arrera-Software/distribution/blob/main/index.json";
+    QString url = "https://raw.githubusercontent.com/Arrera-Software/distribution/refs/heads/main/index.jsonw";
 private: // Methode
     bool sate_connection();
     int set_online_version();

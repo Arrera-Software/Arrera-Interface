@@ -10,8 +10,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     arreraApp(&objSetting,&dectOS,this),
     serveurApp(this),
     serveurAssistant(this),
-    tigerDemon("https://arrera-software.fr/depots.json",
-               "arrera-interface",this),
+    tigerDemon("arrera",VERSION,this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
     shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
     assistantCommunication(&serveurAssistant,
@@ -124,6 +123,22 @@ ArreraUI::ArreraUI(QWidget *parent)
     connect(&shortcutEnter,&QShortcut::activated,this,&ArreraUI::searchEnter);
     connect(&shortcutReturn,&QShortcut::activated,this,&ArreraUI::searchEnter);
 
+    // Connection de signaux de tiger demon
+
+    connect(&tigerDemon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
+        if (hasUpdate) {
+            winMaj.show();
+            winMaj.raise();
+            winMaj.activateWindow();
+        } else {
+            cout << "ok" << newVersion.toStdString() << endl;
+        }
+    });
+
+    connect(&tigerDemon, &CTigerDemon::updateError, this, [=](int errorCode){
+        cout << "error : "+errorCode << endl;
+    });
+
     nameAssistantConnected = "";
 
     ui->ACTIONASSISTANT->setVisible(false);
@@ -148,11 +163,7 @@ void ArreraUI::show(){
     QDialog::show();
 
     // Teste de presence d'une mise a jour
-    if (tigerDemon.checkUpdate()){
-        winMaj.show();
-        winMaj.raise();
-        winMaj.activateWindow();
-    }
+    tigerDemon.checkUpdate();
 }
 
 void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche

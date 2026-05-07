@@ -21,6 +21,8 @@
 #include "manager/communication/assistant.h"
 #include "widget/arrera_theme.h"
 
+#define VERSION "dev"
+
 
 /*
 
