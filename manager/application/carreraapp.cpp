@@ -89,14 +89,14 @@ bool CArreraApp::openStore(){
     return false;
 
     #elif defined(Q_OS_WIN)
-    QString localAppData = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/Programs/Arrera Hub";
+    QString hub_folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/Programs/Arrera Hub";
 
-    QDir dir(localAppData);
+    QDir dir(hub_folder);
     if (!dir.exists()) return false;
-    QString executablePath = localAppData + "/Arrera_Hub.exe";
+    QString hub_exe = hub_folder + "/Arrera_Hub.exe";
 
-    QFileInfo exeInfo(executablePath);
-    if (exeInfo.exists() && exeInfo.isFile()) return exectute(executablePath) ;
+    QFileInfo exeInfo(hub_exe);
+    if (exeInfo.exists() && exeInfo.isFile()) return exectute(hub_exe) ;
     else return false;
     #endif
 }
