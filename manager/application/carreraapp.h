@@ -11,6 +11,9 @@
 #include "librairy/cjsonword.h"
 #include "librairy/cdetectionos.h"
 
+#include <iostream>
+using namespace std;
+
 // Debug
 /*
 #include <iostream>
@@ -33,7 +36,7 @@ private :
     QWidget *widget;
     bool tigerFileSetted;
     QString tigerFile;
-    bool exectute(QString app,bool appSetted);
+    bool exectute(QString app);
     QString setBatWindows(QString emplacement);
 public:
     CArreraApp();

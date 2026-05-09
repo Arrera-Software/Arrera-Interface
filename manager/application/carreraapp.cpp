@@ -23,25 +23,26 @@ bool CArreraApp::loadJson(){
     }
 }
 
-bool  CArreraApp::exectute(QString app,bool appSetted){
-    if (appSetted == false){
-        if (dectOS->getosWin()){
-            QProcess process;
-            return process.startDetached(app);
-        }else if(dectOS->getosLinux()){
-            return QProcess::startDetached("/bin/bash",QStringList() << app);
-        }else if (dectOS->getosApple()){
-            QStringList openArgs;
-            openArgs << "-a" << app;
-            openArgs << "--args";
-            return QProcess::startDetached("open", openArgs);
-        }
-        else{
-            return false;
-        }
-    }else{
-        return false;
+bool  CArreraApp::exectute(QString app){
+    #if defined(Q_OS_WIN)
+        QProcess process;
+        return process.startDetached(app);
+    #elif defined(Q_OS_LINUX)
+    try{
+        return QProcess::startDetached("/bin/bash",QStringList() << app);
+    }catch (const std::exception& e){
+        cout << "Erreur : " << e.what() << endl;
+
+    } catch (...) {
+        cout << "Erreur " << endl;
     }
+    #elif defined(Q_OS_MAC)
+        QStringList openArgs;
+        openArgs << "-a" << app;
+        openArgs << "--args";
+        return QProcess::startDetached("open", openArgs);
+    #endif
+    return false;
 }
 
 QString CArreraApp::setBatWindows(QString emplacement){
@@ -62,54 +63,16 @@ QString CArreraApp::setBatWindows(QString emplacement){
 }
 
 bool CArreraApp::openStore(){
-    QString exeLinux = "lauch.sh" ;
-    QString exeWin = "arrera-store.exe" ;
-    QString jsonFile = "json/tigerConf.json";
+    #if defined(Q_OS_LINUX)
+    QString emplacementStore = QDir::homePath() +"/Applications/arrera-hub-linux-x86/launch.sh";
+    return exectute(emplacementStore);
+    #elif defined(Q_OS_MAC)
+    QString emplacementStore = "/Applications/Arrera_Hub.app"
 
-    QString emplacementStore = psetting->getEmplacementStore();
-
-    if (emplacementStore == "nothing"){
-        QString appEmplacement;
-        QMessageBox::information(widget,"Information",
-                                 "Veuillez sélectionner l'emplacement du dossier où vous avez installé l'Arrera Store.");
-        appEmplacement = QFileDialog::getExistingDirectory(
-            widget,
-            "Sélectionner un dossier",
-            QDir::homePath(),
-            QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-            );
-        if (dectOS->getosLinux()){
-            if (psetting->setEmplacementStore(appEmplacement+"/"+exeLinux) &&
-                psetting->setFileJson(appEmplacement+"/"+jsonFile)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            if (dectOS->getosWin()){
-                QString fileBat = appEmplacement+"/"+"lauch.bat";
-                QFile file(fileBat);
-                if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                    return false;
-                }
-                QTextStream out(&file);
-                out << "@echo off" << Qt::endl;
-                out << "cd "+appEmplacement << Qt::endl;
-                out << ".\\"+exeWin << Qt::endl;
-                file.close();
-
-                if (psetting->setEmplacementStore(appEmplacement+"/lauch.bat") &&
-                    psetting->setFileJson(appEmplacement+"/"+jsonFile)){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-        }
-    }else{
-        return exectute(emplacementStore,emplacementStore.isEmpty());
-    }
-    return  false;
+    #elif defined(Q_OS_WIN)
+    QString emplacementStore = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                                   .absoluteFilePath("Programs")+"/Application/arrera-hub/";
+    #endif
 }
 
 bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
@@ -274,6 +237,6 @@ bool CArreraApp::executeApp(QString nameApp){
     if (exeApp.isEmpty()){;
         return false;
     }else{
-        return exectute(exeApp,exeApp.isEmpty());
+        return exectute("");
     }
 }
