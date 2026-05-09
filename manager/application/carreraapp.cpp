@@ -67,7 +67,26 @@ bool CArreraApp::openStore(){
     QString emplacementStore = QDir::homePath() +"/Applications/arrera-hub-linux-x86/launch.sh";
     return exectute(emplacementStore);
     #elif defined(Q_OS_MAC)
-    QString emplacementStore = "/Applications/Arrera_Hub.app"
+    QString targetApp = "Arrera_Hub.app";
+
+    QStringList searchPaths = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
+
+    if (!searchPaths.contains("/Applications")) {
+        searchPaths.append("/Applications");
+    }
+
+    for (QString &basePath : searchPaths) {
+        QDirIterator it(basePath,
+                        QStringList() << targetApp,
+                        QDir::Dirs | QDir::NoDotAndDotDot,
+                        QDirIterator::Subdirectories);
+
+        while (it.hasNext()) {
+            QString appPath = it.next();
+            return exectute(appPath) ;
+        }
+    }
+    return false;
 
     #elif defined(Q_OS_WIN)
     QString emplacementStore = QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
