@@ -62,10 +62,11 @@ QString CArreraApp::setBatWindows(QString emplacement){
     return batFile;
 }
 
-bool CArreraApp::openStore(){
+bool CArreraApp::open_arrera_hub(){
     #if defined(Q_OS_LINUX)
     QString emplacementStore = QDir::homePath() +"/Applications/arrera-hub-linux-x86/launch.sh";
-    return exectute(emplacementStore);
+    if (QFile::exists(emplacementStore)) return exectute(emplacementStore);
+    else return false;
     #elif defined(Q_OS_MAC)
     QString targetApp = "Arrera_Hub.app";
 

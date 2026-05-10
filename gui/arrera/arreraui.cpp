@@ -254,7 +254,7 @@ void ArreraUI::on_IDC_CHANGEVIEWAPP_clicked()
 
 void ArreraUI::on_IDC_TIGER_clicked()
 {
-    bool sortie = arreraApp.openStore();
+    bool sortie = arreraApp.open_arrera_hub();
     if (!sortie){
         QMessageBox::critical(this,"Ouverture Arrera Store",
                               "Impossible de lancer Arrera Store.");

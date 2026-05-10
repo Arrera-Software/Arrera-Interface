@@ -43,7 +43,7 @@ public:
     CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw);
     bool loadJson();
     bool setEmplacementTiger();
-    bool openStore();
+    bool open_arrera_hub();
     bool loadApp(QString nameApp ,QPushButton* button);
     bool loadAppMacOS();
     bool executeApp(QString nameApp);
