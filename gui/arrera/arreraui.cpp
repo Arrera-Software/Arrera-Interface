@@ -256,8 +256,8 @@ void ArreraUI::on_IDC_TIGER_clicked()
 {
     bool sortie = arreraApp.open_arrera_hub();
     if (!sortie){
-        QMessageBox::critical(this,"Ouverture Arrera Store",
-                              "Impossible de lancer Arrera Store.");
+        QMessageBox::critical(this,"Arrera",
+                              "Un problème est survenu au lancement d'Arrera Hub. Il n'est peut-être pas installé.");
     }
 }
 
