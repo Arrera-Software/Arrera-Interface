@@ -101,7 +101,7 @@
    <item>
     <widget class="QStackedWidget" name="mainstacked">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="main">
       <layout class="QGridLayout" name="gridLayout">
@@ -1030,7 +1030,7 @@
        <item>
         <widget class="QStackedWidget" name="appstacked">
          <property name="currentIndex">
-          <number>3</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="mainpcapp">
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1043,7 +1043,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Parametre des application de l'ordintauer</string>
+              <string>Paramètres des applications de l'ordinateur</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1641,7 +1641,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>Icon de l'application : </string>
+                <string>Icône de l'application :</string>
                </property>
               </widget>
              </item>
@@ -1660,7 +1660,7 @@
                 </size>
                </property>
                <property name="text">
-                <string>icon</string>
+                <string>Icone</string>
                </property>
               </widget>
              </item>
