@@ -546,11 +546,11 @@ void ArreraUI::loadArreraApp(){
 
     if (dectOS.getosLinux() || dectOS.getosWin()){
         if (arreraApp.loadJson()){
-            videoSetted = arreraApp.loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+
             postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
             sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
             ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
-            raccourciSetted = arreraApp.loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
+
             copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
             if (videoSetted||postiteSetted||sixSetted||
                 ryleySetted||raccourciSetted||copiloteSetted){
@@ -563,11 +563,11 @@ void ArreraUI::loadArreraApp(){
             ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
         }
     }else if (dectOS.getosApple()){
-        videoSetted = arreraApp.loadApp("arrera-video-download",ui->IDC_AVIDEODOWNLOAD);
+
         postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
         sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
         ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
-        raccourciSetted = arreraApp.loadApp("arrera-raccourci",ui->IDC_ARACCOURCI);
+
         copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
 
         if (videoSetted||postiteSetted||sixSetted||
@@ -1107,25 +1107,6 @@ void ArreraUI::on_IDC_APOSTITE_clicked()
                               "Impossible de lancer Arrera Postite");
     }
 }
-
-
-void ArreraUI::on_IDC_AVIDEODOWNLOAD_clicked()
-{
-    if (!arreraApp.executeApp("arrera-video-download")){
-        QMessageBox::critical(this,"Lancement Arrera Video Download",
-                              "Impossible de lancer Arrera Video Download");
-    }
-}
-
-
-void ArreraUI::on_IDC_ARACCOURCI_clicked()
-{
-    if (!arreraApp.executeApp("arrera-raccourci")){
-        QMessageBox::critical(this,"Lancement Arrera Raccourci",
-                              "Impossible de lancer Arrera Raccourci");
-    }
-}
-
 
 void ArreraUI::on_IDC_ASIX_clicked()
 {

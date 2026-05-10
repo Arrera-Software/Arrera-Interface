@@ -154,10 +154,6 @@ private slots:
 
     void on_IDC_APOSTITE_clicked();
 
-    void on_IDC_AVIDEODOWNLOAD_clicked();
-
-    void on_IDC_ARACCOURCI_clicked();
-
     void on_IDC_ASIX_clicked();
 
     void on_IDC_ARYLEY_clicked();
