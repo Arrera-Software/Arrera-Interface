@@ -100,7 +100,6 @@ private slots:
     void on_IDC_GENERAUXTASKBAR_clicked();
     void on_IDC_RESETARRERAGENERAUX_clicked();
     // Partie Reset
-    void on_IDC_RESETARRERAAPP_clicked();
     void on_IDC_RESETAPPPC_clicked();
     void on_IDC_RETOURRESETINTERFACE_clicked();
     void on_IDC_RESETALLINTERFACE_clicked();

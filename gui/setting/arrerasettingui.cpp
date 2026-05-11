@@ -805,10 +805,10 @@ void ArreraSettingUI::on_IDC_GENERAUXTASKBAR_clicked()
     }
 
     if (objPara->getTaskbarPostite()){
-        ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera POSTITE.");
+        ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera Markdown.");
         ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: red; color: white;");
     }else{
-        ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera POSTITE.");
+        ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera Markdown.");
         ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: green; color: white;");
     }
 
@@ -823,20 +823,6 @@ void ArreraSettingUI::on_IDC_RESETARRERAGENERAUX_clicked()
 }
 
 // Partie Reset
-
-void ArreraSettingUI::on_IDC_RESETARRERAAPP_clicked()
-{
-    if (objPara->resetArreraApp()){
-        QMessageBox::information(this,"Reset Arrera Application",
-                                 "Les applications Arrera dans l'interface ont bien été remises à zéro.");
-    }else{
-        QMessageBox::critical(this,"Reset Arrera Application",
-                              "Impossible de remettre à zéro la configuration des applications Arrera dans l'interface.");
-    }
-    ui->LINDICATIONSETTING->setText("Parametre generaux");
-    ui->stakedGeneraux->setCurrentIndex(idMainGeneraux);
-}
-
 
 void ArreraSettingUI::on_IDC_RESETAPPPC_clicked()
 {
@@ -1059,7 +1045,7 @@ void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
     if (objPara->getTaskbarPostite()){
         sortie = objPara->unsetTaskbarBTNPostite();
         if (sortie){
-            ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera POSTITE.");
+            ui->IDC_ACTIVEPOSTITE->setText("Activer le bouton d'Arrera Markdown.");
             ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: green; color: white;");
             QMessageBox::information(this,"Paramètre de barre des tâches","Le bouton d'Arrera Postite ne sera plus affiché.");
         }else{
@@ -1070,7 +1056,7 @@ void ArreraSettingUI::on_IDC_ACTIVEPOSTITE_clicked()
     }else{
         sortie = objPara->setTaskbarBBTNPostite();
         if (sortie){
-            ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera POSTITE.");
+            ui->IDC_ACTIVEPOSTITE->setText("Désactiver le bouton d'Arrera Markdown.");
             ui->IDC_ACTIVEPOSTITE->setStyleSheet("background-color: red; color: white;");
             QMessageBox::information(this,
                                      "Paramètre de barre des tâches",
