@@ -209,7 +209,7 @@ private: // Attribut
     WindowsMaj winMaj;
     ArreraSettingUI uipara;
     CArreraRecheche arecherche;
-    CArreraApp arreraApp;
+    CArreraApp arrera_application;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     CArreraServeur serveurApp,serveurAssistant;

@@ -7,7 +7,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     objSetting(),
     winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
-    arreraApp(&objSetting,&dectOS,this),
+    arrera_application(),
     serveurApp(this),
     serveurAssistant(this),
     tigerDemon("arrera",VERSION,this),
@@ -254,7 +254,7 @@ void ArreraUI::on_IDC_CHANGEVIEWAPP_clicked()
 
 void ArreraUI::on_IDC_TIGER_clicked()
 {
-    bool sortie = arreraApp.open_arrera_hub();
+    bool sortie = arrera_application.open_arrera_hub();
     if (!sortie){
         QMessageBox::critical(this,"Arrera",
                               "Un problème est survenu au lancement d'Arrera Hub. Il n'est peut-être pas installé.");
@@ -312,7 +312,7 @@ void ArreraUI::loadSetting()
                                  "Information",
                                  "Un probleme est survenu lors du chargement des application enregistrer");
     }
-    arreraApp.loadJson();
+    arrera_application.load_hub_config_file();
 
     /*
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
@@ -510,7 +510,7 @@ void ArreraUI::loadArreraApp(){
     ui->IDC_ASIX->setVisible(false);
     ui->IDC_ARYLEY->setVisible(false);
 
-    arreraApp.loadApp("six",ui->IDC_ASIX);
+    arrera_application.load_arrera_application("six",ui->IDC_ASIX);
 }
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){
@@ -566,7 +566,7 @@ bool ArreraUI::launchAppMode(int nbApp,QString app){
 }
 
 bool ArreraUI::launchAssistantMode(QString assistant){
-    if (assistant.isEmpty()){
+   /* if (assistant.isEmpty()){
         return arreraApp.executeApp(assistantMode);
     }else{
         if (assistant=="SIX"){
@@ -585,7 +585,7 @@ bool ArreraUI::launchAssistantMode(QString assistant){
             ui->IDC_ASSISTANT->setVisible(false);
             return false;
         }
-    }
+    }*/
 }
 
 void ArreraUI::launchGestServeur(){
