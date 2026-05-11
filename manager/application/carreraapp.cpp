@@ -152,6 +152,10 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
     QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
         this->exectute(app_emplacement+"/launch.sh");
     });
+    #elif defined(Q_OS_MAC)
+    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+        this->exectute(app_emplacement);
+    });
     #endif
 
 
