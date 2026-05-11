@@ -24,11 +24,6 @@ private:
     CAMode mode4;
     CAMode mode5;
     CAMode mode6;
-    QStringList listApp = {"ryley","six",
-                           "arrera-raccourci",
-                           "arrera-postite",
-                           "arrera-video-download",
-                           "arrera-copilote"};
 
 public:
     // Constructeurs et destructeur
@@ -87,9 +82,9 @@ public:
     bool getAppSpeciauxSetted(int app);// 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
 
     QString getMoteurRecherche();
-    QString getFileJson();
-    QString getEmplacementStore();
-    QString getExeArreraApp(QString nameApp);
+
+
+
 
     bool getTaskbarBTNSix();
     bool getTaskbarBTNArreraApp();
@@ -189,10 +184,10 @@ public:
     bool resetLieu1();
     bool resetLieu2();
 
-    // Partie gestion Arrera APP
-    bool setFileJson(QString file);
 
-    bool setEmplacementStore(QString emplacement);
+
+
+
     bool setEmplacementArreraApp(QString nameApp,QString emplacement);
 
     bool setTaskbarBTNSix();
@@ -208,7 +203,6 @@ public:
     bool unsetTaskbarBTNPostite();
 
     // Partie reset
-    bool resetArreraApp();
     bool resetAppPC();
     void resetAll();
 
