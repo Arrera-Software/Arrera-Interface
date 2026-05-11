@@ -943,7 +943,10 @@
            </widget>
           </item>
           <item>
-           <widget class="APushButton" name="IDC_ARRERAPOSTITE">
+           <widget class="APushButton" name="IDC_ARRERA_MARKDOWN">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="minimumSize">
              <size>
               <width>70</width>
@@ -961,7 +964,7 @@
             </property>
             <property name="icon">
              <iconset resource="../../resource.qrc">
-              <normaloff>:/icon/img/arrera-postite.png</normaloff>:/icon/img/arrera-postite.png</iconset>
+              <normaloff>:/icon/img/markdown.png</normaloff>:/icon/img/markdown.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -2381,7 +2384,7 @@
                  </property>
                  <property name="icon">
                   <iconset resource="../../resource.qrc">
-                   <normaloff>:/icon/img/arrera-postite.png</normaloff>:/icon/img/arrera-postite.png</iconset>
+                   <normaloff>:/icon/img/markdown.png</normaloff>:/icon/img/markdown.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -2414,7 +2417,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1">
+               <item row="1" column="2">
                 <widget class="APushButton" name="IDC_ARYLEY">
                  <property name="maximumSize">
                   <size>
@@ -2437,7 +2440,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
+               <item row="0" column="2">
                 <widget class="APushButton" name="IDC_ACOPILOTE">
                  <property name="minimumSize">
                   <size>
@@ -2457,6 +2460,35 @@
                  <property name="icon">
                   <iconset resource="../../resource.qrc">
                    <normaloff>:/assistant/img/copilote.png</normaloff>:/assistant/img/copilote.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>70</width>
+                   <height>70</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="APushButton" name="IDC_POSTIT">
+                 <property name="minimumSize">
+                  <size>
+                   <width>75</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>75</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../../resource.qrc">
+                   <normaloff>:/icon/img/postit.png</normaloff>:/icon/img/postit.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
