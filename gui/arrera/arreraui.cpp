@@ -76,8 +76,6 @@ ArreraUI::ArreraUI(QWidget *parent)
         appPC.append(CAppPC(i + 1, &objSetting, widgets[i], &dectOS));
     }
 
-    // Desactivation de bouton de store sur mac os
-
     // Mise en place des app speciaux
     appNavigateur = CAppSpeciaux(1,&objSetting,ui->IDC_NAVIGATEUR,&dectOS);
     appPresentation = CAppSpeciaux(2,&objSetting,ui->IDC_PRESENTATION,&dectOS);
@@ -311,14 +309,8 @@ void ArreraUI::loadSetting()
                                  "Un probleme est survenu lors du chargement des application enregistrer");
     }
     arrera_application.load_hub_config_file();
+    loadArreraApp();
 
-    /*
-    ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
-    if (!assistantIsActived){
-        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
-    }*/
 }
 
 bool ArreraUI::loadApp()
@@ -502,13 +494,32 @@ bool ArreraUI::loadMode(){
 }
 
 void ArreraUI::loadArreraApp(){
+    // Page d'application
     ui->IDC_APOSTITE->setVisible(false);
     ui->IDC_POSTIT->setVisible(false);
     ui->IDC_ACOPILOTE->setVisible(false);
     ui->IDC_ASIX->setVisible(false);
     ui->IDC_ARYLEY->setVisible(false);
 
+    // Page d'acceuille
+    ui->IDC_SIX->setVisible(false);
+    ui->IDC_COPILOTE->setVisible(false);
+    ui->IDC_RYLEY->setVisible(false);
+    ui->IDC_ARRERA_MARKDOWN->setVisible(false);
+
+    if (objSetting.getTaskbarPostite()) arrera_application.load_arrera_application("markdown",ui->IDC_ARRERA_MARKDOWN);
+
+    if (!assistantIsActived){
+        if (objSetting.getTaskbarBTNRyley()) arrera_application.load_arrera_application("ryley",ui->IDC_RYLEY);
+        if (objSetting.getTaskbarBTNSix()) arrera_application.load_arrera_application("six",ui->IDC_SIX);
+        if (objSetting.getTaskbarCopilote()) arrera_application.load_arrera_application("copilot",ui->IDC_COPILOTE);
+    }
+
+    arrera_application.load_arrera_application("copilot",ui->IDC_ACOPILOTE);
     arrera_application.load_arrera_application("six",ui->IDC_ASIX);
+    arrera_application.load_arrera_application("ryley",ui->IDC_ARYLEY);
+    arrera_application.load_arrera_application("markdown",ui->IDC_APOSTITE);
+    arrera_application.load_arrera_application("post-it",ui->IDC_POSTIT);
 }
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){
