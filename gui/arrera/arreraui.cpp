@@ -166,8 +166,6 @@ ArreraUI::~ArreraUI()
 
 void ArreraUI::show(){
     QDialog::show();
-
-    // Teste de presence d'une mise a jour
     tigerDemon.checkUpdate();
 }
 
