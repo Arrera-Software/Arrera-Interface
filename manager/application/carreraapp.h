@@ -34,8 +34,10 @@ private :
     CAInterfaceSetting* psetting;
     CDetectionOS* dectOS;
     QWidget *widget;
-    bool tigerFileSetted;
-    QString tigerFile;
+    bool hub_config_file_init;
+    QString tigerFile,hub_config_file;
+    QSettings* hub_settings;
+
     bool exectute(QString app);
     QString setBatWindows(QString emplacement);
 public:

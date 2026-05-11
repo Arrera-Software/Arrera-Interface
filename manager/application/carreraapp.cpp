@@ -7,20 +7,25 @@ CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
     psetting = p;
     dectOS = os;
     widget = pw;
+
+    #if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
+        hub_config_file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.config/arrera-hub/config.ini";
+    #elif defined(Q_OS_WIN)
+        QString roaming = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
+        QString base_dir = roaming + "/arrera-hub";
+        hub_config_file = base_dir+"/config.ini";
+    #endif
 }
 
 bool CArreraApp::loadJson(){
-    tigerFile = psetting->getFileJson();
-
-    if (tigerFile=="nothing"){
-        jsonFile = nullptr;
-        tigerFileSetted = false;
-        return false;
-    }else{
-        jsonFile = new CJSONWORD(tigerFile);
-        tigerFileSetted = true;
-        return true;
-    }
+    QFileInfo checkFile(hub_config_file);
+    if (checkFile.exists() && checkFile.isFile()){
+        hub_settings = new QSettings(hub_config_file, QSettings::IniFormat);
+        if (hub_settings->status() == QSettings::NoError){
+            hub_config_file_init = true;
+            return true;
+        }else return false;
+    }else return false;
 }
 
 bool  CArreraApp::exectute(QString app){
@@ -105,65 +110,42 @@ bool CArreraApp::open_arrera_hub(){
 bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
 {
     /*
-     App possible:
-         * "ryley"
-         * "six"
-         * "arrera-raccourci"
-         * "arrera-postite"
-         * "arrera-video-download"
-         * "arrera-copilote"
-     */
+     * copilot
+     * markdown
+     * post-it
+     * ryley
+     * six
+    */
+
     button->setVisible(false);
-    // Verification si l'app a etais setted
+    button->disconnect();
 
-    bool appOS = dectOS->getosApple();
-    QString emplacement;
-    QString exeApp;
-
-    if (tigerFileSetted || appOS ){
-
-        exeApp = psetting->getExeArreraApp(nameApp);
-
-        if (exeApp=="nothing"){
-            if (!appOS){
-
-                bool clesExisted = jsonFile->isExist(nameApp);
-                if (!clesExisted){
-                    button->setVisible(false);
-                    return false;
-                }
-
-                emplacement = jsonFile->read(nameApp);
-            }else{
-                emplacement = exeApp;
-            }
+    QStringList list_app = {"copilot","markdown","post-it","ryley","six"};
 
 
-            if (emplacement == "nothing"){
-                button->setVisible(false);
-                return false;
-            }else{
+    if (!list_app.contains(nameApp)) return false;
+    if (!hub_config_file_init) return false;
 
-                if (dectOS->getosLinux()){
-                    psetting->setEmplacementArreraApp(nameApp,emplacement);
-                }else{
-                    if (dectOS->getosWin()){
-                        QString batfile = setBatWindows(emplacement);
-                        psetting->setEmplacementArreraApp(nameApp,batfile);
-                    }
-                }
+    hub_settings->sync();
+    hub_settings->beginGroup("software");
+    QString app_emplacement = hub_settings->value(nameApp+"_install", "error").toString();
+    hub_settings->endGroup();
 
-                button->setVisible(true);
-                return true;
-            }
-        }else{
-            button->setVisible(true);
-            return true;
-        }
-    }else{
-        button->setVisible(false);
-        return false;
-    }
+    cout << app_emplacement.toStdString() << endl;
+
+    if ((app_emplacement == "error") || (app_emplacement == "none")) return false;
+
+    button->setVisible(true);
+
+    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+        #if defined(Q_OS_LINUX)
+            this->exectute(app_emplacement+"/launch.sh");
+        #elif defined(Q_OS_MAC)
+        #elif defined(Q_OS_WIN)
+        #endif
+    });
+
+    return true;
 }
 
 bool CArreraApp::loadAppMacOS(){

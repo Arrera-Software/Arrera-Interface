@@ -261,42 +261,6 @@ void ArreraUI::on_IDC_TIGER_clicked()
     }
 }
 
-
-void ArreraUI::on_IDC_RYLEY_clicked()
-{
-    if (!arreraApp.executeApp("ryley")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
-                              "Impossible de lancer votre assistant Arrera RYLEY.");
-    }
-}
-
-
-void ArreraUI::on_IDC_COPILOTE_clicked()
-{
-    if (!arreraApp.executeApp("arrera-copilote")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
-                              "Impossible de lancer votre assistant Arrera COPILOTE.");
-    }
-}
-
-
-void ArreraUI::on_IDC_SIX_clicked()
-{
-    if (!arreraApp.executeApp("six")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
-                              "Impossible de lancer votre assistant Arrera SIX.");
-    }
-}
-
-
-void ArreraUI::on_IDC_ARRERAPOSTITE_clicked()
-{
-    if (!arreraApp.executeApp("arrera-postite")){
-        QMessageBox::critical(this,"Lancement Arrera Postite",
-                              "Impossible de lancer Arrera Postite");
-    }
-}
-
 // Partie Apropos
 void ArreraUI::on_IDC_SOURCECODE_clicked()
 {
@@ -348,26 +312,26 @@ void ArreraUI::loadSetting()
                                  "Information",
                                  "Un probleme est survenu lors du chargement des application enregistrer");
     }
+    arreraApp.loadJson();
 
+    /*
     ui->IDC_ARRERAPOSTITE->setVisible(objSetting.getTaskbarPostite());
     if (!assistantIsActived){
         ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
         ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
         ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
-    }
+    }*/
 }
 
 bool ArreraUI::loadApp()
 {
     if (!ui) {
-        qWarning() << "ArreraUI::loadArreraApp() called but UI is null.";
         return false;
     }
 
     bool anyAppSetted = false,appSetted;
 
     try {
-        // Vérification de la taille du tableau (sécurité)
         const int count = std::size(appPC);
 
         for (int i = 0; i < count; ++i) {
@@ -540,43 +504,13 @@ bool ArreraUI::loadMode(){
 }
 
 void ArreraUI::loadArreraApp(){
-    bool videoSetted = false,postiteSetted= false,
-        sixSetted= false,ryleySetted= false,
-        raccourciSetted= false,copiloteSetted= false;
+    ui->IDC_APOSTITE->setVisible(false);
+    ui->IDC_POSTIT->setVisible(false);
+    ui->IDC_ACOPILOTE->setVisible(false);
+    ui->IDC_ASIX->setVisible(false);
+    ui->IDC_ARYLEY->setVisible(false);
 
-    if (dectOS.getosLinux() || dectOS.getosWin()){
-        if (arreraApp.loadJson()){
-
-            postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
-            sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
-            ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
-
-            copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
-            if (videoSetted||postiteSetted||sixSetted||
-                ryleySetted||raccourciSetted||copiloteSetted){
-                ui->arreraAppStacked->setCurrentIndex(idViewArreraApp);
-            }else{
-                ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
-            }
-
-        }else{
-            ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
-        }
-    }else if (dectOS.getosApple()){
-
-        postiteSetted = arreraApp.loadApp("arrera-postite",ui->IDC_APOSTITE);
-        sixSetted = arreraApp.loadApp("six",ui->IDC_ASIX);
-        ryleySetted =  arreraApp.loadApp("ryley",ui->IDC_ARYLEY);
-
-        copiloteSetted = arreraApp.loadApp("arrera-copilote",ui->IDC_ACOPILOTE);
-
-        if (videoSetted||postiteSetted||sixSetted||
-            ryleySetted||raccourciSetted||copiloteSetted){
-            ui->arreraAppStacked->setCurrentIndex(idViewArreraApp);
-        }else{
-            ui->arreraAppStacked->setCurrentIndex(idNoArreraApp);
-        }
-    }
+    arreraApp.loadApp("six",ui->IDC_ASIX);
 }
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){
@@ -1099,43 +1033,8 @@ void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
 {
     appTraitementTexte.executeApplication();
 }
-// Arrera APP
-void ArreraUI::on_IDC_APOSTITE_clicked()
-{
-    if (!arreraApp.executeApp("arrera-postite")){
-        QMessageBox::critical(this,"Lancement Arrera Postite",
-                              "Impossible de lancer Arrera Postite");
-    }
-}
-
-void ArreraUI::on_IDC_ASIX_clicked()
-{
-    if (!arreraApp.executeApp("six")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera SIX",
-                              "Impossible de lancer votre assistant Arrera SIX.");
-    }
-}
-
-
-void ArreraUI::on_IDC_ARYLEY_clicked()
-{
-    if (!arreraApp.executeApp("ryley")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera RYLEY",
-                              "Impossible de lancer votre assistant Arrera RYLEY.");
-    }
-}
-
-
-void ArreraUI::on_IDC_ACOPILOTE_clicked()
-{
-    if (!arreraApp.executeApp("arrera-copilote")){
-        QMessageBox::critical(this,"Lancement de l'assistant Arrera COPILOTE",
-                              "Impossible de lancer votre assistant Arrera COPILOTE.");
-    }
-}
 
 // BTN Mode
-
 
 bool ArreraUI::launchMode(int index)
 {
