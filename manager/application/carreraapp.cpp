@@ -30,8 +30,13 @@ bool CArreraApp::loadJson(){
 
 bool  CArreraApp::exectute(QString app){
     #if defined(Q_OS_WIN)
+        QFileInfo fileInfo(app);
+        QString dossierApp = fileInfo.absolutePath();
+
         QProcess process;
-        return process.startDetached(app);
+        process.setProgram(app);
+        process.setWorkingDirectory(dossierApp);
+        return process.startDetached();
     #elif defined(Q_OS_LINUX)
     try{
         return QProcess::startDetached("/bin/bash",QStringList() << app);
@@ -136,14 +141,20 @@ bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
     if ((app_emplacement == "error") || (app_emplacement == "none")) return false;
 
     button->setVisible(true);
-
-    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
-        #if defined(Q_OS_LINUX)
-            this->exectute(app_emplacement+"/launch.sh");
-        #elif defined(Q_OS_MAC)
-        #elif defined(Q_OS_WIN)
-        #endif
+    #if defined(Q_OS_WIN)
+    QDirIterator it(app_emplacement, QStringList() << "*.exe", QDir::Files);
+    if (!it.hasNext()) return false;
+    QString exe_file = it.next();
+    QObject::connect(button, &QPushButton::clicked, [this, exe_file](){
+        this->exectute(exe_file);
     });
+    #elif defined(Q_OS_LINUX)
+    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+        this->exectute(app_emplacement+"/launch.sh");
+    });
+    #endif
+
+
 
     return true;
 }
