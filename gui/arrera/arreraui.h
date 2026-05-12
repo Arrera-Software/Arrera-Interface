@@ -212,7 +212,7 @@ private: // Attribut
     CArreraApp arrera_application;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
-    CArreraServeur serveurApp,serveurAssistant;
+    CArreraServeur connection_arrera_hub,serveurAssistant;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;

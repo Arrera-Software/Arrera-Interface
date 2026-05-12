@@ -8,7 +8,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
     arrera_application(),
-    serveurApp(this),
+    connection_arrera_hub(this),
     serveurAssistant(this),
     tigerDemon("arrera",VERSION,this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
@@ -155,6 +155,24 @@ ArreraUI::ArreraUI(QWidget *parent)
     ui->IDC_MODESEARCHBAR->setIcon(icon);
 
     ui->IDC_MODESEARCHBAR->setChecked(searchBarAssistantMode);
+
+    // Demarage du websocket pour la connection a Arrera Hub
+    if (connection_arrera_hub.startServeur(2026)){
+
+        connect(&connection_arrera_hub, &CArreraServeur::connectClient, this, [this](){
+            this->ui->LINDICATIONARRERA->setText("Arrera Hub est prêt à gérer vos applications");
+        });
+
+        connect(&connection_arrera_hub, &CArreraServeur::messageReceived,
+                this,
+                [this](const QString &nameSoft, const QString &message) {
+            if (nameSoft == "arrera_hub"){
+                if (message.trimmed() == "update_app"){
+                    loadArreraApp();
+                }
+            }
+        });
+    }
 }
 
 ArreraUI::~ArreraUI()
@@ -1462,17 +1480,16 @@ void ArreraUI::searchEnter()
 
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
-    //serveurApp.stopServeur();
     if (assistantIsActived){
         serveurAssistant.sendMessage(nameAssistantConnected,"stop");
     }
+    connection_arrera_hub.sendMessage("arrera_hub","stop");
 
     winMaj.close();
 
-    // On s’assure que uipara n'est pas nullptr ni déjà détruite
-    if (uipara.isVisible())
-        uipara.close();
+    if (uipara.isVisible()) uipara.close();
 
+    connection_arrera_hub.stopServeur();
     QDialog::closeEvent(event);
 }
 
