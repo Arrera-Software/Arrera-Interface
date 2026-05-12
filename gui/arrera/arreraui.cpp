@@ -341,7 +341,6 @@ bool ArreraUI::loadApp()
             appSetted = true;
         }
 
-        // Chargement des autres applications
         appNavigateur.loadData();
         appPresentation.loadData();
         appTableur.loadData();
@@ -396,7 +395,6 @@ bool ArreraUI::loadLieu(){
             if (QFile::exists(iconPath)) {
                 l.button->setIcon(QIcon(iconPath));
             } else {
-                qWarning() << "Icon missing for mode" << l.index << ":" << iconPath;
                 l.button->setIcon(QIcon(l.defaultIcon));
             }
         }
@@ -474,8 +472,6 @@ bool ArreraUI::loadMode(){
             ui->acceuilStacked->setCurrentIndex(idYesMode);
             ui->modeview->setCurrentIndex(idModeSave);
         }
-
-        //cout << modeSendAssistant.toStdString() << endl;
 
         if (!modeSendAssistant.isEmpty()) {
             serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
@@ -575,26 +571,28 @@ bool ArreraUI::launchAppMode(int nbApp,QString app){
 }
 
 bool ArreraUI::launchAssistantMode(QString assistant){
-   /* if (assistant.isEmpty()){
-        return arreraApp.executeApp(assistantMode);
-    }else{
-        if (assistant=="SIX"){
+    if (assistant=="SIX"){
+        if (arrera_application.load_arrera_application("six",ui->IDC_ASSISTANT)){
             assistantMode = "six";
-            ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp.executeApp("six");
-        }else if (assistant == "RYLEY"){
+            ui->IDC_ASSISTANT->clicked();
+            return true;
+        }else return false;
+    }else if (assistant == "RYLEY"){
+        if (arrera_application.load_arrera_application("ryley",ui->IDC_ASSISTANT)){
             assistantMode = "ryley";
-            ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp.executeApp("ryley");
-        }else if (assistant == "COPILOTE"){
+            ui->IDC_ASSISTANT->clicked();
+            return true;
+        }return false;
+    }else if (assistant == "COPILOTE"){
+        if (arrera_application.load_arrera_application("copilote",ui->IDC_ASSISTANT)){
             assistantMode = "arrera-copilote";
-            ui->IDC_ASSISTANT->setVisible(true);
-            return arreraApp.executeApp("arrera-copilote");
-        }else{
-            ui->IDC_ASSISTANT->setVisible(false);
-            return false;
-        }
-    }*/
+            ui->IDC_ASSISTANT->clicked();
+            return true;
+        }return false;
+    }else{
+        ui->IDC_ASSISTANT->setVisible(false);
+        return false;
+    }
 }
 
 void ArreraUI::launchGestServeur(){
@@ -659,44 +657,7 @@ void ArreraUI::launchGestServeur(){
                                 on_IDC_QUIT_clicked();},Qt::QueuedConnection);
     });
 
-    /*
-    // Demarage des serveur websocket
-    serveurApp.startServeur(12345);
 
-
-    // Partie serveur app
-    connect(&serveurApp, &CArreraServeur::messageReceived,
-            [this](const QString &nameSoft, const QString &message)
-            {comunictation.traitementApp(nameSoft,message);});
-    connect(&serveurApp,&CArreraServeur::connectClient,[this]()
-            {ui->LINDICATIONARRERA->setText("Une application Arrera est connecter");});
-
-    // Partie serveur assistant
-    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
-        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
-        ui->IDC_SIX->setVisible(false);
-        ui->IDC_COPILOTE->setVisible(false);
-        ui->IDC_RYLEY->setVisible(false);
-        assistantIsActived = false;
-    });
-    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
-        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
-        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
-        assistantIsActived = true;
-    });
-    connect(&serveurAssistant, &CArreraServeur::messageReceived,
-            [this](const QString &nameSoft, const QString &message)
-    {
-        comunictation.setNameAssistant(nameSoft);
-        comunictation.traitementAssistant(nameSoft,message);
-    });
-
-    connect(&comunictation,&CCommunication::textLabel,
-            [this](const QString &message)
-            {ui->LINDICATIONARRERA->setText(message);});
-    */
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -1272,6 +1233,7 @@ void ArreraUI::on_IDC_QUIT_clicked()
         QString message = "close mode "+modelaunched;
         modeIsActive = false;
         ui->I2025->setCurrentIndex(idPageI2025Main);
+        loadArreraApp();
         serveurAssistant.sendMessage(nameAssistantConnected,message);
         modelaunched = nullptr;
     }
