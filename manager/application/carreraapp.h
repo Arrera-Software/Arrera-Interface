@@ -1,15 +1,11 @@
 #ifndef CARRERAAPP_H
 #define CARRERAAPP_H
-#include "manager/setting/cainterfacesetting.h"
-#include <QMessageBox>
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QDesktopServices>
 #include <QProcess>
 #include <QPushButton>
 #include <QtCore>
-#include "librairy/cjsonword.h"
-#include "librairy/cdetectionos.h"
 
 // Debug
 /*
@@ -17,33 +13,17 @@
 using namespace std;
 */
 
-static inline QString canonical(const QString &p) {
-    QFileInfo fi(p);
-    const QString c = fi.canonicalFilePath();
-    return c.isEmpty() ? fi.absoluteFilePath() : c;
-}
-
-
-class CArreraApp
-{
+class CArreraApp {
 private :
-    CJSONWORD* jsonFile;
-    CAInterfaceSetting* psetting;
-    CDetectionOS* dectOS;
-    QWidget *widget;
-    bool tigerFileSetted;
-    QString tigerFile;
-    bool exectute(QString app,bool appSetted);
-    QString setBatWindows(QString emplacement);
+    bool hub_config_file_init;
+    QString hub_config_file;
+    QSettings* hub_settings;
+    bool exectute(QString app);
 public:
     CArreraApp();
-    CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw);
-    bool loadJson();
-    bool setEmplacementTiger();
-    bool openStore();
-    bool loadApp(QString nameApp ,QPushButton* button);
-    bool loadAppMacOS();
-    bool executeApp(QString nameApp);
+    bool load_hub_config_file();
+    bool open_arrera_hub();
+    bool load_arrera_application(QString nameApp ,QPushButton* button);
 };
 
 #endif // CARRERAAPP_H

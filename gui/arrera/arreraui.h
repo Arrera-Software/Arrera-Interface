@@ -19,6 +19,9 @@
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
 #include "manager/communication/assistant.h"
+#include "widget/arrera_theme.h"
+
+#define VERSION "dev"
 
 
 /*
@@ -52,18 +55,12 @@ private slots:
 
     void on_IDC_TIGER_clicked();
 
-    void on_IDC_RYLEY_clicked();
-
-    void on_IDC_COPILOTE_clicked();
-
-    void on_IDC_SIX_clicked();
-
-    void on_IDC_ARRERAPOSTITE_clicked();
-
     // Partie Apropos
     void on_IDC_SOURCECODE_clicked();
 
     void on_IDC_WEBSITE_clicked();
+
+    void on_IDC_CHECK_UPDATE_clicked();
 
     void on_IDC_PARA_clicked();
 
@@ -145,20 +142,6 @@ private slots:
 
     void on_IDC_TRAITEMENTTEXTE_clicked();
 
-    // Arrera APP
-
-    void on_IDC_APOSTITE_clicked();
-
-    void on_IDC_AVIDEODOWNLOAD_clicked();
-
-    void on_IDC_ARACCOURCI_clicked();
-
-    void on_IDC_ASIX_clicked();
-
-    void on_IDC_ARYLEY_clicked();
-
-    void on_IDC_ACOPILOTE_clicked();
-
     // BTN Mode
     void on_IDC_MODE1_clicked();
 
@@ -205,6 +188,7 @@ private slots:
     void on_IDC_TASK_clicked();
 
     void on_IDC_AGENDA_clicked();
+
 private : // methode
     void loadSetting();
     bool loadMode();
@@ -225,13 +209,14 @@ private: // Attribut
     WindowsMaj winMaj;
     ArreraSettingUI uipara;
     CArreraRecheche arecherche;
-    CArreraApp arreraApp;
+    CArreraApp arrera_application;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
-    CArreraServeur serveurApp,serveurAssistant;
+    CArreraServeur connection_arrera_hub,serveurAssistant;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     assistant assistantCommunication;
+    Arrera_Theme theme;
 
     // Variable
     QIcon iconSearchMode,iconAssistantMode;

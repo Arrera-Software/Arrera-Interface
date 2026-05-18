@@ -1,279 +1,138 @@
 #include "carreraapp.h"
-#include "QFile"
 
-CArreraApp::CArreraApp() {}
-
-CArreraApp::CArreraApp(CAInterfaceSetting* p,CDetectionOS *os,QWidget *pw){
-    psetting = p;
-    dectOS = os;
-    widget = pw;
+CArreraApp::CArreraApp() {
+#if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
+    hub_config_file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.config/arrera-hub/config.ini";
+#elif defined(Q_OS_WIN)
+    QString roaming = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
+    QString base_dir = roaming + "/arrera-hub";
+    hub_config_file = base_dir+"/config.ini";
+#endif
 }
 
-bool CArreraApp::loadJson(){
-    tigerFile = psetting->getFileJson();
+bool CArreraApp::load_hub_config_file(){
+    QFileInfo checkFile(hub_config_file);
+    if (checkFile.exists() && checkFile.isFile()){
+        hub_settings = new QSettings(hub_config_file, QSettings::IniFormat);
+        if (hub_settings->status() == QSettings::NoError){
+            hub_config_file_init = true;
+            return true;
+        }else return false;
+    }else return false;
+}
 
-    if (tigerFile=="nothing"){
-        jsonFile = nullptr;
-        tigerFileSetted = false;
+bool  CArreraApp::exectute(QString app){
+    #if defined(Q_OS_WIN)
+        QFileInfo fileInfo(app);
+        QString dossierApp = fileInfo.absolutePath();
+
+        QProcess process;
+        process.setProgram(app);
+        process.setWorkingDirectory(dossierApp);
+        return process.startDetached();
+    #elif defined(Q_OS_LINUX)
+    try{
+        return QProcess::startDetached("/bin/bash",QStringList() << app);
+    }catch (const std::exception& e){
         return false;
-    }else{
-        jsonFile = new CJSONWORD(tigerFile);
-        tigerFileSetted = true;
-        return true;
-    }
-}
 
-bool  CArreraApp::exectute(QString app,bool appSetted){
-    if (appSetted == false){
-        if (dectOS->getosWin()){
-            QProcess process;
-            return process.startDetached(app);
-        }else if(dectOS->getosLinux()){
-            return QProcess::startDetached("/bin/bash",QStringList() << app);
-        }else if (dectOS->getosApple()){
-            QStringList openArgs;
-            openArgs << "-a" << app;
-            openArgs << "--args";
-            return QProcess::startDetached("open", openArgs);
-        }
-        else{
-            return false;
-        }
-    }else{
+    } catch (...) {
         return false;
     }
+    #elif defined(Q_OS_MAC)
+        QStringList openArgs;
+        openArgs << "-a" << app;
+        openArgs << "--args";
+        return QProcess::startDetached("open", openArgs);
+    #endif
+    return false;
 }
 
-QString CArreraApp::setBatWindows(QString emplacement){
-    QString workingDir = QFileInfo(emplacement).absolutePath();
-    QString exeWin = emplacement.remove(workingDir).remove("/").remove("\\");
-    QString batFile = workingDir+"/"+"lauch.bat";
+bool CArreraApp::open_arrera_hub(){
+    #if defined(Q_OS_LINUX)
+    QString emplacementStore = QDir::homePath() +"/Applications/arrera-hub-linux-x86/launch.sh";
+    if (QFile::exists(emplacementStore)) return exectute(emplacementStore);
+    else return false;
+    #elif defined(Q_OS_MAC)
+    QString targetApp = "Arrera_Hub.app";
 
-    QFile file(batFile);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        return "error";
+    QStringList searchPaths = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
+
+    if (!searchPaths.contains("/Applications")) {
+        searchPaths.append("/Applications");
     }
-    QTextStream out(&file);
-    out << "@echo off" << Qt::endl;
-    out << "cd "+workingDir << Qt::endl;
-    out << ".\\"+exeWin << Qt::endl;
-    file.close();
-    return batFile;
-}
 
-bool CArreraApp::openStore(){
-    QString exeLinux = "lauch.sh" ;
-    QString exeWin = "arrera-store.exe" ;
-    QString jsonFile = "json/tigerConf.json";
+    for (QString &basePath : searchPaths) {
+        QDirIterator it(basePath,
+                        QStringList() << targetApp,
+                        QDir::Dirs | QDir::NoDotAndDotDot,
+                        QDirIterator::Subdirectories);
 
-    QString emplacementStore = psetting->getEmplacementStore();
-
-    if (emplacementStore == "nothing"){
-        QString appEmplacement;
-        QMessageBox::information(widget,"Information",
-                                 "Veuillez sélectionner l'emplacement du dossier où vous avez installé l'Arrera Store.");
-        appEmplacement = QFileDialog::getExistingDirectory(
-            widget,
-            "Sélectionner un dossier",
-            QDir::homePath(),
-            QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-            );
-        if (dectOS->getosLinux()){
-            if (psetting->setEmplacementStore(appEmplacement+"/"+exeLinux) &&
-                psetting->setFileJson(appEmplacement+"/"+jsonFile)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            if (dectOS->getosWin()){
-                QString fileBat = appEmplacement+"/"+"lauch.bat";
-                QFile file(fileBat);
-                if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                    return false;
-                }
-                QTextStream out(&file);
-                out << "@echo off" << Qt::endl;
-                out << "cd "+appEmplacement << Qt::endl;
-                out << ".\\"+exeWin << Qt::endl;
-                file.close();
-
-                if (psetting->setEmplacementStore(appEmplacement+"/lauch.bat") &&
-                    psetting->setFileJson(appEmplacement+"/"+jsonFile)){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
+        while (it.hasNext()) {
+            QString appPath = it.next();
+            return exectute(appPath) ;
         }
-    }else{
-        return exectute(emplacementStore,emplacementStore.isEmpty());
     }
-    return  false;
+    return false;
+
+    #elif defined(Q_OS_WIN)
+    QString hub_folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/Programs/Arrera Hub";
+
+    QDir dir(hub_folder);
+    if (!dir.exists()) return false;
+    QString hub_exe = hub_folder + "/Arrera_Hub.exe";
+
+    QFileInfo exeInfo(hub_exe);
+    if (exeInfo.exists() && exeInfo.isFile()) return exectute(hub_exe) ;
+    else return false;
+    #endif
 }
 
-bool CArreraApp::loadApp(QString nameApp ,QPushButton* button)
+bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
 {
     /*
-     App possible:
-         * "ryley"
-         * "six"
-         * "arrera-raccourci"
-         * "arrera-postite"
-         * "arrera-video-download"
-         * "arrera-copilote"
-     */
-    button->setVisible(false);
-    // Verification si l'app a etais setted
-
-    bool appOS = dectOS->getosApple();
-    QString emplacement;
-    QString exeApp;
-
-    if (tigerFileSetted || appOS ){
-
-        exeApp = psetting->getExeArreraApp(nameApp);
-
-        if (exeApp=="nothing"){
-            if (!appOS){
-
-                bool clesExisted = jsonFile->isExist(nameApp);
-                if (!clesExisted){
-                    button->setVisible(false);
-                    return false;
-                }
-
-                emplacement = jsonFile->read(nameApp);
-            }else{
-                emplacement = exeApp;
-            }
-
-
-            if (emplacement == "nothing"){
-                button->setVisible(false);
-                return false;
-            }else{
-
-                if (dectOS->getosLinux()){
-                    psetting->setEmplacementArreraApp(nameApp,emplacement);
-                }else{
-                    if (dectOS->getosWin()){
-                        QString batfile = setBatWindows(emplacement);
-                        psetting->setEmplacementArreraApp(nameApp,batfile);
-                    }
-                }
-
-                button->setVisible(true);
-                return true;
-            }
-        }else{
-            button->setVisible(true);
-            return true;
-        }
-    }else{
-        button->setVisible(false);
-        return false;
-    }
-}
-
-bool CArreraApp::loadAppMacOS(){
-    if (dectOS->getosApple()){
-
-        const QString home = QDir::homePath();
-        const QStringList roots = {
-            "/Applications",
-            "/Applications/Utilities",
-            home + "/Applications",
-            "/System/Applications",
-            "/System/Applications/Utilities",
-            "/System/Library/CoreServices",
-            "/System/Library/CoreServices/Applications"
-        };
-
-        QSet<QString> found;
-        for (const QString &root : roots) {
-            QDirIterator it(root,
-                            QStringList{"*.app"},
-                            QDir::Dirs | QDir::NoDotAndDotDot | QDir::Readable,
-                            QDirIterator::Subdirectories);
-            while (it.hasNext())
-                found.insert(canonical(it.next()));
-        }
-
-        QStringList result = found.values();
-        result.sort(Qt::CaseInsensitive);
-
-        // Filtrer pour ne conserver que certains bundles .app (comparaison insensible à la casse)
-        const QStringList targetsOrig = {
-            "arrera-copilote.app",
-            "Arrera-Postite.app",
-            "six.app",
-            "ryley.app"
-        };
-
-        // Map (lowercased) -> libellé d’origine demandé
-        QHash<QString, QString> wanted;
-        for (const auto &t : targetsOrig)
-            wanted.insert(t.toLower(), t);
-
-        // Résultat: nom demandé -> chemin .app trouvé
-        QHash<QString, QString> selected;
-
-        for (const QString &path : qAsConst(result)) {
-            const QString fnameLower = QFileInfo(path).fileName().toLower();
-            if (wanted.contains(fnameLower) && !selected.contains(wanted[fnameLower])) {
-                selected.insert(wanted[fnameLower], path);
-                if (selected.size() == wanted.size())
-                    break;
-            }
-        }
-
-        // 'selected' contient les emplacements des apps demandées (clé = nom demandé, valeur = chemin)
-
-        /*
-            ryley.app -> /Applications/ryley.app
-            Arrera-Postite.app -> /Applications/Arrera-Postite.app
-            six.app -> /Applications/six.app
-            arrera-copilote.app -> /Applications/arrera-copilote.app
-        */
-
-        if (selected.contains("ryley.app")){
-            psetting->setEmplacementArreraApp("ryley",selected.value("ryley.app"));
-        }
-
-        if (selected.contains("Arrera-Postite.app")){
-            psetting->setEmplacementArreraApp("arrera-postite",selected.value("Arrera-Postite.app"));
-        }
-        if (selected.contains("six.app")){
-            psetting->setEmplacementArreraApp("six",selected.value("six.app"));
-        }
-
-        if (selected.contains("arrera-copilote.app")){
-            psetting->setEmplacementArreraApp("arrera-copilote",selected.value("arrera-copilote.app"));
-        }
-
-
-        return true;
-
-    }else{
-        return false;
-    }
-}
-
-bool CArreraApp::executeApp(QString nameApp){
-    /*
-     App possible:
-         * "ryley"
-         * "six"
-         * "arrera-raccourci"
-         * "arrera-postite"
-         * "arrera-video-download"
-         * "arrera-copilote"
+     * copilot
+     * markdown
+     * post-it
+     * ryley
+     * six
     */
-    QString exeApp = psetting->getExeArreraApp(nameApp);
-    if (exeApp.isEmpty()){;
-        return false;
-    }else{
-        return exectute(exeApp,exeApp.isEmpty());
-    }
+
+    button->setVisible(false);
+    button->disconnect();
+
+    QStringList list_app = {"copilot","markdown","post-it","ryley","six"};
+
+
+    if (!list_app.contains(nameApp)) return false;
+    if (!hub_config_file_init) return false;
+
+    hub_settings->sync();
+    hub_settings->beginGroup("software");
+    QString app_emplacement = hub_settings->value(nameApp+"_install", "error").toString();
+    hub_settings->endGroup();
+
+    //cout << app_emplacement.toStdString() << endl;
+
+    if ((app_emplacement == "error") || (app_emplacement == "none")) return false;
+
+    button->setVisible(true);
+    #if defined(Q_OS_WIN)
+    QDirIterator it(app_emplacement, QStringList() << "*.exe", QDir::Files);
+    if (!it.hasNext()) return false;
+    QString exe_file = it.next();
+    QObject::connect(button, &QPushButton::clicked, [this, exe_file](){
+        this->exectute(exe_file);
+    });
+    #elif defined(Q_OS_LINUX)
+    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+        this->exectute(app_emplacement+"/launch.sh");
+    });
+    #elif defined(Q_OS_MAC)
+    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+        this->exectute(app_emplacement);
+    });
+    #endif
+
+    return true;
 }

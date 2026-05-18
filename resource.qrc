@@ -16,14 +16,10 @@
         <file>img/application.png</file>
         <file>img/setting.png</file>
         <file>img/search.png</file>
-        <file>img/arrera-tiger.png</file>
         <file>img/traitementTexte.png</file>
         <file>img/tableur.png</file>
         <file>img/presentation.png</file>
         <file>img/navigateur.png</file>
-        <file>img/arrera-video-download.png</file>
-        <file>img/arrera-raccourci.png</file>
-        <file>img/arrera-postite.png</file>
         <file>img/mode-setting.png</file>
         <file>img/lieu-setting.png</file>
         <file>img/navigateur-para.png</file>
@@ -42,6 +38,9 @@
         <file>img/breef.png</file>
         <file>img/meteo.png</file>
         <file>img/task.png</file>
+        <file>img/arrera_hub.png</file>
+        <file>img/markdown.png</file>
+        <file>img/postit.png</file>
     </qresource>
     <qresource prefix="/mode-lieu">
         <file>img/work.png</file>
@@ -78,5 +77,7 @@
         <file>img/recherche/historique.png</file>
         <file>img/recherche/searchengine.png</file>
     </qresource>
-    <qresource prefix="/style"/>
+    <qresource prefix="/theme">
+        <file>widget/theme.json</file>
+    </qresource>
 </RCC>

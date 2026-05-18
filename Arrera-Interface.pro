@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     fnc/carrerarecheche.cpp \
+    widget/apushbutton.cpp \
+    widget/arrera_theme.cpp \
     widget/roundedframe.cpp \
     gui/arrera/arreraui.cpp \
     gui/setting/arrerasettingui.cpp \
@@ -33,6 +35,8 @@ SOURCES += \
 HEADERS += \
     config.h \
     fnc/carrerarecheche.h \
+    widget/apushbutton.h \
+    widget/arrera_theme.h \
     widget/roundedframe.h \
     gui/arrera/arreraui.h \
     gui/setting/arrerasettingui.h \
@@ -49,7 +53,6 @@ HEADERS += \
     manager/mode_lieu/camodelieu.h \
     manager/setting/cainterfacesetting.h \
     manager/update/ctigerdemon.h \
-    manager/update/version.h \
     manager/update/windowsmaj.h \
     socket/carreraserveur.h
 
