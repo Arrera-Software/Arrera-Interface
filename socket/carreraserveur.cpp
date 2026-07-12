@@ -42,11 +42,12 @@ bool CArreraServeur::stopServeur()
 {
     // 1) Stopper l'acceptation et fermer le serveur (si présent)
     if (serverWebSocket) {
+        if (serverWebSocket->isListening()) {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
-        serverWebSocket->pauseAccepting();
+            serverWebSocket->pauseAccepting();
 #endif
-        if (serverWebSocket->isListening())
             serverWebSocket->close();
+        }
         // Pas de delete: parent = this
     }
 
