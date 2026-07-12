@@ -96,12 +96,13 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
      * post-it
      * ryley
      * six
+     * six_chat
     */
 
     button->setVisible(false);
     button->disconnect();
 
-    QStringList list_app = {"copilot","markdown","post-it","ryley","six"};
+    QStringList list_app = {"copilot","markdown","post-it","ryley","six","six_chat"};
 
 
     if (!list_app.contains(nameApp)) return false;

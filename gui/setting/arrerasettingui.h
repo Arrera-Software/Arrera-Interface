@@ -165,6 +165,7 @@ private slots:
     void on_IDC_CHANGEGEOMANAGE_clicked();
     void on_IDC_ICONCHOOSELIEU_clicked();
     void on_IDC_CHANGEICONLIEU_clicked();
+    void on_BTN_CHANGE_GUI_SIX_clicked();
 };
 
 #endif // ARRERASETTINGUI_H

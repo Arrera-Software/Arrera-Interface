@@ -530,10 +530,18 @@ void ArreraUI::loadArreraApp(){
     }
 
     arrera_application.load_arrera_application("copilot",ui->IDC_ACOPILOTE);
-    arrera_application.load_arrera_application("six",ui->IDC_ASIX);
     arrera_application.load_arrera_application("ryley",ui->IDC_ARYLEY);
     arrera_application.load_arrera_application("markdown",ui->IDC_APOSTITE);
     arrera_application.load_arrera_application("post-it",ui->IDC_POSTIT);
+
+    QString gui_six = objSetting.get_gui_six();
+    if (gui_six == "normal"){
+        arrera_application.load_arrera_application("six",ui->IDC_ASIX);
+    }else if (gui_six == "chat"){
+        arrera_application.load_arrera_application("six_chat",ui->IDC_ASIX);
+    }else{
+        arrera_application.load_arrera_application("six",ui->IDC_ASIX);
+    }
 }
 
 bool ArreraUI::launchAppMode(int nbApp,QString app){

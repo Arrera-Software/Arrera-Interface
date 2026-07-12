@@ -62,7 +62,9 @@ ArreraSettingUI::ArreraSettingUI(QWidget *parent,CAInterfaceSetting *obp,CArrera
     // Mise en place des moteur de recherche dans IDC_LISTEMOTEURERECHERCHE
     ui->IDC_LISTEMOTEURERECHERCHE->addItems(listMoteur);
     // Desactivation du bouton assistant
-    ui->IDC_ASSISTANT->setVisible(false);
+    //ui->IDC_ASSISTANT->setVisible(false);
+    QStringList list_gui_six = objPara->get_list_gui_six();
+    ui->LIST_SIX_GUI->addItems(list_gui_six);
 }
 
 ArreraSettingUI::~ArreraSettingUI()
@@ -213,7 +215,7 @@ void ArreraSettingUI::on_IDC_GENERAUX_clicked()
 
 void ArreraSettingUI::on_IDC_ASSISTANT_clicked()
 {
-
+    ui->mainstacked->setCurrentWidget(ui->assistant);
 }
 
 
@@ -1882,3 +1884,14 @@ void ArreraSettingUI::on_IDC_CHANGEICONLIEU_clicked()
     ui->LINDICATIONSETTING->setText("Parametre des lieu");
     lieuSelected = 0 ;
 }
+
+void ArreraSettingUI::on_BTN_CHANGE_GUI_SIX_clicked()
+{
+    QString valeurChoisie = ui->LIST_SIX_GUI->currentText();
+    if (objPara->set_gui_six(valeurChoisie)) {
+        QMessageBox::information(this,"Interface de Six","L'interface de SIX a bien etais enregistrer");
+    }else{
+        QMessageBox::critical(this,"Erreur","L'interface de SIX n'a pas été instaler");
+    }
+}
+

@@ -212,6 +212,10 @@ public:
 
     bool disableLieu1();
     bool disableLieu2();
+
+    QStringList get_list_gui_six();
+    bool set_gui_six(QString gui);
+    QString get_gui_six();
 };
 
 #endif // CAINTERFACESETTING_H

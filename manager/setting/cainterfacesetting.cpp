@@ -973,3 +973,23 @@ bool CAInterfaceSetting::disableLieu1(){
 bool CAInterfaceSetting::disableLieu2(){
     return lieu2.disableLieu();
 }
+
+QStringList CAInterfaceSetting::get_list_gui_six(){
+    QStringList list_gui_six;
+    list_gui_six << "normal" << "chat";
+    return list_gui_six;
+}
+
+
+bool CAInterfaceSetting::set_gui_six(QString gui){
+    QStringList list_gui_six = this->get_list_gui_six();
+
+    if (list_gui_six.contains(gui)){
+        return fileINI.setValeur("arrera-app","six_gui",gui);
+    } else return false;
+}
+
+QString CAInterfaceSetting::get_gui_six(){
+    return fileINI.getValeur("arrera-app","six_gui");
+}
+
