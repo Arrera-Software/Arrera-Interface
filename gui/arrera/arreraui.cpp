@@ -508,7 +508,6 @@ bool ArreraUI::loadMode(){
 }
 
 void ArreraUI::loadArreraApp(){
-    QString gui_six = objSetting.get_gui_six();
     // Page d'application
     ui->IDC_APOSTITE->setVisible(false);
     ui->IDC_POSTIT->setVisible(false);
@@ -524,13 +523,24 @@ void ArreraUI::loadArreraApp(){
 
     if (objSetting.getTaskbarPostite()) arrera_application.load_arrera_application("markdown",ui->IDC_ARRERA_MARKDOWN);
 
+    QString gui_six = objSetting.get_gui_six();
+    bool six_normal_installed = arrera_application.check_arrera_application("six");
+    bool six_chat_installed = arrera_application.check_arrera_application("six_chat");
+    QString app_six_to_load = gui_six;
+
+    if (six_normal_installed && !six_chat_installed) {
+        app_six_to_load = "normal";
+    } else if (!six_normal_installed && six_chat_installed) {
+        app_six_to_load = "chat";
+    }
+
     if (!assistantIsActived){
         if (objSetting.getTaskbarBTNRyley()) arrera_application.load_arrera_application("ryley",ui->IDC_RYLEY);
 
         if (objSetting.getTaskbarBTNSix()) {
-            if (gui_six == "normal"){
+            if (app_six_to_load == "normal"){
                 arrera_application.load_arrera_application("six",ui->IDC_SIX);
-            }else if (gui_six == "chat"){
+            }else if (app_six_to_load == "chat"){
                 arrera_application.load_arrera_application("six_chat",ui->IDC_SIX);
             }else{
                 arrera_application.load_arrera_application("six",ui->IDC_SIX);
@@ -545,9 +555,9 @@ void ArreraUI::loadArreraApp(){
     arrera_application.load_arrera_application("markdown",ui->IDC_APOSTITE);
     arrera_application.load_arrera_application("post-it",ui->IDC_POSTIT);
 
-    if (gui_six == "normal"){
+    if (app_six_to_load == "normal"){
         arrera_application.load_arrera_application("six",ui->IDC_ASIX);
-    }else if (gui_six == "chat"){
+    }else if (app_six_to_load == "chat"){
         arrera_application.load_arrera_application("six_chat",ui->IDC_ASIX);
     }else{
         arrera_application.load_arrera_application("six",ui->IDC_ASIX);
@@ -608,11 +618,30 @@ bool ArreraUI::launchAppMode(int nbApp,QString app){
 
 bool ArreraUI::launchAssistantMode(QString assistant){
     if (assistant=="SIX"){
-        if (arrera_application.load_arrera_application("six",ui->IDC_ASSISTANT)){
-            assistantMode = "six";
-            ui->IDC_ASSISTANT->clicked();
-            return true;
-        }else return false;
+        QString gui_six = objSetting.get_gui_six();
+        bool six_normal_installed = arrera_application.check_arrera_application("six");
+        bool six_chat_installed = arrera_application.check_arrera_application("six_chat");
+        QString app_six_to_load = gui_six;
+        
+        if (six_normal_installed && !six_chat_installed) {
+            app_six_to_load = "normal";
+        } else if (!six_normal_installed && six_chat_installed) {
+            app_six_to_load = "chat";
+        }
+
+        if (app_six_to_load == "chat"){
+            if (arrera_application.load_arrera_application("six_chat",ui->IDC_ASSISTANT)){
+                assistantMode = "six";
+                ui->IDC_ASSISTANT->clicked();
+                return true;
+            }else return false;
+        }else{
+            if (arrera_application.load_arrera_application("six",ui->IDC_ASSISTANT)){
+                assistantMode = "six";
+                ui->IDC_ASSISTANT->clicked();
+                return true;
+            }else return false;
+        }
     }else if (assistant == "RYLEY"){
         if (arrera_application.load_arrera_application("ryley",ui->IDC_ASSISTANT)){
             assistantMode = "ryley";

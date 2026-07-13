@@ -24,6 +24,7 @@ public:
     bool load_hub_config_file();
     bool open_arrera_hub();
     bool load_arrera_application(QString nameApp ,QPushButton* button);
+    bool check_arrera_application(QString nameApp);
 };
 
 #endif // CARRERAAPP_H

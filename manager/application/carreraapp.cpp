@@ -137,3 +137,17 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
 
     return true;
 }
+
+bool CArreraApp::check_arrera_application(QString nameApp)
+{
+    if (!hub_config_file_init) return false;
+
+    hub_settings->sync();
+    hub_settings->beginGroup("software");
+    QString app_emplacement = hub_settings->value(nameApp+"_install", "error").toString();
+    hub_settings->endGroup();
+
+    if ((app_emplacement == "error") || (app_emplacement == "none")) return false;
+
+    return true;
+}
