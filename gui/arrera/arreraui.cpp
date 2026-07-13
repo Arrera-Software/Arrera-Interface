@@ -508,6 +508,7 @@ bool ArreraUI::loadMode(){
 }
 
 void ArreraUI::loadArreraApp(){
+    QString gui_six = objSetting.get_gui_six();
     // Page d'application
     ui->IDC_APOSTITE->setVisible(false);
     ui->IDC_POSTIT->setVisible(false);
@@ -525,7 +526,17 @@ void ArreraUI::loadArreraApp(){
 
     if (!assistantIsActived){
         if (objSetting.getTaskbarBTNRyley()) arrera_application.load_arrera_application("ryley",ui->IDC_RYLEY);
-        if (objSetting.getTaskbarBTNSix()) arrera_application.load_arrera_application("six",ui->IDC_SIX);
+
+        if (objSetting.getTaskbarBTNSix()) {
+            if (gui_six == "normal"){
+                arrera_application.load_arrera_application("six",ui->IDC_SIX);
+            }else if (gui_six == "chat"){
+                arrera_application.load_arrera_application("six_chat",ui->IDC_SIX);
+            }else{
+                arrera_application.load_arrera_application("six",ui->IDC_SIX);
+            }
+        }
+
         if (objSetting.getTaskbarCopilote()) arrera_application.load_arrera_application("copilot",ui->IDC_COPILOTE);
     }
 
@@ -534,7 +545,6 @@ void ArreraUI::loadArreraApp(){
     arrera_application.load_arrera_application("markdown",ui->IDC_APOSTITE);
     arrera_application.load_arrera_application("post-it",ui->IDC_POSTIT);
 
-    QString gui_six = objSetting.get_gui_six();
     if (gui_six == "normal"){
         arrera_application.load_arrera_application("six",ui->IDC_ASIX);
     }else if (gui_six == "chat"){
