@@ -173,6 +173,7 @@ ArreraUI::ArreraUI(QWidget *parent)
             }
         });
     }
+    loadArreraApp();
 }
 
 ArreraUI::~ArreraUI()
