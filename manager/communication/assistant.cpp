@@ -15,44 +15,20 @@ bool assistant::treatment(const QString name,const QString message)
         return false;
     }else if (message.contains("ouvre",Qt::CaseInsensitive)){
         if (listApp && !listApp->isEmpty()) {
-            if (listApp) {
-                int outApp = appExecute(message);
-                if ( outApp == 1) {
-                    interface->sendMessage(name,"opensoft");
-                    return true;
-                } else if ( outApp == 2)  {
-                    interface->sendMessage(name,"erreuropensoft");
-                    return true;
-                }else{
-                    interface->sendMessage(name,"noopensoft");
-                    return true;
-                }
+            int outApp = appExecute(message);
+            if ( outApp == 1) {
+                interface->sendMessage(name,"opensoft");
+                return true;
+            } else if ( outApp == 2)  {
+                interface->sendMessage(name,"erreuropensoft");
+                return true;
+            }else{
+                interface->sendMessage(name,"noopensoft");
+                return true;
             }
-            else
-            {
-                return false;
-            }
-    }else{
+        }else{
             return false;
         }
-    }else if (message.contains("launch mode",Qt::CaseInsensitive)){
-        QString requette = message;
-        requette.remove("launch mode", Qt::CaseInsensitive);
-        requette = requette.trimmed();
-
-        bool ok = false;
-        int nb = requette.toInt(&ok);
-
-        if (ok && nb >= 1 && nb <= 6) {
-            emit launchMode(nb);
-            return true;
-        } else {
-            interface->sendMessage(name, "error launch mode");
-            return false;
-        }
-    }else if (message.contains("close mode",Qt::CaseInsensitive)){
-        emit closeMode();
-        return true;
     }else{
         return false;
     }

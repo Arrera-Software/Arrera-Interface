@@ -484,7 +484,7 @@ bool ArreraUI::loadMode(){
                 m.button->setIcon(QIcon(m.defaultIcon));
             }
 
-            modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
+            // modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
         }
 
         if (atLeastOne) {
@@ -492,9 +492,9 @@ bool ArreraUI::loadMode(){
             ui->modeview->setCurrentIndex(idModeSave);
         }
 
-        if (!modeSendAssistant.isEmpty()) {
+        /*if (!modeSendAssistant.isEmpty()) {
             serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
-        }
+        }*/
 
         return true;
     }catch (const std::exception& e)
@@ -1091,7 +1091,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-one-launch name:"+nameMode;
+            //textAssistant = "mode-one-launch name:"+nameMode;
         }else {ok=false;}
         break;
     case 2:
@@ -1106,7 +1106,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-two-launch name:"+nameMode;
+            //textAssistant = "mode-two-launch name:"+nameMode;
         }else{ok = false;}
         break;
     case 3:
@@ -1121,7 +1121,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-theer-launch name:"+nameMode;
+            //textAssistant = "mode-theer-launch name:"+nameMode;
         }else{ok = false;}
         break;
     case 4:
@@ -1136,7 +1136,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-four-launch name:"+nameMode;
+            //textAssistant = "mode-four-launch name:"+nameMode;
         }else{ok = false;}
         break;
     case 5:
@@ -1151,7 +1151,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-five-launch name:"+nameMode;
+            //textAssistant = "mode-five-launch name:"+nameMode;
         }else{ok = false;}
         break;
     case 6 :
@@ -1166,7 +1166,7 @@ bool ArreraUI::launchMode(int index)
             }else {
                 icon = new QPixmap(img);
             }
-            textAssistant = "mode-six-launch name:"+nameMode;
+            //textAssistant = "mode-six-launch name:"+nameMode;
         }else{ok=false;}
         break;
     default:
@@ -1188,8 +1188,6 @@ bool ArreraUI::launchMode(int index)
         modeIsActive = true;
         if (!assistantIsActived){
             launchAssistantMode(assistant);
-        }else{
-            serveurAssistant.sendMessage(nameAssistantConnected,textAssistant);
         }
         return true;
     }else{
@@ -1296,11 +1294,11 @@ void ArreraUI::on_IDC_QUITLIEU_clicked()
 void ArreraUI::on_IDC_QUIT_clicked()
 {
     if (modeIsActive){
-        QString message = "close mode "+modelaunched;
+        //QString message = "close mode "+modelaunched;
         modeIsActive = false;
         ui->I2025->setCurrentIndex(idPageI2025Main);
         loadArreraApp();
-        serveurAssistant.sendMessage(nameAssistantConnected,message);
+        //serveurAssistant.sendMessage(nameAssistantConnected,message);
         modelaunched = nullptr;
     }
 }
