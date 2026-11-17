@@ -6,22 +6,22 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 
 ## Phase 1 : Suppression des Modes et des Lieux (Nettoyage)
 
-- [ ] **Supprimer le module `manager/mode_lieu/`**
+- [x] **Supprimer le module `manager/mode_lieu/`**
   - Retirer `CAMode`, `CALieu`, `CAModeLieu` (`.h` / `.cpp`).
-  - Retirer `ModeConfig` et `LieuConfig` de [`config.h`](config.h).
-- [ ] **Nettoyer [`CAInterfaceSetting`](manager/setting/cainterfacesetting.h)**
+  - Supprimer `config.h` (`ModeConfig` et `LieuConfig`).
+- [x] **Nettoyer [`CAInterfaceSetting`](manager/setting/cainterfacesetting.h)**
   - Supprimer les attributs `mode1..6` et `lieu1..2`.
   - Supprimer tous les getters/setters/resets liés aux modes et aux lieux.
-- [ ] **Nettoyer [`ArreraSettingUI`](gui/setting/arrerasettingui.h) (`arrerasettingui.ui` / `.cpp`)**
+- [x] **Nettoyer [`ArreraSettingUI`](gui/setting/arrerasettingui.h) (`arrerasettingui.ui` / `.cpp`)**
   - Supprimer les onglets/pages de configuration Mode et Lieu (`idModePage`, `idLieuPage`, `idMainModePage`, `idAddMode`, `idGestMode`, `idMainLieu`, `idAddLieu`, `idManageLieu`).
   - Supprimer les slots `IDC_MODE*`, `IDC_BTNMODE*`, `IDC_LIEU*`, `IDC_RESETMODEINTERFACE`, `IDC_RESETLIEU`, etc.
-- [ ] **Nettoyer [`ArreraUI`](gui/arrera/arreraui.h) (`arreraui.ui` / `.cpp`)**
+- [x] **Nettoyer [`ArreraUI`](gui/arrera/arreraui.h) (`arreraui.ui` / `.cpp`)**
   - Supprimer les méthodes `loadMode()`, `loadLieu()`, `launchMode()`, `launchAppMode()`, `launchAssistantMode()`.
   - Supprimer les pages et conteneurs UI liés aux modes/lieux (`I2025`, `modeview`, `lieuview`) ainsi que les slots `on_IDC_MODE*_clicked()`, `on_IDC_LIEU*_clicked()`, `on_IDC_QUIT_clicked()`, `on_IDC_QUITLIEU_clicked()`, `on_IDC_APPMODE*_clicked()`.
   - Retirer le masquage des boutons d'assistants lié aux modes/lieux.
-- [ ] **Mettre à jour le projet et les ressources**
-  - Retirer les fichiers supprimés de [`CMakeLists.txt`](CMakeLists.txt) (et de [`Arrera-Interface.pro`](Arrera-Interface.pro) tant qu'il est conservé).
-  - Nettoyer les images inutilisées (`mode*.png`, `lieu*.png`, etc.) dans les fichiers `.qrc` et `img/`.
+- [x] **Mettre à jour le projet et les ressources**
+  - Retirer les fichiers supprimés de [`CMakeLists.txt`](CMakeLists.txt).
+  - Nettoyer les images inutilisées (`mode*.png`, `lieu*.png`, etc.) dans [`resource.qrc`](resource.qrc) et `img/`.
 
 ---
 
