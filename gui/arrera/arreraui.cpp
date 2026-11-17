@@ -30,7 +30,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);
     idPageI2025App = ui->I2025->indexOf(ui->app);
-    idPageI2025Mode = ui->I2025->indexOf(ui->mode);
     idPageApropos = ui->I2025->indexOf(ui->apropos);
     idPageRecherche = ui->I2025->indexOf(ui->recherchePage);
     idAppView=ui->appStaked->indexOf(ui->AppView);
@@ -42,22 +41,13 @@ ArreraUI::ArreraUI(QWidget *parent)
     idPageRechercheMoteur = ui->arreraRecherche->indexOf(ui->moteur);
     idPageRechercheHist = ui->arreraRecherche->indexOf(ui->historique);
     // Id Acceuil Stacked
-    idNonMode = ui->acceuilStacked->indexOf(ui->nomode);
-    idYesMode = ui->acceuilStacked->indexOf(ui->yesmode);
     // id arreraAppStacked
     idNoArreraApp = ui->arreraAppStacked->indexOf(ui->noArreraApp);
     idViewArreraApp = ui->arreraAppStacked->indexOf(ui->viewArreraApp);
-    // id lieuview
-    idNoLieuSave = ui->lieuview->indexOf(ui->nolieu);
-    idLieuSave = ui->lieuview->indexOf(ui->yeslieu);
-    // id modeview
-    idNoModeSave = ui->modeview->indexOf(ui->no);
-    idModeSave = ui->modeview->indexOf(ui->yes);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
     ui->LINDICATIONARRERA->setText("Bienvenue sur Arrera I2026");
-    ui->IDC_QUITLIEU->setVisible(false);
     // Connection de l'interface principale est le parametre
     connect(&uipara,&ArreraSettingUI::parametresFerme,this,
             &ArreraUI::loadSetting);
@@ -84,15 +74,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Chargement des parametre
     loadSetting();
     // Initilisation de varriable
-    modeIsActive = false;
     assistantIsActived = false;
-    nameMode = "";
-    lieuEnabled = 0;
-    // Mise en place de l'image sur le label des mode
-    QPixmap pixmap (":/icon/img/logo-Arrera.png");
-    ui->LICONARRERA->setPixmap(pixmap.scaled(
-        ui->LICONARRERA->size(),
-        Qt::KeepAspectRatio, Qt::SmoothTransformation));
     // Mise en place icon A Propos
 
     if (dectOS.getosApple()){
@@ -190,54 +172,16 @@ void ArreraUI::on_IDC_ACCEUILARRERA_clicked() // Bouton Arrera en haut a gauche
 {
     int index = ui->I2025->currentIndex();
 
-    if ((index == idPageI2025Main) || (index == idPageI2025Mode))
+    if (index == idPageI2025Main)
     {
         ui->I2025->setCurrentIndex(idPageApropos);
         ui->LINDICATIONARRERA->setText("Arrera I2026 A propos");
 
-    } else if (index != idPageI2025Main){
-        if (modeIsActive)
-        {
-            ui->I2025->setCurrentIndex(idPageI2025Mode);
-            ui->LINDICATIONARRERA->setText(nameMode);
-            ui->IDC_SHOWHIST->setVisible(true);
-            ui->IDC_AUTREMOTEUR->setVisible(true);
-        }
-        else
-        {
-            ui->I2025->setCurrentIndex(idPageI2025Main);
-            ui->LINDICATIONARRERA->setText("Arrera I2026");
-            ui->IDC_SHOWHIST->setVisible(true);
-            ui->IDC_AUTREMOTEUR->setVisible(true);
-        }
-    }
-    else if (lieuEnabled != 0)
-    {
-        int ret = QMessageBox::question(nullptr,
-                                        "Quitter le lieu",
-                                        "Voulez-vous quitter le lieu en cours ?",
-                                        QMessageBox::Yes | QMessageBox::No);
-
-        if (ret == QMessageBox::Yes)
-        {
-            switch (lieuEnabled) {
-            case 1:
-                objSetting.disableLieu1();
-                lieuEnabled = 0;
-                break;
-            case 2:
-                objSetting.disableLieu2();
-                lieuEnabled = 2;
-                break;
-            default:
-                break;
-            }
-        }
-        else
-        {
-            ui->I2025->setCurrentIndex(idPageApropos);
-            ui->LINDICATIONARRERA->setText("Arrera I2026 A propos");
-        }
+    } else {
+        ui->I2025->setCurrentIndex(idPageI2025Main);
+        ui->LINDICATIONARRERA->setText("Arrera I2026");
+        ui->IDC_SHOWHIST->setVisible(true);
+        ui->IDC_AUTREMOTEUR->setVisible(true);
     }
 }
 
@@ -303,23 +247,6 @@ void ArreraUI::on_IDC_PARA_clicked()
 
 void ArreraUI::loadSetting()
 {
-    ui->acceuilStacked->setCurrentIndex(idNonMode);
-
-    // Partie Mode
-    if (!loadMode()){
-        QMessageBox::information(this,
-                                 "Information",
-                                 "Les modes ne sont pas charger correctement");
-    }
-
-    // Partie lieu
-
-    if (!loadLieu()){
-        QMessageBox::information(this,
-                                 "Information",
-                                 "Les lieu ne sont pas charger correctement");
-    }
-
     // Partie APP
 
     if (!loadApp()){
@@ -370,8 +297,6 @@ bool ArreraUI::loadApp()
             appPresentation.getAppSetted() ||
             appTableur.getAppSetted() ||
             appTraitementTexte.getAppSetted();
-
-        ui->IDC_APPLISTMODE->setVisible(anyExtraAppSetted || appSetted);
     }
     catch (const std::exception &e) {
         qWarning() << "Exception in loadArreraApp() :" << e.what();
@@ -383,129 +308,6 @@ bool ArreraUI::loadApp()
     }
 
     return true;
-}
-
-
-bool ArreraUI::loadLieu(){
-    LieuConfig lieu[] = {
-        {ui->IDC_LIEU1, [&]{return objSetting.lieu1IsSeted();},[&]{return objSetting.iconLieu1IsSetted();},
-         [&]{return objSetting.getIconLieu1();},[&]{return objSetting.getNameLieu1();},
-         ":/mode-lieu/img/lieu1.png",1},
-        ui->IDC_LIEU2, [&]{return objSetting.lieu2IsSeted();},[&]{return objSetting.iconLieu2IsSetted();},
-        [&]{return objSetting.getIconLieu2();},[&]{return objSetting.getNameLieu2();},
-        ":/mode-lieu/img/lieu2.png",2};
-
-    bool atLeastOne = false;
-
-    ui->lieuview->setCurrentIndex(idNoLieuSave);
-
-    try{
-        for (auto &l : lieu){
-            if (!l.isSet()) {
-                l.button->setVisible(false);
-                continue;
-            }
-
-            atLeastOne = true;
-            l.button->setVisible(true);
-
-            QString iconPath = l.iconIsSet() ? l.getIcon() : l.defaultIcon;
-
-            if (QFile::exists(iconPath)) {
-                l.button->setIcon(QIcon(iconPath));
-            } else {
-                l.button->setIcon(QIcon(l.defaultIcon));
-            }
-        }
-
-        if (atLeastOne) {
-            ui->lieuview->setCurrentIndex(idLieuSave);
-        }
-
-        return true;
-    }
-    catch(std::exception &e){
-        qWarning() << "Exception in loadArreraApp() :" << e.what();
-        return false;
-    }catch(...){
-        qWarning() << "Unknown exception in loadArreraApp()";
-        return false;
-    }
-}
-
-
-bool ArreraUI::loadMode(){
-
-    ModeConfig modes[] = {
-      { ui->IDC_MODE1, [&]{return objSetting.mode1IsSeted();}, [&]{return objSetting.iconMode1IsSetted();},
-       [&]{return objSetting.getIconMode1();}, [&]{return objSetting.getNameMode1();}, ":mode-lieu/img/mode1.png", 1 },
-
-      { ui->IDC_MODE2, [&]{return objSetting.mode2IsSeted();}, [&]{return objSetting.iconMode2IsSetted();},
-       [&]{return objSetting.getIconMode2();}, [&]{return objSetting.getNameMode2();}, ":mode-lieu/img/mode2.png", 2 },
-
-      { ui->IDC_MODE3, [&]{return objSetting.mode3IsSeted();}, [&]{return objSetting.iconMode3IsSetted();},
-       [&]{return objSetting.getIconMode3();}, [&]{return objSetting.getNameMode3();}, ":mode-lieu/img/mode3.png", 3 },
-
-      { ui->IDC_MODE4, [&]{return objSetting.mode4IsSeted();}, [&]{return objSetting.iconMode4IsSetted();},
-       [&]{return objSetting.getIconMode4();}, [&]{return objSetting.getNameMode4();}, ":mode-lieu/img/mode4.png", 4 },
-
-      { ui->IDC_MODE5, [&]{return objSetting.mode5IsSeted();}, [&]{return objSetting.iconMode5IsSetted();},
-       [&]{return objSetting.getIconMode5();}, [&]{return objSetting.getNameMode5();}, ":mode-lieu/img/mode5.png", 5 },
-
-      { ui->IDC_MODE6, [&]{return objSetting.mode6IsSeted();}, [&]{return objSetting.iconMode6IsSetted();},
-       [&]{return objSetting.getIconMode6();}, [&]{return objSetting.getNameMode6();}, ":mode-lieu/img/mode6.png", 6 },
-      };
-
-
-    QString modeSendAssistant;
-    bool atLeastOne = false;
-
-    ui->acceuilStacked->setCurrentIndex(idYesMode);
-    ui->modeview->setCurrentIndex(idNoModeSave);
-
-    try {
-        for (auto &m : modes)
-        {
-            if (!m.isSet()) {
-                m.button->setVisible(false);
-                continue;
-            }
-
-            atLeastOne = true;
-
-            m.button->setVisible(true);
-
-            QString iconPath = m.iconIsSet() ? m.getIcon() : m.defaultIcon;
-
-            if (QFile::exists(iconPath)) {
-                m.button->setIcon(QIcon(iconPath));
-            } else {
-                qWarning() << "Icon missing for mode" << m.index << ":" << iconPath;
-                m.button->setIcon(QIcon(m.defaultIcon));
-            }
-
-            // modeSendAssistant += "|" + QString("mode%1:%2").arg(m.index).arg(m.getName());
-        }
-
-        if (atLeastOne) {
-            ui->acceuilStacked->setCurrentIndex(idYesMode);
-            ui->modeview->setCurrentIndex(idModeSave);
-        }
-
-        /*if (!modeSendAssistant.isEmpty()) {
-            serveurAssistant.sendMessage(nameAssistantConnected, "namemode" + modeSendAssistant);
-        }*/
-
-        return true;
-    }catch (const std::exception& e)
-    {
-        return false;
-    }
-    catch (...)
-    {
-        return false;
-    }
-
 }
 
 void ArreraUI::loadArreraApp(){
@@ -565,102 +367,6 @@ void ArreraUI::loadArreraApp(){
     }
 }
 
-bool ArreraUI::launchAppMode(int nbApp,QString app){
-
-    static QPushButton* modeButtons[4] = {
-            ui->IDC_APPMODE1,
-            ui->IDC_APPMODE2,
-            ui->IDC_APPMODE3,
-            ui->IDC_APPMODE4
-    };
-
-    // Vérification nbApp
-    if ((nbApp < 1 )|| (nbApp > 4)){
-        return false;
-    }
-
-    if (!app.startsWith("app")){
-        return false;
-    }
-
-    bool ok = false;
-    int index = app.mid(3).toInt(&ok) - 1; // "7" → 7 → index=6 (0-based)
-    if (!ok || index < 0 || index >= appPC.size()){
-        return false;
-    }
-
-
-    switch (nbApp) {
-    case 1: app1Mode = app; break;
-    case 2: app2Mode = app; break;
-    case 3: app3Mode = app; break;
-    case 4: app4Mode = app; break;
-    }
-
-
-    QPushButton *btn = modeButtons[nbApp - 1];
-
-    QString name = appPC[index].getName();
-    QString icon = appPC[index].getIcon();
-    bool sortieExe = appPC[index].executeApplication();
-
-
-    // Mise à jour UI
-    if (icon != "nothing") {
-        btn->setIcon(QIcon(icon));
-        btn->setText("");
-    } else {
-        btn->setIcon(QIcon());
-        btn->setText(name);
-    }
-
-    return sortieExe;
-}
-
-bool ArreraUI::launchAssistantMode(QString assistant){
-    if (assistant=="SIX"){
-        QString gui_six = objSetting.get_gui_six();
-        bool six_normal_installed = arrera_application.check_arrera_application("six");
-        bool six_chat_installed = arrera_application.check_arrera_application("six_chat");
-        QString app_six_to_load = gui_six;
-        
-        if (six_normal_installed && !six_chat_installed) {
-            app_six_to_load = "normal";
-        } else if (!six_normal_installed && six_chat_installed) {
-            app_six_to_load = "chat";
-        }
-
-        if (app_six_to_load == "chat"){
-            if (arrera_application.load_arrera_application("six_chat",ui->IDC_ASSISTANT)){
-                assistantMode = "six";
-                ui->IDC_ASSISTANT->clicked();
-                return true;
-            }else return false;
-        }else{
-            if (arrera_application.load_arrera_application("six",ui->IDC_ASSISTANT)){
-                assistantMode = "six";
-                ui->IDC_ASSISTANT->clicked();
-                return true;
-            }else return false;
-        }
-    }else if (assistant == "RYLEY"){
-        if (arrera_application.load_arrera_application("ryley",ui->IDC_ASSISTANT)){
-            assistantMode = "ryley";
-            ui->IDC_ASSISTANT->clicked();
-            return true;
-        }return false;
-    }else if (assistant == "COPILOTE"){
-        if (arrera_application.load_arrera_application("copilote",ui->IDC_ASSISTANT)){
-            assistantMode = "arrera-copilote";
-            ui->IDC_ASSISTANT->clicked();
-            return true;
-        }return false;
-    }else{
-        ui->IDC_ASSISTANT->setVisible(false);
-        return false;
-    }
-}
-
 void ArreraUI::launchGestServeur(){
     serveurAssistant.startServeur(6666);
 
@@ -673,7 +379,6 @@ void ArreraUI::launchGestServeur(){
         assistantIsActived = true;
         ui->ACTIONASSISTANT->setVisible(true);
         ui->IDC_MODESEARCHBAR->setVisible(true);
-        ui->lieuview->setVisible(false);
     });
     connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
         ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
@@ -685,7 +390,6 @@ void ArreraUI::launchGestServeur(){
         ui->ACTIONASSISTANT->setVisible(false);
         ui->IDC_MODESEARCHBAR->setVisible(false);
         searchBarAssistantMode = false;
-        ui->lieuview->setVisible(true);
     });
     connect(&serveurAssistant, &CArreraServeur::messageReceived,
             [this](const QString &nameSoft, const QString &message)
@@ -693,7 +397,6 @@ void ArreraUI::launchGestServeur(){
                 assistantCommunication.treatment(nameSoft,message);
                 if (nameAssistantConnected.isEmpty()){
                     nameAssistantConnected = nameSoft;
-                    loadMode();
                 }
             });
 
@@ -701,29 +404,6 @@ void ArreraUI::launchGestServeur(){
             this, [this](const QString message) {
                 ui->LINDICATIONARRERA->setText(message);
             });
-
-    connect(&assistantCommunication, &assistant::launchMode,
-            this, [this](const int nb) {
-                QMetaObject::invokeMethod(this, [this, nb]() {
-                    // ton switch ici
-                    switch (nb) {
-                    case 1: on_IDC_MODE1_clicked(); break;
-                    case 2: on_IDC_MODE2_clicked(); break;
-                    case 3: on_IDC_MODE3_clicked(); break;
-                    case 4: on_IDC_MODE3_clicked(); break;
-                    case 5: on_IDC_MODE4_clicked(); break;
-                    case 6: on_IDC_MODE5_clicked(); break;
-                    default:break;
-                    }
-                }, Qt::QueuedConnection);   // <---- IMPORTANT !!!
-            });
-
-    connect(&assistantCommunication, &assistant::closeMode,
-            this,[this]() {QMetaObject::invokeMethod(this,[this]() {
-                                on_IDC_QUIT_clicked();},Qt::QueuedConnection);
-    });
-
-
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -1068,429 +748,6 @@ void ArreraUI::on_IDC_TABLEUR_clicked()
 void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
 {
     appTraitementTexte.executeApplication();
-}
-
-// BTN Mode
-
-bool ArreraUI::launchMode(int index)
-{
-    QString app1,app2,app3,app4,assistant,textAssistant,img;
-    QPixmap *icon;
-    bool ok = false;
-
-    switch (index) {
-    case 1:
-        if (objSetting.mode1IsSeted()){
-            ok = true;
-            objSetting.getAppMode1(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode1();
-            nameMode = objSetting.getNameMode1();
-            img = objSetting.getIconMode1();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode1.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-one-launch name:"+nameMode;
-        }else {ok=false;}
-        break;
-    case 2:
-        if (objSetting.mode2IsSeted()){
-            ok = true;
-            objSetting.getAppMode2(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode2();
-            nameMode = objSetting.getNameMode2();
-            img = objSetting.getIconMode2();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode2.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-two-launch name:"+nameMode;
-        }else{ok = false;}
-        break;
-    case 3:
-        if (objSetting.mode3IsSeted()){
-            ok = true;
-            objSetting.getAppMode3(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode3();
-            nameMode = objSetting.getNameMode3();
-            img = objSetting.getIconMode3();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode3.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-theer-launch name:"+nameMode;
-        }else{ok = false;}
-        break;
-    case 4:
-        if (objSetting.mode4IsSeted()){
-            ok = true;
-            objSetting.getAppMode4(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode4();
-            nameMode = objSetting.getNameMode4();
-            img = objSetting.getIconMode4();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode4.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-four-launch name:"+nameMode;
-        }else{ok = false;}
-        break;
-    case 5:
-        if (objSetting.mode5IsSeted()){
-            ok = true;
-            objSetting.getAppMode5(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode5();
-            nameMode = objSetting.getNameMode5();
-            img = objSetting.getIconMode5();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode5.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-five-launch name:"+nameMode;
-        }else{ok = false;}
-        break;
-    case 6 :
-        if (objSetting.mode6IsSeted()){
-            ok = true;
-            objSetting.getAppMode6(&app1,&app2,&app3,&app4);
-            assistant = objSetting.getAssistantMode6();
-            nameMode = objSetting.getNameMode6();
-            img = objSetting.getIconMode6();
-            if ((img == "error") || (img == "nothing")){
-                icon = new QPixmap(":/mode-lieu/img/mode6.png");
-            }else {
-                icon = new QPixmap(img);
-            }
-            //textAssistant = "mode-six-launch name:"+nameMode;
-        }else{ok=false;}
-        break;
-    default:
-        break;
-    }
-
-
-    if (ok){
-        ui->IDC_APPMODE1->setVisible(launchAppMode(1,app1));
-        ui->IDC_APPMODE2->setVisible(launchAppMode(2,app2));
-        ui->IDC_APPMODE3->setVisible(launchAppMode(3,app3));
-        ui->IDC_APPMODE4->setVisible(launchAppMode(4,app4));
-        ui->LINDICATIONARRERA->setText(nameMode);
-        ui->I2025->setCurrentIndex(idPageI2025Mode);
-        ui->LICONARRERA->setPixmap(icon->scaled(
-            ui->LICONARRERA->size(),
-            Qt::KeepAspectRatio, Qt::SmoothTransformation));
-        ui->LINCNAMEMODE->setText("Mode : "+nameMode);
-        modeIsActive = true;
-        if (!assistantIsActived){
-            launchAssistantMode(assistant);
-        }
-        return true;
-    }else{
-        return false;
-    }
-}
-
-void ArreraUI::on_IDC_MODE1_clicked()
-{
-    if (!launchMode(1)){
-        QMessageBox::critical(this, "Erreur",
-            "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode1";}
-}
-
-
-void ArreraUI::on_IDC_MODE2_clicked()
-{
-    if (!launchMode(2)){
-        QMessageBox::critical(this, "Erreur",
-                              "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode2";}
-}
-
-
-void ArreraUI::on_IDC_MODE3_clicked()
-{
-    if (!launchMode(3)){
-        QMessageBox::critical(this, "Erreur",
-                              "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode3";}
-}
-
-void ArreraUI::on_IDC_MODE4_clicked()
-{
-    if (!launchMode(4)){
-        QMessageBox::critical(this, "Erreur",
-                              "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode4";}
-}
-
-void ArreraUI::on_IDC_MODE5_clicked()
-{
-    if (!launchMode(5)){
-        QMessageBox::critical(this, "Erreur",
-                              "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode5";}
-}
-
-void ArreraUI::on_IDC_MODE6_clicked()
-{
-    if (!launchMode(6)){
-        QMessageBox::critical(this, "Erreur",
-                              "Une erreur c'est produite lors du lancement du mode");
-    }else{modelaunched = "mode6";}
-}
-
-// BTN lieu
-
-void ArreraUI::on_IDC_LIEU1_clicked()
-{
-    objSetting.launchLieu1(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
-    ui->IDC_LIEU1->setVisible(false);
-    ui->IDC_LIEU2->setVisible(false);
-    ui->IDC_QUITLIEU->setVisible(true);
-    lieuEnabled = 1;
-    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu1());
-}
-
-void ArreraUI::on_IDC_LIEU2_clicked()
-{
-    objSetting.launchLieu2(ui->IDC_SIX,ui->IDC_RYLEY,ui->IDC_COPILOTE);
-    ui->IDC_LIEU1->setVisible(false);
-    ui->IDC_LIEU2->setVisible(false);
-    ui->IDC_QUITLIEU->setVisible(true);
-    lieuEnabled=2;
-    ui->LINDICATIONARRERA->setText("Bienvenu a "+objSetting.getNameLieu2());
-}
-
-void ArreraUI::on_IDC_QUITLIEU_clicked()
-{
-    lieuEnabled=0;
-    ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-    ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-    ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
-    ui->LINDICATIONARRERA->setText("Sortie du lieu");
-    ui->IDC_QUITLIEU->setVisible(false);
-
-    if (objSetting.lieu1IsSeted()){
-        ui->IDC_LIEU1->setVisible(true);
-    }else{
-        ui->IDC_LIEU1->setVisible(false);
-    }
-
-    if (objSetting.lieu2IsSeted()){
-        ui->IDC_LIEU2->setVisible(true);
-    }else{
-        ui->IDC_LIEU2->setVisible(false);
-    }
-}
-
-// btn QUIT
-
-void ArreraUI::on_IDC_QUIT_clicked()
-{
-    if (modeIsActive){
-        //QString message = "close mode "+modelaunched;
-        modeIsActive = false;
-        ui->I2025->setCurrentIndex(idPageI2025Main);
-        loadArreraApp();
-        //serveurAssistant.sendMessage(nameAssistantConnected,message);
-        modelaunched = nullptr;
-    }
-}
-
-
-void ArreraUI::on_IDC_APPMODE1_clicked()
-{
-    if (app1Mode=="app1"){
-         appPC[0].executeApplication();
-    }else if(app1Mode=="app2") {
-         appPC[1].executeApplication();
-    }else if(app1Mode=="app3"){
-         appPC[2].executeApplication();
-    }else if(app1Mode=="app4"){
-         appPC[3].executeApplication();
-    }else if(app1Mode =="app5"){
-         appPC[4].executeApplication();
-    }else if(app1Mode =="app6"){
-         appPC[5].executeApplication();
-    }else if(app1Mode =="app7"){
-         appPC[6].executeApplication();
-    }else if(app1Mode =="app8"){
-         appPC[7].executeApplication();
-    }else if(app1Mode =="app9"){
-         appPC[8].executeApplication();
-    }else if(app1Mode =="app10"){
-         appPC[9].executeApplication();
-    }else if(app1Mode =="app11"){
-         appPC[10].executeApplication();
-    }else if(app1Mode =="app12"){
-         appPC[11].executeApplication();
-    }else if(app1Mode =="app13"){
-         appPC[12].executeApplication();
-    }else if(app1Mode =="app14"){
-         appPC[13].executeApplication();
-    }else if(app1Mode =="app15"){
-         appPC[14].executeApplication();
-    }else if(app1Mode =="app16"){
-         appPC[15].executeApplication();
-    }else if(app1Mode =="app17"){
-         appPC[16].executeApplication();
-    }else if(app1Mode =="app18"){
-         appPC[17].executeApplication();
-    }else if(app1Mode =="app19"){
-         appPC[18].executeApplication();
-    }else if(app1Mode =="app20"){
-         appPC[19].executeApplication();
-    }
-}
-
-
-void ArreraUI::on_IDC_APPMODE2_clicked()
-{
-    if (app2Mode=="app1"){
-         appPC[0].executeApplication();
-    }else if(app2Mode=="app2") {
-         appPC[1].executeApplication();
-    }else if(app2Mode=="app3"){
-         appPC[2].executeApplication();
-    }else if(app2Mode=="app4"){
-         appPC[3].executeApplication();
-    }else if(app2Mode =="app5"){
-         appPC[4].executeApplication();
-    }else if(app2Mode =="app6"){
-         appPC[5].executeApplication();
-    }else if(app2Mode =="app7"){
-         appPC[6].executeApplication();
-    }else if(app2Mode =="app8"){
-         appPC[7].executeApplication();
-    }else if(app2Mode =="app9"){
-         appPC[8].executeApplication();
-    }else if(app2Mode =="app10"){
-         appPC[9].executeApplication();
-    }else if(app2Mode =="app11"){
-         appPC[10].executeApplication();
-    }else if(app2Mode =="app12"){
-         appPC[11].executeApplication();
-    }else if(app2Mode =="app13"){
-         appPC[12].executeApplication();
-    }else if(app2Mode =="app14"){
-         appPC[13].executeApplication();
-    }else if(app2Mode =="app15"){
-         appPC[14].executeApplication();
-    }else if(app2Mode =="app16"){
-         appPC[15].executeApplication();
-    }else if(app2Mode =="app17"){
-         appPC[16].executeApplication();
-    }else if(app2Mode =="app18"){
-         appPC[17].executeApplication();
-    }else if(app2Mode =="app19"){
-         appPC[18].executeApplication();
-    }else if(app2Mode =="app20"){
-         appPC[19].executeApplication();
-    }
-}
-
-
-void ArreraUI::on_IDC_APPMODE3_clicked()
-{
-    if (app3Mode=="app1"){
-         appPC[0].executeApplication();
-    }else if(app3Mode=="app2") {
-         appPC[1].executeApplication();
-    }else if(app3Mode=="app3"){
-         appPC[2].executeApplication();
-    }else if(app3Mode=="app4"){
-         appPC[3].executeApplication();
-    }else if(app3Mode =="app5"){
-         appPC[4].executeApplication();
-    }else if(app3Mode =="app6"){
-         appPC[5].executeApplication();
-    }else if(app3Mode =="app7"){
-         appPC[6].executeApplication();
-    }else if(app3Mode =="app8"){
-         appPC[7].executeApplication();
-    }else if(app3Mode =="app9"){
-         appPC[8].executeApplication();
-    }else if(app3Mode =="app10"){
-         appPC[9].executeApplication();
-    }else if(app3Mode =="app11"){
-         appPC[10].executeApplication();
-    }else if(app3Mode =="app12"){
-         appPC[11].executeApplication();
-    }else if(app3Mode =="app13"){
-         appPC[12].executeApplication();
-    }else if(app3Mode =="app14"){
-         appPC[13].executeApplication();
-    }else if(app3Mode =="app15"){
-         appPC[14].executeApplication();
-    }else if(app3Mode =="app16"){
-         appPC[15].executeApplication();
-    }else if(app3Mode =="app17"){
-         appPC[16].executeApplication();
-    }else if(app3Mode =="app18"){
-         appPC[17].executeApplication();
-    }else if(app3Mode =="app19"){
-         appPC[18].executeApplication();
-    }else if(app3Mode =="app20"){
-        appPC[19].executeApplication();
-    }
-}
-
-
-void ArreraUI::on_IDC_APPMODE4_clicked()
-{
-    if (app4Mode=="app1"){
-         appPC[0].executeApplication();
-    }else if(app4Mode=="app2") {
-         appPC[1].executeApplication();
-    }else if(app4Mode=="app3"){
-         appPC[2].executeApplication();
-    }else if(app4Mode=="app4"){
-         appPC[3].executeApplication();
-    }else if(app4Mode =="app5"){
-         appPC[4].executeApplication();
-    }else if(app4Mode =="app6"){
-         appPC[5].executeApplication();
-    }else if(app4Mode =="app7"){
-         appPC[6].executeApplication();
-    }else if(app4Mode =="app8"){
-         appPC[7].executeApplication();
-    }else if(app4Mode =="app9"){
-         appPC[8].executeApplication();
-    }else if(app4Mode =="app10"){
-         appPC[9].executeApplication();
-    }else if(app4Mode =="app11"){
-         appPC[10].executeApplication();
-    }else if(app4Mode =="app12"){
-         appPC[11].executeApplication();
-    }else if(app4Mode =="app13"){
-         appPC[12].executeApplication();
-    }else if(app4Mode =="app14"){
-         appPC[13].executeApplication();
-    }else if(app4Mode =="app15"){
-         appPC[14].executeApplication();
-    }else if(app4Mode =="app16"){
-         appPC[15].executeApplication();
-    }else if(app4Mode =="app17"){
-         appPC[16].executeApplication();
-    }else if(app4Mode =="app18"){
-         appPC[17].executeApplication();
-    }else if(app4Mode =="app19"){
-         appPC[18].executeApplication();
-    }else if(app4Mode =="app20"){
-        appPC[19].executeApplication();
-    }
-}
-
-
-void ArreraUI::on_IDC_APPLISTMODE_clicked()
-{
-    on_IDC_APPBUREAU_clicked();
 }
 
 void ArreraUI::searchEnter()

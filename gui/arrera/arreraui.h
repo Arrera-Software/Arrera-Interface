@@ -8,7 +8,6 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QShortcut>
-#include "config.h"
 #include "manager/update/windowsmaj.h"
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
@@ -94,6 +93,8 @@ private slots:
 
     void on_IDC_MOTEURREVERSO_clicked();
 
+    void closeEvent(QCloseEvent *event);
+
     void on_IDC_APP_001_clicked();
 
     void on_IDC_APP_002_clicked();
@@ -142,43 +143,6 @@ private slots:
 
     void on_IDC_TRAITEMENTTEXTE_clicked();
 
-    // BTN Mode
-    void on_IDC_MODE1_clicked();
-
-    void on_IDC_MODE2_clicked();
-
-    void on_IDC_MODE3_clicked();
-
-    void on_IDC_MODE5_clicked();
-
-    void on_IDC_MODE4_clicked();
-
-    void on_IDC_MODE6_clicked();
-
-    // BTN lieu
-
-    void on_IDC_LIEU1_clicked();
-
-    void on_IDC_LIEU2_clicked();
-
-    void on_IDC_QUITLIEU_clicked();
-
-    // Partie Mode
-
-    void on_IDC_QUIT_clicked();
-
-    void on_IDC_APPMODE1_clicked();
-
-    void on_IDC_APPMODE2_clicked();
-
-    void on_IDC_APPMODE3_clicked();
-
-    void on_IDC_APPMODE4_clicked();
-
-    void on_IDC_APPLISTMODE_clicked();
-
-    void closeEvent(QCloseEvent *event) override;
-
     // Bouton pour envoyer des ordes a l'assistant
 
     void on_IDC_BREEF_clicked();
@@ -191,16 +155,11 @@ private slots:
 
 private : // methode
     void loadSetting();
-    bool loadMode();
-    bool loadLieu();
     void loadArreraApp();
     bool loadApp();
-    bool launchAppMode(int nbApp,QString app);
-    bool launchAssistantMode(QString assistant = "");
     void launchGestServeur();
     void launchSearch(int mode);
     void searchEnter();
-    bool launchMode(int index);
 
 private: // Attribut
     // Objet
@@ -220,13 +179,11 @@ private: // Attribut
 
     // Variable
     QIcon iconSearchMode,iconAssistantMode;
-    bool modeIsActive,assistantIsActived,searchBarAssistantMode;
-    QString assistantMode = nullptr,modelaunched= nullptr;
-    QString nameMode,app1Mode,app2Mode,app3Mode,app4Mode,nameAssistantConnected;
-    int lieuEnabled,idPageI2025Main,idPageI2025App,idPageI2025Mode,idPageApropos,idPageRecherche;
+    bool assistantIsActived,searchBarAssistantMode;
+    QString nameAssistantConnected;
+    int idPageI2025Main,idPageI2025App,idPageApropos,idPageRecherche;
     int idPageDesktopApp,idPageArreraApp,idPageRechercheMoteur, idPageRechercheHist;
-    int idNonMode, idYesMode,idNoLieuSave,idLieuSave;
-    int idNoModeSave,idModeSave,idAppView,idNoApp,idNoArreraApp, idViewArreraApp;
+    int idAppView,idNoApp,idNoArreraApp, idViewArreraApp;
     bool desktopApp = false;
 
 };

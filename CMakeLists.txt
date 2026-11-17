@@ -17,7 +17,6 @@ qt_standard_project_setup()
 
 qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         main.cpp
-        config.h
         resource.qrc
         fnc/carrerarecheche.cpp fnc/carrerarecheche.h
         gui/arrera/arreraui.cpp gui/arrera/arreraui.h gui/arrera/arreraui.ui
@@ -30,9 +29,6 @@ qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         manager/application/cappspeciaux.cpp manager/application/cappspeciaux.h
         manager/application/carreraapp.cpp manager/application/carreraapp.h
         manager/communication/assistant.cpp manager/communication/assistant.h
-        manager/mode_lieu/calieu.cpp manager/mode_lieu/calieu.h
-        manager/mode_lieu/camode.cpp manager/mode_lieu/camode.h
-        manager/mode_lieu/camodelieu.cpp manager/mode_lieu/camodelieu.h
         manager/setting/cainterfacesetting.cpp manager/setting/cainterfacesetting.h
         manager/update/ctigerdemon.cpp manager/update/ctigerdemon.h
         manager/update/windowsmaj.cpp manager/update/windowsmaj.h manager/update/windowsmaj.ui
