@@ -20,20 +20,26 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
   - Supprimer les pages et conteneurs UI liés aux modes/lieux (`I2025`, `modeview`, `lieuview`) ainsi que les slots `on_IDC_MODE*_clicked()`, `on_IDC_LIEU*_clicked()`, `on_IDC_QUIT_clicked()`, `on_IDC_QUITLIEU_clicked()`, `on_IDC_APPMODE*_clicked()`.
   - Retirer le masquage des boutons d'assistants lié aux modes/lieux.
 - [ ] **Mettre à jour le projet et les ressources**
-  - Retirer les fichiers supprimés de [`Arrera-Interface.pro`](Arrera-Interface.pro).
+  - Retirer les fichiers supprimés de [`CMakeLists.txt`](CMakeLists.txt) (et de [`Arrera-Interface.pro`](Arrera-Interface.pro) tant qu'il est conservé).
   - Nettoyer les images inutilisées (`mode*.png`, `lieu*.png`, etc.) dans les fichiers `.qrc` et `img/`.
 
 ---
 
-## Phase 2 : Refactoring structurel du projet
+## Phase 2 : Refactoring structurel & Migration CMake / ArreraQT
 
+- [ ] **Migrer vers ArreraQT ([`Arrera_qt`](https://github.com/Arrera-Librairy/Arrera_qt))**
+  - Intégrer `Arrera_qt` dans [`CMakeLists.txt`](CMakeLists.txt) (sous-module Git, `FetchContent` ou package local).
+  - Remplacer les composants locaux dans `widget/` ([`APushButton`](widget/apushbutton.h), [`Arrera_Theme`](widget/arrera_theme.h), [`RoundedFrame`](widget/roundedframe.h)) et `librairy/` ([`CDetectionOS`](librairy/cdetectionos.h), [`CSetting`](librairy/csetting.h), [`CJsonWord`](librairy/cjsonword.h)) par ceux d'`Arrera_qt` là où ils sont couverts.
+  - Utiliser `Arrera_qt` comme socle commun avec les autres apps Qt de l'écosystème (`Arrera Markdown`, futur `Arrera Post-It`).
+- [ ] **Finaliser la transition QMake -> CMake**
+  - Acter la bascule complète sur [`CMakeLists.txt`](CMakeLists.txt) (cible `arrera`) et retirer ou archiver [`Arrera-Interface.pro`](Arrera-Interface.pro) une fois la migration validée sur macOS, Linux et Windows.
 - [ ] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (actuellement > 1500 lignes)
   - Séparer clairement la couche UI (affichage/interactions) de la logique métier (routage ANN, gestion des apps, recherche).
 - [ ] **Remplacer les blocs répétitifs en dur par des structures dynamiques**
   - Remplacer les 20 slots individuels `on_IDC_APP_001_clicked()` .. `on_IDC_APP_020_clicked()` par une liste/boucle ou un signal mappé dynamiquement.
 - [ ] **Corriger les incohérences existantes**
   - Aligner les identifiants d'apps (ex. `"copilot"` dans [`CArreraApp`](manager/application/carreraapp.cpp) vs `"copilote"` dans [`ArreraUI::launchAssistantMode`](gui/arrera/arreraui.cpp)).
-  - Vérifier le nom de cible `TARGET` dans [`Arrera-Interface.pro`](Arrera-Interface.pro) (`Arera_Interface` actuellement) et la compatibilité Qt 5 / Qt 6 sur macOS, Linux et Windows.
+  - Vérifier la compatibilité Qt 6 sur macOS, Linux et Windows.
 
 ---
 
