@@ -81,8 +81,10 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 - [ ] **Refonte de l'interface principale (`arreraui.ui`)**
   - Repenser l'accueil autour de l'écosystème : statut des assistants connectés, accès direct aux apps Arrera (Hub, Markdown, futur Post-It), recherche unifiée (Web / ANN), apps PC et retours des assistants.
   - Adapter le système de thème ([`arrera_theme`](widget/arrera_theme.h) / `theme.json`).
-- [ ] **Refonte de l'interface des paramètres (`arrerasettingui.ui`)**
-  - Simplifier les catégories maintenant que Modes et Lieux sont retirés (Général, Assistants / ANN, Écosystème Arrera, Applications PC, Recherche).
+- [ ] **Intégrer les paramètres dans l'interface principale (fin des 2 fenêtres séparées)**
+  - Intégrer la vue des paramètres directement dans [`ArreraUI`](gui/arrera/arreraui.h) (page dans le `QStackedWidget` principal ou widget/composant embarqué) au lieu d'ouvrir une fenêtre séparée [`ArreraSettingUI`](gui/setting/arrerasettingui.h).
+  - Supprimer la gestion de seconde fenêtre (`uipara.show()`, signal `parametresFerme`) et appliquer/recharger les réglages directement lors du retour à l'accueil.
+  - Simplifier les catégories (Général, Assistants / ANN, Écosystème Arrera, Applications PC, Recherche).
 - [ ] **Mises à jour & Déploiement multi-OS**
   - Vérifier le fonctionnement de [`CTigerDemon`](manager/update/ctigerdemon.h) / [`WindowsMaj`](manager/update/windowsmaj.h) pour la version 2027.
   - Tester la compilation et l'exécution complète sur **macOS**, **Linux** et **Windows** (démarrage, connexion WebSocket multi-clients, lancement des apps).
