@@ -11,6 +11,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+include(FetchContent)
+
+FetchContent_Declare(
+        arrera_qt
+        GIT_REPOSITORY https://github.com/Arrera-Librairy/Arrera_qt.git
+        GIT_TAG v1.0.0
+)
+FetchContent_MakeAvailable(arrera_qt)
+
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebSockets)
 
 qt_standard_project_setup()
@@ -33,9 +42,6 @@ qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         manager/update/ctigerdemon.cpp manager/update/ctigerdemon.h
         manager/update/windowsmaj.cpp manager/update/windowsmaj.h manager/update/windowsmaj.ui
         socket/carreraserveur.cpp socket/carreraserveur.h
-        widget/apushbutton.cpp widget/apushbutton.h
-        widget/arrera_theme.cpp widget/arrera_theme.h
-        widget/roundedframe.cpp widget/roundedframe.h
 )
 
 if(APPLE)
@@ -58,6 +64,7 @@ target_link_libraries(arrera PRIVATE
         Qt::Gui
         Qt::Widgets
         Qt::WebSockets
+        Arrera::Qt
 )
 
 install(TARGETS arrera

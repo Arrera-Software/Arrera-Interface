@@ -18,7 +18,7 @@
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
 #include "manager/communication/assistant.h"
-#include "widget/arrera_theme.h"
+#include "arrera_qt/arrera_theme.h"
 
 #define VERSION "dev"
 

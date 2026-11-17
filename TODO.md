@@ -27,10 +27,10 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 
 ## Phase 2 : Refactoring structurel & Migration CMake / ArreraQT
 
-- [ ] **Migrer vers ArreraQT ([`Arrera_qt`](https://github.com/Arrera-Librairy/Arrera_qt))**
-  - Intégrer `Arrera_qt` dans [`CMakeLists.txt`](CMakeLists.txt) (sous-module Git, `FetchContent` ou package local).
-  - Remplacer les composants locaux dans `widget/` ([`APushButton`](widget/apushbutton.h), [`Arrera_Theme`](widget/arrera_theme.h), [`RoundedFrame`](widget/roundedframe.h)) et `librairy/` ([`CDetectionOS`](librairy/cdetectionos.h), [`CSetting`](librairy/csetting.h), [`CJsonWord`](librairy/cjsonword.h)) par ceux d'`Arrera_qt` là où ils sont couverts.
-  - Utiliser `Arrera_qt` comme socle commun avec les autres apps Qt de l'écosystème (`Arrera Markdown`, futur `Arrera Post-It`).
+- [x] **Migrer vers ArreraQT ([`Arrera_qt`](https://github.com/Arrera-Librairy/Arrera_qt))**
+  - Intégrer `Arrera_qt` dans [`CMakeLists.txt`](CMakeLists.txt) via `FetchContent`.
+  - Remplacer uniquement les composants UI de `widget/` ([`APushButton`](widget/apushbutton.h), [`Arrera_Theme`](widget/arrera_theme.h), [`RoundedFrame`](widget/roundedframe.h), `theme.json`) par ceux d'`Arrera_qt` (conserver `librairy/` tel quel).
+  - Utiliser `Arrera_qt` comme socle UI commun avec les autres apps Qt de l'écosystème (`Arrera Markdown`, futur `Arrera Post-It`).
 - [ ] **Finaliser la transition QMake -> CMake**
   - Acter la bascule complète sur [`CMakeLists.txt`](CMakeLists.txt) (cible `arrera`) et retirer ou archiver [`Arrera-Interface.pro`](Arrera-Interface.pro) une fois la migration validée sur macOS, Linux et Windows.
 - [ ] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (actuellement > 1500 lignes)

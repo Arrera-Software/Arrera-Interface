@@ -37,7 +37,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="RoundedFrame" name="TOPFRAME">
+    <widget class="AFrame" name="TOPFRAME">
      <property name="frameShape">
       <enum>QFrame::Shape::NoFrame</enum>
      </property>
@@ -125,7 +125,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLineEdit" name="IDC_SEARCHBAR">
+         <widget class="ASearchBar" name="IDC_SEARCHBAR">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -258,7 +258,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="RoundedFrame" name="TASKBARMAIN">
+        <widget class="AFrame" name="TASKBARMAIN">
          <property name="frameShape">
           <enum>QFrame::Shape::Box</enum>
          </property>
@@ -1562,7 +1562,7 @@
               </widget>
              </item>
              <item>
-              <widget class="RoundedFrame" name="FBUREAUTIQUEAPP">
+              <widget class="AFrame" name="FBUREAUTIQUEAPP">
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
@@ -2118,7 +2118,7 @@
     </widget>
    </item>
    <item>
-    <widget class="RoundedFrame" name="ACTIONASSISTANT">
+    <widget class="AFrame" name="ACTIONASSISTANT">
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
      </property>
@@ -2249,15 +2249,20 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>RoundedFrame</class>
+   <class>AFrame</class>
    <extends>QFrame</extends>
-   <header location="global">widget/roundedframe.h</header>
+   <header>arrera_qt/aframe.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>APushButton</class>
    <extends>QPushButton</extends>
-   <header location="global">widget/apushbutton.h</header>
+   <header>arrera_qt/apushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ASearchBar</class>
+   <extends>QLineEdit</extends>
+   <header>arrera_qt/asearchbar.h</header>
   </customwidget>
  </customwidgets>
  <resources>

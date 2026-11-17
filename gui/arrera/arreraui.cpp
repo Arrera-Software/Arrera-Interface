@@ -25,7 +25,7 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Mise en place du theme
-    theme.loadThemeFromJson(":/theme/widget/theme.json");
+    //theme.setTheme(QStringLiteral("bleu_violet"));
     // Ajout de l'objet de l'interface des parametre
     // Recuperation ID de widget
     idPageI2025Main = ui->I2025->indexOf(ui->main);

@@ -19,7 +19,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="RoundedFrame" name="TOPFRAME">
+    <widget class="AFrame" name="TOPFRAME">
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -1789,15 +1789,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>RoundedFrame</class>
+   <class>AFrame</class>
    <extends>QFrame</extends>
-   <header location="global">widget/roundedframe.h</header>
+   <header>arrera_qt/aframe.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>APushButton</class>
    <extends>QPushButton</extends>
-   <header location="global">widget/apushbutton.h</header>
+   <header>arrera_qt/apushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>
