@@ -1,7 +1,11 @@
 #include "carreraapp.h"
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QFileInfo>
 
 CArreraApp::CArreraApp() {
-#if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
+#if defined(Q_OS_MACOS) || defined(Q_OS_LINUX)
     hub_config_file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.config/arrera-hub/config.ini";
 #elif defined(Q_OS_WIN)
     QString roaming = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
@@ -39,7 +43,7 @@ bool  CArreraApp::exectute(QString app){
     } catch (...) {
         return false;
     }
-    #elif defined(Q_OS_MAC)
+    #elif defined(Q_OS_MACOS)
         QStringList openArgs;
         openArgs << "-a" << app;
         openArgs << "--args";
@@ -53,7 +57,7 @@ bool CArreraApp::open_arrera_hub(){
     QString emplacementStore = QDir::homePath() +"/Applications/arrera-hub-linux-x86/launch.sh";
     if (QFile::exists(emplacementStore)) return exectute(emplacementStore);
     else return false;
-    #elif defined(Q_OS_MAC)
+    #elif defined(Q_OS_MACOS)
     QString targetApp = "Arrera_Hub.app";
 
     QStringList searchPaths = QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation);
@@ -129,7 +133,7 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
     QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
         this->exectute(app_emplacement+"/launch.sh");
     });
-    #elif defined(Q_OS_MAC)
+    #elif defined(Q_OS_MACOS)
     QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
         this->exectute(app_emplacement);
     });

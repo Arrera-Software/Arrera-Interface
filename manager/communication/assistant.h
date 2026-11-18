@@ -2,17 +2,10 @@
 #define ASSISTANT_H
 
 #include <QObject>
-#include <QStringList>
 
 #include "manager/socket/carreraserveur.h"
 #include "manager/search/carrerarecheche.h"
 #include "manager/application/capppc.h"
-
-/*Debug
-
-*/
-#include "iostream"
-using namespace std;
 
 class assistant : public QObject
 {

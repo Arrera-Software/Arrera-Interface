@@ -1,11 +1,9 @@
 #ifndef CARRERAAPP_H
 #define CARRERAAPP_H
-#include <QFileDialog>
 #include <QStandardPaths>
-#include <QDesktopServices>
 #include <QProcess>
 #include <QPushButton>
-#include <QtCore>
+#include <QSettings>
 
 // Debug
 /*

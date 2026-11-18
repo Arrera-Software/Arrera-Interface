@@ -2,7 +2,7 @@
 #ifndef ARRERAUI_H
 #define ARRERAUI_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QShortcut>
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
@@ -14,13 +14,6 @@
 #include "manager/application/CAppManager.h"
 
 #define VERSION "dev"
-
-
-/*
-
-*/
-#include "iostream"
-using namespace std;
 
 namespace Ui {
 class ArreraUI;

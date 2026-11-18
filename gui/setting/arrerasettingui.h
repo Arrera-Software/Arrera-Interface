@@ -4,7 +4,6 @@
 #include <QDialog>
 #include "manager/setting/cainterfacesetting.h"
 #include <QMessageBox>
-#include <QListWidget>
 #include <QDir>
 #include "manager/search/carrerarecheche.h"
 #include <QFileDialog>

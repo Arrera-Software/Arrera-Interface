@@ -8,7 +8,6 @@
 #include <QtGlobal>
 #include <QHostAddress>
 #include <QWebSocketProtocol>
-#include <algorithm>
 
 /*debug
 #include <iostream>

@@ -9,8 +9,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QFile>
-#include <QJsonValue>
-#include <QJsonParseError>
 #include <QString>
 
 class CJSONWORD {

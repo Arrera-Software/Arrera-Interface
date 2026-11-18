@@ -1,8 +1,6 @@
 #include "gui/arrera/arreraui.h"
 
 #include <QApplication>
-#include <QStyleHints>
-#include <QObject>
 #include <QIcon>
 
 int main(int argc, char *argv[])

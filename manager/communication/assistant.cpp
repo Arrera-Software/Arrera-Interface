@@ -46,7 +46,7 @@ int assistant::appExecute(const QString& message)
 
     for (CAppPC app : *listApp) {
         QString name = app.getName().simplified();
-        if (name.compare(query, Qt::CaseInsensitive) == 0)
+        if (name.compare(query, Qt::CaseInsensitive) == 0) {
             if (app.executeApplication()){
                 emit textTopLabel("Ouverture de "+name);
                 return 1;
@@ -55,6 +55,7 @@ int assistant::appExecute(const QString& message)
                 emit textTopLabel("Erreur sur l'ouverture de "+name);
                 return 2;
             }
+        }
     }
     emit textTopLabel("L'application n'est pas enregistrer");
     return 0;

@@ -49,7 +49,7 @@ int CSetting::checkOS(){
         return 1;
     #elif defined(Q_OS_LINUX)
         return 2;
-    #elif defined(Q_OS_MAC)
+    #elif defined(Q_OS_MACOS)
         return 3;
     #endif
 }

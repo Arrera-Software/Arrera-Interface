@@ -37,9 +37,9 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
   - Séparation UI / logique métier effectuée via [`CArreraBus`](manager/communication/carrerabus.h), [`CAppManager`](manager/application/CAppManager.h), [`CArreraRecheche`](manager/search/carrerarecheche.h) et [`CTigerDemon`](manager/update/ctigerdemon.h).
 - [x] **Remplacer les blocs répétitifs en dur par des structures dynamiques**
   - Remplacement des 20 slots `on_IDC_APP_001_clicked()` .. `on_IDC_APP_020_clicked()` (via `CAppManager::setupDesktopApps`) et des 12 slots `on_IDC_MOTEUR*_clicked()` par des boucles `connect()`.
-- [ ] **Corriger les incohérences existantes**
-  - Activer le thème `Arrera_qt` par défaut dans [`arreraui.cpp`](gui/arrera/arreraui.cpp) (`theme.setTheme(...)`) et nettoyer les warnings restants (`Q_OS_MAC` déprécié sous Qt 6, `nodiscard` dans `cjsonword.cpp`, `else` dans `assistant.cpp`).
-  - Vérifier la compatibilité Qt 6 sur macOS, Linux et Windows.
+- [x] **Corriger les incohérences existantes**
+  - Thème `Arrera_qt` (`default`) activé dans [`arreraui.cpp`](gui/arrera/arreraui.cpp), warnings nettoyés (`Q_OS_MAC` → `Q_OS_MACOS`, `nodiscard` dans [`cjsonword.cpp`](librairy/cjsonword.cpp), accolades dans [`assistant.cpp`](manager/communication/assistant.cpp)) et `#include` inutiles supprimés.
+  - Compatibilité Qt 6 validée sur **macOS** *(compilation et exécution Linux/Windows à valider en Phase 5)*.
 
 ---
 

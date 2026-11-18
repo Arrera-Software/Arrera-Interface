@@ -8,7 +8,7 @@ CDetectionOS::CDetectionOS() {
         osWin = true;
     #elif defined(Q_OS_LINUX)
         osLinux = true;
-    #elif defined(Q_OS_MAC)
+    #elif defined(Q_OS_MACOS)
         osApple = true;
     #endif
 }

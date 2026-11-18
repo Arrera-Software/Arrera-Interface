@@ -1,6 +1,6 @@
 #ifndef CDETECTIONOS_H
 #define CDETECTIONOS_H
-#include <QCoreApplication>
+#include <QtGlobal>
 
 class CDetectionOS
 {
