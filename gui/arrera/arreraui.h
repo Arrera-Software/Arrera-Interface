@@ -8,13 +8,11 @@
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
 #include "librairy/cdetectionos.h"
-#include "manager/application/carreraapp.h"
 #include "gui/setting/arrerasettingui.h"
-#include "manager/application/capppc.h"
-#include "manager/application/cappspeciaux.h"
 #include "arrera_qt/arrera_theme.h"
 #include "manager/search/carrerarecheche.h"
 #include "manager/communication/carrerabus.h"
+#include "manager/application/CAppManager.h"
 
 #define VERSION "dev"
 
@@ -91,54 +89,6 @@ private slots:
 
     void closeEvent(QCloseEvent *event);
 
-    void on_IDC_APP_001_clicked();
-
-    void on_IDC_APP_002_clicked();
-
-    void on_IDC_APP_003_clicked();
-
-    void on_IDC_APP_004_clicked();
-
-    void on_IDC_APP_005_clicked();
-
-    void on_IDC_APP_006_clicked();
-
-    void on_IDC_APP_007_clicked();
-
-    void on_IDC_APP_008_clicked();
-
-    void on_IDC_APP_009_clicked();
-
-    void on_IDC_APP_010_clicked();
-
-    void on_IDC_APP_011_clicked();
-
-    void on_IDC_APP_012_clicked();
-
-    void on_IDC_APP_013_clicked();
-
-    void on_IDC_APP_014_clicked();
-
-    void on_IDC_APP_015_clicked();
-
-    void on_IDC_APP_016_clicked();
-
-    void on_IDC_APP_017_clicked();
-
-    void on_IDC_APP_018_clicked();
-
-    void on_IDC_APP_019_clicked();
-
-    void on_IDC_APP_020_clicked();
-
-    void on_IDC_NAVIGATEUR_clicked();
-
-    void on_IDC_PRESENTATION_clicked();
-
-    void on_IDC_TABLEUR_clicked();
-
-    void on_IDC_TRAITEMENTTEXTE_clicked();
-
     // Bouton pour envoyer des ordes a l'assistant
 
     void on_IDC_BREEF_clicked();
@@ -152,7 +102,6 @@ private slots:
 private : // methode
     void loadSetting();
     void loadArreraApp();
-    bool loadApp();
     void launchSearch(int mode);
     void searchEnter();
 
@@ -163,11 +112,9 @@ private: // Attribut
     WindowsMaj winMaj;
     ArreraSettingUI uipara;
     CArreraRecheche arecherche;
-    CArreraApp arrera_application;
-    QList <CAppPC> appPC;
-    CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
+    CAppManager appManager;
     CArreraBus annBus;
     Arrera_Theme theme;
 

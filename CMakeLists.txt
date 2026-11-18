@@ -44,6 +44,8 @@ qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         manager/update/ctigerdemon.cpp manager/update/ctigerdemon.h
         manager/communication/carrerabus.cpp
         manager/communication/carrerabus.h
+        manager/application/CAppManager.cpp
+        manager/application/CAppManager.h
 )
 
 if(APPLE)

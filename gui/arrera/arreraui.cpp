@@ -7,11 +7,14 @@ ArreraUI::ArreraUI(QWidget *parent)
     objSetting(),
     winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
+    appManager(&objSetting, &dectOS, this),
     tigerDemon("arrera",VERSION,this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
     shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
-    annBus(&arecherche, &objSetting, &appPC, this),
-    theme(this)
+    annBus(&arecherche, &objSetting, appManager.getAppPCList(), this),
+    theme(this),
+    assistantIsActived(false),
+    searchBarAssistantMode(false)
 {
     ui->setupUi(this);
     // Demarage du serveur
@@ -40,6 +43,10 @@ ArreraUI::ArreraUI(QWidget *parent)
     });
 
     connect(&annBus, &CArreraBus::hubAppUpdated, this, &ArreraUI::loadArreraApp);
+
+    connect(&appManager, &CAppManager::desktopAppsLoaded, this, [this](bool hasAny) {
+        ui->appStaked->setCurrentIndex(hasAny ? idAppView : idNoApp);
+    });
 
     annBus.launchGestServeur();
     // Mise en place des bouton
@@ -82,19 +89,14 @@ ArreraUI::ArreraUI(QWidget *parent)
         ui->IDC_APP_017, ui->IDC_APP_018, ui->IDC_APP_019, ui->IDC_APP_020
     };
 
-    for (int i = 0; i < widgets.size(); ++i) {
-        appPC.append(CAppPC(i + 1, &objSetting, widgets[i], &dectOS));
-    }
-
     // Mise en place des app speciaux
-    appNavigateur = CAppSpeciaux(1,&objSetting,ui->IDC_NAVIGATEUR,&dectOS);
-    appPresentation = CAppSpeciaux(2,&objSetting,ui->IDC_PRESENTATION,&dectOS);
-    appTableur = CAppSpeciaux(3,&objSetting,ui->IDC_TABLEUR,&dectOS);
-    appTraitementTexte = CAppSpeciaux(4,&objSetting,ui->IDC_TRAITEMENTTEXTE,&dectOS);
+    appManager.setupDesktopApps(widgets,
+                            ui->IDC_NAVIGATEUR,
+                            ui->IDC_PRESENTATION,
+                            ui->IDC_TABLEUR,
+                            ui->IDC_TRAITEMENTTEXTE);
     // Chargement des parametre
     loadSetting();
-    // Initilisation de varriable
-    assistantIsActived = false;
     // Mise en place icon A Propos
 
     if (dectOS.getosApple()){
@@ -214,7 +216,7 @@ void ArreraUI::on_IDC_CHANGEVIEWAPP_clicked()
 
 void ArreraUI::on_IDC_TIGER_clicked()
 {
-    bool sortie = arrera_application.open_arrera_hub();
+    bool sortie = appManager.openArreraHub();
     if (!sortie){
         QMessageBox::critical(this,"Arrera",
                               "Un problème est survenu au lancement d'Arrera Hub. Il n'est peut-être pas installé.");
@@ -248,124 +250,29 @@ void ArreraUI::on_IDC_PARA_clicked()
 
 void ArreraUI::loadSetting()
 {
-    // Partie APP
-
-    if (!loadApp()){
+    if (!appManager.loadDesktopApps()){
         QMessageBox::information(this,
                                  "Information",
                                  "Un probleme est survenu lors du chargement des application enregistrer");
     }
-    arrera_application.load_hub_config_file();
+    appManager.reloadHubConfig();
     loadArreraApp();
-
-}
-
-bool ArreraUI::loadApp()
-{
-    if (!ui) {
-        return false;
-    }
-
-    bool anyAppSetted = false,appSetted;
-
-    try {
-        const int count = std::size(appPC);
-
-        for (int i = 0; i < count; ++i) {
-
-            appPC[i].loadData();
-
-            if (appPC[i].getAppSetted()) {
-                anyAppSetted = true;
-            }
-        }
-
-        if (!anyAppSetted) {
-            ui->appStaked->setCurrentIndex(idNoApp);
-            appSetted = false;
-        } else {
-            ui->appStaked->setCurrentIndex(idAppView);
-            appSetted = true;
-        }
-
-        appNavigateur.loadData();
-        appPresentation.loadData();
-        appTableur.loadData();
-        appTraitementTexte.loadData();
-
-        bool anyExtraAppSetted =
-            appNavigateur.getAppSetted() ||
-            appPresentation.getAppSetted() ||
-            appTableur.getAppSetted() ||
-            appTraitementTexte.getAppSetted();
-    }
-    catch (const std::exception &e) {
-        qWarning() << "Exception in loadArreraApp() :" << e.what();
-        return false;
-    }
-    catch (...) {
-        qWarning() << "Unknown exception in loadArreraApp()";
-        return false;
-    }
-
-    return true;
 }
 
 void ArreraUI::loadArreraApp(){
-    // Page d'application
-    ui->IDC_APOSTITE->setVisible(false);
-    ui->IDC_POSTIT->setVisible(false);
-    ui->IDC_ACOPILOTE->setVisible(false);
-    ui->IDC_ASIX->setVisible(false);
-    ui->IDC_ARYLEY->setVisible(false);
+    ArreraAppButtons btns;
+    btns.homeSix = ui->IDC_SIX;
+    btns.homeRyley = ui->IDC_RYLEY;
+    btns.homeCopilot = ui->IDC_COPILOTE;
+    btns.homeMarkdown = ui->IDC_ARRERA_MARKDOWN;
 
-    // Page d'acceuille
-    ui->IDC_SIX->setVisible(false);
-    ui->IDC_COPILOTE->setVisible(false);
-    ui->IDC_RYLEY->setVisible(false);
-    ui->IDC_ARRERA_MARKDOWN->setVisible(false);
+    btns.pageSix = ui->IDC_ASIX;
+    btns.pageRyley = ui->IDC_ARYLEY;
+    btns.pageCopilot = ui->IDC_ACOPILOTE;
+    btns.pageMarkdown = ui->IDC_APOSTITE;
+    btns.pagePostIt = ui->IDC_POSTIT;
 
-    if (objSetting.getTaskbarPostite()) arrera_application.load_arrera_application("markdown",ui->IDC_ARRERA_MARKDOWN);
-
-    QString gui_six = objSetting.get_gui_six();
-    bool six_normal_installed = arrera_application.check_arrera_application("six");
-    bool six_chat_installed = arrera_application.check_arrera_application("six_chat");
-    QString app_six_to_load = gui_six;
-
-    if (six_normal_installed && !six_chat_installed) {
-        app_six_to_load = "normal";
-    } else if (!six_normal_installed && six_chat_installed) {
-        app_six_to_load = "chat";
-    }
-
-    if (!assistantIsActived){
-        if (objSetting.getTaskbarBTNRyley()) arrera_application.load_arrera_application("ryley",ui->IDC_RYLEY);
-
-        if (objSetting.getTaskbarBTNSix()) {
-            if (app_six_to_load == "normal"){
-                arrera_application.load_arrera_application("six",ui->IDC_SIX);
-            }else if (app_six_to_load == "chat"){
-                arrera_application.load_arrera_application("six_chat",ui->IDC_SIX);
-            }else{
-                arrera_application.load_arrera_application("six",ui->IDC_SIX);
-            }
-        }
-
-        if (objSetting.getTaskbarCopilote()) arrera_application.load_arrera_application("copilot",ui->IDC_COPILOTE);
-    }
-
-    arrera_application.load_arrera_application("copilot",ui->IDC_ACOPILOTE);
-    arrera_application.load_arrera_application("ryley",ui->IDC_ARYLEY);
-    arrera_application.load_arrera_application("markdown",ui->IDC_APOSTITE);
-    arrera_application.load_arrera_application("post-it",ui->IDC_POSTIT);
-
-    if (app_six_to_load == "normal"){
-        arrera_application.load_arrera_application("six",ui->IDC_ASIX);
-    }else if (app_six_to_load == "chat"){
-        arrera_application.load_arrera_application("six_chat",ui->IDC_ASIX);
-    }else{
-        arrera_application.load_arrera_application("six",ui->IDC_ASIX);
-    }
+    appManager.loadArreraApps(assistantIsActived, btns);
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -567,149 +474,6 @@ void ArreraUI::on_IDC_MOTEURYT_clicked()
 void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
 {
     launchSearch(9);
-}
-
-void ArreraUI::on_IDC_APP_001_clicked()
-{
-    appPC[0].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_002_clicked()
-{
-    appPC[1].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_003_clicked()
-{
-    appPC[2].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_004_clicked()
-{
-    appPC[3].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_005_clicked()
-{
-    appPC[4].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_006_clicked()
-{
-    appPC[5].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_007_clicked()
-{
-    appPC[6].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_008_clicked()
-{
-    appPC[7].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_009_clicked()
-{
-    appPC[8].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_010_clicked()
-{
-    appPC[9].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_011_clicked()
-{
-    appPC[10].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_012_clicked()
-{
-    appPC[11].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_013_clicked()
-{
-    appPC[12].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_014_clicked()
-{
-    appPC[13].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_015_clicked()
-{
-    appPC[14].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_016_clicked()
-{
-    appPC[15].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_017_clicked()
-{
-    appPC[16].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_018_clicked()
-{
-    appPC[17].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_019_clicked()
-{
-    appPC[18].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_APP_020_clicked()
-{
-    appPC[19].executeApplication();
-}
-
-
-void ArreraUI::on_IDC_NAVIGATEUR_clicked()
-{
-    appNavigateur.executeApplication();
-}
-
-
-void ArreraUI::on_IDC_PRESENTATION_clicked()
-{
-    appPresentation.executeApplication();
-}
-
-
-void ArreraUI::on_IDC_TABLEUR_clicked()
-{
-    appTableur.executeApplication();
-}
-
-
-void ArreraUI::on_IDC_TRAITEMENTTEXTE_clicked()
-{
-    appTraitementTexte.executeApplication();
 }
 
 void ArreraUI::searchEnter()
