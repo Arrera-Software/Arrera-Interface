@@ -43,7 +43,19 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 
 ---
 
-## Phase 3 : Refonte de la communication (Bus Arrera & Framework ANN)
+## Phase 3 : Nouvelle UI/UX 2027 (Fenêtre unique)
+
+- [ ] **Refonte de l'interface principale (`arreraui.ui`)**
+  - Repenser l'accueil autour de l'écosystème avec les widgets d'`Arrera_qt` (`ANavButton`, `ASegmentedButton`, `ASettingRow`, `ASwitch`, `AToast`, `AScrollArea`, `AFrame`, `ASearchBar`) : accès aux apps Arrera (Hub, Markdown, futur Post-It), recherche unifiée (Web / ANN), apps PC et emplacements modulaires pour les futurs retours/statuts ANN.
+  - Adapter le système de thème (`Arrera_Theme` d'`Arrera_qt`).
+- [ ] **Intégrer les paramètres dans l'interface principale (fin des 2 fenêtres séparées)**
+  - Intégrer la vue des paramètres directement dans [`ArreraUI`](gui/arrera/arreraui.h) (page dans le `QStackedWidget` principal ou widget/composant embarqué) au lieu d'ouvrir une fenêtre séparée [`ArreraSettingUI`](gui/setting/arrerasettingui.h).
+  - Supprimer la gestion de seconde fenêtre (`uipara.show()`, signal `parametresFerme`) et appliquer/recharger les réglages directement lors du retour à l'accueil.
+  - Simplifier les catégories (Général, Assistants / ANN, Écosystème Arrera, Applications PC, Recherche).
+
+---
+
+## Phase 4 : Refonte de la communication (Bus Arrera & Framework ANN)
 
 - [ ] **Spécifier le protocole du bus (avant implémentation dans les autres apps)**
   - Définir un format structuré (JSON) avec : `version`, `source`, `target`, `type` (`request`, `response`, `event`), `action`, `payload`, `request_id`.
@@ -56,35 +68,23 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
   - Remplacer le parsing texte basique (`message.contains("ouvre")`) par un vrai dispatcher JSON pour les assistants ANN.
   - Exposer dès la connexion d'un assistant : la liste des applications PC configurées, des applications spéciales (`CAppSpeciaux`), et des applications Arrera disponibles/connectées.
   - Permettre le routage inter-clients (ex. un assistant ANN envoie une commande vers `markdown`, `post-it` ou `hub` via `CArreraBus`).
-  - Gérer des retours riches vers l'UI (pas uniquement une chaîne sur `LINDICATIONARRERA`, mais réponses structurées, statuts d'actions, erreurs explicites).
+  - Gérer des retours riches vers l'UI (réponses structurées, statuts d'actions, erreurs explicites dans la nouvelle UI).
 
 ---
 
-## Phase 4 : Centre de l'écosystème Arrera
+## Phase 5 : Centre de l'écosystème Arrera & Stabilisation multi-OS
 
 - [ ] **Arrera Hub ([`CArreraApp`](manager/application/carreraapp.h))**
-  - Conserver la lecture du `config.ini` d'Arrera Hub pour les apps installées, tout en ajoutant des échanges ANN temps réel (état d'installation, mises à jour disponibles, lancement/installation à la demande).
+  - Conserver la lecture du `config.ini` d'Arrera Hub pour les apps installées, tout en ajoutant des échanges temps réel via `CArreraBus` (état d'installation, mises à jour disponibles, lancement/installation à la demande).
   - Assurer une gestion propre du lancement d'apps sur Windows, Linux et macOS.
 - [ ] **Arrera Markdown (en coordination avec sa prochaine update)**
-  - Définir les actions ANN que Markdown exposera (ex. ouvrir une note, créer/ajouter du contenu depuis un assistant, lister les notes récentes).
+  - Définir les actions exposées sur le bus (ex. ouvrir une note, créer/ajouter du contenu depuis un assistant ANN, lister les notes récentes).
   - Intégrer les raccourcis et interactions correspondantes dans Arrera Interface.
 - [ ] **Arrera Post-It (préparation pour futur dev)**
-  - Prévoir les contrats d'API ANN et l'intégration dynamique dans l'interface (détection si installé/connecté, sans erreur si absent pour la sortie 2027).
-  - Définir les cas d'usage avec les assistants (créer, consulter, épingler ou supprimer un post-it via ANN).
+  - Prévoir les contrats d'API et l'intégration dynamique dans l'interface (détection si installé/connecté, sans erreur si absent pour la sortie 2027).
+  - Définir les cas d'usage avec les assistants (créer, consulter, épingler ou supprimer un post-it).
 - [ ] **Applications PC, Spéciales & Recherche ([`CAppPC`](manager/application/capppc.h), [`CAppSpeciaux`](manager/application/cappspeciaux.h), [`CArreraRecheche`](manager/search/carrerarecheche.h))**
-  - Rendre toutes ces actions pilotables proprement via ANN en plus des clics UI.
-
----
-
-## Phase 5 : Nouvelle UI/UX 2027 & Stabilisation
-
-- [ ] **Refonte de l'interface principale (`arreraui.ui`)**
-  - Repenser l'accueil autour de l'écosystème : statut des assistants connectés, accès direct aux apps Arrera (Hub, Markdown, futur Post-It), recherche unifiée (Web / ANN), apps PC et retours des assistants.
-  - Adapter le système de thème (`Arrera_Theme` d'`Arrera_qt`).
-- [ ] **Intégrer les paramètres dans l'interface principale (fin des 2 fenêtres séparées)**
-  - Intégrer la vue des paramètres directement dans [`ArreraUI`](gui/arrera/arreraui.h) (page dans le `QStackedWidget` principal ou widget/composant embarqué) au lieu d'ouvrir une fenêtre séparée [`ArreraSettingUI`](gui/setting/arrerasettingui.h).
-  - Supprimer la gestion de seconde fenêtre (`uipara.show()`, signal `parametresFerme`) et appliquer/recharger les réglages directement lors du retour à l'accueil.
-  - Simplifier les catégories (Général, Assistants / ANN, Écosystème Arrera, Applications PC, Recherche).
+  - Rendre toutes ces actions pilotables proprement via le bus / ANN en plus des clics UI.
 - [ ] **Mises à jour & Déploiement multi-OS**
   - Vérifier le fonctionnement de [`CTigerDemon`](manager/update/ctigerdemon.h) / [`WindowsMaj`](gui/update/windowsmaj.h) pour la version 2027.
   - Tester la compilation et l'exécution complète sur **macOS**, **Linux** et **Windows** (démarrage, connexion WebSocket multi-clients, lancement des apps).
