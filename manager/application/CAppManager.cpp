@@ -59,48 +59,16 @@ bool CAppManager::loadDesktopApps()
     }
 }
 
-QString CAppManager::resolveSixAppName()
+void CAppManager::loadArreraApps(QPushButton *btnMarkdown)
 {
-    const bool sixNormal = arreraApp.check_arrera_application("six");
-    const bool sixChat = arreraApp.check_arrera_application("six_chat");
-
-    if (sixNormal && !sixChat) return QStringLiteral("six");
-    if (!sixNormal && sixChat) return QStringLiteral("six_chat");
-    return (objSetting->get_gui_six() == QLatin1String("chat"))
-               ? QStringLiteral("six_chat")
-               : QStringLiteral("six");
-}
-
-void CAppManager::loadArreraApps(bool assistantIsActive, const ArreraAppButtons &btns)
-{
-    const QList<QPushButton*> allBtns = {
-        btns.homeSix, btns.homeRyley, btns.homeCopilot, btns.homeMarkdown,
-        btns.pageSix, btns.pageRyley, btns.pageCopilot, btns.pageMarkdown, btns.pagePostIt
-    };
-    for (QPushButton *btn : allBtns) {
-        if (btn) btn->setVisible(false);
+    if (!btnMarkdown) {
+        return;
     }
+    btnMarkdown->setVisible(false);
 
-    if (objSetting->getTaskbarPostite() && btns.homeMarkdown) {
-        arreraApp.load_arrera_application("markdown", btns.homeMarkdown);
+    if (objSetting->getTaskbarPostite()) {
+        arreraApp.load_arrera_application("markdown", btnMarkdown);
     }
-
-    const QString sixApp = resolveSixAppName();
-
-    if (!assistantIsActive) {
-        if (objSetting->getTaskbarBTNRyley() && btns.homeRyley)
-            arreraApp.load_arrera_application("ryley", btns.homeRyley);
-        if (objSetting->getTaskbarBTNSix() && btns.homeSix)
-            arreraApp.load_arrera_application(sixApp, btns.homeSix);
-        if (objSetting->getTaskbarCopilote() && btns.homeCopilot)
-            arreraApp.load_arrera_application("copilot", btns.homeCopilot);
-    }
-
-    if (btns.pageCopilot)  arreraApp.load_arrera_application("copilot", btns.pageCopilot);
-    if (btns.pageRyley)    arreraApp.load_arrera_application("ryley", btns.pageRyley);
-    if (btns.pageMarkdown) arreraApp.load_arrera_application("markdown", btns.pageMarkdown);
-    if (btns.pagePostIt)   arreraApp.load_arrera_application("post-it", btns.pagePostIt);
-    if (btns.pageSix)      arreraApp.load_arrera_application(sixApp, btns.pageSix);
 }
 
 void CAppManager::reloadHubConfig()

@@ -19,9 +19,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     // Demarage du serveur
     connect(&annBus, &CArreraBus::assistantConnected, this, [this]() {
         assistantIsActived = true;
-        ui->IDC_SIX->setVisible(false);
-        ui->IDC_COPILOTE->setVisible(false);
-        ui->IDC_RYLEY->setVisible(false);
         ui->ACTIONASSISTANT->setVisible(true);
         ui->IDC_MODESEARCHBAR->setVisible(true);
     });
@@ -30,9 +27,6 @@ ArreraUI::ArreraUI(QWidget *parent)
         assistantIsActived = false;
         searchBarAssistantMode = false;
         ui->IDC_MODESEARCHBAR->setChecked(false);
-        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
         ui->ACTIONASSISTANT->setVisible(false);
         ui->IDC_MODESEARCHBAR->setVisible(false);
     });
@@ -61,15 +55,9 @@ ArreraUI::ArreraUI(QWidget *parent)
     idAppView=ui->appStaked->indexOf(ui->AppView);
     idNoApp=ui->appStaked->indexOf(ui->NoApp);
 
-    idPageDesktopApp = ui->interfaceapp->indexOf(ui->desktopapp);
-    idPageArreraApp = ui->interfaceapp->indexOf(ui->arreraapp);
     // Id Page recherche
     idPageRechercheMoteur = ui->arreraRecherche->indexOf(ui->moteur);
     idPageRechercheHist = ui->arreraRecherche->indexOf(ui->historique);
-    // Id Acceuil Stacked
-    // id arreraAppStacked
-    idNoArreraApp = ui->arreraAppStacked->indexOf(ui->noArreraApp);
-    idViewArreraApp = ui->arreraAppStacked->indexOf(ui->viewArreraApp);
     // Affichage du bon widget au demarage
     ui->I2025->setCurrentIndex(idPageI2025Main);
     // Changement du texte du label LINDICATIONARRERA
@@ -194,25 +182,6 @@ void ArreraUI::on_IDC_APPBUREAU_clicked()
 {
     ui->I2025->setCurrentIndex(idPageI2025App);
     ui->LINDICATIONARRERA->setText("Page application de l'ordinateur");
-    ui->IDC_CHANGEVIEWAPP->setText("Application Arrera");
-    ui->interfaceapp->setCurrentIndex(idPageDesktopApp);
-    desktopApp = false;
-}
-
-void ArreraUI::on_IDC_CHANGEVIEWAPP_clicked()
-{
-    if (!desktopApp){
-        ui->interfaceapp->setCurrentIndex(idPageArreraApp);
-        ui->LINDICATIONARRERA->setText("Page module Arrera");
-        loadArreraApp();
-        ui->IDC_CHANGEVIEWAPP->setText("Application Bureau");
-        desktopApp = true;
-    }else{
-        ui->LINDICATIONARRERA->setText("Page application de l'ordinateur");
-        ui->IDC_CHANGEVIEWAPP->setText("Application Arrera");
-        ui->interfaceapp->setCurrentIndex(idPageDesktopApp);
-        desktopApp = false;
-    }
 }
 
 void ArreraUI::on_IDC_TIGER_clicked()
@@ -261,19 +230,7 @@ void ArreraUI::loadSetting()
 }
 
 void ArreraUI::loadArreraApp(){
-    ArreraAppButtons btns;
-    btns.homeSix = ui->IDC_SIX;
-    btns.homeRyley = ui->IDC_RYLEY;
-    btns.homeCopilot = ui->IDC_COPILOTE;
-    btns.homeMarkdown = ui->IDC_ARRERA_MARKDOWN;
-
-    btns.pageSix = ui->IDC_ASIX;
-    btns.pageRyley = ui->IDC_ARYLEY;
-    btns.pageCopilot = ui->IDC_ACOPILOTE;
-    btns.pageMarkdown = ui->IDC_APOSTITE;
-    btns.pagePostIt = ui->IDC_POSTIT;
-
-    appManager.loadArreraApps(assistantIsActived, btns);
+    appManager.loadArreraApps(ui->IDC_ARRERA_MARKDOWN);
 }
 
 void ArreraUI::launchSearch(int mode){

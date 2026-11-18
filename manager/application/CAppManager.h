@@ -10,19 +10,6 @@
 #include "manager/setting/cainterfacesetting.h"
 #include "librairy/cdetectionos.h"
 
-struct ArreraAppButtons {
-    QPushButton *homeSix = nullptr;
-    QPushButton *homeRyley = nullptr;
-    QPushButton *homeCopilot = nullptr;
-    QPushButton *homeMarkdown = nullptr;
-
-    QPushButton *pageSix = nullptr;
-    QPushButton *pageRyley = nullptr;
-    QPushButton *pageCopilot = nullptr;
-    QPushButton *pageMarkdown = nullptr;
-    QPushButton *pagePostIt = nullptr;
-};
-
 class CAppManager : public QObject
 {
     Q_OBJECT
@@ -32,8 +19,6 @@ private:
     CArreraApp arreraApp;
     QList<CAppPC> appPC;
     CAppSpeciaux appNavigateur, appPresentation, appTableur, appTraitementTexte;
-
-    QString resolveSixAppName();
 
 public:
     explicit CAppManager(CAInterfaceSetting *setting, CDetectionOS *os, QObject *parent = nullptr);
@@ -45,7 +30,7 @@ public:
                           QPushButton *btnTxt);
 
     bool loadDesktopApps();
-    void loadArreraApps(bool assistantIsActive, const ArreraAppButtons &btns);
+    void loadArreraApps(QPushButton *btnMarkdown);
     void reloadHubConfig();
     bool openArreraHub();
 

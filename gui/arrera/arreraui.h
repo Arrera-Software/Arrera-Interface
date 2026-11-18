@@ -36,8 +36,6 @@ private slots:
 
     void on_IDC_APPBUREAU_clicked();
 
-    void on_IDC_CHANGEVIEWAPP_clicked();
-
     void on_IDC_TIGER_clicked();
 
     // Partie Apropos
@@ -89,9 +87,8 @@ private: // Attribut
     // Variable
     bool assistantIsActived,searchBarAssistantMode;
     int idPageI2025Main,idPageI2025App,idPageApropos,idPageRecherche;
-    int idPageDesktopApp,idPageArreraApp,idPageRechercheMoteur, idPageRechercheHist;
-    int idAppView,idNoApp,idNoArreraApp, idViewArreraApp;
-    bool desktopApp = false;
+    int idPageRechercheMoteur, idPageRechercheHist;
+    int idAppView,idNoApp;
 
 };
 
