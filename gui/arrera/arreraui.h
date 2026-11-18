@@ -4,7 +4,6 @@
 
 #include <QWidget>
 #include <QShortcut>
-#include "gui/update/windowsmaj.h"
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
 #include "librairy/cdetectionos.h"
@@ -86,7 +85,6 @@ private: // Attribut
     // Objet
     Ui::ArreraUI *ui;
     CAInterfaceSetting objSetting;
-    WindowsMaj winMaj;
     ArreraSettingUI uipara;
     CArreraRecheche arecherche;
     CTigerDemon tigerDemon;

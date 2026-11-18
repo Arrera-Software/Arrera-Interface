@@ -5,7 +5,6 @@ ArreraUI::ArreraUI(QWidget *parent)
     dectOS(),
     ui(new Ui::ArreraUI),
     objSetting(),
-    winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
     appManager(&objSetting, &dectOS, this),
     tigerDemon("arrera",VERSION,this),
@@ -140,29 +139,11 @@ ArreraUI::ArreraUI(QWidget *parent)
     }
 
     // Connection de signaux de tiger demon
-
-    connect(&tigerDemon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
-        if (hasUpdate) {
-            ui->IDC_VIEW_MAJ->setVisible(true);
-            ui->IDC_VIEW_MAJ->setText("La version " +newVersion+ " est disponible");
-            winMaj.set_new_version(newVersion);
-            winMaj.show();
-            winMaj.raise();
-            winMaj.activateWindow();
-        }else {
-            ui->IDC_VIEW_MAJ->setVisible(false);
-        }
-    });
-
-    connect(&tigerDemon, &CTigerDemon::updateError, this, [=](int errorCode){
-        if (errorCode == -1){
-            ui->IDC_VIEW_MAJ->setVisible(true);
-            ui->IDC_VIEW_MAJ->setText("Impossible de vérifier les mises à jour, une erreur réseau s'est produite");
-        }else if (errorCode == -2){
-            ui->IDC_VIEW_MAJ->setVisible(true);
-            ui->IDC_VIEW_MAJ->setText("Impossible de vérifier les mises à jour");
-        }else{
-            ui->IDC_VIEW_MAJ->setVisible(false);
+    connect(&tigerDemon, &CTigerDemon::updateStatusChanged,
+            this, [this](bool visible, const QString &message) {
+        ui->IDC_VIEW_MAJ->setVisible(visible);
+        if (visible) {
+            ui->IDC_VIEW_MAJ->setText(message);
         }
     });
 
@@ -394,7 +375,7 @@ void ArreraUI::handleSearchResult(bool ok, const QString &label) {
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
     annBus.shutdown();
-    winMaj.close();
+    tigerDemon.closeUpdateWindow();
     if (uipara.isVisible()) uipara.close();
     QDialog::closeEvent(event);
 }

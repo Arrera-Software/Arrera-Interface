@@ -1,28 +1,47 @@
 #include "ctigerdemon.h"
 
-CTigerDemon::CTigerDemon(QString name,QString version, QObject* parent)
+CTigerDemon::CTigerDemon(const QString &name, const QString &version, QWidget* parent)
     : QObject(parent)
+    , offline_version(version)
+    , name_soft(name)
+    , winMaj(parent)
 {
-    name_soft = name;
-    offline_version = version;
 }
 
 QString CTigerDemon::get_version(){
     return offline_version;
 }
 
+void CTigerDemon::closeUpdateWindow()
+{
+    winMaj.close();
+}
+
 void CTigerDemon::checkUpdate() {
-    int status = set_online_version();
+    const int status = set_online_version();
 
-    //cout << status << endl;
-    //cout << "Version local : " << offline_version.toStdString() << "\nVersion en ligne : " << online_version.toStdString() << endl;
+    if (status != 1) {
+        if (status == -1) {
+            emit updateStatusChanged(true, QStringLiteral("Impossible de vérifier les mises à jour, une erreur réseau s'est produite"));
+        } else if (status == -2) {
+            emit updateStatusChanged(true, QStringLiteral("Impossible de vérifier les mises à jour"));
+        } else {
+            emit updateStatusChanged(false, QString());
+        }
+        return;
+    }
 
-    if (status != 1) emit updateError(status);
-
-    if (offline_version == "dev") emit updateResult(false,online_version);
-    else if (online_version != offline_version && !online_version.isEmpty()){
-        emit updateResult(true, online_version);
-    } else emit updateResult(false, online_version);
+    if (offline_version != QLatin1String("dev")
+        && !online_version.isEmpty()
+        && online_version != offline_version) {
+        emit updateStatusChanged(true, QStringLiteral("La version %1 est disponible").arg(online_version));
+        winMaj.set_new_version(online_version);
+        winMaj.show();
+        winMaj.raise();
+        winMaj.activateWindow();
+    } else {
+        emit updateStatusChanged(false, QString());
+    }
 }
 
 bool CTigerDemon::sate_connection(){
