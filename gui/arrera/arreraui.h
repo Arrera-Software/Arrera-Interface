@@ -8,17 +8,18 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QShortcut>
-#include "manager/update/windowsmaj.h"
+#include "gui/update/windowsmaj.h"
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
 #include "librairy/cdetectionos.h"
-#include "socket/carreraserveur.h"
+#include "manager/socket/carreraserveur.h"
 #include "manager/application/carreraapp.h"
 #include "gui/setting/arrerasettingui.h"
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
 #include "manager/communication/assistant.h"
 #include "arrera_qt/arrera_theme.h"
+#include "manager/search/carrerarecheche.h"
 
 #define VERSION "dev"
 

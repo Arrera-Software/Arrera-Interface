@@ -48,7 +48,7 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 - [ ] **Spécifier le protocole ANN (avant implémentation dans les autres apps)**
   - Définir un format structuré (JSON) avec : `version`, `source`, `target`, `type` (`request`, `response`, `event`), `action`, `payload`, `request_id`.
   - Définir l'enregistrement des clients (`register`) avec leur type (`assistant`, `hub`, `app`) et leurs capacités supportées.
-- [ ] **Faire évoluer [`CArreraServeur`](socket/carreraserveur.h)**
+- [ ] **Faire évoluer [`CArreraServeur`](manager/socket/carreraserveur.h)**
   - Unifier la communication de l'écosystème (au lieu de deux serveurs texte séparés sur les ports `6666` et `2026`, ou en standardisant leur protocole).
   - Gérer proprement plusieurs clients connectés en simultané via `nameToSocket` (ne plus limiter à un seul `nameAssistantConnected`).
   - Ajouter la gestion des déconnexions par client (signal avec le nom du client déconnecté) et un heartbeat/statut de connexion fiable.
@@ -71,7 +71,7 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 - [ ] **Arrera Post-It (préparation pour futur dev)**
   - Prévoir les contrats d'API ANN et l'intégration dynamique dans l'interface (détection si installé/connecté, sans erreur si absent pour la sortie 2027).
   - Définir les cas d'usage avec les assistants (créer, consulter, épingler ou supprimer un post-it via ANN).
-- [ ] **Applications PC, Spéciales & Recherche ([`CAppPC`](manager/application/capppc.h), [`CAppSpeciaux`](manager/application/cappspeciaux.h), [`CArreraRecheche`](fnc/carrerarecheche.h))**
+- [ ] **Applications PC, Spéciales & Recherche ([`CAppPC`](manager/application/capppc.h), [`CAppSpeciaux`](manager/application/cappspeciaux.h), [`CArreraRecheche`](manager/search/carrerarecheche.h))**
   - Rendre toutes ces actions pilotables proprement via ANN en plus des clics UI.
 
 ---
@@ -86,5 +86,5 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
   - Supprimer la gestion de seconde fenêtre (`uipara.show()`, signal `parametresFerme`) et appliquer/recharger les réglages directement lors du retour à l'accueil.
   - Simplifier les catégories (Général, Assistants / ANN, Écosystème Arrera, Applications PC, Recherche).
 - [ ] **Mises à jour & Déploiement multi-OS**
-  - Vérifier le fonctionnement de [`CTigerDemon`](manager/update/ctigerdemon.h) / [`WindowsMaj`](manager/update/windowsmaj.h) pour la version 2027.
+  - Vérifier le fonctionnement de [`CTigerDemon`](manager/update/ctigerdemon.h) / [`WindowsMaj`](gui/update/windowsmaj.h) pour la version 2027.
   - Tester la compilation et l'exécution complète sur **macOS**, **Linux** et **Windows** (démarrage, connexion WebSocket multi-clients, lancement des apps).

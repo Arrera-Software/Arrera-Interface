@@ -27,9 +27,9 @@ qt_standard_project_setup()
 qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         main.cpp
         resource.qrc
-        fnc/carrerarecheche.cpp fnc/carrerarecheche.h
         gui/arrera/arreraui.cpp gui/arrera/arreraui.h gui/arrera/arreraui.ui
         gui/setting/arrerasettingui.cpp gui/setting/arrerasettingui.h gui/setting/arrerasettingui.ui
+        gui/update/windowsmaj.cpp gui/update/windowsmaj.h gui/update/windowsmaj.ui
         librairy/cdetectionos.cpp librairy/cdetectionos.h
         librairy/cjsonword.cpp librairy/cjsonword.h
         librairy/csetting.cpp librairy/csetting.h
@@ -38,10 +38,10 @@ qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         manager/application/cappspeciaux.cpp manager/application/cappspeciaux.h
         manager/application/carreraapp.cpp manager/application/carreraapp.h
         manager/communication/assistant.cpp manager/communication/assistant.h
+        manager/search/carrerarecheche.cpp manager/search/carrerarecheche.h
         manager/setting/cainterfacesetting.cpp manager/setting/cainterfacesetting.h
+        manager/socket/carreraserveur.cpp manager/socket/carreraserveur.h
         manager/update/ctigerdemon.cpp manager/update/ctigerdemon.h
-        manager/update/windowsmaj.cpp manager/update/windowsmaj.h manager/update/windowsmaj.ui
-        socket/carreraserveur.cpp socket/carreraserveur.h
 )
 
 if(APPLE)

@@ -4,8 +4,8 @@
 #include <QObject>
 #include <QStringList>
 
-#include "socket/carreraserveur.h"
-#include "fnc/carrerarecheche.h"
+#include "manager/socket/carreraserveur.h"
+#include "manager/search/carrerarecheche.h"
 #include "manager/application/capppc.h"
 
 /*Debug
