@@ -31,14 +31,14 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
   - Intégrer `Arrera_qt` dans [`CMakeLists.txt`](CMakeLists.txt) via `FetchContent`.
   - Remplacer uniquement les composants UI de `widget/` ([`APushButton`](widget/apushbutton.h), [`Arrera_Theme`](widget/arrera_theme.h), [`RoundedFrame`](widget/roundedframe.h), `theme.json`) par ceux d'`Arrera_qt` (conserver `librairy/` tel quel).
   - Utiliser `Arrera_qt` comme socle UI commun avec les autres apps Qt de l'écosystème (`Arrera Markdown`, futur `Arrera Post-It`).
-- [ ] **Finaliser la transition QMake -> CMake**
-  - Acter la bascule complète sur [`CMakeLists.txt`](CMakeLists.txt) (cible `arrera`) et retirer ou archiver [`Arrera-Interface.pro`](Arrera-Interface.pro) une fois la migration validée sur macOS, Linux et Windows.
-- [ ] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (actuellement > 1500 lignes)
+- [x] **Finaliser la transition QMake -> CMake**
+  - Bascule complète sur [`CMakeLists.txt`](CMakeLists.txt) (cible `arrera`, validée sur macOS) et suppression de `Arrera-Interface.pro` / `.qtcreator` / `build/`. *(Reste à valider la compilation CMake sur Linux et Windows en Phase 5.)*
+- [ ] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (~820 lignes)
   - Séparer clairement la couche UI (affichage/interactions) de la logique métier (routage ANN, gestion des apps, recherche).
 - [ ] **Remplacer les blocs répétitifs en dur par des structures dynamiques**
   - Remplacer les 20 slots individuels `on_IDC_APP_001_clicked()` .. `on_IDC_APP_020_clicked()` par une liste/boucle ou un signal mappé dynamiquement.
 - [ ] **Corriger les incohérences existantes**
-  - Aligner les identifiants d'apps (ex. `"copilot"` dans [`CArreraApp`](manager/application/carreraapp.cpp) vs `"copilote"` dans [`ArreraUI::launchAssistantMode`](gui/arrera/arreraui.cpp)).
+  - Aligner les identifiants d'apps (ex. `"copilot"` dans [`CArreraApp`](manager/application/carreraapp.cpp) vs `"copilote"` si utilisé ailleurs) et nettoyer les avertissements restants (`Q_OS_MAC` déprécié sous Qt 6, etc.).
   - Vérifier la compatibilité Qt 6 sur macOS, Linux et Windows.
 
 ---
