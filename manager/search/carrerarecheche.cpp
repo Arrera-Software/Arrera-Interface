@@ -210,3 +210,49 @@ bool CArreraRecheche::openWebPage(QString url){
         return false;
     }
 }
+
+bool CArreraRecheche::searchByIndex(int mode, const QString &q, QString *labelOut)
+{
+    if (q.isEmpty()) {
+        return false;
+    }
+
+    QString label;
+    bool ok = false;
+
+    switch (mode) {
+    case 1:  ok = searchDuckduckgo(q);    label = QStringLiteral("Recheche sur duckduckgo"); break;
+    case 2:  ok = searchGoogle(q);        label = QStringLiteral("Recheche sur google"); break;
+    case 3:  ok = searchQwant(q);         label = QStringLiteral("Recheche sur QWANT"); break;
+    case 4:  ok = searchEcosia(q);        label = QStringLiteral("Recheche sur Ecosia"); break;
+    case 5:  ok = searchBrave(q);         label = QStringLiteral("Recheche sur Brave"); break;
+    case 6:  ok = searchBing(q);          label = QStringLiteral("Recheche sur Bing"); break;
+    case 7:  ok = searchAmazon(q);        label = QStringLiteral("Recheche sur Amazon"); break;
+    case 8:  ok = searchWikipedia(q);     label = QStringLiteral("Recheche sur Wikipedia"); break;
+    case 9:  ok = searchReverso(q);       label = QStringLiteral("Recheche sur Reverso"); break;
+    case 10: ok = searchWordreference(q); label = QStringLiteral("Recheche sur WordReference"); break;
+    case 11: ok = searchYTmusic(q);       label = QStringLiteral("Recheche sur YT Music"); break;
+    case 12: ok = searchAll(q);           label = QStringLiteral("BigSearch"); break;
+    default: ok = false; break;
+    }
+
+    if (labelOut && ok) {
+        *labelOut = label;
+    }
+    return ok;
+}
+
+bool CArreraRecheche::searchWithEngine(const QString &engine, const QString &q, QString *labelOut)
+{
+    static const QMap<QString, int> engineMap = {
+        {QStringLiteral("DUCKDUCKGO"), 1},
+        {QStringLiteral("GOOGLE"),     2},
+        {QStringLiteral("QWANT"),      3},
+        {QStringLiteral("ECOSIA"),     4},
+        {QStringLiteral("BRAVE"),      5},
+        {QStringLiteral("BING"),       6}
+    };
+
+    const int mode = engineMap.value(engine.toUpper(), 2); // GOOGLE par défaut
+    return searchByIndex(mode, q, labelOut);
+}

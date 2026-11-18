@@ -119,6 +119,26 @@ ArreraUI::ArreraUI(QWidget *parent)
     connect(&shortcutEnter,&QShortcut::activated,this,&ArreraUI::searchEnter);
     connect(&shortcutReturn,&QShortcut::activated,this,&ArreraUI::searchEnter);
 
+    const QList<QPair<QPushButton*, int>> searchButtons = {
+        {ui->IDC_MOTEURDUCK, 1},
+        {ui->IDC_MOTEURGOOGLE, 2},
+        {ui->IDC_MOTEURQWANT, 3},
+        {ui->IDC_MOTEURECOSIA, 4},
+        {ui->IDC_MOTEURBRAVE, 5},
+        {ui->IDC_MOTEURBING, 6},
+        {ui->IDC_MOTEURAMAZON, 7},
+        {ui->IDC_MOTEURWIKIPEDIA, 8},
+        {ui->IDC_MOTEURREVERSO, 9},
+        {ui->IDC_MOTEURWORDREFERENCE, 10},
+        {ui->IDC_MOTEURYT, 11},
+        {ui->IDC_MOTEURBIGSEARCH, 12}
+    };
+    for (const auto &entry : searchButtons) {
+        connect(entry.first, &QPushButton::clicked, this, [this, mode = entry.second]() {
+            launchSearch(mode);
+        });
+    }
+
     // Connection de signaux de tiger demon
 
     connect(&tigerDemon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
@@ -290,72 +310,11 @@ void ArreraUI::launchSearch(int mode){
      * 11. YT
      * 12. all
     */
-    QString recherche = ui->IDC_SEARCHBAR->text();
-    bool sortie;
+    const QString recherche = ui->IDC_SEARCHBAR->text();
     ui->IDC_SEARCHBAR->clear();
-    if (!recherche.isEmpty()){
-        switch (mode) {
-        case 1: // duck
-            sortie = arecherche.searchDuckduckgo(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur duckduckgo");
-            break;
-        case 2: // google
-            sortie = arecherche.searchGoogle(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur google");
-            break;
-        case 3: // qwant
-            sortie = arecherche.searchQwant(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur QWANT");
-            break;
-        case 4: // ecosia
-            sortie = arecherche.searchEcosia(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Ecosia");
-            break;
-        case 5: // brave
-            sortie = arecherche.searchBrave(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Brave");
-            break;
-        case 6: // bing
-            sortie = arecherche.searchBing(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Bing");
-            break;
-        case 7: // amazon
-            sortie = arecherche.searchAmazon(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Amazon");
-            break;
-        case 8: // wikipedia
-            sortie = arecherche.searchWikipedia(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Wikipedia");
-            break;
-        case 9: // reverso
-            sortie = arecherche.searchReverso(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur Reverso");
-            break;
-        case 10: // wordreference
-            sortie = arecherche.searchWordreference(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur WordReference");
-            break;
-        case 11: // YT
-            sortie = arecherche.searchYTmusic(recherche);
-            ui->LINDICATIONARRERA->setText("Recheche sur YT Music");
-            break;
-        case 12: // all
-            sortie = arecherche.searchAll(recherche);
-            ui->LINDICATIONARRERA->setText("BigSearch");
-
-            break;
-        default:
-            sortie = false;
-            break;
-        }
-        if (!sortie){
-            QMessageBox::critical(this,"Recherche Arrera",
-                                  "Une erreur s'est produite : impossible de faire la recherche.");
-        }
-    }else{
-        QMessageBox::critical(this,"Recherche Arrera",
-                              "Une erreur s'est produite : impossible de faire la recherche.");
-    }
+    QString label;
+    const bool sortie = arecherche.searchByIndex(mode, recherche, &label);
+    handleSearchResult(sortie, label);
 }
 
 void ArreraUI::on_IDC_SHOWHIST_clicked()
@@ -404,105 +363,31 @@ void ArreraUI::on_IDC_MODESEARCHBAR_clicked()
     }
 }
 
-
-void ArreraUI::on_IDC_MOTEURDUCK_clicked()
-{
-    launchSearch(1);
-}
-
-
-void ArreraUI::on_IDC_MOTEURGOOGLE_clicked()
-{
-    launchSearch(2);
-}
-
-
-void ArreraUI::on_IDC_MOTEURBING_clicked()
-{
-    launchSearch(6);
-}
-
-
-void ArreraUI::on_IDC_MOTEURBRAVE_clicked()
-{
-    launchSearch(5);
-}
-
-
-void ArreraUI::on_IDC_MOTEURECOSIA_clicked()
-{
-    launchSearch(4);
-}
-
-
-void ArreraUI::on_IDC_MOTEURQWANT_clicked()
-{
-    launchSearch(3);
-}
-
-
-void ArreraUI::on_IDC_MOTEURBIGSEARCH_clicked()
-{
-    launchSearch(12);
-}
-
-
-void ArreraUI::on_IDC_MOTEURWIKIPEDIA_clicked()
-{
-    launchSearch(8);
-}
-
-
-void ArreraUI::on_IDC_MOTEURAMAZON_clicked()
-{
-    launchSearch(7);
-}
-
-
-void ArreraUI::on_IDC_MOTEURWORDREFERENCE_clicked()
-{
-    launchSearch(10);
-}
-
-
-void ArreraUI::on_IDC_MOTEURYT_clicked()
-{
-    launchSearch(11);
-}
-
-
-void ArreraUI::on_IDC_MOTEURREVERSO_clicked()
-{
-    launchSearch(9);
-}
-
 void ArreraUI::searchEnter()
 {
-    if (!ui->IDC_SEARCHBAR->text().isEmpty()){
-        if(!searchBarAssistantMode){
-            QString moteur = objSetting.getMoteurRecherche();
-            if (moteur == "GOOGLE"){
-                launchSearch(2);
-            }else if (moteur == "DUCKDUCKGO"){
-                launchSearch(1);
-            }else if (moteur == "ECOSIA"){
-                launchSearch(4);
-            }else if (moteur == "BING"){
-                launchSearch(6);
-            }else if (moteur == "BRAVE"){
-                launchSearch(5);
-            }else if (moteur == "QWANT"){
-                launchSearch(3);
-            }else{
-                launchSearch(2);
-            }
-        }else{
-            annBus.sendQuery(ui->IDC_SEARCHBAR->text());
-            ui->LINDICATIONARRERA->setText("L'assistant vas vous repondre");
-            ui->IDC_SEARCHBAR->clear();
-        }
-    }else{
+    const QString text = ui->IDC_SEARCHBAR->text();
+    if (text.isEmpty()) {
         ui->LINDICATIONARRERA->setText("La bar de recherche est vide");
+        return;
+    }
+    if (!searchBarAssistantMode) {
+        ui->IDC_SEARCHBAR->clear();
+        QString label;
+        const bool sortie = arecherche.searchWithEngine(objSetting.getMoteurRecherche(), text, &label);
+        handleSearchResult(sortie, label);
+    } else {
+        annBus.sendQuery(text);
+        ui->LINDICATIONARRERA->setText("L'assistant vas vous repondre");
+        ui->IDC_SEARCHBAR->clear();
+    }
+}
+
+void ArreraUI::handleSearchResult(bool ok, const QString &label) {
+    if (ok) {
+        ui->LINDICATIONARRERA->setText(label);
+    } else {
+        QMessageBox::critical(this, "Recherche Arrera",
+                              "Une erreur s'est produite : impossible de faire la recherche.");
     }
 }
 

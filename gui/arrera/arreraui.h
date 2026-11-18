@@ -63,30 +63,6 @@ private slots:
 
     void on_IDC_MODESEARCHBAR_clicked();
 
-    void on_IDC_MOTEURDUCK_clicked();
-
-    void on_IDC_MOTEURGOOGLE_clicked();
-
-    void on_IDC_MOTEURBING_clicked();
-
-    void on_IDC_MOTEURBRAVE_clicked();
-
-    void on_IDC_MOTEURECOSIA_clicked();
-
-    void on_IDC_MOTEURQWANT_clicked();
-
-    void on_IDC_MOTEURBIGSEARCH_clicked();
-
-    void on_IDC_MOTEURWIKIPEDIA_clicked();
-
-    void on_IDC_MOTEURAMAZON_clicked();
-
-    void on_IDC_MOTEURWORDREFERENCE_clicked();
-
-    void on_IDC_MOTEURYT_clicked();
-
-    void on_IDC_MOTEURREVERSO_clicked();
-
     void closeEvent(QCloseEvent *event);
 
     // Bouton pour envoyer des ordes a l'assistant
@@ -104,6 +80,7 @@ private : // methode
     void loadArreraApp();
     void launchSearch(int mode);
     void searchEnter();
+    void handleSearchResult(bool ok, const QString &label);
 
 private: // Attribut
     // Objet

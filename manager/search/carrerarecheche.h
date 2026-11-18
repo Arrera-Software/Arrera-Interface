@@ -4,6 +4,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QFile>
+#include <QMap>
 #include <QTextStream>
 #include <QStandardPaths>
 #include "librairy/cdetectionos.h"
@@ -38,6 +39,9 @@ public:
     bool searchWordreference(QString q);
     bool searchYTmusic(QString q);
     bool searchAll(QString q);
+
+    bool searchByIndex(int mode, const QString &q, QString *labelOut = nullptr);
+    bool searchWithEngine(const QString &engine, const QString &q, QString *labelOut = nullptr);
     // Partie hist
     bool add(QString moteur,QString recherche);
     bool clear();
