@@ -119,7 +119,6 @@ void CArreraServeur::onMessageReceived(const QString &message)
 
         setClientName(client, name);
     } else {
-        signalEmitted = true;
         const QString name = socketToName.value(client);
         emit messageReceived(name, message + QStringLiteral("\n"));
 

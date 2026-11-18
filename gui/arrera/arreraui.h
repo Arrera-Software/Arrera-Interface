@@ -3,23 +3,18 @@
 #define ARRERAUI_H
 
 #include <QWidget>
-#include <QDialog>
-#include <QApplication>
-#include <QDesktopServices>
-#include <QUrl>
 #include <QShortcut>
 #include "gui/update/windowsmaj.h"
 #include "manager/update/ctigerdemon.h"
 #include "ui_arreraui.h"
 #include "librairy/cdetectionos.h"
-#include "manager/socket/carreraserveur.h"
 #include "manager/application/carreraapp.h"
 #include "gui/setting/arrerasettingui.h"
 #include "manager/application/capppc.h"
 #include "manager/application/cappspeciaux.h"
-#include "manager/communication/assistant.h"
 #include "arrera_qt/arrera_theme.h"
 #include "manager/search/carrerarecheche.h"
+#include "manager/communication/carrerabus.h"
 
 #define VERSION "dev"
 
@@ -158,7 +153,6 @@ private : // methode
     void loadSetting();
     void loadArreraApp();
     bool loadApp();
-    void launchGestServeur();
     void launchSearch(int mode);
     void searchEnter();
 
@@ -172,16 +166,13 @@ private: // Attribut
     CArreraApp arrera_application;
     QList <CAppPC> appPC;
     CAppSpeciaux appNavigateur,appPresentation,appTableur,appTraitementTexte;
-    CArreraServeur connection_arrera_hub,serveurAssistant;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
-    assistant assistantCommunication;
+    CArreraBus annBus;
     Arrera_Theme theme;
 
     // Variable
-    QIcon iconSearchMode,iconAssistantMode;
     bool assistantIsActived,searchBarAssistantMode;
-    QString nameAssistantConnected;
     int idPageI2025Main,idPageI2025App,idPageApropos,idPageRecherche;
     int idPageDesktopApp,idPageArreraApp,idPageRechercheMoteur, idPageRechercheHist;
     int idAppView,idNoApp,idNoArreraApp, idViewArreraApp;

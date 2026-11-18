@@ -22,7 +22,6 @@ private:
     CArreraRecheche *fncRecherche;
     CAInterfaceSetting *setting;
     QList<CAppPC>* listApp;
-    QString nameAssistantConnected;
 
 public:
     explicit assistant(QObject* parent = nullptr);

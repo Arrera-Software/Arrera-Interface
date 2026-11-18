@@ -7,21 +7,41 @@ ArreraUI::ArreraUI(QWidget *parent)
     objSetting(),
     winMaj(this),
     uipara(this,&objSetting,&arecherche,&dectOS),
-    arrera_application(),
-    connection_arrera_hub(this),
-    serveurAssistant(this),
     tigerDemon("arrera",VERSION,this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
     shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
-    assistantCommunication(&serveurAssistant,
-                             &arecherche,
-                             &objSetting,
-                             &appPC),
+    annBus(&arecherche, &objSetting, &appPC, this),
     theme(this)
 {
     ui->setupUi(this);
     // Demarage du serveur
-    launchGestServeur();
+    connect(&annBus, &CArreraBus::assistantConnected, this, [this]() {
+        assistantIsActived = true;
+        ui->IDC_SIX->setVisible(false);
+        ui->IDC_COPILOTE->setVisible(false);
+        ui->IDC_RYLEY->setVisible(false);
+        ui->ACTIONASSISTANT->setVisible(true);
+        ui->IDC_MODESEARCHBAR->setVisible(true);
+    });
+
+    connect(&annBus, &CArreraBus::assistantDisconnected, this, [this]() {
+        assistantIsActived = false;
+        searchBarAssistantMode = false;
+        ui->IDC_MODESEARCHBAR->setChecked(false);
+        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
+        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
+        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
+        ui->ACTIONASSISTANT->setVisible(false);
+        ui->IDC_MODESEARCHBAR->setVisible(false);
+    });
+
+    connect(&annBus, &CArreraBus::statusMessageChanged, this, [this](const QString &message) {
+        ui->LINDICATIONARRERA->setText(message);
+    });
+
+    connect(&annBus, &CArreraBus::hubAppUpdated, this, &ArreraUI::loadArreraApp);
+
+    annBus.launchGestServeur();
     // Mise en place des bouton
     setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     // Mise en place du theme
@@ -124,8 +144,6 @@ ArreraUI::ArreraUI(QWidget *parent)
         }
     });
 
-    nameAssistantConnected = "";
-
     ui->ACTIONASSISTANT->setVisible(false);
     ui->IDC_MODESEARCHBAR->setVisible(false);
 
@@ -138,23 +156,6 @@ ArreraUI::ArreraUI(QWidget *parent)
 
     ui->IDC_MODESEARCHBAR->setChecked(searchBarAssistantMode);
 
-    // Demarage du websocket pour la connection a Arrera Hub
-    if (connection_arrera_hub.startServeur(2026)){
-
-        connect(&connection_arrera_hub, &CArreraServeur::connectClient, this, [this](){
-            this->ui->LINDICATIONARRERA->setText("Arrera Hub est prêt à gérer vos applications");
-        });
-
-        connect(&connection_arrera_hub, &CArreraServeur::messageReceived,
-                this,
-                [this](const QString &nameSoft, const QString &message) {
-            if (nameSoft == "arrera_hub"){
-                if (message.trimmed() == "update_app"){
-                    loadArreraApp();
-                }
-            }
-        });
-    }
     loadArreraApp();
 }
 
@@ -365,45 +366,6 @@ void ArreraUI::loadArreraApp(){
     }else{
         arrera_application.load_arrera_application("six",ui->IDC_ASIX);
     }
-}
-
-void ArreraUI::launchGestServeur(){
-    serveurAssistant.startServeur(6666);
-
-    // Partie serveur assistant
-    connect(&serveurAssistant,&CArreraServeur::connectClient,[this](){
-        ui->LINDICATIONARRERA->setText("Un assistant est connectée");
-        ui->IDC_SIX->setVisible(false);
-        ui->IDC_COPILOTE->setVisible(false);
-        ui->IDC_RYLEY->setVisible(false);
-        assistantIsActived = true;
-        ui->ACTIONASSISTANT->setVisible(true);
-        ui->IDC_MODESEARCHBAR->setVisible(true);
-    });
-    connect(&serveurAssistant,&CArreraServeur::clientDeconected,[this](){
-        ui->LINDICATIONARRERA->setText("L'assistant et deconnecter");
-        ui->IDC_SIX->setVisible(objSetting.getTaskbarBTNSix());
-        ui->IDC_COPILOTE->setVisible(objSetting.getTaskbarCopilote());
-        ui->IDC_RYLEY->setVisible(objSetting.getTaskbarBTNRyley());
-        assistantIsActived = false;
-        nameAssistantConnected = "";
-        ui->ACTIONASSISTANT->setVisible(false);
-        ui->IDC_MODESEARCHBAR->setVisible(false);
-        searchBarAssistantMode = false;
-    });
-    connect(&serveurAssistant, &CArreraServeur::messageReceived,
-            [this](const QString &nameSoft, const QString &message)
-            {
-                assistantCommunication.treatment(nameSoft,message);
-                if (nameAssistantConnected.isEmpty()){
-                    nameAssistantConnected = nameSoft;
-                }
-            });
-
-    connect(&assistantCommunication, &assistant::textTopLabel,
-            this, [this](const QString message) {
-                ui->LINDICATIONARRERA->setText(message);
-            });
 }
 
 void ArreraUI::launchSearch(int mode){
@@ -771,8 +733,7 @@ void ArreraUI::searchEnter()
                 launchSearch(2);
             }
         }else{
-            serveurAssistant.sendMessage(nameAssistantConnected,
-                                         "requette : "+ui->IDC_SEARCHBAR->text());
+            annBus.sendQuery(ui->IDC_SEARCHBAR->text());
             ui->LINDICATIONARRERA->setText("L'assistant vas vous repondre");
             ui->IDC_SEARCHBAR->clear();
         }
@@ -783,16 +744,9 @@ void ArreraUI::searchEnter()
 
 void ArreraUI::closeEvent(QCloseEvent *event)
 {
-    if (assistantIsActived){
-        serveurAssistant.sendMessage(nameAssistantConnected,"stop");
-    }
-    connection_arrera_hub.sendMessage("arrera_hub","stop");
-
+    annBus.shutdown();
     winMaj.close();
-
     if (uipara.isVisible()) uipara.close();
-
-    connection_arrera_hub.stopServeur();
     QDialog::closeEvent(event);
 }
 
@@ -800,23 +754,23 @@ void ArreraUI::closeEvent(QCloseEvent *event)
 
 void ArreraUI::on_IDC_BREEF_clicked()
 {
-    serveurAssistant.sendMessage(nameAssistantConnected,"breef");
+    annBus.launch_breef();
 }
 
 
 void ArreraUI::on_IDC_METEO_clicked()
 {
-    serveurAssistant.sendMessage(nameAssistantConnected,"weather");
+    annBus.launch_meteo();
 }
 
 
 void ArreraUI::on_IDC_TASK_clicked()
 {
-    serveurAssistant.sendMessage(nameAssistantConnected,"task");
+    annBus.launch_task();
 }
 
 
 void ArreraUI::on_IDC_AGENDA_clicked()
 {
-    serveurAssistant.sendMessage(nameAssistantConnected,"agenda");
+    annBus.launch_AGENDA();
 }

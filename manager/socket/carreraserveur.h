@@ -56,9 +56,6 @@ private:
     // Mapping clients <-> noms pour accès O(1) dans les deux sens.
     QHash<QWebSocket*, QString> socketToName;
     QHash<QString, QWebSocket*> nameToSocket;
-
-    // Pas d’utilité à volatile ici.
-    bool signalEmitted = false;
 };
 
 #endif // CARRERASERVEUR_H

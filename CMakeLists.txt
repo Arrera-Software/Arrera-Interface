@@ -42,6 +42,8 @@ qt_add_executable(arrera WIN32 MACOSX_BUNDLE
         manager/setting/cainterfacesetting.cpp manager/setting/cainterfacesetting.h
         manager/socket/carreraserveur.cpp manager/socket/carreraserveur.h
         manager/update/ctigerdemon.cpp manager/update/ctigerdemon.h
+        manager/communication/carrerabus.cpp
+        manager/communication/carrerabus.h
 )
 
 if(APPLE)
