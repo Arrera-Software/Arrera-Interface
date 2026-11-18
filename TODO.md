@@ -29,33 +29,33 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 
 - [x] **Migrer vers ArreraQT ([`Arrera_qt`](https://github.com/Arrera-Librairy/Arrera_qt))**
   - Intégrer `Arrera_qt` dans [`CMakeLists.txt`](CMakeLists.txt) via `FetchContent`.
-  - Remplacer uniquement les composants UI de `widget/` ([`APushButton`](widget/apushbutton.h), [`Arrera_Theme`](widget/arrera_theme.h), [`RoundedFrame`](widget/roundedframe.h), `theme.json`) par ceux d'`Arrera_qt` (conserver `librairy/` tel quel).
+  - Remplacer uniquement les composants UI de `widget/` (`APushButton`, `Arrera_Theme`, `RoundedFrame` → `AFrame`, `ASearchBar`) par ceux d'`Arrera_qt` (conserver `librairy/` tel quel).
   - Utiliser `Arrera_qt` comme socle UI commun avec les autres apps Qt de l'écosystème (`Arrera Markdown`, futur `Arrera Post-It`).
 - [x] **Finaliser la transition QMake -> CMake**
   - Bascule complète sur [`CMakeLists.txt`](CMakeLists.txt) (cible `arrera`, validée sur macOS) et suppression de `Arrera-Interface.pro` / `.qtcreator` / `build/`. *(Reste à valider la compilation CMake sur Linux et Windows en Phase 5.)*
-- [ ] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (~820 lignes)
-  - Séparer clairement la couche UI (affichage/interactions) de la logique métier (routage ANN, gestion des apps, recherche).
-- [ ] **Remplacer les blocs répétitifs en dur par des structures dynamiques**
-  - Remplacer les 20 slots individuels `on_IDC_APP_001_clicked()` .. `on_IDC_APP_020_clicked()` par une liste/boucle ou un signal mappé dynamiquement.
+- [x] **Désengorger [`ArreraUI`](gui/arrera/arreraui.cpp)** (réduit de > 1500 à ~406 lignes)
+  - Séparation UI / logique métier effectuée via [`CArreraBus`](manager/communication/carrerabus.h), [`CAppManager`](manager/application/CAppManager.h), [`CArreraRecheche`](manager/search/carrerarecheche.h) et [`CTigerDemon`](manager/update/ctigerdemon.h).
+- [x] **Remplacer les blocs répétitifs en dur par des structures dynamiques**
+  - Remplacement des 20 slots `on_IDC_APP_001_clicked()` .. `on_IDC_APP_020_clicked()` (via `CAppManager::setupDesktopApps`) et des 12 slots `on_IDC_MOTEUR*_clicked()` par des boucles `connect()`.
 - [ ] **Corriger les incohérences existantes**
-  - Aligner les identifiants d'apps (ex. `"copilot"` dans [`CArreraApp`](manager/application/carreraapp.cpp) vs `"copilote"` si utilisé ailleurs) et nettoyer les avertissements restants (`Q_OS_MAC` déprécié sous Qt 6, etc.).
+  - Activer le thème `Arrera_qt` par défaut dans [`arreraui.cpp`](gui/arrera/arreraui.cpp) (`theme.setTheme(...)`) et nettoyer les warnings restants (`Q_OS_MAC` déprécié sous Qt 6, `nodiscard` dans `cjsonword.cpp`, `else` dans `assistant.cpp`).
   - Vérifier la compatibilité Qt 6 sur macOS, Linux et Windows.
 
 ---
 
-## Phase 3 : Refonte de la communication & Protocole ANN
+## Phase 3 : Refonte de la communication (Bus Arrera & Framework ANN)
 
-- [ ] **Spécifier le protocole ANN (avant implémentation dans les autres apps)**
+- [ ] **Spécifier le protocole du bus (avant implémentation dans les autres apps)**
   - Définir un format structuré (JSON) avec : `version`, `source`, `target`, `type` (`request`, `response`, `event`), `action`, `payload`, `request_id`.
-  - Définir l'enregistrement des clients (`register`) avec leur type (`assistant`, `hub`, `app`) et leurs capacités supportées.
-- [ ] **Faire évoluer [`CArreraServeur`](manager/socket/carreraserveur.h)**
+  - Définir l'enregistrement des clients (`register`) avec leur type (`assistant` ANN, `hub`, `app`) et leurs capacités supportées.
+- [ ] **Faire évoluer [`CArreraServeur`](manager/socket/carreraserveur.h) et [`CArreraBus`](manager/communication/carrerabus.h)**
   - Unifier la communication de l'écosystème (au lieu de deux serveurs texte séparés sur les ports `6666` et `2026`, ou en standardisant leur protocole).
   - Gérer proprement plusieurs clients connectés en simultané via `nameToSocket` (ne plus limiter à un seul `nameAssistantConnected`).
   - Ajouter la gestion des déconnexions par client (signal avec le nom du client déconnecté) et un heartbeat/statut de connexion fiable.
-- [ ] **Refondre le routeur [`assistant`](manager/communication/assistant.h)**
-  - Remplacer le parsing texte basique (`message.contains("ouvre")`) par un vrai dispatcher ANN.
+- [ ] **Refondre le routeur [`assistant`](manager/communication/assistant.h) (ANN)**
+  - Remplacer le parsing texte basique (`message.contains("ouvre")`) par un vrai dispatcher JSON pour les assistants ANN.
   - Exposer dès la connexion d'un assistant : la liste des applications PC configurées, des applications spéciales (`CAppSpeciaux`), et des applications Arrera disponibles/connectées.
-  - Permettre le routage inter-clients (ex. un assistant envoie une commande vers `markdown` ou `hub` via Arrera Interface).
+  - Permettre le routage inter-clients (ex. un assistant ANN envoie une commande vers `markdown`, `post-it` ou `hub` via `CArreraBus`).
   - Gérer des retours riches vers l'UI (pas uniquement une chaîne sur `LINDICATIONARRERA`, mais réponses structurées, statuts d'actions, erreurs explicites).
 
 ---
@@ -80,7 +80,7 @@ Feuille de route globale pour transformer `Arrera-Interface` en centre de l'éco
 
 - [ ] **Refonte de l'interface principale (`arreraui.ui`)**
   - Repenser l'accueil autour de l'écosystème : statut des assistants connectés, accès direct aux apps Arrera (Hub, Markdown, futur Post-It), recherche unifiée (Web / ANN), apps PC et retours des assistants.
-  - Adapter le système de thème ([`arrera_theme`](widget/arrera_theme.h) / `theme.json`).
+  - Adapter le système de thème (`Arrera_Theme` d'`Arrera_qt`).
 - [ ] **Intégrer les paramètres dans l'interface principale (fin des 2 fenêtres séparées)**
   - Intégrer la vue des paramètres directement dans [`ArreraUI`](gui/arrera/arreraui.h) (page dans le `QStackedWidget` principal ou widget/composant embarqué) au lieu d'ouvrir une fenêtre séparée [`ArreraSettingUI`](gui/setting/arrerasettingui.h).
   - Supprimer la gestion de seconde fenêtre (`uipara.show()`, signal `parametresFerme`) et appliquer/recharger les réglages directement lors du retour à l'accueil.
