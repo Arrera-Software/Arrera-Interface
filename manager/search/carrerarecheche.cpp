@@ -1,6 +1,7 @@
 #include "carrerarecheche.h"
 
 CArreraRecheche::CArreraRecheche()
+    : etatInternet(false)
 {
     if (CDetectionOS().getosApple() || CDetectionOS().getosLinux()){
         filePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation)+
@@ -127,7 +128,7 @@ bool CArreraRecheche::searchWordreference(QString q)
 
 bool CArreraRecheche::searchYTmusic(QString q)
 {
-    QString url = "https://music.youtube.com/search&q="+q;
+    QString url = "https://music.youtube.com/search?q="+q;
     if (QDesktopServices::openUrl(QUrl(url))){
         return add("youtube",q);
     }

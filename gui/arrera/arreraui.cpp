@@ -4,14 +4,15 @@ ArreraUI::ArreraUI(QWidget *parent)
     : QDialog(parent),
     dectOS(),
     ui(new Ui::ArreraUI),
+    theme(this),
     objSetting(),
+    arecherche(),
     uipara(this,&objSetting,&arecherche,&dectOS),
-    appManager(&objSetting, &dectOS, this),
     tigerDemon("arrera",VERSION,this),
     shortcutReturn(QKeySequence(Qt::Key_Return), this),
     shortcutEnter(QKeySequence(Qt::Key_Enter),  this),
+    appManager(&objSetting, &dectOS, this),
     annBus(&arecherche, &objSetting, appManager.getAppPCList(), this),
-    theme(this),
     assistantIsActived(false),
     searchBarAssistantMode(false)
 {

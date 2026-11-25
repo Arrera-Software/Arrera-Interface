@@ -26,7 +26,7 @@ QString CAInterfaceSetting::getNameUser(){
 // Getteur application
 
 int CAInterfaceSetting::getFirstUnsetNumber(){
-    for (int i = 1 ; i <= 21 ; i++){
+    for (int i = 1 ; i <= 20 ; i++){
         if(fileINI.getValeur("app"+QString::number(i),"name")=="nothing"){
             return i;
         }
@@ -319,7 +319,7 @@ bool CAInterfaceSetting::unsetTaskbarBTNPostite(){
 // Partie reset
 
 bool CAInterfaceSetting::resetAppPC(){
-    bool name,exe,icon,ok;
+    bool name,exe,icon,ok = false;
     for (int i = 1 ; i <= 20 ; i++){
         name = fileINI.setValeur("app"+QString::number(i),"name","nothing");
         exe = fileINI.setValeur("app"+QString::number(i),"exe","nothing");

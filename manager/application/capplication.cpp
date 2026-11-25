@@ -1,8 +1,13 @@
 #include "capplication.h"
 
-CApplication::CApplication() {
-    button = nullptr;
-    appSetted = false;
+CApplication::CApplication()
+    : objPara(nullptr)
+    , button(nullptr)
+    , objOs(nullptr)
+    , iconApp(nullptr)
+    , appSetted(false)
+    , nbApp(0)
+{
 }
 
 CApplication::CApplication(int PnbApp, CAInterfaceSetting* pSetting, QPushButton* pButton, CDetectionOS* pOS){
@@ -17,7 +22,10 @@ CApplication::CApplication(int PnbApp, CAInterfaceSetting* pSetting, QPushButton
     }
 }
 
-CApplication::~CApplication(){}
+CApplication::~CApplication(){
+    delete iconApp;
+    iconApp = nullptr;
+}
 
 // Implémentation de la méthode virtuelle loadData()
 bool CApplication::loadData() {

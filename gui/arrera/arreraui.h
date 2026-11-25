@@ -75,14 +75,14 @@ private : // methode
 private: // Attribut
     // Objet
     Ui::ArreraUI *ui;
+    Arrera_Theme theme;
     CAInterfaceSetting objSetting;
-    ArreraSettingUI uipara;
     CArreraRecheche arecherche;
+    ArreraSettingUI uipara;
     CTigerDemon tigerDemon;
     QShortcut shortcutReturn,shortcutEnter;
     CAppManager appManager;
     CArreraBus annBus;
-    Arrera_Theme theme;
 
     // Variable
     bool assistantIsActived,searchBarAssistantMode;

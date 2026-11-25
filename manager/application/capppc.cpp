@@ -14,7 +14,7 @@ bool CAppPC::loadData(){
     }
 
     button->setIcon(QIcon());
-    if (nbApp >= 1 && nbApp <= 21) {
+    if (nbApp >= 1 && nbApp <= 20) {
         appSetted = objPara->getAppSetted(nbApp);
         if (appSetted){
             if (objPara->getApplication(nbApp, &nameApp, &exeApp, &icon)){
@@ -22,8 +22,7 @@ bool CAppPC::loadData(){
                     button->setVisible(true);
                     if (icon != "nothing"){
                         button->setText("");
-                        iconApp = new QIcon(icon);
-                        button->setIcon(*iconApp);
+                        button->setIcon(QIcon(icon));
                     }else{
                         button->setText(nameApp);
                     }

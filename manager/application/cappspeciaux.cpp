@@ -11,6 +11,9 @@ CAppSpeciaux::CAppSpeciaux(int nbApp,CAInterfaceSetting* pSetting,QPushButton* p
 CAppSpeciaux::~CAppSpeciaux(){}
 
 bool CAppSpeciaux::loadData(){
+    if (!button || !objPara) {
+        return false;
+    }
     appSetted = objPara->getAppSpeciauxSetted(nbApp);
     if (appSetted){
         exeApp = objPara->getAppSpeciaux(nbApp);

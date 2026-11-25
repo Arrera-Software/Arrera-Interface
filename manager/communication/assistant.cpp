@@ -16,16 +16,19 @@ bool assistant::treatment(const QString name,const QString message)
     }else if (message.contains("ouvre",Qt::CaseInsensitive)){
         if (listApp && !listApp->isEmpty()) {
             int outApp = appExecute(message);
-            if ( outApp == 1) {
-                interface->sendMessage(name,"opensoft");
-                return true;
-            } else if ( outApp == 2)  {
-                interface->sendMessage(name,"erreuropensoft");
-                return true;
-            }else{
-                interface->sendMessage(name,"noopensoft");
-                return true;
+            if (interface) {
+                if ( outApp == 1) {
+                    interface->sendMessage(name,"opensoft");
+                    return true;
+                } else if ( outApp == 2)  {
+                    interface->sendMessage(name,"erreuropensoft");
+                    return true;
+                }else{
+                    interface->sendMessage(name,"noopensoft");
+                    return true;
+                }
             }
+            return false;
         }else{
             return false;
         }
@@ -38,7 +41,7 @@ bool assistant::treatment(const QString name,const QString message)
 // Methode private
 int assistant::appExecute(const QString& message)
 {
-    if (!listApp) return false;
+    if (!listApp) return 0;
 
     QString query = message;
     query.replace("ouvre", "", Qt::CaseInsensitive);

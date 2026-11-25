@@ -11,16 +11,20 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-include(FetchContent)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../Arrera_qt/CMakeLists.txt")
+    add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/../Arrera_qt" "${CMAKE_CURRENT_BINARY_DIR}/arrera_qt_build")
+else()
+    include(FetchContent)
 
-FetchContent_Declare(
-        arrera_qt
-        GIT_REPOSITORY https://github.com/Arrera-Librairy/Arrera_qt.git
-        GIT_TAG v1.0.0
-)
-FetchContent_MakeAvailable(arrera_qt)
+    FetchContent_Declare(
+            arrera_qt
+            GIT_REPOSITORY https://github.com/Arrera-Librairy/Arrera_qt.git
+            GIT_TAG v1.0.1
+    )
+    FetchContent_MakeAvailable(arrera_qt)
+endif()
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets WebSockets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network WebSockets)
 
 qt_standard_project_setup()
 
@@ -67,6 +71,7 @@ target_link_libraries(arrera PRIVATE
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Network
         Qt::WebSockets
         Arrera::Qt
 )

@@ -480,66 +480,45 @@ void ArreraSettingUI::on_IDC_VALIDERAPPPC_clicked()
 
 }
 
-void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
+QString ArreraSettingUI::selectApplicationPath()
 {
     int rMessage;
-    QString appDirectory ;
-    // Partie linux
-    if (dectOS->getosLinux() == true){
-        rMessage = QMessageBox::question(this,"Emplacement application",
-        "L'application est-elle dans le /bin ou dans votre /home ?",
-        QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-        if (rMessage == QMessageBox::Yes){
-            // Dossier /bin
-            appDirectory = "/bin";
-        }else{
-            // Dossier /home
-            appDirectory = QDir::homePath();
-        }
-        appEmplacement = QFileDialog::getOpenFileName(
-            this,                       // Parent widget
-            "Sélectionner l'application",  // Titre de la boîte de dialogue
-            appDirectory           // Répertoire initial
-            );
-    }else if(dectOS->getosWin()==true){
-        rMessage = QMessageBox::question(this,"Emplacement application",
-                                             "Le raccourci se trouve dans le menu Démarrer global ?",
-                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-        if (rMessage == QMessageBox::Yes){
-            // Dossier programme data
-            appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
-        }else{
-            // Menu demarer dans le dossier utilisateur
-            appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
-        }
-        appEmplacement = QFileDialog::getOpenFileName(
-            this,                       // Parent widget
-            "Sélectionner l'application",  // Titre de la boîte de dialogue
-            appDirectory           // Répertoire initial
-            );
-    }else if (dectOS->getosApple()){
-        int rMessage = QMessageBox::question(
+    QString appDirectory;
+    if (dectOS->getosLinux()) {
+        rMessage = QMessageBox::question(this, "Emplacement application",
+                                         "L'application est-elle dans le /bin ou dans votre /home ?",
+                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+        appDirectory = (rMessage == QMessageBox::Yes) ? "/bin" : QDir::homePath();
+    } else if (dectOS->getosWin()) {
+        rMessage = QMessageBox::question(this, "Emplacement application",
+                                         "Le raccourci se trouve dans le menu Démarrer global ?",
+                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+        appDirectory = (rMessage == QMessageBox::Yes)
+                           ? "C:/ProgramData/Microsoft/Windows/Start Menu/Programs"
+                           : QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+    } else if (dectOS->getosApple()) {
+        rMessage = QMessageBox::question(
             this,
             "Emplacement application",
             "Voulez-vous chercher dans le dossier Applications global (accessible à tous les utilisateurs) ?",
             QMessageBox::Yes | QMessageBox::No,
-            QMessageBox::Yes
-            );
-        if (rMessage == QMessageBox::Yes) {
-            appDirectory = "/Applications";
-        } else {
-            appDirectory = QDir::homePath() + "/Applications";
-        }
-
-        appEmplacement = QFileDialog::getOpenFileName(
-            this,                       // Parent widget
-            "Sélectionner l'application",  // Titre de la boîte de dialogue
-            appDirectory           // Répertoire initial
-            );
+            QMessageBox::Yes);
+        appDirectory = (rMessage == QMessageBox::Yes)
+                           ? "/Applications"
+                           : (QDir::homePath() + "/Applications");
+    } else {
+        return QString();
     }
 
+    return QFileDialog::getOpenFileName(
+        this,
+        "Sélectionner l'application",
+        appDirectory);
+}
+
+void ArreraSettingUI::on_IDC_SETAPPPC_clicked()
+{
+    appEmplacement = selectApplicationPath();
 
     // Teste si l'application a etais choisie
     if (appEmplacement != ""){
@@ -582,7 +561,7 @@ void ArreraSettingUI::on_IDC_VALIDERSUPRR_clicked()
 //Partie acceuil d'app
 void ArreraSettingUI::on_IDC_ADDAPPPC_clicked()
 {
-    if (objPara->getnbAppSetted() < 21){
+    if (objPara->getnbAppSetted() < 20){
         ui->LINDICATIONSETTING->setText("Ajouter une application");
         ui->appstacked->setCurrentIndex(idAddAppStacked);
         ui->IDC_VALIDERAPPPC->setVisible(false);
@@ -753,52 +732,11 @@ void ArreraSettingUI::on_IDC_CHANGEICONE_clicked()
 void ArreraSettingUI::on_IDC_VALIDERCHANGEEMPLACEMENTAPP_clicked()
 {
     bool sortie;
-    int rMessage;
-    QString appDirectory ;
 
     QString nameApp = ui->LISTAPPCHANGEEMPLACEMENT->currentText();
     int nbApp = objPara->getNbAppWithName(nameApp);
 
-    QString newEmplacement ;
-
-    if (dectOS->getosLinux() == true){
-
-        rMessage = QMessageBox::question(this,"Emplacement application",
-                                             "L'application est-elle dans le /bin ou dans votre /home ?",
-                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-        if (rMessage == QMessageBox::Yes){
-            // Dossier /bin
-            appDirectory = "/bin";
-        }else{
-            // Dossier /home
-            appDirectory = QDir::homePath();
-        }
-        newEmplacement = QFileDialog::getOpenFileName(
-            this,                       // Parent widget
-            "Sélectionner l'application",  // Titre de la boîte de dialogue
-            appDirectory           // Répertoire initial
-            );
-    }else{
-        if(dectOS->getosWin()==true){
-            rMessage = QMessageBox::question(this,"Emplacement application",
-                                             "Le raccourci se trouve dans le menu Démarrer global ?",
-                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-            if (rMessage == QMessageBox::Yes){
-                // Dossier programme data
-                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
-            }else{
-                // Menu demarer dans le dossier utilisateur
-                appDirectory = appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
-            }
-            newEmplacement = QFileDialog::getOpenFileName(
-                this,                       // Parent widget
-                "Sélectionner l'application",  // Titre de la boîte de dialogue
-                appDirectory           // Répertoire initial
-                );
-        }
-    }
+    QString newEmplacement = selectApplicationPath();
 
     // Teste si l'application a etais choisie
     if (newEmplacement != ""){
@@ -835,46 +773,8 @@ void ArreraSettingUI::on_IDC_CANCELAPPSPEMANAGE_clicked()
 
 void ArreraSettingUI::on_IDC_CHOOSEAPPSPE_clicked()
 {
-    QString speAppEmplacement,appDirectory;
-    int rMessage;
-    bool sortie;
-    if (dectOS->getosLinux() == true){
-        rMessage = QMessageBox::question(this,"Emplacement application",
-                                         "L'application est-elle dans le /bin ou dans votre /home ?",
-                                         QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-        if (rMessage == QMessageBox::Yes){
-            // Dossier /bin
-            appDirectory = "/bin";
-        }else{
-            // Dossier /home
-            appDirectory = QDir::homePath();
-        }
-        speAppEmplacement = QFileDialog::getOpenFileName(
-            this,                       // Parent widget
-            "Sélectionner l'application",  // Titre de la boîte de dialogue
-            appDirectory           // Répertoire initial
-            );
-    }else{
-        if(dectOS->getosWin()==true){
-            rMessage = QMessageBox::question(this,"Emplacement application",
-                                             "Le raccourci se trouve dans le menu Démarrer global ?",
-                                             QMessageBox::Yes | QMessageBox::No,QMessageBox::No);
-
-            if (rMessage == QMessageBox::Yes){
-                // Dossier programme data
-                appDirectory = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs";
-            }else{
-                // Menu demarer dans le dossier utilisateur
-                appDirectory = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
-            }
-            speAppEmplacement = QFileDialog::getOpenFileName(
-                this,                       // Parent widget
-                "Sélectionner l'application",  // Titre de la boîte de dialogue
-                appDirectory           // Répertoire initial
-                );
-        }
-    }
+    QString speAppEmplacement = selectApplicationPath();
+    bool sortie = false;
 
     // Teste si l'application a etais choisie
     // 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
@@ -911,7 +811,7 @@ void ArreraSettingUI::on_IDC_CHOOSEAPPSPE_clicked()
 
 void ArreraSettingUI::on_IDC_RESETAPPSPEC_clicked()
 {
-    bool sortie;
+    bool sortie = false;
     // 1.Navigateur 2.Presentation 3.tableur 4.Traitement de texte
     switch (appSpeSelected) {
     case 1:

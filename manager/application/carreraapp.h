@@ -19,6 +19,7 @@ private :
     bool exectute(QString app);
 public:
     CArreraApp();
+    ~CArreraApp();
     bool load_hub_config_file();
     bool open_arrera_hub();
     bool load_arrera_application(QString nameApp ,QPushButton* button);

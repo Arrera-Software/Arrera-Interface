@@ -51,6 +51,8 @@ int CSetting::checkOS(){
         return 2;
     #elif defined(Q_OS_MACOS)
         return 3;
+    #else
+        return 0;
     #endif
 }
 

@@ -49,13 +49,18 @@ bool CTigerDemon::sate_connection(){
     QNetworkRequest request{QUrl(url)};
     QNetworkReply *reply = manager.head(request);
     QEventLoop loop;
+    bool timedOut = false;
     QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     QTimer timer;
     timer.setSingleShot(true);
-    QObject::connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+    QObject::connect(&timer, &QTimer::timeout, &loop, [&]() {
+        timedOut = true;
+        reply->abort();
+        loop.quit();
+    });
     timer.start(2000);
     loop.exec();
-    bool isConnected = (reply->error() == QNetworkReply::NoError);
+    const bool isConnected = !timedOut && (reply->error() == QNetworkReply::NoError);
     reply->deleteLater();
     return isConnected;
 }

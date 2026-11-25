@@ -4,7 +4,10 @@
 #include <QFile>
 #include <QFileInfo>
 
-CArreraApp::CArreraApp() {
+CArreraApp::CArreraApp()
+    : hub_config_file_init(false)
+    , hub_settings(nullptr)
+{
 #if defined(Q_OS_MACOS) || defined(Q_OS_LINUX)
     hub_config_file = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/.config/arrera-hub/config.ini";
 #elif defined(Q_OS_WIN)
@@ -14,14 +17,27 @@ CArreraApp::CArreraApp() {
 #endif
 }
 
+CArreraApp::~CArreraApp()
+{
+    delete hub_settings;
+    hub_settings = nullptr;
+}
+
 bool CArreraApp::load_hub_config_file(){
+    hub_config_file_init = false;
+    delete hub_settings;
+    hub_settings = nullptr;
+
     QFileInfo checkFile(hub_config_file);
     if (checkFile.exists() && checkFile.isFile()){
         hub_settings = new QSettings(hub_config_file, QSettings::IniFormat);
         if (hub_settings->status() == QSettings::NoError){
             hub_config_file_init = true;
             return true;
-        }else return false;
+        }
+        delete hub_settings;
+        hub_settings = nullptr;
+        return false;
     }else return false;
 }
 
@@ -104,13 +120,13 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
     */
 
     button->setVisible(false);
-    button->disconnect();
+    QObject::disconnect(button, &QPushButton::clicked, nullptr, nullptr);
 
     QStringList list_app = {"copilot","markdown","post-it","ryley","six","six_chat"};
 
 
     if (!list_app.contains(nameApp)) return false;
-    if (!hub_config_file_init) return false;
+    if (!hub_config_file_init || !hub_settings) return false;
 
     hub_settings->sync();
     hub_settings->beginGroup("software");
@@ -126,15 +142,15 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
     QDirIterator it(app_emplacement, QStringList() << "*.exe", QDir::Files);
     if (!it.hasNext()) return false;
     QString exe_file = it.next();
-    QObject::connect(button, &QPushButton::clicked, [this, exe_file](){
+    QObject::connect(button, &QPushButton::clicked, button, [this, exe_file](){
         this->exectute(exe_file);
     });
     #elif defined(Q_OS_LINUX)
-    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+    QObject::connect(button, &QPushButton::clicked, button, [this, app_emplacement]() {
         this->exectute(app_emplacement+"/launch.sh");
     });
     #elif defined(Q_OS_MACOS)
-    QObject::connect(button, &QPushButton::clicked, [this, app_emplacement]() {
+    QObject::connect(button, &QPushButton::clicked, button, [this, app_emplacement]() {
         this->exectute(app_emplacement);
     });
     #endif
@@ -144,7 +160,7 @@ bool CArreraApp::load_arrera_application(QString nameApp ,QPushButton* button)
 
 bool CArreraApp::check_arrera_application(QString nameApp)
 {
-    if (!hub_config_file_init) return false;
+    if (!hub_config_file_init || !hub_settings) return false;
 
     hub_settings->sync();
     hub_settings->beginGroup("software");

@@ -41,6 +41,7 @@ private:
     int appSpeSelected;
     // Set valeur combo box app
     void setAppComboBox();
+    QString selectApplicationPath();
     // Attribut pour gerer les app
     QString appEmplacement,appIcon;
 signals:
